@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": "webteizle",
+  "name": "Webteİzle",
+  "version": "1.0.0",
+  "author": "falsisdev",
+  "description": "Webteİzle film arşivi; Türkçe Dublaj ve Altyazılı VidMoly / Ok.ru / Sibnet 1080p akışları.",
+  "entry": "index.ts",
+  "capabilities": [
+    "vod",
+    "search"
+  ],
+  "contentTypes": [
+    "movie"
+  ],
+  "languages": [
+    "tr",
+    "en"
+  ],
+  "domains": [
+    "webteizle.info",
+    "vidmoly.biz",
+    "vidmoly.to",
+    "vidmoly.net",
+    "odnoklassniki.ru",
+    "ok.ru",
+    "video.sibnet.ru",
+    "api.themoviedb.org",
+    "raw.githubusercontent.com"
+  ],
+  "settingsSchema": [
+    {
+      "key": "mirrorUrl",
+      "label": "Özel Site Adresi",
+      "type": "text",
+      "placeholder": "https://webteizle.info"
+    }
+  ],
+  "files": [
+    "shared/core/config.ts",
+    "shared/core/http.ts",
+    "shared/core/plugin-helpers.ts",
+    "shared/core/quality.ts",
+    "shared/core/text.ts",
+    "shared/core/tmdb.ts",
+    "shared/extractors/closeload.ts",
+    "shared/extractors/okru.ts",
+    "shared/extractors/pilavyer.ts",
+    "shared/extractors/sibnet.ts",
+    "shared/extractors/video-hosts.ts",
+    "shared/extractors/vidmoly.ts",
+    "shared/extractors/youtube.ts"
+  ]
+}

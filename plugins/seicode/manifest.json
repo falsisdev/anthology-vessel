@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "id": "seicode",
+  "name": "SeiCode",
+  "version": "1.0.0",
+  "author": "falsisdev",
+  "description": "SeiCode (seicode.net / next.seicode.net) TauVideo, OK.ru, Sibnet, VidMoly ve MP4Upload Türkçe altyazılı anime arşivi.",
+  "entry": "index.ts",
+  "capabilities": [
+    "vod",
+    "search"
+  ],
+  "contentTypes": [
+    "anime"
+  ],
+  "languages": [
+    "tr",
+    "ja"
+  ],
+  "domains": [
+    "seicode.net",
+    "next.seicode.net",
+    "tau-video.xyz",
+    "*.tau-video.xyz",
+    "ok.ru",
+    "video.sibnet.ru",
+    "vidmoly.biz",
+    "vidmoly.to",
+    "vidmoly.net",
+    "mp4upload.com",
+    "www.mp4upload.com",
+    "api.themoviedb.org",
+    "raw.githubusercontent.com"
+  ],
+  "settingsSchema": [
+    {
+      "key": "mirrorUrl",
+      "label": "Özel API Adresi",
+      "type": "text",
+      "placeholder": "https://next.seicode.net"
+    }
+  ],
+  "files": [
+    "shared/core/anime-helpers.ts",
+    "shared/core/config.ts",
+    "shared/core/exact-tmdb-sources.ts",
+    "shared/core/http.ts",
+    "shared/core/plugin-helpers.ts",
+    "shared/core/quality.ts",
+    "shared/core/text.ts",
+    "shared/core/tmdb.ts",
+    "shared/extractors/closeload.ts",
+    "shared/extractors/okru.ts",
+    "shared/extractors/pilavyer.ts",
+    "shared/extractors/sibnet.ts",
+    "shared/extractors/video-hosts.ts",
+    "shared/extractors/vidmoly.ts",
+    "shared/extractors/vixolity.ts",
+    "shared/extractors/youtube.ts"
+  ]
+}

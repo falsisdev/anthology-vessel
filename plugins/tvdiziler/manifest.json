@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "tvdiziler",
+  "name": "TvDiziler",
+  "version": "1.0.0",
+  "author": "falsisdev",
+  "description": "TvDiziler (tvdiziler.tv) ve YouTube resmi bölüm yedekli yerli TV dizileri arşivi.",
+  "entry": "index.ts",
+  "capabilities": [
+    "vod",
+    "search"
+  ],
+  "contentTypes": [
+    "series"
+  ],
+  "languages": [
+    "tr"
+  ],
+  "domains": [
+    "tvdiziler.tv",
+    "www.youtube.com",
+    "youtube.com",
+    "api.themoviedb.org",
+    "raw.githubusercontent.com"
+  ],
+  "settingsSchema": [
+    {
+      "key": "mirrorUrl",
+      "label": "Özel Site Adresi",
+      "type": "text",
+      "placeholder": "https://tvdiziler.tv"
+    }
+  ],
+  "files": [
+    "shared/core/config.ts",
+    "shared/core/http.ts",
+    "shared/core/plugin-helpers.ts",
+    "shared/core/quality.ts",
+    "shared/core/text.ts",
+    "shared/core/tmdb.ts",
+    "shared/extractors/youtube.ts"
+  ]
+}

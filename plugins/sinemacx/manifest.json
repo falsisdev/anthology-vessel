@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "sinemacx",
+  "name": "SinemaCX",
+  "version": "1.0.0",
+  "author": "falsisdev",
+  "description": "Sinemacc.com (SinemaCX) ve Vixolity HLS destekli 1080p Türkçe film arşivi.",
+  "entry": "index.ts",
+  "capabilities": [
+    "vod",
+    "search",
+    "subtitles"
+  ],
+  "contentTypes": [
+    "movie"
+  ],
+  "languages": [
+    "tr",
+    "en"
+  ],
+  "domains": [
+    "sinemacc.com",
+    "player.filmizle.in",
+    "ha.vixolity.com",
+    "*.vixolity.com",
+    "api.themoviedb.org",
+    "raw.githubusercontent.com"
+  ],
+  "settingsSchema": [
+    {
+      "key": "mirrorUrl",
+      "label": "Özel Site Adresi",
+      "type": "text",
+      "placeholder": "https://sinemacc.com"
+    }
+  ],
+  "files": [
+    "shared/core/anime-helpers.ts",
+    "shared/core/config.ts",
+    "shared/core/exact-tmdb-sources.ts",
+    "shared/core/http.ts",
+    "shared/core/plugin-helpers.ts",
+    "shared/core/quality.ts",
+    "shared/core/text.ts",
+    "shared/core/tmdb.ts",
+    "shared/extractors/closeload.ts",
+    "shared/extractors/okru.ts",
+    "shared/extractors/pilavyer.ts",
+    "shared/extractors/sibnet.ts",
+    "shared/extractors/video-hosts.ts",
+    "shared/extractors/vidmoly.ts",
+    "shared/extractors/vixolity.ts",
+    "shared/extractors/youtube.ts"
+  ]
+}

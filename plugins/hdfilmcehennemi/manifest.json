@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "hdfilmcehennemi",
+  "name": "HDFilmCehennemi",
+  "version": "1.0.0",
+  "author": "falsisdev",
+  "description": "HDFilmCehennemi (hdfilmcehennemi.nl) 1080p CloseLoad Çift Ses (TR Dublaj / Orijinal) ve Türkçe altyazılı film arşivi.",
+  "entry": "index.ts",
+  "capabilities": [
+    "vod",
+    "search",
+    "subtitles"
+  ],
+  "contentTypes": [
+    "movie"
+  ],
+  "languages": [
+    "tr",
+    "en"
+  ],
+  "domains": [
+    "www.hdfilmcehennemi.nl",
+    "hdfilmcehennemi.nl",
+    "hdfilmcehennemi.mobi",
+    "closeload.com",
+    "*.closeload.com",
+    "api.themoviedb.org",
+    "raw.githubusercontent.com"
+  ],
+  "settingsSchema": [
+    {
+      "key": "mirrorUrl",
+      "label": "Özel Site Adresi",
+      "type": "text",
+      "placeholder": "https://www.hdfilmcehennemi.nl"
+    }
+  ],
+  "files": [
+    "shared/core/config.ts",
+    "shared/core/http.ts",
+    "shared/core/plugin-helpers.ts",
+    "shared/core/quality.ts",
+    "shared/core/text.ts",
+    "shared/core/tmdb.ts",
+    "shared/extractors/closeload.ts"
+  ]
+}

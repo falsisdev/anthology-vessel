@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "liderfilmizle",
+  "name": "LiderFilm",
+  "version": "1.0.0",
+  "author": "falsisdev",
+  "description": "LiderFilm (liderfilmizle.vip) yerli & yabancı film ve dizi arşivi; 1080p HLS ve WebVTT altyazıları.",
+  "entry": "index.ts",
+  "capabilities": [
+    "vod",
+    "search",
+    "subtitles"
+  ],
+  "contentTypes": [
+    "movie",
+    "series"
+  ],
+  "languages": [
+    "tr",
+    "en"
+  ],
+  "domains": [
+    "liderfilmizle.vip",
+    "play.liderfilm.cc",
+    "*.ag2m4.com",
+    "*.ag2m4.cfd",
+    "*.ag2m5.com",
+    "*.ag2m5.cfd",
+    "x.ag2m5.cfd",
+    "api.themoviedb.org",
+    "raw.githubusercontent.com"
+  ],
+  "settingsSchema": [
+    {
+      "key": "mirrorUrl",
+      "label": "Özel Site Adresi",
+      "type": "text",
+      "placeholder": "https://liderfilmizle.vip"
+    }
+  ],
+  "files": [
+    "shared/core/config.ts",
+    "shared/core/http.ts",
+    "shared/core/plugin-helpers.ts",
+    "shared/core/quality.ts",
+    "shared/core/text.ts",
+    "shared/core/tmdb.ts"
+  ]
+}

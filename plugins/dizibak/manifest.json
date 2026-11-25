@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "dizibak",
+  "name": "DiziBak",
+  "version": "1.0.0",
+  "author": "falsisdev",
+  "description": "DiziBak (dizibak.net) canlı AJAX arama ve Dean Edwards çözücülü yabancı dizi 1080p HLS arşivi.",
+  "entry": "index.ts",
+  "capabilities": [
+    "vod",
+    "search"
+  ],
+  "contentTypes": [
+    "series"
+  ],
+  "languages": [
+    "tr",
+    "en"
+  ],
+  "domains": [
+    "dizibak.net",
+    "player.dizibak.net",
+    "d1iz-b0ok.xyz",
+    "*.d1iz-b0ok.xyz",
+    "api.themoviedb.org",
+    "raw.githubusercontent.com"
+  ],
+  "settingsSchema": [
+    {
+      "key": "mirrorUrl",
+      "label": "Özel Site Adresi",
+      "type": "text",
+      "placeholder": "https://dizibak.net"
+    }
+  ],
+  "files": [
+    "shared/core/config.ts",
+    "shared/core/http.ts",
+    "shared/core/plugin-helpers.ts",
+    "shared/core/quality.ts",
+    "shared/core/text.ts",
+    "shared/core/tmdb.ts"
+  ]
+}

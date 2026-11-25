@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": "animecix",
+  "name": "AnimeciX",
+  "version": "1.0.0",
+  "author": "falsisdev",
+  "description": "AnimeciX (animecix.tv) ve TauVideo üzerinden Türkçe altyazılı anime dizi ve filmleri (1080p MP4).",
+  "entry": "index.ts",
+  "capabilities": [
+    "vod",
+    "search"
+  ],
+  "contentTypes": [
+    "anime"
+  ],
+  "languages": [
+    "tr",
+    "ja"
+  ],
+  "domains": [
+    "animecix.tv",
+    "www.animecix.tv",
+    "tau-video.xyz",
+    "*.tau-video.xyz",
+    "api.themoviedb.org",
+    "raw.githubusercontent.com"
+  ],
+  "settingsSchema": [
+    {
+      "key": "mirrorUrl",
+      "label": "Özel Site Adresi",
+      "type": "text",
+      "placeholder": "https://animecix.tv"
+    }
+  ],
+  "files": [
+    "shared/core/anime-helpers.ts",
+    "shared/core/config.ts",
+    "shared/core/exact-tmdb-sources.ts",
+    "shared/core/http.ts",
+    "shared/core/plugin-helpers.ts",
+    "shared/core/quality.ts",
+    "shared/core/text.ts",
+    "shared/core/tmdb.ts",
+    "shared/extractors/closeload.ts",
+    "shared/extractors/okru.ts",
+    "shared/extractors/pilavyer.ts",
+    "shared/extractors/sibnet.ts",
+    "shared/extractors/video-hosts.ts",
+    "shared/extractors/vidmoly.ts",
+    "shared/extractors/vixolity.ts",
+    "shared/extractors/youtube.ts"
+  ]
+}

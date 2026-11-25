@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "hdfilmizle",
+  "name": "HDFilmİzle",
+  "version": "1.0.0",
+  "author": "falsisdev",
+  "description": "HDFilmİzle (hdfilmizle.vip / .ink) Vidrame, Vidmoxy ve FastPlay 1080p HLS film arşivi.",
+  "entry": "index.ts",
+  "capabilities": [
+    "vod",
+    "search",
+    "subtitles"
+  ],
+  "contentTypes": [
+    "movie",
+    "series"
+  ],
+  "languages": [
+    "tr",
+    "en"
+  ],
+  "domains": [
+    "www.hdfilmizle.ink",
+    "www.hdfilmizle.vip",
+    "hdfilmizle.vip",
+    "hdfilmizle.ink",
+    "vidrame.pro",
+    "*.vidrame.pro",
+    "vidmoxy.net",
+    "*.vidmoxy.net",
+    "setplay.sbs",
+    "*.setplay.sbs",
+    "setplay.vip",
+    "setplay.pro",
+    "setplay.cc",
+    "setplay.xyz",
+    "fastplay.mom",
+    "*.fastplay.mom",
+    "fastplay.pro",
+    "fastplay.lol",
+    "fastplay.vip",
+    "fastplay.cc",
+    "api.themoviedb.org",
+    "raw.githubusercontent.com"
+  ],
+  "settingsSchema": [
+    {
+      "key": "mirrorUrl",
+      "label": "Özel Site Adresi",
+      "type": "text",
+      "placeholder": "https://www.hdfilmizle.ink"
+    }
+  ],
+  "files": [
+    "shared/core/config.ts",
+    "shared/core/http.ts",
+    "shared/core/plugin-helpers.ts",
+    "shared/core/quality.ts",
+    "shared/core/text.ts",
+    "shared/core/tmdb.ts",
+    "shared/extractors/closeload.ts",
+    "shared/extractors/okru.ts",
+    "shared/extractors/pilavyer.ts",
+    "shared/extractors/sibnet.ts",
+    "shared/extractors/video-hosts.ts",
+    "shared/extractors/vidmoly.ts",
+    "shared/extractors/youtube.ts"
+  ]
+}

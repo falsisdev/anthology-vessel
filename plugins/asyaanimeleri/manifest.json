@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "asyaanimeleri",
+  "name": "AsyaAnimeleri",
+  "version": "1.0.0",
+  "author": "falsisdev",
+  "description": "AsyaAnimeleri (asyaanimeleri.top) Sibnet, OK.ru, Mail.ru, Rumble ve VidMoly Türkçe altyazılı anime arşivi.",
+  "entry": "index.ts",
+  "capabilities": [
+    "vod",
+    "search"
+  ],
+  "contentTypes": [
+    "anime"
+  ],
+  "languages": [
+    "tr",
+    "ja"
+  ],
+  "domains": [
+    "asyaanimeleri.top",
+    "www.asyaanimeleri.top",
+    "asyaanimeleri.pw",
+    "*.asyaanimeleri.pw",
+    "video.sibnet.ru",
+    "ok.ru",
+    "my.mail.ru",
+    "rumble.com",
+    "vidmoly.biz",
+    "vidmoly.to",
+    "vidmoly.net",
+    "api.themoviedb.org",
+    "raw.githubusercontent.com"
+  ],
+  "settingsSchema": [
+    {
+      "key": "mirrorUrl",
+      "label": "Özel Site Adresi",
+      "type": "text",
+      "placeholder": "https://asyaanimeleri.top"
+    }
+  ],
+  "files": [
+    "shared/core/anime-helpers.ts",
+    "shared/core/config.ts",
+    "shared/core/http.ts",
+    "shared/core/plugin-helpers.ts",
+    "shared/core/quality.ts",
+    "shared/core/text.ts",
+    "shared/core/tmdb.ts",
+    "shared/extractors/closeload.ts",
+    "shared/extractors/okru.ts",
+    "shared/extractors/pilavyer.ts",
+    "shared/extractors/sibnet.ts",
+    "shared/extractors/video-hosts.ts",
+    "shared/extractors/vidmoly.ts",
+    "shared/extractors/youtube.ts"
+  ]
+}

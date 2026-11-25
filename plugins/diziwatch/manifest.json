@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": "diziwatch",
+  "name": "DiziWatch",
+  "version": "1.0.0",
+  "author": "falsisdev",
+  "description": "DiziWatch (diziwatch.org) yabancı dizi ve anime arşivi; AnizmPlayer 1080p HLS, Ok.ru MP4 ve Sibnet akışları.",
+  "entry": "index.ts",
+  "capabilities": [
+    "vod",
+    "search"
+  ],
+  "contentTypes": [
+    "series",
+    "anime"
+  ],
+  "languages": [
+    "tr",
+    "en",
+    "ja"
+  ],
+  "domains": [
+    "diziwatch.org",
+    "anizmplayer.com",
+    "ok.ru",
+    "odnoklassniki.ru",
+    "video.sibnet.ru",
+    "api.themoviedb.org",
+    "raw.githubusercontent.com"
+  ],
+  "settingsSchema": [
+    {
+      "key": "mirrorUrl",
+      "label": "Özel Site Adresi",
+      "type": "text",
+      "placeholder": "https://diziwatch.org"
+    }
+  ],
+  "files": [
+    "shared/core/config.ts",
+    "shared/core/http.ts",
+    "shared/core/plugin-helpers.ts",
+    "shared/core/quality.ts",
+    "shared/core/text.ts",
+    "shared/core/tmdb.ts",
+    "shared/extractors/closeload.ts",
+    "shared/extractors/okru.ts",
+    "shared/extractors/pilavyer.ts",
+    "shared/extractors/sibnet.ts",
+    "shared/extractors/video-hosts.ts",
+    "shared/extractors/vidmoly.ts",
+    "shared/extractors/youtube.ts"
+  ]
+}

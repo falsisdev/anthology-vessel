@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "youtube-dizifilm",
+  "name": "YouTube Dizi & Film",
+  "version": "1.0.0",
+  "author": "falsisdev",
+  "description": "Resmi YouTube yapımcı ve TV kanalları üzerinden yerli dizilerin tam bölümleri ve klasik Türk filmleri (1080p HLS/MP4).",
+  "entry": "index.ts",
+  "capabilities": [
+    "vod",
+    "search"
+  ],
+  "contentTypes": [
+    "series",
+    "movie"
+  ],
+  "languages": [
+    "tr"
+  ],
+  "domains": [
+    "www.youtube.com",
+    "youtube.com",
+    "api.themoviedb.org",
+    "raw.githubusercontent.com"
+  ],
+  "settingsSchema": [],
+  "files": [
+    "shared/core/http.ts",
+    "shared/core/plugin-helpers.ts",
+    "shared/core/quality.ts",
+    "shared/core/text.ts",
+    "shared/core/tmdb.ts",
+    "shared/extractors/youtube.ts"
+  ]
+}

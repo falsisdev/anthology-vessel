@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "id": "anthology-plus",
+  "name": "Anthology+",
+  "version": "1.0.0",
+  "author": "falsisdev",
+  "description": "TMDB kimliğiyle tam eşleşen birleşik Film, Dizi ve Anime akış motoru (Vixolity, Anthology VOD, Vidlink, HDFilmDelisi, SinemaCX, AnimeciX, SeiCode, SonAnime).",
+  "entry": "index.ts",
+  "capabilities": [
+    "vod",
+    "search",
+    "subtitles"
+  ],
+  "contentTypes": [
+    "movie",
+    "series",
+    "anime"
+  ],
+  "languages": [
+    "tr",
+    "en",
+    "ja"
+  ],
+  "domains": [
+    "api.themoviedb.org",
+    "raw.githubusercontent.com",
+    "ha.vixolity.com",
+    "*.vixolity.com",
+    "anthology-live.duckdns.org",
+    "vidlink.pro",
+    "enc-dec.app",
+    "hdfilmdelisi.one",
+    "player.vidmody.com",
+    "sinemacc.com",
+    "player.filmizle.in",
+    "animecix.tv",
+    "www.animecix.tv",
+    "tau-video.xyz",
+    "*.tau-video.xyz",
+    "seicode.net",
+    "next.seicode.net",
+    "ok.ru",
+    "video.sibnet.ru",
+    "vidmoly.biz",
+    "vidmoly.to",
+    "vidmoly.net",
+    "mp4upload.com",
+    "www.mp4upload.com",
+    "sonanime.com",
+    "api.sonanime.com",
+    "video.konununuzmani.com"
+  ],
+  "settingsSchema": [
+    {
+      "key": "enableVixolity",
+      "label": "Vixolity / Vidmody (TR Dublaj & Altyazı)",
+      "type": "toggle",
+      "default": true,
+      "description": "IMDb kimliğiyle Türkçe Dublaj / Altyazılı 1080p HLS ve altyazıları getirir."
+    },
+    {
+      "key": "enableGoVod",
+      "label": "Anthology VOD (Go Motoru)",
+      "type": "toggle",
+      "default": true,
+      "description": "Anthology Live VOD sunucusundan arşiv eşleştirmesi yapar."
+    },
+    {
+      "key": "enableVidlink",
+      "label": "Vidlink (Orijinal / Hızlı CDN)",
+      "type": "toggle",
+      "default": true,
+      "description": "TMDB kimliğiyle İngilizce 1080p HLS ve MP4 akışları sunar."
+    },
+    {
+      "key": "enableHdFilmDelisi",
+      "label": "HDFilmDelisi (Vidmody Film Embed)",
+      "type": "toggle",
+      "default": true,
+      "description": "Filmler için IMDb doğrulamalı HDFilmDelisi Vidmody player çözücüsünü çalıştırır."
+    },
+    {
+      "key": "enableSinemaCx",
+      "label": "SinemaCX (Film Embed)",
+      "type": "toggle",
+      "default": true,
+      "description": "Filmler için SinemaCX (sinemacc.com) embed akışlarını dener."
+    },
+    {
+      "key": "enableAnimecix",
+      "label": "AnimeciX (Anime • TMDB Tam Eşleşme)",
+      "type": "toggle",
+      "default": true,
+      "description": "Animeler için TMDB ID tam eşleşmesiyle TauVideo 1080p MP4 akışları getirir."
+    },
+    {
+      "key": "enableSeicode",
+      "label": "SeiCode (Anime • TMDB Tam Eşleşme)",
+      "type": "toggle",
+      "default": true,
+      "description": "Animeler için TMDB ID tam eşleşmesiyle çoklu embed akışları getirir."
+    },
+    {
+      "key": "enableSonAnime",
+      "label": "SonAnime (Anime • TMDB Tam Eşleşme)",
+      "type": "toggle",
+      "default": true,
+      "description": "Animeler için TMDB ID tam eşleşmesiyle doğrudan MP4 akışları getirir."
+    },
+    {
+      "key": "anthologyLiveUrl",
+      "label": "Anthology Live Sunucu Adresi",
+      "type": "text",
+      "default": "https://anthology-live.duckdns.org",
+      "placeholder": "https://anthology-live.duckdns.org"
+    },
+    {
+      "key": "vidlinkMirror",
+      "label": "Vidlink API Adresi",
+      "type": "text",
+      "default": "https://vidlink.pro",
+      "placeholder": "https://vidlink.pro"
+    }
+  ],
+  "files": [
+    "shared/core/anime-helpers.ts",
+    "shared/core/config.ts",
+    "shared/core/exact-tmdb-sources.ts",
+    "shared/core/http.ts",
+    "shared/core/plugin-helpers.ts",
+    "shared/core/quality.ts",
+    "shared/core/text.ts",
+    "shared/core/tmdb.ts",
+    "shared/extractors/closeload.ts",
+    "shared/extractors/okru.ts",
+    "shared/extractors/pilavyer.ts",
+    "shared/extractors/sibnet.ts",
+    "shared/extractors/video-hosts.ts",
+    "shared/extractors/vidmoly.ts",
+    "shared/extractors/vixolity.ts",
+    "shared/extractors/youtube.ts"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "ddizi",
+  "name": "DDizi",
+  "version": "1.0.0",
+  "author": "falsisdev",
+  "description": "DDizi (ddizi.tel) yerli dizi arşivi; Ciner/Yandex CDN, Dailymotion ve YouTube resmi bölüm akışları.",
+  "entry": "index.ts",
+  "capabilities": [
+    "vod",
+    "search"
+  ],
+  "contentTypes": [
+    "series"
+  ],
+  "languages": [
+    "tr"
+  ],
+  "domains": [
+    "www.ddizi.tel",
+    "ddizi.tel",
+    "www.dailymotion.com",
+    "api.dailymotion.com",
+    "www.youtube.com",
+    "youtube.com",
+    "api.themoviedb.org",
+    "raw.githubusercontent.com"
+  ],
+  "settingsSchema": [
+    {
+      "key": "mirrorUrl",
+      "label": "Özel Site Adresi",
+      "type": "text",
+      "placeholder": "https://www.ddizi.tel"
+    }
+  ],
+  "files": [
+    "shared/core/config.ts",
+    "shared/core/http.ts",
+    "shared/core/plugin-helpers.ts",
+    "shared/core/quality.ts",
+    "shared/core/text.ts",
+    "shared/core/tmdb.ts",
+    "shared/extractors/closeload.ts",
+    "shared/extractors/okru.ts",
+    "shared/extractors/pilavyer.ts",
+    "shared/extractors/sibnet.ts",
+    "shared/extractors/video-hosts.ts",
+    "shared/extractors/vidmoly.ts",
+    "shared/extractors/youtube.ts"
+  ]
+}

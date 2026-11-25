@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "yabancidizi",
+  "name": "YabancıDizi",
+  "version": "1.0.0",
+  "author": "falsisdev",
+  "description": "YabancıDizi (yabancidizi.news) üzerinden VidMoly Türkçe Dublaj ve Altyazılı 1080p HLS yabancı dizi arşivi.",
+  "entry": "index.ts",
+  "capabilities": [
+    "vod",
+    "search"
+  ],
+  "contentTypes": [
+    "series",
+    "movie"
+  ],
+  "languages": [
+    "tr",
+    "en"
+  ],
+  "domains": [
+    "yabancidizi.news",
+    "vidmoly.biz",
+    "vidmoly.to",
+    "vidmoly.net",
+    "api.themoviedb.org",
+    "raw.githubusercontent.com"
+  ],
+  "settingsSchema": [
+    {
+      "key": "mirrorUrl",
+      "label": "Özel Site Adresi",
+      "type": "text",
+      "placeholder": "https://yabancidizi.news"
+    }
+  ],
+  "files": [
+    "shared/core/config.ts",
+    "shared/core/http.ts",
+    "shared/core/plugin-helpers.ts",
+    "shared/core/quality.ts",
+    "shared/core/text.ts",
+    "shared/core/tmdb.ts",
+    "shared/extractors/vidmoly.ts"
+  ]
+}

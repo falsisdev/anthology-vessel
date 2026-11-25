@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "id": "anthology-tv",
+  "name": "Anthology Canlı TV",
+  "version": "1.0.0",
+  "author": "falsisdev",
+  "description": "Tüm Türkçe Ulusal, Spor, Haber, Sinema, Belgesel, Çocuk, Müzik ve Yerel Canlı TV kanalları tek bir birleşik Vessel eklentisinde.",
+  "entry": "index.ts",
+  "capabilities": [
+    "live_tv",
+    "search"
+  ],
+  "contentTypes": [
+    "live"
+  ],
+  "languages": [
+    "tr"
+  ],
+  "domains": [
+    "raw.githubusercontent.com",
+    "anthology-live.duckdns.org",
+    "taraftarium24-246.top",
+    "teletv15.top",
+    "selcuksporkral2.cc",
+    "alemdarsport.cfd",
+    "mahsunsports58.xyz",
+    "andro.evrenesoglu235.click",
+    "www.papazsports1033.pro",
+    "papazsports1033.pro",
+    "www.youtube.com",
+    "youtube.com"
+  ],
+  "settingsSchema": [
+    {
+      "key": "anthologyLiveUrl",
+      "label": "Anthology Live Sunucu Adresi",
+      "type": "text",
+      "default": "https://anthology-live.duckdns.org",
+      "placeholder": "https://anthology-live.duckdns.org"
+    },
+    {
+      "key": "anthologyLiveUsername",
+      "label": "Anthology Live Kullanıcı Adı",
+      "type": "text",
+      "default": "anthology"
+    },
+    {
+      "key": "anthologyLivePassword",
+      "label": "Anthology Live Şifresi",
+      "type": "secret",
+      "default": "falsisdevwashere"
+    },
+    {
+      "key": "preferredSportSource",
+      "label": "Tercih Edilen Spor Kaynağı",
+      "type": "select",
+      "default": "auto",
+      "options": [
+        {
+          "label": "Otomatik (En Hızlı)",
+          "value": "auto"
+        },
+        {
+          "label": "Taraftarium24",
+          "value": "taraftarium"
+        },
+        {
+          "label": "ArdaSports / Selçuk",
+          "value": "ardasports"
+        },
+        {
+          "label": "AlemdarSport",
+          "value": "alemdarsport"
+        },
+        {
+          "label": "MahsunSports",
+          "value": "mahsunsports"
+        },
+        {
+          "label": "PapazSports",
+          "value": "papazsports"
+        },
+        {
+          "label": "Yalnızca Doğrudan Akış",
+          "value": "direct_only"
+        }
+      ]
+    }
+  ],
+  "files": [
+    "channels-data.ts",
+    "shared/core/config.ts",
+    "shared/core/epg.ts",
+    "shared/core/http.ts",
+    "shared/core/live-tv.ts",
+    "shared/core/quality.ts",
+    "shared/core/text.ts",
+    "shared/extractors/youtube.ts"
+  ]
+}

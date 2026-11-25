@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "animom",
+  "name": "AniMOM",
+  "version": "1.0.0",
+  "author": "falsisdev",
+  "description": "AniMOM (animom.org) HDPlayer, Sibnet, YourUpload ve DiziWatch yedekli Türkçe anime arşivi.",
+  "entry": "index.ts",
+  "capabilities": [
+    "vod",
+    "search"
+  ],
+  "contentTypes": [
+    "anime"
+  ],
+  "languages": [
+    "tr",
+    "ja"
+  ],
+  "domains": [
+    "animom.org",
+    "hdplayersystem.com",
+    "diziwatch.org",
+    "anizmplayer.com",
+    "ok.ru",
+    "video.sibnet.ru",
+    "yourupload.com",
+    "*.yourupload.com",
+    "api.themoviedb.org",
+    "raw.githubusercontent.com"
+  ],
+  "settingsSchema": [
+    {
+      "key": "mirrorUrl",
+      "label": "Özel Site Adresi",
+      "type": "text",
+      "placeholder": "https://animom.org"
+    }
+  ],
+  "files": [
+    "shared/core/anime-helpers.ts",
+    "shared/core/config.ts",
+    "shared/core/http.ts",
+    "shared/core/plugin-helpers.ts",
+    "shared/core/quality.ts",
+    "shared/core/text.ts",
+    "shared/core/tmdb.ts",
+    "shared/extractors/closeload.ts",
+    "shared/extractors/okru.ts",
+    "shared/extractors/pilavyer.ts",
+    "shared/extractors/sibnet.ts",
+    "shared/extractors/video-hosts.ts",
+    "shared/extractors/vidmoly.ts",
+    "shared/extractors/youtube.ts"
+  ]
+}

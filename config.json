@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "Anthology (Vessel)",
+  "version": "1.0.0",
+  "description": "Anthology (Vessel) - Merkezi Eklenti, API, URL ve Sağlayıcı Yapılandırması",
+  "branding": {
+    "name": "Anthology",
+    "author": "falsisdev",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+    "default_tv_logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/default_tv.png",
+    "github_raw_base": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main"
+  },
+  "api_keys": {
+    "tmdb": "500330721680edb6d5f7f12ba7cd9023",
+    "tmdb_vidlink": "68e094699525b18a70bab2f86b1fa706",
+    "sinewix": "9iQNC5HQwPlaFuJDkhncJ5XTJ8feGXOJatAA",
+    "animecix_xeh": "7Y2ozlO+QysR5w9Q6Tupmtvl9jJp7ThFH8SB+Lo7NvZjgjqRSqOgcT2v4ISM9sP10LmnlYI8WQ==.xrlyOBFS5BHjQ2Lk"
+  },
+  "headers": {
+    "desktop_user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    "mobile_user_agent": "Mozilla/5.0 (Linux; Android 14; Mobile) AppleWebKit/537.36 Chrome/122.0.0.0 Mobile Safari/537.36",
+    "easyplex_user_agent": "EasyPlex (Android 14; SM-A546B; Samsung Galaxy A54 5G; tr)",
+    "bot_user_agent": "AnthologyStaticBot/1.0 (https://github.com/falsisdev/anthology; contact@falsis.dev)"
+  },
+  "cache": {
+    "m3u_ttl_ms": 300000,
+    "tmdb_ttl_ms": 86400000,
+    "catalog_timeout_ms": 15000,
+    "stream_timeout_ms": 8000
+  },
+  "urls": {
+    "tmdb": {
+      "api_base": "https://api.themoviedb.org/3",
+      "api_key": "500330721680edb6d5f7f12ba7cd9023",
+      "vidlink_api_key": "68e094699525b18a70bab2f86b1fa706"
+    },
+    "live": {
+      "anthology_live": {
+        "base": "https://anthology-live.duckdns.org",
+        "username": "anthology",
+        "password": "falsisdevwashere"
+      },
+      "m3u_remote": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/data/canli.m3u",
+      "netvgold_remote": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/catalogs/netvgold.json",
+      "assets_base": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/",
+      "taraftarium": {
+        "base": "https://taraftarium24-246.top/",
+        "api_base": "https://teletv15.top",
+        "base_number": 246
+      },
+      "ardasports": {
+        "base": "https://selcuksporkral2.cc"
+      },
+      "alemdarsport": {
+        "base": "https://alemdarsport.cfd"
+      },
+      "mahsunsports": {
+        "base": "https://mahsunsports58.xyz",
+        "landing": "https://mahsunsports.com"
+      },
+      "papazsports": {
+        "base": "https://www.papazsports1033.pro"
+      },
+      "kool": {
+        "base": "https://kool.ws"
+      }
+    },
+    "vod": {
+      "anthology_live_api": "https://anthology-live.duckdns.org/api/vod/streams",
+      "vixolity_base": "https://ha.vixolity.com"
+    },
+    "movies": {
+      "filmmodu": {
+        "base": "https://www.filmmodu.one",
+        "live": "https://filmmodu.live",
+        "player": "https://play2.pilavyerplay.top"
+      },
+      "hdfilmcehennemi": {
+        "base": "https://www.hdfilmcehennemi.nl"
+      },
+      "hdfilmdelisi": {
+        "base": "https://hdfilmdelisi.one",
+        "vidmody_player": "https://ha.vixolity.com"
+      },
+      "hdfilmizle": {
+        "base": "https://www.hdfilmizle.ink",
+        "bases": [
+          "https://www.hdfilmizle.ink",
+          "https://www.hdfilmizle.vip"
+        ]
+      },
+      "kultfilmler": {
+        "base": "https://kultfilmler.net",
+        "player": "https://vidpapi.xyz/player/index.php"
+      },
+      "setfilmizle": {
+        "base": "https://www.setfilmizle.ltd"
+      },
+      "sinemacx": {
+        "base": "https://sinemacc.com",
+        "player": "https://player.filmizle.in"
+      },
+      "vidmody": {
+        "base": "https://ha.vixolity.com"
+      },
+      "webteizle": {
+        "base": "https://webteizle.info"
+      },
+      "liderfilmizle": {
+        "base": "https://liderfilmizle.vip",
+        "play_base": "https://play.liderfilm.cc"
+      },
+      "youtube_dizifilm": {
+        "base": "https://www.youtube.com"
+      }
+    },
+    "series": {
+      "ddizi": {
+        "base": "https://www.ddizi.tel"
+      },
+      "ddizibox": {
+        "base": "https://ddizibox.com"
+      },
+      "dizibak": {
+        "base": "https://dizibak.net",
+        "player": "https://player.dizibak.net"
+      },
+      "dizimom": {
+        "base": "https://ddizimom.net"
+      },
+      "diziyou": {
+        "base": "https://www.diziyou.one",
+        "storage": "https://storage.diziyou.one"
+      },
+      "diziboxizle": {
+        "base": "https://diziboxizle.com"
+      },
+      "dizipod": {
+        "base": "https://dizipod.com"
+      },
+      "diziwatch": {
+        "base": "https://diziwatch.org"
+      },
+      "yabancidizi": {
+        "base": "https://yabancidizi.news"
+      },
+      "tvdiziler": {
+        "base": "https://tvdiziler.tv"
+      },
+      "anthology_diziler": {
+        "now": "https://www.nowtv.com.tr",
+        "show": "https://www.showtv.com.tr",
+        "kanald": "https://kanald.com.tr",
+        "atv": "https://www.atv.com.tr",
+        "star": "https://www.startv.com.tr",
+        "trt1": "https://www.trt1.com.tr"
+      },
+      "puhutv": {
+        "base": "https://puhutv.com"
+      },
+      "trdiziizle": {
+        "base": "https://www.trdiziizle.tv/tr2"
+      },
+      "youtube_dizifilm": {
+        "base": "https://www.youtube.com"
+      }
+    },
+    "anime": {
+      "animecix": {
+        "base": "https://animecix.tv"
+      },
+      "animom": {
+        "base": "https://animom.org"
+      },
+      "anizm": {
+        "base": "https://anizm.net",
+        "player_api": "https://anizmplayer.com"
+      },
+      "animeprax": {
+        "base": "https://animeprax.com"
+      },
+      "asyaanimeleri": {
+        "base": "https://asyaanimeleri.top"
+      },
+      "sonanime": {
+        "base": "https://sonanime.com",
+        "api_base": "https://api.sonanime.com"
+      },
+      "seicode": {
+        "base": "https://seicode.net",
+        "api_base": "https://next.seicode.net"
+      },
+      "anizium": {
+        "base": "https://api.anizium.co",
+        "site": "https://anizium.co"
+      }
+    },
+    "meta_resolvers": {
+      "vidlink": {
+        "api": "https://vidlink.pro/api/b",
+        "enc_dec": "https://enc-dec.app/api",
+        "base": "https://vidlink.pro"
+      }
+    },
+    "youtube": {
+      "base": "https://www.youtube.com",
+      "innertube_key": "AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8"
+    }
+  }
+}

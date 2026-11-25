@@ -1,0 +1,31 @@
+{
+  "name": "anthology-vessel",
+  "version": "1.0.0",
+  "description": "Anthology (Vessel) - Vessel için Doğrulanmış Türkçe Film, Dizi, Anime ve Canlı TV TypeScript Eklenti Deposu",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "sync": "node scripts/sync-plugins.ts",
+    "validate": "node scripts/validate-repo.ts",
+    "pack": "node scripts/pack-plugins.ts",
+    "test:unit": "node scripts/test-unit.ts",
+    "test:smoke": "node scripts/test-smoke.ts",
+    "test": "npm run sync && npm run typecheck && npm run validate && npm run test:unit"
+  },
+  "keywords": [
+    "vessel",
+    "vessel-plugin",
+    "typescript",
+    "turkish",
+    "vod",
+    "live-tv",
+    "anime"
+  ],
+  "author": "falsisdev",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.0"
+  }
+}

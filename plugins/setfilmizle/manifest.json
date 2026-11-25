@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "setfilmizle",
+  "name": "SetFilmİzle",
+  "version": "1.0.0",
+  "author": "falsisdev",
+  "description": "SetFilmİzle (setfilmizle.ltd) 1080p FastPlay HLS film ve yabancı dizi arşivi.",
+  "entry": "index.ts",
+  "capabilities": [
+    "vod",
+    "search",
+    "subtitles"
+  ],
+  "contentTypes": [
+    "movie",
+    "series"
+  ],
+  "languages": [
+    "tr",
+    "en"
+  ],
+  "domains": [
+    "www.setfilmizle.ltd",
+    "setfilmizle.ltd",
+    "setplay.sbs",
+    "*.setplay.sbs",
+    "setplay.vip",
+    "setplay.pro",
+    "setplay.cc",
+    "setplay.xyz",
+    "fastplay.mom",
+    "*.fastplay.mom",
+    "fastplay.pro",
+    "fastplay.lol",
+    "fastplay.vip",
+    "fastplay.cc",
+    "vidmoly.biz",
+    "vidmoly.to",
+    "api.themoviedb.org",
+    "raw.githubusercontent.com"
+  ],
+  "settingsSchema": [
+    {
+      "key": "mirrorUrl",
+      "label": "Özel Site Adresi",
+      "type": "text",
+      "placeholder": "https://www.setfilmizle.ltd"
+    }
+  ],
+  "files": [
+    "shared/core/config.ts",
+    "shared/core/http.ts",
+    "shared/core/plugin-helpers.ts",
+    "shared/core/quality.ts",
+    "shared/core/text.ts",
+    "shared/core/tmdb.ts",
+    "shared/extractors/closeload.ts",
+    "shared/extractors/okru.ts",
+    "shared/extractors/pilavyer.ts",
+    "shared/extractors/sibnet.ts",
+    "shared/extractors/video-hosts.ts",
+    "shared/extractors/vidmoly.ts",
+    "shared/extractors/youtube.ts"
+  ]
+}

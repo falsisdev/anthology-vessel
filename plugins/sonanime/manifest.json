@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "sonanime",
+  "name": "SonAnime",
+  "version": "1.0.0",
+  "author": "falsisdev",
+  "description": "SonAnime (sonanime.com) üzerinden Türkçe altyazılı doğrudan 1080p-360p MP4 anime arşivi.",
+  "entry": "index.ts",
+  "capabilities": [
+    "vod",
+    "search"
+  ],
+  "contentTypes": [
+    "anime"
+  ],
+  "languages": [
+    "tr",
+    "ja"
+  ],
+  "domains": [
+    "sonanime.com",
+    "api.sonanime.com",
+    "video.konununuzmani.com",
+    "api.themoviedb.org",
+    "raw.githubusercontent.com"
+  ],
+  "settingsSchema": [
+    {
+      "key": "mirrorUrl",
+      "label": "Özel API Adresi",
+      "type": "text",
+      "placeholder": "https://api.sonanime.com"
+    }
+  ],
+  "files": [
+    "shared/core/anime-helpers.ts",
+    "shared/core/config.ts",
+    "shared/core/exact-tmdb-sources.ts",
+    "shared/core/http.ts",
+    "shared/core/plugin-helpers.ts",
+    "shared/core/quality.ts",
+    "shared/core/text.ts",
+    "shared/core/tmdb.ts",
+    "shared/extractors/closeload.ts",
+    "shared/extractors/okru.ts",
+    "shared/extractors/pilavyer.ts",
+    "shared/extractors/sibnet.ts",
+    "shared/extractors/video-hosts.ts",
+    "shared/extractors/vidmoly.ts",
+    "shared/extractors/vixolity.ts",
+    "shared/extractors/youtube.ts"
+  ]
+}

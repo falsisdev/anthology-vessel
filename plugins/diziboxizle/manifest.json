@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "diziboxizle",
+  "name": "DiziBoxİzle",
+  "version": "1.0.0",
+  "author": "falsisdev",
+  "description": "DiziBoxİzle (diziboxizle.com) yabancı dizi arşivi; VidMoly 1080p HLS ve Ok.ru akışları.",
+  "entry": "index.ts",
+  "capabilities": [
+    "vod",
+    "search"
+  ],
+  "contentTypes": [
+    "series"
+  ],
+  "languages": [
+    "tr",
+    "en"
+  ],
+  "domains": [
+    "diziboxizle.com",
+    "vidmoly.biz",
+    "vidmoly.to",
+    "vidmoly.net",
+    "ok.ru",
+    "odnoklassniki.ru",
+    "api.themoviedb.org",
+    "raw.githubusercontent.com"
+  ],
+  "settingsSchema": [
+    {
+      "key": "mirrorUrl",
+      "label": "Özel Site Adresi",
+      "type": "text",
+      "placeholder": "https://diziboxizle.com"
+    }
+  ],
+  "files": [
+    "shared/core/config.ts",
+    "shared/core/http.ts",
+    "shared/core/plugin-helpers.ts",
+    "shared/core/quality.ts",
+    "shared/core/text.ts",
+    "shared/core/tmdb.ts",
+    "shared/extractors/closeload.ts",
+    "shared/extractors/okru.ts",
+    "shared/extractors/pilavyer.ts",
+    "shared/extractors/sibnet.ts",
+    "shared/extractors/video-hosts.ts",
+    "shared/extractors/vidmoly.ts",
+    "shared/extractors/youtube.ts"
+  ]
+}
