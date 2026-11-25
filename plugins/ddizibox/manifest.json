@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "ddizibox",
   "name": "DDiziBox",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "falsisdev",
   "description": "DDiziBox (ddizibox.com) yerli/yabancı dizi, film ve anime arşivi; Pilavyer 1080p HLS ve Türkçe altyazılar.",
   "entry": "index.ts",

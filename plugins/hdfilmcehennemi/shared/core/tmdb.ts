@@ -206,6 +206,16 @@ export async function tmdbSearch(opts: {
     if (opts.mediaType === "all" && row.media_type !== "movie" && row.media_type !== "tv") {
       continue;
     }
+    if (opts.isAnime) {
+      const hasAnimGenre = Array.isArray(row.genre_ids) && row.genre_ids.includes(16);
+      const origLang = (row.original_language ?? "").toLowerCase();
+      const asianOrigin =
+        origLang === "ja" ||
+        origLang === "zh" ||
+        origLang === "ko" ||
+        (row.origin_country ?? []).some((c) => ["JP", "CN", "KR", "TW"].includes(c.toUpperCase()));
+      if (!hasAnimGenre || !asianOrigin) continue;
+    }
     const forced =
       opts.mediaType === "movie"
         ? "movie"
@@ -238,7 +248,7 @@ export async function resolveTmdbIdentity(
   let tmdbId: number | null = null;
   let mediaType: "movie" | "series" = preferType;
 
-  const prefixMatch = /^(?:[a-z0-9_-]+:)?(movie|series|tv):(\d+)$/i.exec(clean);
+  const prefixMatch = /^(?:[a-z0-9_-]+:)?(movie|series|tv|anime):(\d+)$/i.exec(clean);
   if (prefixMatch && prefixMatch[1] && prefixMatch[2]) {
     mediaType = prefixMatch[1].toLowerCase() === "movie" ? "movie" : "series";
     tmdbId = Number.parseInt(prefixMatch[2], 10);
@@ -307,7 +317,9 @@ export async function resolveTmdbIdentity(
     if (alt.title) candidates.push(alt.title);
   }
 
-  const seasons: SeasonSummary[] = (trData.seasons ?? [])
+  const rawSeasons =
+    trData.seasons && trData.seasons.length > 0 ? trData.seasons : (enData?.seasons ?? []);
+  const seasons: SeasonSummary[] = rawSeasons
     .filter((s) => s.season_number > 0)
     .map((s) => ({
       id: String(s.season_number),
@@ -323,7 +335,7 @@ export async function resolveTmdbIdentity(
     origLang === "ja" ||
     origLang === "zh" ||
     origLang === "ko" ||
-    trData.origin_country?.includes("JP") === true;
+    (trData.origin_country ?? []).some((c) => ["JP", "CN", "KR", "TW"].includes(c.toUpperCase()));
 
   return {
     tmdbId,
@@ -353,10 +365,16 @@ export async function tmdbGetSeasonEpisodes(
   seasonNumber: number,
   streamIdBuilder: (season: number, episode: number) => string,
 ): Promise<Episode[]> {
-  const data = await tmdbGet<TmdbEpisodeListRaw>(
+  let data = await tmdbGet<TmdbEpisodeListRaw>(
     `/tv/${tmdbId}/season/${seasonNumber}`,
     { language: "tr-TR" },
   );
+  if (!data?.episodes?.length) {
+    data = await tmdbGet<TmdbEpisodeListRaw>(
+      `/tv/${tmdbId}/season/${seasonNumber}`,
+      { language: "en-US" },
+    );
+  }
   if (!data?.episodes) return [];
 
   return data.episodes.map((ep) => ({
@@ -415,12 +433,28 @@ export async function tmdbBuildMediaDetail(opts: {
     };
   }
 
-  const firstSeason = identity.seasons[0]?.season ?? 1;
-  const episodes = await tmdbGetSeasonEpisodes(
-    identity.tmdbId,
-    firstSeason,
-    (s, e) => opts.streamIdBuilder(identity, s, e),
-  );
+  const seasonNumbers =
+    identity.seasons.length > 0
+      ? identity.seasons.map((s) => s.season).filter((n) => n > 0)
+      : [1];
+  const episodes: Episode[] = [];
+  const BATCH_SIZE = 8;
+  for (let i = 0; i < seasonNumbers.length; i += BATCH_SIZE) {
+    const chunk = seasonNumbers.slice(i, i + BATCH_SIZE);
+    const results = await Promise.all(
+      chunk.map((sNum) =>
+        tmdbGetSeasonEpisodes(
+          identity.tmdbId,
+          sNum,
+          (s, e) => opts.streamIdBuilder(identity, s, e),
+        ),
+      ),
+    );
+    for (const epList of results) {
+      episodes.push(...epList);
+    }
+  }
+  episodes.sort((a, b) => a.season - b.season || a.episode - b.episode);
 
   return {
     nativeId: opts.nativeId,

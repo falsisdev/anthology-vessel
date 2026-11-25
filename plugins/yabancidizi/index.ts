@@ -27,7 +27,7 @@ import {
   extractYear,
   parseSeasonEpisode,
 } from "./shared/core/text.ts";
-import { resolveTmdbIdentity } from "./shared/core/tmdb.ts";
+import { resolveTmdbIdentity, tmdbSearch } from "./shared/core/tmdb.ts";
 import { extractVidmoly } from "./shared/extractors/vidmoly.ts";
 
 const DEFAULT_BASE = "https://yabancidizi.news";
@@ -95,7 +95,88 @@ async function resolveYdEpisode(
 function cleanPosterUrl(raw: string | undefined | null, base: string): string | undefined {
   const val = raw?.trim();
   if (!val || val.startsWith("data:")) return undefined;
-  return absoluteUrl(base, val);
+  const firstSrc = val.split(",")[0]?.trim().split(/\s+/)[0]?.trim();
+  if (!firstSrc || firstSrc.startsWith("data:")) return undefined;
+  if (firstSrc.startsWith("/") || /^https?:\/\//i.test(firstSrc) || firstSrc.startsWith("//")) {
+    return absoluteUrl(base, firstSrc);
+  }
+  return `${base.replace(/\/+$/, "")}/${firstSrc.replace(/^\/+/, "")}`;
+}
+
+function extractCardPoster(el: ReturnType<ReturnType<typeof html.parse>["select"]>[number], base: string): string | undefined {
+  const nodes = [el, el.parent(), el.parent()?.parent()].filter(
+    (n): n is NonNullable<typeof n> => Boolean(n),
+  );
+  for (const node of nodes) {
+    for (const img of node.select("img, source")) {
+      const candidate =
+        img.attr("data-src") ||
+        img.attr("data-lazy") ||
+        img.attr("data-original") ||
+        img.attr("data-ll-src") ||
+        img.attr("data-srcset") ||
+        img.attr("srcset") ||
+        img.attr("src");
+      const cleaned = cleanPosterUrl(candidate, base);
+      if (cleaned) return cleaned;
+    }
+    for (const bgEl of [node, ...node.select("[data-bg], [style*='background']")]) {
+      const bgAttr = bgEl.attr("data-bg") || bgEl.attr("data-background");
+      const bgStyle = bgEl.attr("style") ?? "";
+      const styleUrl = /url\(['"]?([^'")]+)['"]?\)/i.exec(bgStyle)?.[1];
+      const cleaned = cleanPosterUrl(bgAttr || styleUrl, base);
+      if (cleaned) return cleaned;
+    }
+  }
+  const rawHtml = el.html();
+  const uploadMatch = /(?:uploads\/series\/|image\.tmdb\.org\/t\/p\/)[^"'\s<>)]+/i.exec(rawHtml)?.[0];
+  return cleanPosterUrl(uploadMatch, base);
+}
+
+async function lookupYdSitePoster(title: string, base: string): Promise<string | undefined> {
+  const res = await postForm(
+    `${base}/search?qr=${encodeURIComponent(title)}`,
+    {},
+    {
+      timeoutMs: 4_500,
+      headers: { Referer: `${base}/`, "X-Requested-With": "XMLHttpRequest" },
+    },
+  );
+  if (!res || res.status >= 400) return undefined;
+  try {
+    const data = res.json<{ data?: { result?: YdSearchResult[] } }>();
+    const hit = (data.data?.result ?? []).find((r) => Boolean(r.s_image));
+    if (!hit?.s_image) return undefined;
+    return hit.s_image.startsWith("http")
+      ? hit.s_image
+      : `${base}/uploads/series/${hit.s_image.replace(/^\/+/, "")}`;
+  } catch {
+    return undefined;
+  }
+}
+
+async function hydrateYdPosters(items: MediaSummary[], base: string, limit = 24): Promise<void> {
+  const missing = items.filter((it) => !it.poster).slice(0, limit);
+  const BATCH = 6;
+  for (let i = 0; i < missing.length; i += BATCH) {
+    await Promise.all(
+      missing.slice(i, i + BATCH).map(async (item) => {
+        const sitePoster = await lookupYdSitePoster(item.title, base);
+        if (sitePoster) {
+          item.poster = sitePoster;
+          return;
+        }
+        const tmdbHits = await tmdbSearch({
+          idPrefix: "yabancidizi",
+          query: item.title,
+          mediaType: item.type === "movie" ? "movie" : "series",
+          page: 1,
+        });
+        const bestPoster = tmdbHits.items.find((x) => Boolean(x.poster))?.poster;
+        if (bestPoster) item.poster = bestPoster;
+      }),
+    );
+  }
 }
 
 export default definePlugin({
@@ -112,7 +193,7 @@ export default definePlugin({
       const items: MediaSummary[] = [];
       const seen = new Set<string>();
 
-      for (const box of doc.select(".poster, .poster-media")) {
+      for (const box of doc.select(".poster, .poster-media, .poster-long, .poster-xs, .segment-poster-sm, article")) {
         const a = box.selectOne('a[href*="dizi/"]');
         const href = a?.attr("href");
         if (!href || href.includes("/tur/")) continue;
@@ -132,15 +213,11 @@ export default definePlugin({
           .trim();
         if (!title || title.length < 2) continue;
         seen.add(slug);
-        const poster = cleanPosterUrl(
-          img?.attr("data-src") || img?.attr("data-original") || img?.attr("src"),
-          base,
-        );
         items.push({
           nativeId: `series:${slug}`,
           type: "series",
           title,
-          poster,
+          poster: extractCardPoster(box, base),
         });
       }
 
@@ -156,27 +233,26 @@ export default definePlugin({
             .trim();
           if (!slug || seen.has(slug) || title.length < 2) continue;
           seen.add(slug);
-          const img = a.selectOne("img") ?? a.parent()?.selectOne("img");
           items.push({
             nativeId: `series:${slug}`,
             type: "series",
             title,
-            poster: cleanPosterUrl(
-              img?.attr("data-src") || img?.attr("data-original") || img?.attr("src"),
-              base,
-            ),
+            poster: extractCardPoster(a, base),
           });
         }
       }
+
+      const top = dedupeMediaSummaries(items).slice(0, 36);
+      await hydrateYdPosters(top, base, 24);
       return {
         sections:
-          items.length > 0
+          top.length > 0
             ? [
                 {
                   id: "popular",
                   title: "Popüler Yabancı Diziler",
                   layout: "poster",
-                  items: dedupeMediaSummaries(items).slice(0, 36),
+                  items: top,
                 },
               ]
             : [],
@@ -246,11 +322,19 @@ export default definePlugin({
 
     const doc = html.parse(rawHtml);
     const title = decodeHtmlEntities(doc.selectOne("h1")?.text() || slug).trim();
-    const profileImg = doc.selectOne("img.series-profile-thumb, .series-profile-image img, img[src*='uploads/series']");
+    const profileImg = doc.selectOne("img.series-profile-thumb, .series-profile-image img, img[src*='uploads/series'], img[data-src*='uploads/series']");
     const ogImg = doc.selectOne('meta[property="og:image"]')?.attr("content");
-    const poster =
-      cleanPosterUrl(profileImg?.attr("data-src") || profileImg?.attr("src"), base) ??
+    let poster =
+      cleanPosterUrl(
+        profileImg?.attr("data-src") || profileImg?.attr("data-lazy") || profileImg?.attr("src"),
+        base,
+      ) ??
       cleanPosterUrl(ogImg, base);
+    if (!poster) {
+      poster =
+        (await lookupYdSitePoster(title, base)) ??
+        (await resolveTmdbIdentity(title, isMovie ? "movie" : "series"))?.poster;
+    }
     const backdrop = cleanPosterUrl(ogImg, base) ?? poster;
     if (isMovie) {
       return {

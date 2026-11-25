@@ -200,8 +200,9 @@ export async function getTmdbBackedMovieDetails(opts: {
   isAnime?: boolean;
 }): Promise<MediaDetail> {
   const parts = opts.nativeId.split(":");
+  const isExplicitAnime = parts[1] === "anime";
   const inferredType: "movie" | "series" =
-    parts[1] === "series" || parts[1] === "tv"
+    parts[1] === "series" || parts[1] === "tv" || isExplicitAnime
       ? "series"
       : parts[1] === "movie"
         ? "movie"
@@ -209,7 +210,7 @@ export async function getTmdbBackedMovieDetails(opts: {
   const detail = await tmdbBuildMediaDetail({
     nativeId: opts.nativeId,
     preferType: inferredType,
-    isAnime: opts.isAnime,
+    isAnime: Boolean(opts.isAnime || isExplicitAnime),
     streamIdBuilder: (identity, season, episode) =>
       identity.mediaType === "movie"
         ? `${opts.idPrefix}:movie:${identity.tmdbId}`

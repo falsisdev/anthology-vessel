@@ -1,5 +1,8 @@
 import assert from "node:assert/strict";
 import nodeCrypto from "node:crypto";
+import nodeFs from "node:fs";
+import nodePath from "node:path";
+import type { PluginManifest } from "vessel";
 import { installVesselMockHooks, setActivePluginContext } from "./vessel-mock.ts";
 
 installVesselMockHooks();
@@ -7,6 +10,7 @@ installVesselMockHooks();
 const { http, html, crypto, storage, unpack, evalWithEnv } = await import("vessel");
 const { clearConfigCache, configString, readToggleSetting } = await import("../core/config.ts");
 const { SEICODE_TMDB_MAP } = await import("../core/exact-tmdb-sources.ts");
+const { tmdbSearch, tmdbBuildMediaDetail } = await import("../core/tmdb.ts");
 const { ultraClean, titleSimilarity, parseSeasonEpisode, slugify } = await import(
   "../core/text.ts"
 );
@@ -152,6 +156,243 @@ async function runTests(): Promise<void> {
     version: "5",
   });
   assert.equal(decodedPayload?.sources?.[0]?.url, "https://cdn.byse.test/hls2/master.m3u8");
+
+  // 11. Mocked HTTP regression suite for TMDB anime filter, multi-season detail, YabanciDizi, and DDizi
+  const origFetch = globalThis.fetch;
+  const mockJsonResponse = (data: unknown): Response =>
+    new Response(JSON.stringify(data), {
+      status: 200,
+      headers: { "content-type": "application/json" },
+    });
+  const mockHtmlResponse = (body: string): Response =>
+    new Response(body, {
+      status: 200,
+      headers: { "content-type": "text/html; charset=utf-8" },
+    });
+
+  try {
+    setActivePluginContext({
+      schemaVersion: 1,
+      id: "tmdb-unit-test",
+      name: "TMDB Test",
+      version: "1.0.0",
+      entry: "index.ts",
+      capabilities: ["vod", "search"],
+      domains: ["api.themoviedb.org"],
+    });
+
+    globalThis.fetch = (async (input: string | URL | Request): Promise<Response> => {
+      const url = typeof input === "string" ? input : input instanceof URL ? input.href : input.url;
+      if (url.includes("/search/tv")) {
+        return mockJsonResponse({
+          page: 1,
+          total_pages: 1,
+          results: [
+            {
+              id: 34587,
+              name: "Kurtlar Vadisi",
+              original_language: "tr",
+              origin_country: ["TR"],
+              genre_ids: [10759, 18, 80],
+              first_air_date: "2003-01-15",
+            },
+            {
+              id: 46260,
+              name: "Naruto",
+              original_language: "ja",
+              origin_country: ["JP"],
+              genre_ids: [16, 10759],
+              first_air_date: "2002-10-03",
+            },
+          ],
+        });
+      }
+      if (url.includes("/tv/46260/season/1")) {
+        return mockJsonResponse({
+          episodes: [{ season_number: 1, episode_number: 1, name: "Enter Naruto" }],
+        });
+      }
+      if (url.includes("/tv/46260/season/2")) {
+        return mockJsonResponse({
+          episodes: [{ season_number: 2, episode_number: 1, name: "Season 2 Premiere" }],
+        });
+      }
+      if (url.includes("/tv/46260")) {
+        return mockJsonResponse({
+          id: 46260,
+          name: "Naruto",
+          original_name: "NARUTO -ナルト-",
+          original_language: "ja",
+          origin_country: ["JP"],
+          genres: [{ id: 16, name: "Animation" }],
+          seasons: [
+            { season_number: 0, name: "Specials", episode_count: 5 },
+            { season_number: 1, name: "1. Sezon", episode_count: 1 },
+            { season_number: 2, name: "2. Sezon", episode_count: 1 },
+          ],
+        });
+      }
+      throw new Error(`Unexpected mocked TMDB URL: ${url}`);
+    }) as typeof fetch;
+
+    const animeSearch = await tmdbSearch({
+      idPrefix: "anizm",
+      query: "Kurtlar Vadisi",
+      mediaType: "series",
+      isAnime: true,
+      page: 1,
+    });
+    assert.equal(animeSearch.items.length, 1);
+    assert.equal(animeSearch.items[0]?.title, "Naruto");
+
+    const narutoDetail = await tmdbBuildMediaDetail({
+      nativeId: "anthology-plus:anime:46260",
+      preferType: "series",
+      isAnime: true,
+      streamIdBuilder: (identity, s, e) => `anthology-plus:series:${identity.tmdbId}:${s}:${e}`,
+    });
+    assert.ok(narutoDetail);
+    assert.equal(narutoDetail.seasons?.length, 2);
+    assert.equal(narutoDetail.episodes?.length, 2);
+    assert.deepEqual(
+      narutoDetail.episodes?.map((ep) => ep.season),
+      [1, 2],
+    );
+
+    // 12. YabanciDizi poster variants + wildcard vidmoly subdomain
+    const ydManifest = JSON.parse(
+      nodeFs.readFileSync(
+        nodePath.resolve(import.meta.dirname, "..", "plugins/yabancidizi/manifest.json"),
+        "utf8",
+      ),
+    ) as PluginManifest;
+    setActivePluginContext(ydManifest);
+    clearConfigCache();
+
+    globalThis.fetch = (async (input: string | URL | Request): Promise<Response> => {
+      const url = typeof input === "string" ? input : input instanceof URL ? input.href : input.url;
+      if (url.includes("ww547.vidmoly.to")) {
+        return mockHtmlResponse("<html><body>ok</body></html>");
+      }
+      if (url.startsWith("https://yabancidizi.news")) {
+        return mockHtmlResponse(`
+          <html><body>
+            <div class="poster-long">
+              <a href="/dizi/dizi-bir">
+                <img data-lazy="/uploads/series/dizi-bir" alt="Dizi Bir" />
+                <h2>Dizi Bir</h2>
+              </a>
+            </div>
+            <div class="poster-long" style="background-image:url('https://image.tmdb.org/t/p/w500/abc.jpg')">
+              <a href="/dizi/dizi-iki">
+                <h2>Dizi İki</h2>
+              </a>
+            </div>
+            <div class="poster-long" data-bg="//yabancidizi.news/uploads/series/dizi-uc.webp">
+              <a href="/dizi/dizi-uc">
+                <h2>Dizi Üç</h2>
+              </a>
+            </div>
+          </body></html>
+        `);
+      }
+      throw new Error(`Unexpected mocked YabanciDizi URL: ${url}`);
+    }) as typeof fetch;
+
+    const vidmolyProbe = await http.get("https://ww547.vidmoly.to/embed-abc.html");
+    assert.equal(vidmolyProbe.status, 200);
+
+    const { default: ydPlugin } = await import("../plugins/yabancidizi/index.ts");
+    const ydFeed = await ydPlugin.getHomeFeed?.();
+    const ydItems = ydFeed?.sections[0]?.items ?? [];
+    assert.equal(ydItems.length, 3);
+    assert.equal(ydItems[0]?.poster, "https://yabancidizi.news/uploads/series/dizi-bir");
+    assert.equal(ydItems[1]?.poster, "https://image.tmdb.org/t/p/w500/abc.jpg");
+    assert.equal(ydItems[2]?.poster, "https://yabancidizi.news/uploads/series/dizi-uc.webp");
+
+    // 13. DDizi query-filtered search & ep -> parent series multi-page upgrade
+    const ddiziManifest = JSON.parse(
+      nodeFs.readFileSync(
+        nodePath.resolve(import.meta.dirname, "..", "plugins/ddizi/manifest.json"),
+        "utf8",
+      ),
+    ) as PluginManifest;
+    setActivePluginContext(ddiziManifest);
+    clearConfigCache();
+
+    globalThis.fetch = (async (input: string | URL | Request): Promise<Response> => {
+      const url = typeof input === "string" ? input : input instanceof URL ? input.href : input.url;
+      if (url.includes("/arama/")) {
+        return mockHtmlResponse(`
+          <html><body>
+            <ul class="diziler-listesi">
+              <li><a href="https://www.ddizi.tel/diziler/99/test-dizisi-son-bolum-izle">Test Dizisi</a></li>
+              <li><a href="https://www.ddizi.tel/diziler/88/alakasiz-show-son-bolum-izle">Alakasız Show</a></li>
+            </ul>
+            <div class="dizi-boxpost">
+              <a href="https://www.ddizi.tel/izle/100/test-dizisi-2-bolum-izle.htm">
+                <img src="/diziresimleri/test-dizisi.jpg" />
+                Test Dizisi 2.Bölüm
+              </a>
+            </div>
+          </body></html>
+        `);
+      }
+      if (url.includes("/izle/100/test-dizisi-2-bolum-izle.htm")) {
+        return mockHtmlResponse(`
+          <html><body>
+            <h2><a class="active" href="https://www.ddizi.tel/diziler/99/test-dizisi-son-bolum-izle">Test Dizisi Dizi Sayfası</a></h2>
+          </body></html>
+        `);
+      }
+      if (url.endsWith("/diziler/99/test-dizisi-son-bolum-izle")) {
+        return mockHtmlResponse(`
+          <html><body>
+            <h1>Test Dizisi</h1>
+            <div class="dizi-boxpost-cat">
+              <a href="https://www.ddizi.tel/izle/100/test-dizisi-2-bolum-izle.htm">
+                <img src="/diziresimleri/test-dizisi.jpg" />
+                Test Dizisi 2.Bölüm
+              </a>
+            </div>
+            <div class="pagination">
+              <a href="https://www.ddizi.tel/diziler/99/test-dizisi-son-bolum-izle/sayfa-1">2</a>
+            </div>
+          </body></html>
+        `);
+      }
+      if (url.endsWith("/sayfa-1")) {
+        return mockHtmlResponse(`
+          <html><body>
+            <div class="dizi-boxpost-cat">
+              <a href="https://www.ddizi.tel/izle/99/test-dizisi-1-bolum-izle.htm">
+                <img src="/diziresimleri/test-dizisi.jpg" />
+                Test Dizisi 1.Bölüm
+              </a>
+            </div>
+          </body></html>
+        `);
+      }
+      throw new Error(`Unexpected mocked DDizi URL: ${url}`);
+    }) as typeof fetch;
+
+    const { default: ddiziPlugin } = await import("../plugins/ddizi/index.ts");
+    const ddiziSearch = await ddiziPlugin.search?.("Test Dizisi", {}, 1);
+    assert.equal(ddiziSearch?.items.length, 1);
+    assert.equal(ddiziSearch?.items[0]?.title, "Test Dizisi");
+
+    const ddiziDet = await ddiziPlugin.getDetails?.(
+      "ep:https://www.ddizi.tel/izle/100/test-dizisi-2-bolum-izle.htm",
+    );
+    assert.equal(ddiziDet?.episodes?.length, 2);
+    assert.deepEqual(
+      ddiziDet?.episodes?.map((ep) => ep.episode),
+      [1, 2],
+    );
+  } finally {
+    globalThis.fetch = origFetch;
+    clearConfigCache();
+  }
 
   console.log("All offline unit assertions passed.");
 }

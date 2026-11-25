@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "puhutv",
   "name": "PuhuTV",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "falsisdev",
   "description": "PuhuTV (puhutv.com) ve Doğuş DYG resmi API üzerinden yerli diziler ve filmler için 1080p HLS/MP4 akışları.",
   "entry": "index.ts",

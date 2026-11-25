@@ -167,7 +167,8 @@ export default definePlugin({
 
   async getSeasonEpisodes(nativeId, seasonId): Promise<Episode[]> {
     const parts = nativeId.split(":");
-    const tmdbId = Number.parseInt(parts[2] ?? nativeId, 10);
+    const idToken = parts.find((p) => /^\d+$/.test(p)) ?? "";
+    const tmdbId = Number.parseInt(idToken, 10);
     const seasonNum = Number.parseInt(seasonId, 10) || 1;
     if (!Number.isFinite(tmdbId)) return [];
     return tmdbGetSeasonEpisodes(

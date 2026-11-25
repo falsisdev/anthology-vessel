@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "animom",
   "name": "AniMOM",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "falsisdev",
   "description": "AniMOM (animom.org) HDPlayer, Sibnet, YourUpload ve DiziWatch yedekli Türkçe anime arşivi.",
   "entry": "index.ts",

@@ -11,7 +11,7 @@
     {
       "id": "anthology-tv",
       "name": "Anthology Canlı TV",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "Tüm Türkçe Ulusal, Spor, Haber, Sinema, Belgesel, Çocuk, Müzik ve Yerel Canlı TV kanalları tek bir birleşik Vessel eklentisinde.",
       "capabilities": [
         "live_tv",
@@ -30,7 +30,7 @@
     {
       "id": "anthology-plus",
       "name": "Anthology+",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "TMDB kimliğiyle tam eşleşen birleşik Film, Dizi ve Anime akış motoru (Vixolity, Anthology VOD, Vidlink, HDFilmDelisi, SinemaCX, AnimeciX, SeiCode, SonAnime).",
       "capabilities": [
         "vod",
@@ -54,7 +54,7 @@
     {
       "id": "animecix",
       "name": "AnimeciX",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "AnimeciX (animecix.tv) ve TauVideo üzerinden Türkçe altyazılı anime dizi ve filmleri (1080p MP4).",
       "capabilities": [
         "vod",
@@ -74,7 +74,7 @@
     {
       "id": "animeprax",
       "name": "AnimePraX",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "AnimePraX (animeprax.com) Sibnet, OK.ru, Dailymotion ve DiziWatch yedekli Türkçe anime arşivi.",
       "capabilities": [
         "vod",
@@ -94,7 +94,7 @@
     {
       "id": "animom",
       "name": "AniMOM",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "AniMOM (animom.org) HDPlayer, Sibnet, YourUpload ve DiziWatch yedekli Türkçe anime arşivi.",
       "capabilities": [
         "vod",
@@ -114,7 +114,7 @@
     {
       "id": "anizium",
       "name": "Anizium",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "Anizium (anizium.co) 4K & 1080p Türkçe Dublaj/Altyazılı anime akışları ve WebVTT altyazıları.",
       "capabilities": [
         "vod",
@@ -136,7 +136,7 @@
     {
       "id": "anizm",
       "name": "Anizm",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "Anizm (anizm.net) V3 AnizmPlayer, OK.ru ve Sibnet Türkçe altyazılı anime arşivi.",
       "capabilities": [
         "vod",
@@ -156,7 +156,7 @@
     {
       "id": "anthology-diziler",
       "name": "Anthology Diziler (Ulusal Ağlar)",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "NOW TV, Show TV, Kanal D, Star TV, ATV, TV2 ve TRT 1 resmi ağlarından yerli dizi bölümleri (1080p HLS/MP4).",
       "capabilities": [
         "vod",
@@ -175,7 +175,7 @@
     {
       "id": "asyaanimeleri",
       "name": "AsyaAnimeleri",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "AsyaAnimeleri (asyaanimeleri.top) Sibnet, OK.ru, Mail.ru, Rumble ve VidMoly Türkçe altyazılı anime arşivi.",
       "capabilities": [
         "vod",
@@ -195,7 +195,7 @@
     {
       "id": "ddizi",
       "name": "DDizi",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "DDizi (ddizi.tel) yerli dizi arşivi; Ciner/Yandex CDN, Dailymotion ve YouTube resmi bölüm akışları.",
       "capabilities": [
         "vod",
@@ -214,7 +214,7 @@
     {
       "id": "ddizibox",
       "name": "DDiziBox",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "DDiziBox (ddizibox.com) yerli/yabancı dizi, film ve anime arşivi; Pilavyer 1080p HLS ve Türkçe altyazılar.",
       "capabilities": [
         "vod",
@@ -237,7 +237,7 @@
     {
       "id": "dizibak",
       "name": "DiziBak",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "DiziBak (dizibak.net) canlı AJAX arama ve Dean Edwards çözücülü yabancı dizi 1080p HLS arşivi.",
       "capabilities": [
         "vod",
@@ -257,7 +257,7 @@
     {
       "id": "diziboxizle",
       "name": "DiziBoxİzle",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "DiziBoxİzle (diziboxizle.com) yabancı dizi arşivi; VidMoly 1080p HLS ve Ok.ru akışları.",
       "capabilities": [
         "vod",
@@ -277,7 +277,7 @@
     {
       "id": "dizimom",
       "name": "DiziMom",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "DiziMom (ddizimom.net) ve Pilavyer Player üzerinden yabancı dizi ve film 1080p HLS akışları.",
       "capabilities": [
         "vod",
@@ -299,7 +299,7 @@
     {
       "id": "dizipod",
       "name": "DiziPod",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "DiziPod (dizipod.com ve player.dizipod.com) üzerinden yabancı dizi ve filmler için doğrudan 1080p HLS akışları.",
       "capabilities": [
         "vod",
@@ -320,7 +320,7 @@
     {
       "id": "diziwatch",
       "name": "DiziWatch",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "DiziWatch (diziwatch.org) yabancı dizi ve anime arşivi; AnizmPlayer 1080p HLS, Ok.ru MP4 ve Sibnet akışları.",
       "capabilities": [
         "vod",
@@ -342,7 +342,7 @@
     {
       "id": "diziyou",
       "name": "DiziYou",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "DiziYou (diziyou.one) üzerinden doğrudan storage HLS master akışları ve Türkçe VTT altyazıları.",
       "capabilities": [
         "vod",
@@ -363,7 +363,7 @@
     {
       "id": "filmmodu",
       "name": "FilmModu",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "FilmModu (filmmodu.one ve filmmodu.live/Pilavyer yedekli) canlı segment doğrulamalı 1080p film akışları.",
       "capabilities": [
         "vod",
@@ -384,7 +384,7 @@
     {
       "id": "hdfilmcehennemi",
       "name": "HDFilmCehennemi",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "HDFilmCehennemi (hdfilmcehennemi.nl) 1080p CloseLoad Çift Ses (TR Dublaj / Orijinal) ve Türkçe altyazılı film arşivi.",
       "capabilities": [
         "vod",
@@ -405,7 +405,7 @@
     {
       "id": "hdfilmdelisi",
       "name": "HDFilmDelisi",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "HDFilmDelisi film ve dizi arşivi; Vixolity Çift Ses / TR Dublaj & Altyazı 1080p HLS akışları.",
       "capabilities": [
         "vod",
@@ -427,7 +427,7 @@
     {
       "id": "hdfilmizle",
       "name": "HDFilmİzle",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "HDFilmİzle (hdfilmizle.vip / .ink) Vidrame, Vidmoxy ve FastPlay 1080p HLS film arşivi.",
       "capabilities": [
         "vod",
@@ -449,7 +449,7 @@
     {
       "id": "kultfilmler",
       "name": "KultFilmler",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "KultFilmler (kultfilmler.net) klasik film ve dizi arşivi; VidMoly / Vidpapi 1080p HLS akışları.",
       "capabilities": [
         "vod",
@@ -471,7 +471,7 @@
     {
       "id": "liderfilmizle",
       "name": "LiderFilm",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "LiderFilm (liderfilmizle.vip) yerli & yabancı film ve dizi arşivi; 1080p HLS ve WebVTT altyazıları.",
       "capabilities": [
         "vod",
@@ -493,7 +493,7 @@
     {
       "id": "puhutv",
       "name": "PuhuTV",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "PuhuTV (puhutv.com) ve Doğuş DYG resmi API üzerinden yerli diziler ve filmler için 1080p HLS/MP4 akışları.",
       "capabilities": [
         "vod",
@@ -514,7 +514,7 @@
     {
       "id": "seicode",
       "name": "SeiCode",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "SeiCode (seicode.net / next.seicode.net) TauVideo, OK.ru, Sibnet, VidMoly ve MP4Upload Türkçe altyazılı anime arşivi.",
       "capabilities": [
         "vod",
@@ -534,7 +534,7 @@
     {
       "id": "setfilmizle",
       "name": "SetFilmİzle",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "SetFilmİzle (setfilmizle.ltd) 1080p FastPlay HLS film ve yabancı dizi arşivi.",
       "capabilities": [
         "vod",
@@ -556,7 +556,7 @@
     {
       "id": "sinemacx",
       "name": "SinemaCX",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "Sinemacc.com (SinemaCX) ve Vixolity HLS destekli 1080p Türkçe film arşivi.",
       "capabilities": [
         "vod",
@@ -577,7 +577,7 @@
     {
       "id": "sonanime",
       "name": "SonAnime",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "SonAnime (sonanime.com) üzerinden Türkçe altyazılı doğrudan 1080p-360p MP4 anime arşivi.",
       "capabilities": [
         "vod",
@@ -597,7 +597,7 @@
     {
       "id": "trdiziizle",
       "name": "TrDiziİzle",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "TrDiziİzle (trdiziizle.tv/tr2) WordPress dizi arşivi ve YouTube resmi tam bölüm yedekli 1080p akışlar.",
       "capabilities": [
         "vod",
@@ -616,7 +616,7 @@
     {
       "id": "tvdiziler",
       "name": "TvDiziler",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "TvDiziler (tvdiziler.tv) ve YouTube resmi bölüm yedekli yerli TV dizileri arşivi.",
       "capabilities": [
         "vod",
@@ -635,7 +635,7 @@
     {
       "id": "webteizle",
       "name": "Webteİzle",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "Webteİzle film arşivi; Türkçe Dublaj ve Altyazılı VidMoly / Ok.ru / Sibnet 1080p akışları.",
       "capabilities": [
         "vod",
@@ -655,7 +655,7 @@
     {
       "id": "yabancidizi",
       "name": "YabancıDizi",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "YabancıDizi (yabancidizi.news) üzerinden VidMoly Türkçe Dublaj ve Altyazılı 1080p HLS yabancı dizi arşivi.",
       "capabilities": [
         "vod",
@@ -676,7 +676,7 @@
     {
       "id": "youtube-dizifilm",
       "name": "YouTube Dizi & Film",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "Resmi YouTube yapımcı ve TV kanalları üzerinden yerli dizilerin tam bölümleri ve klasik Türk filmleri (1080p HLS/MP4).",
       "capabilities": [
         "vod",

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "ddizi",
   "name": "DDizi",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "falsisdev",
   "description": "DDizi (ddizi.tel) yerli dizi arşivi; Ciner/Yandex CDN, Dailymotion ve YouTube resmi bölüm akışları.",
   "entry": "index.ts",

@@ -1,6 +1,6 @@
 {
   "name": "anthology-vessel",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Anthology (Vessel) - Vessel için Doğrulanmış Türkçe Film, Dizi, Anime ve Canlı TV TypeScript Eklenti Deposu",
   "type": "module",
   "private": true,

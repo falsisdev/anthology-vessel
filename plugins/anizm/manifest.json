@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "anizm",
   "name": "Anizm",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "falsisdev",
   "description": "Anizm (anizm.net) V3 AnizmPlayer, OK.ru ve Sibnet Türkçe altyazılı anime arşivi.",
   "entry": "index.ts",

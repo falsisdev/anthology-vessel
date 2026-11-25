@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "anthology-tv",
   "name": "Anthology Canlı TV",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "falsisdev",
   "description": "Tüm Türkçe Ulusal, Spor, Haber, Sinema, Belgesel, Çocuk, Müzik ve Yerel Canlı TV kanalları tek bir birleşik Vessel eklentisinde.",
   "entry": "index.ts",
