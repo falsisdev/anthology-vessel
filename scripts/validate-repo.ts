@@ -131,13 +131,18 @@ function main(): void {
       errors.push(`repo.json: plugin '${entry.id}' missing sourcePath`);
       continue;
     }
-    if (entry.sourcePath.endsWith("manifest.json")) {
+    const validDirectSource =
+      entry.sourcePath.startsWith("https://") ||
+      entry.sourcePath.startsWith("http://") ||
+      entry.sourcePath.startsWith("gh:") ||
+      entry.sourcePath.startsWith("gl:");
+    if (!validDirectSource) {
       errors.push(
-        `repo.json: plugin '${entry.id}' sourcePath must be directory ('plugins/<id>'), not manifest.json`,
+        `repo.json: plugin '${entry.id}' sourcePath '${entry.sourcePath}' must be a full Vessel source URL or gh:/gl: shorthand`,
       );
     }
 
-    const pluginDir = path.join(ROOT, entry.sourcePath);
+    const pluginDir = path.join(ROOT, "plugins", entry.id);
     const manifestPath = path.join(pluginDir, "manifest.json");
     if (!fs.existsSync(manifestPath)) {
       errors.push(`plugins/${entry.id}: missing manifest.json`);

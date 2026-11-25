@@ -25,7 +25,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/anthology-tv"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/anthology-tv/manifest.json"
     },
     {
       "id": "anthology-plus",
@@ -49,7 +49,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/anthology-plus"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/anthology-plus/manifest.json"
     },
     {
       "id": "animecix",
@@ -69,7 +69,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/animecix"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/animecix/manifest.json"
     },
     {
       "id": "animeprax",
@@ -89,7 +89,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/animeprax"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/animeprax/manifest.json"
     },
     {
       "id": "animom",
@@ -109,7 +109,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/animom"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/animom/manifest.json"
     },
     {
       "id": "anizium",
@@ -131,7 +131,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/anizium.png",
-      "sourcePath": "plugins/anizium"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/anizium/manifest.json"
     },
     {
       "id": "anizm",
@@ -151,7 +151,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/anizm"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/anizm/manifest.json"
     },
     {
       "id": "anthology-diziler",
@@ -170,7 +170,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/anthology-diziler"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/anthology-diziler/manifest.json"
     },
     {
       "id": "asyaanimeleri",
@@ -190,7 +190,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/asyaanimeleri"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/asyaanimeleri/manifest.json"
     },
     {
       "id": "ddizi",
@@ -209,7 +209,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/ddizi"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/ddizi/manifest.json"
     },
     {
       "id": "ddizibox",
@@ -232,7 +232,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/ddizibox"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/ddizibox/manifest.json"
     },
     {
       "id": "dizibak",
@@ -252,7 +252,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/dizibak"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/dizibak/manifest.json"
     },
     {
       "id": "diziboxizle",
@@ -272,7 +272,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/diziboxizle"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/diziboxizle/manifest.json"
     },
     {
       "id": "dizimom",
@@ -294,7 +294,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/dizimom"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/dizimom/manifest.json"
     },
     {
       "id": "dizipod",
@@ -315,7 +315,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/dizipod"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/dizipod/manifest.json"
     },
     {
       "id": "diziwatch",
@@ -337,7 +337,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/diziwatch"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/diziwatch/manifest.json"
     },
     {
       "id": "diziyou",
@@ -358,7 +358,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/diziyou"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/diziyou/manifest.json"
     },
     {
       "id": "filmmodu",
@@ -379,7 +379,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/filmmodu"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/filmmodu/manifest.json"
     },
     {
       "id": "hdfilmcehennemi",
@@ -400,7 +400,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/hdfilmcehennemi"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/hdfilmcehennemi/manifest.json"
     },
     {
       "id": "hdfilmdelisi",
@@ -422,7 +422,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/hdfilmdelisi"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/hdfilmdelisi/manifest.json"
     },
     {
       "id": "hdfilmizle",
@@ -444,7 +444,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/hdfilmizle"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/hdfilmizle/manifest.json"
     },
     {
       "id": "kultfilmler",
@@ -466,7 +466,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/kultfilmler"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/kultfilmler/manifest.json"
     },
     {
       "id": "liderfilmizle",
@@ -488,7 +488,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/liderfilmizle"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/liderfilmizle/manifest.json"
     },
     {
       "id": "puhutv",
@@ -509,7 +509,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/puhutv"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/puhutv/manifest.json"
     },
     {
       "id": "seicode",
@@ -529,7 +529,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/seicode"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/seicode/manifest.json"
     },
     {
       "id": "setfilmizle",
@@ -551,7 +551,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/setfilmizle"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/setfilmizle/manifest.json"
     },
     {
       "id": "sinemacx",
@@ -572,7 +572,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/sinemacx"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/sinemacx/manifest.json"
     },
     {
       "id": "sonanime",
@@ -592,7 +592,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/sonanime"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/sonanime/manifest.json"
     },
     {
       "id": "trdiziizle",
@@ -611,7 +611,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/trdiziizle"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/trdiziizle/manifest.json"
     },
     {
       "id": "tvdiziler",
@@ -630,7 +630,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/tvdiziler"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/tvdiziler/manifest.json"
     },
     {
       "id": "webteizle",
@@ -650,7 +650,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/webteizle"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/webteizle/manifest.json"
     },
     {
       "id": "yabancidizi",
@@ -671,7 +671,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/yabancidizi"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/yabancidizi/manifest.json"
     },
     {
       "id": "youtube-dizifilm",
@@ -691,7 +691,7 @@
       ],
       "isAdult": false,
       "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
-      "sourcePath": "plugins/youtube-dizifilm"
+      "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/youtube-dizifilm/manifest.json"
     }
   ]
 }

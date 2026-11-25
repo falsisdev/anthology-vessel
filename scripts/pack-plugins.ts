@@ -115,8 +115,8 @@ function main(): void {
   fs.mkdirSync(DIST_DIR, { recursive: true });
 
   for (const plugin of repo.plugins) {
-    if (!plugin.sourcePath) continue;
-    const pluginDir = path.join(ROOT, plugin.sourcePath);
+    const pluginDir = path.join(ROOT, "plugins", plugin.id);
+    if (!fs.existsSync(pluginDir)) continue;
     const zipEntries = collectFiles(pluginDir, pluginDir);
     const buf = buildZipBuffer(zipEntries);
     const outFile = path.join(DIST_DIR, `${plugin.id}-${plugin.version}.plugin.vessel`);

@@ -369,7 +369,7 @@ function syncOnePlugin(pluginDir: string): RepoPluginEntry {
     languages: manifest.languages,
     isAdult: manifest.isAdult ?? false,
     iconUrl,
-    sourcePath: `plugins/${manifest.id}`,
+    sourcePath: `${REPO_RAW_BASE}/plugins/${manifest.id}/manifest.json`,
     minCoreVersion: manifest.minCoreVersion,
   };
 }
