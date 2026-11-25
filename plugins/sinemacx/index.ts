@@ -10,7 +10,7 @@ import {
   parseSinemacxCards,
   resolveSinemaCxByIdentity,
   resolveSinemaCxPage,
-} from "./shared/core/exact-tmdb-sources.ts";
+} from "./shared/core/sources/sinemacx.ts";
 import {
   buildHeaders,
   fetchText,

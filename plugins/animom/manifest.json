@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "animom",
   "name": "AniMOM",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "falsisdev",
   "description": "AniMOM (animom.org) HDPlayer, Sibnet, YourUpload ve DiziWatch yedekli Türkçe anime arşivi.",
   "entry": "index.ts",
@@ -49,8 +49,10 @@
     "shared/extractors/okru.ts",
     "shared/extractors/pilavyer.ts",
     "shared/extractors/sibnet.ts",
+    "shared/extractors/tauvideo.ts",
     "shared/extractors/video-hosts.ts",
     "shared/extractors/vidmoly.ts",
     "shared/extractors/youtube.ts"
-  ]
+  ],
+  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
 }

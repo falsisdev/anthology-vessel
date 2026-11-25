@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "trdiziizle",
   "name": "TrDiziİzle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "falsisdev",
   "description": "TrDiziİzle (trdiziizle.tv/tr2) WordPress dizi arşivi ve YouTube resmi tam bölüm yedekli 1080p akışlar.",
   "entry": "index.ts",
@@ -40,5 +40,6 @@
     "shared/core/text.ts",
     "shared/core/tmdb.ts",
     "shared/extractors/youtube.ts"
-  ]
+  ],
+  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
 }

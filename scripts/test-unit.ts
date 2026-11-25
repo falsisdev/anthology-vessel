@@ -3,8 +3,8 @@ import { installVesselMockHooks, setActivePluginContext } from "./vessel-mock.ts
 
 installVesselMockHooks();
 
-const { http, html, crypto, unpack, evalWithEnv } = await import("vessel");
-const { readToggleSetting } = await import("../core/config.ts");
+const { http, html, crypto, storage, unpack, evalWithEnv } = await import("vessel");
+const { clearConfigCache, configString, readToggleSetting } = await import("../core/config.ts");
 const { SEICODE_TMDB_MAP } = await import("../core/exact-tmdb-sources.ts");
 const { ultraClean, titleSimilarity, parseSeasonEpisode, slugify } = await import(
   "../core/text.ts"
@@ -117,6 +117,18 @@ async function runTests(): Promise<void> {
   assert.equal(await readToggleSetting("enableD", false), true);
   assert.equal(await readToggleSetting("enableUnset", true), true);
   assert.equal(SEICODE_TMDB_MAP["127532"], "solo-leveling");
+
+  // 9. Persistent storage config cache avoids remote HTTP fetch when fresh
+  clearConfigCache();
+  await storage.set("__anthology_remote_cfg_v1", {
+    at: Date.now(),
+    data: { urls: { movies: { sinemacx: { base: "https://cached.example" } } } },
+  });
+  assert.equal(
+    await configString("urls.movies.sinemacx.base", "https://fallback.example"),
+    "https://cached.example",
+  );
+  clearConfigCache();
 
   console.log("All offline unit assertions passed.");
 }

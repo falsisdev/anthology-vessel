@@ -11,8 +11,8 @@ import { configString, resolveBaseUrl } from "./shared/core/config.ts";
 import {
   resolveSonAnimeByIdentity,
   resolveSonAnimeSlug,
-} from "./shared/core/exact-tmdb-sources.ts";
-import type { SonAnimeDetail } from "./shared/core/exact-tmdb-sources.ts";
+} from "./shared/core/sources/sonanime.ts";
+import type { SonAnimeDetail } from "./shared/core/sources/sonanime.ts";
 import { buildHeaders, fetchJson, rethrowIfDomainBlocked } from "./shared/core/http.ts";
 import { finalizeStreams } from "./shared/core/plugin-helpers.ts";
 import { resolveTmdbIdentity } from "./shared/core/tmdb.ts";

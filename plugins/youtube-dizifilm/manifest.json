@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "youtube-dizifilm",
   "name": "YouTube Dizi & Film",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "falsisdev",
   "description": "Resmi YouTube yapımcı ve TV kanalları üzerinden yerli dizilerin tam bölümleri ve klasik Türk filmleri (1080p HLS/MP4).",
   "entry": "index.ts",
@@ -31,5 +31,6 @@
     "shared/core/text.ts",
     "shared/core/tmdb.ts",
     "shared/extractors/youtube.ts"
-  ]
+  ],
+  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
 }

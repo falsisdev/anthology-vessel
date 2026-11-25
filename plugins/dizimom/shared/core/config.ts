@@ -6,37 +6,84 @@ export const REPO_RAW_BASE =
 export const REMOTE_CONFIG_URL = `${REPO_RAW_BASE}/config.json`;
 
 const CONFIG_TTL_MS = 10 * 60 * 1000;
+const STORAGE_CONFIG_TTL_MS = 30 * 60 * 1000;
+const STORAGE_CONFIG_KEY = "__anthology_remote_cfg_v1";
+
+interface StoredConfigSnapshot {
+  at: number;
+  data: Record<string, unknown>;
+}
 
 let cachedConfig: Record<string, unknown> | null = null;
 let cachedAt = 0;
+let inFlightConfig: Promise<Record<string, unknown>> | null = null;
 
 export async function loadRemoteConfig(): Promise<Record<string, unknown>> {
   const now = Date.now();
   if (cachedConfig && now - cachedAt < CONFIG_TTL_MS) {
     return cachedConfig;
   }
-  try {
-    const res = await http.get(REMOTE_CONFIG_URL, {
-      timeoutMs: 5_000,
-      headers: {
-        "User-Agent": DEFAULT_USER_AGENT,
-        Accept: "application/json",
-      },
-    });
-    if (res.status >= 200 && res.status < 300) {
-      const parsed = res.json<unknown>();
-      if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
-        cachedConfig = parsed as Record<string, unknown>;
-        cachedAt = now;
-        return cachedConfig;
-      }
-    }
-  } catch (err) {
-    rethrowIfDomainBlocked(err);
+  if (inFlightConfig) {
+    return inFlightConfig;
   }
-  cachedConfig = cachedConfig ?? {};
-  cachedAt = now;
-  return cachedConfig;
+
+  inFlightConfig = (async () => {
+    let staleStored: Record<string, unknown> | null = null;
+    try {
+      const stored = await storage.get<StoredConfigSnapshot>(STORAGE_CONFIG_KEY);
+      if (
+        stored &&
+        typeof stored === "object" &&
+        stored.data &&
+        typeof stored.data === "object" &&
+        !Array.isArray(stored.data)
+      ) {
+        staleStored = stored.data;
+        if (typeof stored.at === "number" && now - stored.at < STORAGE_CONFIG_TTL_MS) {
+          cachedConfig = stored.data;
+          cachedAt = now;
+          return stored.data;
+        }
+      }
+    } catch {
+      // Storage unavailable or empty; continue with remote fetch.
+    }
+
+    try {
+      const res = await http.get(REMOTE_CONFIG_URL, {
+        timeoutMs: 1_500,
+        headers: {
+          "User-Agent": DEFAULT_USER_AGENT,
+          Accept: "application/json",
+        },
+      });
+      if (res.status >= 200 && res.status < 300) {
+        const parsed = res.json<unknown>();
+        if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+          cachedConfig = parsed as Record<string, unknown>;
+          cachedAt = now;
+          try {
+            await storage.set(STORAGE_CONFIG_KEY, { at: now, data: cachedConfig });
+          } catch {
+            // Non-fatal if storage persistence is unavailable.
+          }
+          return cachedConfig;
+        }
+      }
+    } catch (err) {
+      rethrowIfDomainBlocked(err);
+    }
+
+    cachedConfig = cachedConfig ?? staleStored ?? {};
+    cachedAt = now;
+    return cachedConfig;
+  })();
+
+  try {
+    return await inFlightConfig;
+  } finally {
+    inFlightConfig = null;
+  }
 }
 
 export function getNestedValue(
@@ -148,4 +195,5 @@ export async function readToggleSetting(
 export function clearConfigCache(): void {
   cachedConfig = null;
   cachedAt = 0;
+  inFlightConfig = null;
 }

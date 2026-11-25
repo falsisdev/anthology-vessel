@@ -78,7 +78,7 @@ export default definePlugin({
     try {
       const base = await resolveBaseUrl("urls.anime.animom.base", DEFAULT_BASE, "mirrorUrl");
       const rawHtml = await fetchText(`${base}/home`, {
-        timeoutMs: 2_500,
+        timeoutMs: 2_000,
         headers: buildHeaders(`${base}/`),
       });
 
@@ -258,19 +258,23 @@ export default definePlugin({
       const out: StreamCandidate[] = [];
       if (targetUrl) {
         const epHtml = await fetchText(targetUrl, {
-          timeoutMs: 6_000,
+          timeoutMs: 3_500,
           headers: buildHeaders(`${base}/`),
         });
         if (epHtml) {
-          for (const frameUrl of extractUniqueFrameUrls(epHtml, base)) {
-            out.push(
-              ...(await extractByEmbedUrl(frameUrl, {
-                sourceLabel: "AniMOM",
-                audioType: "sub",
-                language: "ja",
-                referer: targetUrl,
-              })),
+          const frameUrls = extractUniqueFrameUrls(epHtml, base).slice(0, 5);
+          if (frameUrls.length > 0) {
+            const resolved = await Promise.all(
+              frameUrls.map((frameUrl) =>
+                extractByEmbedUrl(frameUrl, {
+                  sourceLabel: "AniMOM",
+                  audioType: "sub",
+                  language: "ja",
+                  referer: targetUrl,
+                }),
+              ),
             );
+            out.push(...resolved.flat());
           }
         }
       }

@@ -222,6 +222,14 @@ export async function tmdbSearch(opts: {
   };
 }
 
+export function collectAnimeSearchTitles(identity: ResolvedTmdbIdentity): string[] {
+  return dedupeStrings([
+    identity.title,
+    identity.originalTitle,
+    ...identity.searchTitles,
+  ]).filter((t) => t.length >= 2);
+}
+
 export async function resolveTmdbIdentity(
   idOrTitle: string,
   preferType: "movie" | "series" = "series",
@@ -274,13 +282,15 @@ export async function resolveTmdbIdentity(
   if (!tmdbId) return null;
 
   const path = mediaType === "movie" ? `/movie/${tmdbId}` : `/tv/${tmdbId}`;
-  const trData = await tmdbGet<TmdbDetailRaw>(path, {
-    language: "tr-TR",
-    append_to_response: "external_ids,translations,alternative_titles",
-  });
+  const [trRes, enData] = await Promise.all([
+    tmdbGet<TmdbDetailRaw>(path, {
+      language: "tr-TR",
+      append_to_response: "external_ids,translations,alternative_titles",
+    }),
+    tmdbGet<TmdbDetailRaw>(path, { language: "en-US" }),
+  ]);
+  const trData = trRes ?? enData;
   if (!trData) return null;
-
-  const enData = await tmdbGet<TmdbDetailRaw>(path, { language: "en-US" });
 
   const title = trData.title ?? trData.name ?? enData?.title ?? enData?.name ?? "";
   const originalTitle =

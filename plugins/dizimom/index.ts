@@ -81,7 +81,7 @@ export default definePlugin({
   async getHomeFeed(): Promise<HomeFeed> {
     try {
       const base = await resolveBaseUrl("urls.series.dizimom.base", DEFAULT_BASE, "mirrorUrl");
-      const rawHtml = await fetchText(`${base}/`, { timeoutMs: 10_000, headers: buildHeaders(`${base}/`) });
+      const rawHtml = await fetchText(`${base}/`, { timeoutMs: 3_500, headers: buildHeaders(`${base}/`) });
       const items = rawHtml ? parseMomCards(rawHtml, base) : [];
       const series = items.filter((i) => i.type === "series").slice(0, 30);
       const movies = items.filter((i) => i.type === "movie").slice(0, 30);
@@ -101,7 +101,7 @@ export default definePlugin({
       if (page > 1 || !query.trim()) return { items: [], hasMore: false };
       const base = await resolveBaseUrl("urls.series.dizimom.base", DEFAULT_BASE, "mirrorUrl");
       const rawHtml = await fetchText(`${base}/ara?q=${encodeURIComponent(query.trim())}`, {
-        timeoutMs: 10_000,
+        timeoutMs: 5_000,
         headers: buildHeaders(`${base}/`),
       });
       return { items: rawHtml ? parseMomCards(rawHtml, base).slice(0, 30) : [], hasMore: false };

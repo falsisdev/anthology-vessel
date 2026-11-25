@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "anthology-plus",
   "name": "Anthology+",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "falsisdev",
   "description": "TMDB kimliğiyle tam eşleşen birleşik Film, Dizi ve Anime akış motoru (Vixolity, Anthology VOD, Vidlink, HDFilmDelisi, SinemaCX, AnimeciX, SeiCode, SonAnime).",
   "entry": "index.ts",
@@ -123,21 +123,29 @@
     }
   ],
   "files": [
-    "shared/core/anime-helpers.ts",
     "shared/core/config.ts",
     "shared/core/exact-tmdb-sources.ts",
     "shared/core/http.ts",
     "shared/core/plugin-helpers.ts",
     "shared/core/quality.ts",
+    "shared/core/sources/animecix.ts",
+    "shared/core/sources/govod.ts",
+    "shared/core/sources/hdfilmdelisi.ts",
+    "shared/core/sources/seicode.ts",
+    "shared/core/sources/sinemacx.ts",
+    "shared/core/sources/sonanime.ts",
+    "shared/core/sources/vidlink.ts",
     "shared/core/text.ts",
     "shared/core/tmdb.ts",
     "shared/extractors/closeload.ts",
     "shared/extractors/okru.ts",
     "shared/extractors/pilavyer.ts",
     "shared/extractors/sibnet.ts",
+    "shared/extractors/tauvideo.ts",
     "shared/extractors/video-hosts.ts",
     "shared/extractors/vidmoly.ts",
     "shared/extractors/vixolity.ts",
     "shared/extractors/youtube.ts"
-  ]
+  ],
+  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
 }

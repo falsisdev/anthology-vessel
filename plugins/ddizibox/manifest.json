@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "ddizibox",
   "name": "DDiziBox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "falsisdev",
   "description": "DDiziBox (ddizibox.com) yerli/yabancı dizi, film ve anime arşivi; Pilavyer 1080p HLS ve Türkçe altyazılar.",
   "entry": "index.ts",
@@ -47,5 +47,6 @@
     "shared/core/text.ts",
     "shared/core/tmdb.ts",
     "shared/extractors/pilavyer.ts"
-  ]
+  ],
+  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
 }

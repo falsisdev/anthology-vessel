@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "yabancidizi",
   "name": "YabancıDizi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "falsisdev",
   "description": "YabancıDizi (yabancidizi.news) üzerinden VidMoly Türkçe Dublaj ve Altyazılı 1080p HLS yabancı dizi arşivi.",
   "entry": "index.ts",
@@ -42,5 +42,6 @@
     "shared/core/text.ts",
     "shared/core/tmdb.ts",
     "shared/extractors/vidmoly.ts"
-  ]
+  ],
+  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
 }

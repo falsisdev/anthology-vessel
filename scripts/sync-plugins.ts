@@ -343,21 +343,22 @@ function syncOnePlugin(pluginDir: string): RepoPluginEntry {
     .filter((f) => f !== (manifest.entry || "index.ts"))
     .sort();
 
-  const syncedManifest: PluginManifest = {
-    ...manifest,
-    files: extraFiles.length > 0 ? extraFiles : undefined,
-  };
-  const nextManifestText = `${JSON.stringify(syncedManifest, null, 2)}\n`;
-  if (rawManifestText !== nextManifestText) {
-    fs.writeFileSync(manifestPath, nextManifestText, "utf8");
-  }
-
   const optionalIcon = path.join(pluginDir, "icon.png");
   const customIconName =
     manifest.id === "anizium" ? "anizium.png" : "logo_1_transparent.png";
   const iconUrl = fs.existsSync(optionalIcon)
     ? `${REPO_RAW_BASE}/plugins/${manifest.id}/icon.png`
     : `${REPO_RAW_BASE}/assets/${customIconName}`;
+
+  const syncedManifest: PluginManifest = {
+    ...manifest,
+    icon: manifest.icon?.trim() || iconUrl,
+    files: extraFiles.length > 0 ? extraFiles : undefined,
+  };
+  const nextManifestText = `${JSON.stringify(syncedManifest, null, 2)}\n`;
+  if (rawManifestText !== nextManifestText) {
+    fs.writeFileSync(manifestPath, nextManifestText, "utf8");
+  }
 
   return {
     id: manifest.id,

@@ -1,4 +1,5 @@
-import { resolveTmdbIdentity, tmdbDiscoverFeed } from "./tmdb.ts";
+import { collectAnimeSearchTitles, resolveTmdbIdentity, tmdbDiscoverFeed } from "./tmdb.ts";
+export { collectAnimeSearchTitles };
 import { dedupeStrings, asciiFold } from "./text.ts";
 import { fetchJson, fetchText, postJson } from "./http.ts";
 import type { ResolvedTmdbIdentity } from "./tmdb.ts";
@@ -180,13 +181,7 @@ export async function resolveAnimeTrackerInfo(
   return result;
 }
 
-export function collectAnimeSearchTitles(identity: ResolvedTmdbIdentity): string[] {
-  return dedupeStrings([
-    identity.title,
-    identity.originalTitle,
-    ...identity.searchTitles,
-  ]).filter((t) => t.length >= 2);
-}
+// collectAnimeSearchTitles is defined in ./tmdb.ts and re-exported above.
 
 /**
  * Queries DiziWatch anime mirrors + AnizmPlayer / OK.ru / Sibnet as a fast

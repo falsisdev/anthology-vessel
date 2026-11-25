@@ -12,8 +12,8 @@ import {
   SEICODE_TMDB_MAP,
   resolveSeicodeByIdentity,
   resolveSeicodeSlug,
-} from "./shared/core/exact-tmdb-sources.ts";
-import type { SeicodeAnimeItem } from "./shared/core/exact-tmdb-sources.ts";
+} from "./shared/core/sources/seicode.ts";
+import type { SeicodeAnimeItem } from "./shared/core/sources/seicode.ts";
 import { buildHeaders, fetchJson, rethrowIfDomainBlocked } from "./shared/core/http.ts";
 import { finalizeStreams } from "./shared/core/plugin-helpers.ts";
 import { resolveTmdbIdentity } from "./shared/core/tmdb.ts";

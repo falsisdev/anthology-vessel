@@ -15,12 +15,10 @@ import { extractOkRu } from "./okru.ts";
 import { extractPilavyer } from "./pilavyer.ts";
 import { extractSibnet } from "./sibnet.ts";
 import { extractVidmoly } from "./vidmoly.ts";
+import { extractTauVideo } from "./tauvideo.ts";
 import type { ExtractorOpts } from "./vidmoly.ts";
 import { resolveYouTubeInnertube } from "./youtube.ts";
-
-interface TauVideoResponse {
-  urls?: Array<{ url?: string; label?: string }>;
-}
+export { extractTauVideo };
 
 interface PlayerHashResponse {
   securedLink?: string;
@@ -158,43 +156,6 @@ function extractInlineVttSubtitles(
     });
   }
   return subs;
-}
-
-export async function extractTauVideo(
-  rawUrl: string,
-  opts: ExtractorOpts = {},
-): Promise<StreamCandidate[]> {
-  const url = normalizeUrl(rawUrl);
-  const match = /tau-video\.xyz\/embed\/([a-zA-Z0-9_-]+)/i.exec(url);
-  const tauId = match?.[1];
-  if (!tauId) return [];
-
-  const data = await fetchJson<TauVideoResponse>(
-    `https://tau-video.xyz/api/video/${tauId}`,
-    {
-      timeoutMs: 8_000,
-      headers: { Referer: opts.referer ?? "https://animecix.tv/" },
-    },
-  );
-  const entries = data?.urls ?? [];
-  const prefix = prefixLabel(opts);
-  const out: StreamCandidate[] = [];
-  for (const item of entries) {
-    if (!item.url) continue;
-    const quality = (item.label || "1080p").toLowerCase();
-    out.push(
-      createStream({
-        url: item.url,
-        kind: "mp4",
-        quality,
-        label: `${prefix}TauVideo • ${quality.toUpperCase()} MP4`,
-        audioType: opts.audioType,
-        language: opts.language,
-        headers: { Referer: "https://tau-video.xyz/" },
-      }),
-    );
-  }
-  return out;
 }
 
 export async function extractAnizmPlayer(

@@ -85,7 +85,7 @@ async function resolveWatchEpisode(
   });
   if (!epHtml) return [];
 
-  const streams: StreamCandidate[] = [];
+  const tasks: Array<Promise<StreamCandidate[]>> = [];
   const seenHashes = new Set<string>();
   const apRe = /https?:\/\/anizmplayer\.com\/video\/([a-f0-9]{16,64})/gi;
   let m: RegExpExecArray | null;
@@ -93,11 +93,11 @@ async function resolveWatchEpisode(
     const hash = m[1];
     if (!hash || seenHashes.has(hash)) continue;
     seenHashes.add(hash);
-    streams.push(
-      ...(await extractAnizmPlayer(hash, {
+    tasks.push(
+      extractAnizmPlayer(hash, {
         sourceLabel: "DiziWatch",
         referer: epUrl,
-      })),
+      }),
     );
   }
 
@@ -107,11 +107,11 @@ async function resolveWatchEpisode(
   while ((om = okRe.exec(epHtml)) !== null) {
     if (seenOk.has(om[0])) continue;
     seenOk.add(om[0]);
-    streams.push(
-      ...(await extractByEmbedUrl(om[0], {
+    tasks.push(
+      extractByEmbedUrl(om[0], {
         sourceLabel: "DiziWatch",
         referer: epUrl,
-      })),
+      }),
     );
   }
 
@@ -121,15 +121,16 @@ async function resolveWatchEpisode(
   while ((sm = sibRe.exec(epHtml)) !== null) {
     if (seenSib.has(sm[0])) continue;
     seenSib.add(sm[0]);
-    streams.push(
-      ...(await extractByEmbedUrl(sm[0], {
+    tasks.push(
+      extractByEmbedUrl(sm[0], {
         sourceLabel: "DiziWatch",
         referer: epUrl,
-      })),
+      }),
     );
   }
 
-  return streams;
+  if (tasks.length === 0) return [];
+  return (await Promise.all(tasks)).flat();
 }
 
 export default definePlugin({

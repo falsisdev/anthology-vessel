@@ -111,7 +111,7 @@ async function resolveAnizmPlayerPage(vidUrl: string, base: string): Promise<Str
   }
   if (!playerHtml) return [];
 
-  const streams: StreamCandidate[] = [];
+  const tasks: Array<Promise<StreamCandidate[]>> = [];
   const evals = Array.from(
     playerHtml.matchAll(/eval\(function\(p,a,c,k,e,d\)[\s\S]*?<\/script>/gi),
   );
@@ -119,13 +119,13 @@ async function resolveAnizmPlayerPage(vidUrl: string, base: string): Promise<Str
     const unpacked = unpack(m[0].replace(/<\/script>$/i, "").trim());
     const fp = /FirePlayer\(["']([^"']+)["']/.exec(unpacked);
     if (fp?.[1]) {
-      streams.push(
-        ...(await extractAnizmPlayer(fp[1], {
+      tasks.push(
+        extractAnizmPlayer(fp[1], {
           sourceLabel: "Anizm",
           audioType: "sub",
           language: "ja",
           referer: `${base}/`,
-        })),
+        }),
       );
       break;
     }
@@ -133,17 +133,19 @@ async function resolveAnizmPlayerPage(vidUrl: string, base: string): Promise<Str
 
   for (const m of playerHtml.matchAll(/(?:src|data-src|href)=["']([^"']*(?:ok\.ru\/videoembed|video\.sibnet\.ru)[^"']+)["']/gi)) {
     if (m[1]) {
-      streams.push(
-        ...(await extractByEmbedUrl(m[1], {
+      tasks.push(
+        extractByEmbedUrl(m[1], {
           sourceLabel: "Anizm",
           audioType: "sub",
           language: "ja",
           referer: `${base}/`,
-        })),
+        }),
       );
     }
   }
-  return streams;
+  if (tasks.length === 0) return [];
+  const resolved = await Promise.all(tasks);
+  return resolved.flat();
 }
 
 export default definePlugin({
@@ -335,39 +337,45 @@ export default definePlugin({
 
       const out: StreamCandidate[] = [];
       if (slug) {
-        for (const candUrl of [
-          `${base}/${slug}-${eNum}-bolum-izle`,
-          `${base}/${slug}-${eNum}-bolum`,
-        ]) {
-          const epHtml = await fetchText(candUrl, {
-            timeoutMs: 7_000,
+        const epPages = await Promise.all([
+          fetchText(`${base}/${slug}-${eNum}-bolum-izle`, {
+            timeoutMs: 4_500,
             headers: buildHeaders(`${base}/`),
-          });
-          if (!epHtml) continue;
+          }),
+          fetchText(`${base}/${slug}-${eNum}-bolum`, {
+            timeoutMs: 4_500,
+            headers: buildHeaders(`${base}/`),
+          }),
+        ]);
+        const epHtml = epPages.find((h): h is string => Boolean(h));
+        if (epHtml) {
           const transMatches = Array.from(
             epHtml.matchAll(/data-sources=["']([^"']+\/cevirmen\/\d+)["']/g),
           ).map((m) => m[1]!);
 
-          let fails = 0;
-          for (const tUrl of transMatches.slice(0, 3)) {
-            if (fails >= 2 || out.length >= 4) break;
-            const tJson = await fetchJson<{ videos?: Array<{ id?: number | string }> }>(tUrl, {
-              timeoutMs: 6_000,
-              headers: { ...buildHeaders(`${base}/`), "X-Requested-With": "XMLHttpRequest" },
-            });
+          const translatorPayloads = await Promise.all(
+            transMatches.slice(0, 3).map(async (tUrl) => ({
+              tUrl,
+              tJson: await fetchJson<{ videos?: Array<{ id?: number | string }> }>(tUrl, {
+                timeoutMs: 4_500,
+                headers: { ...buildHeaders(`${base}/`), "X-Requested-With": "XMLHttpRequest" },
+              }),
+            })),
+          );
+
+          const videoTasks: Array<Promise<StreamCandidate[]>> = [];
+          for (const { tUrl, tJson } of translatorPayloads) {
             for (const v of (tJson?.videos ?? []).slice(0, 3)) {
-              if (!v.id || fails >= 2 || out.length >= 4) break;
+              if (!v.id) continue;
               const vUrl = tUrl.replace(/\/cevirmen\/\d+$/, `/video/${v.id}`);
-              const resolved = await resolveAnizmPlayerPage(vUrl, base);
-              if (resolved.length > 0) {
-                fails = 0;
-                out.push(...resolved);
-              } else {
-                fails++;
-              }
+              videoTasks.push(resolveAnizmPlayerPage(vUrl, base));
+              if (videoTasks.length >= 6) break;
             }
+            if (videoTasks.length >= 6) break;
           }
-          if (out.length > 0) break;
+          if (videoTasks.length > 0) {
+            out.push(...(await Promise.all(videoTasks)).flat());
+          }
         }
       }
 

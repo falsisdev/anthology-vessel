@@ -58,7 +58,7 @@ export default definePlugin({
     try {
       const base = await resolveBaseUrl("urls.anime.animeprax.base", DEFAULT_BASE, "mirrorUrl");
       const rawHtml = await fetchText(`${base}/`, {
-        timeoutMs: 2_500,
+        timeoutMs: 2_000,
         headers: buildHeaders(`${base}/`),
       });
 
@@ -235,7 +235,7 @@ export default definePlugin({
       if (slug) {
         const epPageUrl = `${base}/anime/${slug}/season/${sNum}/episode/${eNum}`;
         const epHtml = await fetchText(epPageUrl, {
-          timeoutMs: 6_000,
+          timeoutMs: 3_500,
           headers: buildHeaders(`${base}/`),
         });
         if (epHtml) {
@@ -244,30 +244,39 @@ export default definePlugin({
               Array.from(epHtml.matchAll(/data-team-id="(\d+)"/g)).map((m) => m[1]!),
             ),
           );
-          for (const teamId of teamIds.slice(0, 3)) {
-            const res = await fetchJson<{ sources?: Array<{ url?: string; embed_url?: string }> }>(
-              `${base}/anime/${slug}/season/${sNum}/episode/${eNum}/sources?team=${encodeURIComponent(teamId)}`,
-              {
-                timeoutMs: 6_000,
-                headers: {
-                  ...buildHeaders(epPageUrl),
-                  "X-Requested-With": "XMLHttpRequest",
+          const teamResponses = await Promise.all(
+            teamIds.slice(0, 3).map((teamId) =>
+              fetchJson<{ sources?: Array<{ url?: string; embed_url?: string }> }>(
+                `${base}/anime/${slug}/season/${sNum}/episode/${eNum}/sources?team=${encodeURIComponent(teamId)}`,
+                {
+                  timeoutMs: 3_500,
+                  headers: {
+                    ...buildHeaders(epPageUrl),
+                    "X-Requested-With": "XMLHttpRequest",
+                  },
                 },
-              },
-            );
+              ),
+            ),
+          );
+          const embedUrls: string[] = [];
+          for (const res of teamResponses) {
             for (const src of res?.sources ?? []) {
               const target = src.embed_url ?? src.url;
-              if (!target) continue;
-              out.push(
-                ...(await extractByEmbedUrl(absoluteUrl(base, target), {
+              if (target) embedUrls.push(absoluteUrl(base, target));
+            }
+          }
+          if (embedUrls.length > 0) {
+            const resolved = await Promise.all(
+              embedUrls.slice(0, 6).map((u) =>
+                extractByEmbedUrl(u, {
                   sourceLabel: "AnimePraX",
                   audioType: "sub",
                   language: "ja",
                   referer: epPageUrl,
-                })),
-              );
-            }
-            if (out.length >= 4) break;
+                }),
+              ),
+            );
+            out.push(...resolved.flat());
           }
         }
       }

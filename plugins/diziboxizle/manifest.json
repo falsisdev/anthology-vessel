@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "diziboxizle",
   "name": "DiziBoxİzle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "falsisdev",
   "description": "DiziBoxİzle (diziboxizle.com) yabancı dizi arşivi; VidMoly 1080p HLS ve Ok.ru akışları.",
   "entry": "index.ts",
@@ -46,8 +46,10 @@
     "shared/extractors/okru.ts",
     "shared/extractors/pilavyer.ts",
     "shared/extractors/sibnet.ts",
+    "shared/extractors/tauvideo.ts",
     "shared/extractors/video-hosts.ts",
     "shared/extractors/vidmoly.ts",
     "shared/extractors/youtube.ts"
-  ]
+  ],
+  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
 }

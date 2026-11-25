@@ -69,26 +69,31 @@ async function extractSetPageStreams(
   const doc = html.parse(rawHtml);
   const streams: StreamCandidate[] = [];
 
+  const frameTasks: Array<Promise<StreamCandidate[]>> = [];
   for (const ifr of doc.select("iframe[src], [data-src]")) {
     const src = ifr.attr("data-src") || ifr.attr("src");
     if (!src) continue;
     const full = absoluteUrl(base, src);
+    if (full.includes("youtube.com")) continue;
     if (full.includes("setplay.") || full.includes("fastplay.")) {
-      streams.push(
-        ...(await extractFastplay(full, {
+      frameTasks.push(
+        extractFastplay(full, {
           sourceLabel: "SetFilmİzle",
           referer: pageUrl,
-        })),
+        }),
       );
-    } else if (!full.includes("youtube.com")) {
-      streams.push(
-        ...(await extractByEmbedUrl(full, {
+    } else {
+      frameTasks.push(
+        extractByEmbedUrl(full, {
           sourceLabel: "SetFilmİzle",
           referer: pageUrl,
-        })),
+        }),
       );
     }
-    if (streams.length > 0) return streams;
+  }
+  if (frameTasks.length > 0) {
+    const resolvedFrames = (await Promise.all(frameTasks)).flat();
+    if (resolvedFrames.length > 0) return resolvedFrames;
   }
 
   const ajaxMatch = /["'](https?:[^"']*wp-admin\/admin-ajax\.php)["']/.exec(rawHtml);

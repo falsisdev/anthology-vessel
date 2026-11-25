@@ -58,13 +58,18 @@ async function findFilmPage(
     candidates.push(`${base}/izle/dublaj/${slugEn}`, `${base}/izle/altyazi/${slugEn}`);
   }
 
-  for (const url of candidates) {
-    const body = await fetchText(url, {
-      timeoutMs: 8_000,
-      headers: buildHeaders(`${base}/`),
-    });
-    if (body && body.includes("data-id") && body.includes('id="wip"')) {
-      return { url, body };
+  const candidateResults = await Promise.all(
+    candidates.map(async (url) => ({
+      url,
+      body: await fetchText(url, {
+        timeoutMs: 6_000,
+        headers: buildHeaders(`${base}/`),
+      }),
+    })),
+  );
+  for (const cand of candidateResults) {
+    if (cand.body && cand.body.includes("data-id") && cand.body.includes('id="wip"')) {
+      return { url: cand.url, body: cand.body };
     }
   }
 
@@ -188,39 +193,13 @@ export default definePlugin({
         diller.push({ dil: "0", audioType: "dub" }, { dil: "1", audioType: "sub" });
       }
 
-      const streams: StreamCandidate[] = [];
-      for (const d of diller) {
-        const altRes = await postForm(
-          `${base}/ajax/dataAlternatif3.asp`,
-          { filmid: filmId, dil: d.dil, s: "", b: "", bot: "0" },
-          {
-            timeoutMs: 8_000,
-            headers: {
-              Referer: page.url,
-              Origin: base,
-              "X-Requested-With": "XMLHttpRequest",
-            },
-          },
-        );
-        if (!altRes || altRes.status < 200 || altRes.status >= 300) continue;
-
-        let list: AlternatifItem[] = [];
-        try {
-          const j = altRes.json<{ status?: string; data?: AlternatifItem[] }>();
-          if (j.status === "success" && Array.isArray(j.data)) list = j.data;
-        } catch {
-          continue;
-        }
-
-        for (const item of list) {
-          const nameLower = (item.baslik ?? "").toLowerCase();
-          if (nameLower === "pixel" || nameLower === "netu") continue;
-
-          const embRes = await postForm(
-            `${base}/ajax/dataEmbed.asp`,
-            { id: String(item.id) },
+      const langResults = await Promise.all(
+        diller.map(async (d) => {
+          const altRes = await postForm(
+            `${base}/ajax/dataAlternatif3.asp`,
+            { filmid: filmId, dil: d.dil, s: "", b: "", bot: "0" },
             {
-              timeoutMs: 8_000,
+              timeoutMs: 6_000,
               headers: {
                 Referer: page.url,
                 Origin: base,
@@ -228,18 +207,49 @@ export default definePlugin({
               },
             },
           );
-          if (!embRes || embRes.status < 200 || embRes.status >= 300) continue;
-          const embedSrc = resolveEmbedToken(embRes.text());
-          if (!embedSrc) continue;
+          if (!altRes || altRes.status < 200 || altRes.status >= 300) return [];
 
-          const resolved = await extractByEmbedUrl(embedSrc, {
-            sourceLabel: "Webteİzle",
-            audioType: d.audioType,
-            referer: `${base}/`,
+          let list: AlternatifItem[] = [];
+          try {
+            const j = altRes.json<{ status?: string; data?: AlternatifItem[] }>();
+            if (j.status === "success" && Array.isArray(j.data)) list = j.data;
+          } catch {
+            return [];
+          }
+
+          const filtered = list.filter((item) => {
+            const nameLower = (item.baslik ?? "").toLowerCase();
+            return nameLower !== "pixel" && nameLower !== "netu";
           });
-          streams.push(...resolved);
-        }
-      }
+
+          const nested = await Promise.all(
+            filtered.slice(0, 6).map(async (item) => {
+              const embRes = await postForm(
+                `${base}/ajax/dataEmbed.asp`,
+                { id: String(item.id) },
+                {
+                  timeoutMs: 6_000,
+                  headers: {
+                    Referer: page.url,
+                    Origin: base,
+                    "X-Requested-With": "XMLHttpRequest",
+                  },
+                },
+              );
+              if (!embRes || embRes.status < 200 || embRes.status >= 300) return [];
+              const embedSrc = resolveEmbedToken(embRes.text());
+              if (!embedSrc) return [];
+              return extractByEmbedUrl(embedSrc, {
+                sourceLabel: "Webteİzle",
+                audioType: d.audioType,
+                referer: `${base}/`,
+              });
+            }),
+          );
+          return nested.flat();
+        }),
+      );
+      const streams = langResults.flat();
 
       return { streams: sortStreamsByQuality(streams) };
     } catch (err) {

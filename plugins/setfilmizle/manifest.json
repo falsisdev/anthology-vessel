@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "setfilmizle",
   "name": "SetFilmİzle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "falsisdev",
   "description": "SetFilmİzle (setfilmizle.ltd) 1080p FastPlay HLS film ve yabancı dizi arşivi.",
   "entry": "index.ts",
@@ -58,8 +58,10 @@
     "shared/extractors/okru.ts",
     "shared/extractors/pilavyer.ts",
     "shared/extractors/sibnet.ts",
+    "shared/extractors/tauvideo.ts",
     "shared/extractors/video-hosts.ts",
     "shared/extractors/vidmoly.ts",
     "shared/extractors/youtube.ts"
-  ]
+  ],
+  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
 }

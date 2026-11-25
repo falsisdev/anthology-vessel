@@ -12,8 +12,8 @@ import {
   animecixApiHeaders,
   resolveAnimecixBestVideo,
   resolveAnimecixByIdentity,
-} from "./shared/core/exact-tmdb-sources.ts";
-import type { AnimecixTitleItem } from "./shared/core/exact-tmdb-sources.ts";
+} from "./shared/core/sources/animecix.ts";
+import type { AnimecixTitleItem } from "./shared/core/sources/animecix.ts";
 import { fetchJson, rethrowIfDomainBlocked } from "./shared/core/http.ts";
 import { finalizeStreams } from "./shared/core/plugin-helpers.ts";
 import { resolveTmdbIdentity } from "./shared/core/tmdb.ts";

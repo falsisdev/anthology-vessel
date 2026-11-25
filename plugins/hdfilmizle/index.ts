@@ -152,6 +152,7 @@ async function extractPageStreams(
   if (partsMatch?.[1]) {
     try {
       const parts = JSON.parse(partsMatch[1]) as FilmIzlePart[];
+      const partTasks: Array<Promise<StreamCandidate[]>> = [];
       for (const part of parts) {
         if (!part.data) continue;
         const ifrMatch = /src=["']([^"']+)["']/i.exec(part.data);
@@ -165,14 +166,17 @@ async function extractPageStreams(
           referer: pageUrl,
         };
         if (iframeUrl.includes("vidrame.")) {
-          streams.push(...(await extractVidrame(iframeUrl, opts)));
+          partTasks.push(extractVidrame(iframeUrl, opts));
         } else if (iframeUrl.includes("vidmoxy.")) {
-          streams.push(...(await extractVidmoxy(iframeUrl, opts)));
+          partTasks.push(extractVidmoxy(iframeUrl, opts));
         } else if (iframeUrl.includes("fastplay.") || iframeUrl.includes("setplay.")) {
-          streams.push(...(await extractFastplay(iframeUrl, opts)));
+          partTasks.push(extractFastplay(iframeUrl, opts));
         } else {
-          streams.push(...(await extractByEmbedUrl(iframeUrl, opts)));
+          partTasks.push(extractByEmbedUrl(iframeUrl, opts));
         }
+      }
+      if (partTasks.length > 0) {
+        streams.push(...(await Promise.all(partTasks)).flat());
       }
     } catch {
       // Ignore invalid parts payload

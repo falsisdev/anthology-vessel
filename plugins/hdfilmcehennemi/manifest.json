@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "hdfilmcehennemi",
   "name": "HDFilmCehennemi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "falsisdev",
   "description": "HDFilmCehennemi (hdfilmcehennemi.nl) 1080p CloseLoad Çift Ses (TR Dublaj / Orijinal) ve Türkçe altyazılı film arşivi.",
   "entry": "index.ts",
@@ -43,5 +43,6 @@
     "shared/core/text.ts",
     "shared/core/tmdb.ts",
     "shared/extractors/closeload.ts"
-  ]
+  ],
+  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
 }

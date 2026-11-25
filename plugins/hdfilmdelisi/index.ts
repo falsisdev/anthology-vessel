@@ -10,11 +10,11 @@ import { resolveBaseUrl } from "./shared/core/config.ts";
 import {
   extractVidmodyEmbed,
   resolveHdFilmDelisiByIdentity,
-} from "./shared/core/exact-tmdb-sources.ts";
+} from "./shared/core/sources/hdfilmdelisi.ts";
 import type {
   DelisiFilmRecord,
   DelisiListResponse,
-} from "./shared/core/exact-tmdb-sources.ts";
+} from "./shared/core/sources/hdfilmdelisi.ts";
 import {
   buildHeaders,
   fetchJson,
