@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "hdfilmizle",
   "name": "HDFilmİzle",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "falsisdev",
   "description": "HDFilmİzle (hdfilmizle.vip / .ink) Vidrame, Vidmoxy ve FastPlay 1080p HLS film arşivi.",
   "entry": "index.ts",

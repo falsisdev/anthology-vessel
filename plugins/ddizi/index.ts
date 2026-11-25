@@ -421,7 +421,8 @@ export default definePlugin({
     const seen = new Set<string>();
     for (const pHtml of pageHtmls) {
       const pDoc = html.parse(pHtml);
-      const boxLinks = pDoc.select('.dizi-boxpost-cat a[href*="/izle/"], .dizi-boxpost a[href*="/izle/"]');
+      const catLinks = pDoc.select('.dizi-boxpost-cat a[href*="/izle/"]');
+      const boxLinks = catLinks.length > 0 ? catLinks : pDoc.select('.dizi-boxpost a[href*="/izle/"]');
       const candidates = boxLinks.length > 0 ? boxLinks : pDoc.select('a[href*="/izle/"]');
       for (const a of candidates) {
         const href = a.attr("href");
@@ -433,7 +434,7 @@ export default definePlugin({
           .replace(/\s+/g, " ")
           .trim();
         const epClean = ultraClean(`${full} ${epTitle}`);
-        if (boxLinks.length === 0 && baseSlugKey && !epClean.includes(baseSlugKey) && titleKey && !epClean.includes(titleKey)) {
+        if (catLinks.length === 0 && baseSlugKey && !epClean.includes(baseSlugKey) && titleKey && !epClean.includes(titleKey)) {
           continue;
         }
         seen.add(full);
@@ -500,10 +501,31 @@ export default definePlugin({
       }
 
       const parts = streamId.split(":");
-      const identity = await resolveTmdbIdentity(parts[0] ?? streamId, "series");
+      let idToken = parts[0] ?? streamId;
+      let seasonNum = Number.parseInt(parts[1] ?? "1", 10) || 1;
+      let episodeNum = Number.parseInt(parts[2] ?? "1", 10) || 1;
+      if (parts.length >= 4 && (parts[0] === "tmdb" || parts[0] === "ddizi")) {
+        idToken = parts[1] ?? streamId;
+        seasonNum = Number.parseInt(parts[2] ?? "1", 10) || 1;
+        episodeNum = Number.parseInt(parts[3] ?? "1", 10) || 1;
+      } else if (parts.length >= 5 && (parts[1] === "series" || parts[1] === "tv" || parts[1] === "movie")) {
+        idToken = parts[2] ?? streamId;
+        seasonNum = Number.parseInt(parts[3] ?? "1", 10) || 1;
+        episodeNum = Number.parseInt(parts[4] ?? "1", 10) || 1;
+      }
+
+      const identity = await resolveTmdbIdentity(idToken, "series");
       if (!identity) return { streams: [] };
-      const seasonNum = Number.parseInt(parts[1] ?? "1", 10) || 1;
-      const episodeNum = Number.parseInt(parts[2] ?? "1", 10) || 1;
+
+      let absEpisodeNum = episodeNum;
+      if (seasonNum > 1 && identity.seasons.length > 0) {
+        const prevCount = identity.seasons
+          .filter((s) => s.season > 0 && s.season < seasonNum)
+          .reduce((acc, s) => acc + (s.episodeCount ?? 0), 0);
+        if (prevCount > 0) {
+          absEpisodeNum = prevCount + episodeNum;
+        }
+      }
 
       const sRes = await postForm(
         `${base}/arama/`,
@@ -519,7 +541,12 @@ export default definePlugin({
         const best = pickBestCandidate(links, identity.title, identity.originalTitle);
         if (best) {
           const detail = await this.getDetails!(`series:${best.slug}`);
-          const ep = detail.episodes.find((x) => x.episode === episodeNum);
+          const ep =
+            detail.episodes.find((x) => x.season === seasonNum && x.episode === episodeNum) ??
+            (absEpisodeNum !== episodeNum
+              ? detail.episodes.find((x) => x.season === 1 && x.episode === absEpisodeNum)
+              : undefined) ??
+            detail.episodes.find((x) => x.episode === episodeNum);
           if (ep) {
             const streams = await resolveDdiziEpisodeStreams(
               decodeURIComponent(ep.streamId.slice(3)),

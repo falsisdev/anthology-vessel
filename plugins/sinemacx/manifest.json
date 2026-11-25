@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "sinemacx",
   "name": "SinemaCX",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "falsisdev",
   "description": "Sinemacc.com (SinemaCX) ve Vixolity HLS destekli 1080p Türkçe film arşivi.",
   "entry": "index.ts",

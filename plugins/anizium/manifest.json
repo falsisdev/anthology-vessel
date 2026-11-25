@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "anizium",
   "name": "Anizium",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "falsisdev",
   "description": "Anizium (anizium.co) 4K & 1080p Türkçe Dublaj/Altyazılı anime akışları ve WebVTT altyazıları.",
   "entry": "index.ts",

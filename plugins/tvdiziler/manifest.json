@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "tvdiziler",
   "name": "TvDiziler",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "falsisdev",
   "description": "TvDiziler (tvdiziler.tv) ve YouTube resmi bölüm yedekli yerli TV dizileri arşivi.",
   "entry": "index.ts",

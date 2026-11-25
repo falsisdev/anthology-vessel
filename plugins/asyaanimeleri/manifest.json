@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "asyaanimeleri",
   "name": "AsyaAnimeleri",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "falsisdev",
   "description": "AsyaAnimeleri (asyaanimeleri.top) Sibnet, OK.ru, Mail.ru, Rumble ve VidMoly Türkçe altyazılı anime arşivi.",
   "entry": "index.ts",

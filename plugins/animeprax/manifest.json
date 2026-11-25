@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "animeprax",
   "name": "AnimePraX",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "falsisdev",
   "description": "AnimePraX (animeprax.com) Sibnet, OK.ru, Dailymotion ve DiziWatch yedekli Türkçe anime arşivi.",
   "entry": "index.ts",

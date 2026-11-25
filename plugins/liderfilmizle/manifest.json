@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "liderfilmizle",
   "name": "LiderFilm",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "falsisdev",
   "description": "LiderFilm (liderfilmizle.vip) yerli & yabancı film ve dizi arşivi; 1080p HLS ve WebVTT altyazıları.",
   "entry": "index.ts",
