@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "filmmodu",
   "name": "FilmModu",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "falsisdev",
   "description": "FilmModu (filmmodu.one ve filmmodu.live/Pilavyer yedekli) canlı segment doğrulamalı 1080p film akışları.",
   "entry": "index.ts",

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "hdfilmcehennemi",
   "name": "HDFilmCehennemi",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "falsisdev",
   "description": "HDFilmCehennemi (hdfilmcehennemi.nl) 1080p CloseLoad Çift Ses (TR Dublaj / Orijinal) ve Türkçe altyazılı film arşivi.",
   "entry": "index.ts",

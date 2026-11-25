@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "animecix",
   "name": "AnimeciX",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "falsisdev",
   "description": "AnimeciX (animecix.tv) ve TauVideo üzerinden Türkçe altyazılı anime dizi ve filmleri (1080p MP4).",
   "entry": "index.ts",

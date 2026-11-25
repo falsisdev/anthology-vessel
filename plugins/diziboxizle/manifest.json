@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "diziboxizle",
   "name": "DiziBoxİzle",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "falsisdev",
   "description": "DiziBoxİzle (diziboxizle.com) yabancı dizi arşivi; VidMoly 1080p HLS ve Ok.ru akışları.",
   "entry": "index.ts",

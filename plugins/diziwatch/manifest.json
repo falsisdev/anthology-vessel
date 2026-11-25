@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "diziwatch",
   "name": "DiziWatch",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "falsisdev",
   "description": "DiziWatch (diziwatch.org) yabancı dizi ve anime arşivi; AnizmPlayer 1080p HLS, Ok.ru MP4 ve Sibnet akışları.",
   "entry": "index.ts",

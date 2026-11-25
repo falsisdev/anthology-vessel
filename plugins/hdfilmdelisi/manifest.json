@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "hdfilmdelisi",
   "name": "HDFilmDelisi",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "falsisdev",
   "description": "HDFilmDelisi film ve dizi arşivi; Vixolity Çift Ses / TR Dublaj & Altyazı 1080p HLS akışları.",
   "entry": "index.ts",

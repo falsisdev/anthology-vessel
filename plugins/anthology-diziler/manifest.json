@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "anthology-diziler",
   "name": "Anthology Diziler (Ulusal Ağlar)",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "falsisdev",
   "description": "NOW TV, Show TV, Kanal D, Star TV, ATV, TV2 ve TRT 1 resmi ağlarından yerli dizi bölümleri (1080p HLS/MP4).",
   "entry": "index.ts",

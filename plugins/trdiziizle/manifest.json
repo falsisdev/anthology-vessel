@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "trdiziizle",
   "name": "TrDiziİzle",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "falsisdev",
   "description": "TrDiziİzle (trdiziizle.tv/tr2) WordPress dizi arşivi ve YouTube resmi tam bölüm yedekli 1080p akışlar.",
   "entry": "index.ts",

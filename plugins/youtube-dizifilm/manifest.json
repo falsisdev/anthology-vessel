@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "youtube-dizifilm",
   "name": "YouTube Dizi & Film",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "falsisdev",
   "description": "Resmi YouTube yapımcı ve TV kanalları üzerinden yerli dizilerin tam bölümleri ve klasik Türk filmleri (1080p HLS/MP4).",
   "entry": "index.ts",

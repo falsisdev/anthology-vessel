@@ -8,6 +8,13 @@ interface EncDecResponse {
   result?: string;
 }
 
+const PLAYBACK_HEADERS: Record<string, string> = {
+  // Vidlink CDN rejects browser Mozilla/5.0 User-Agents with HTTP 428; keep a non-browser player UA
+  // so both direct players and vessel-proxy (when always_proxy is enabled) avoid 428/429.
+  "User-Agent": "ExoPlayerLib/2.19.1",
+  Accept: "*/*",
+};
+
 interface VidlinkApiResponse {
   stream?: {
     playlist?: string;
@@ -57,7 +64,7 @@ export async function resolveVidlinkByIdentity(opts: {
         quality: "1080p",
         label: "Vidlink • Otomatik HLS (1080p)",
         language: "en",
-        headers: { Accept: "*/*" },
+        headers: PLAYBACK_HEADERS,
       }),
     );
   }
@@ -72,7 +79,7 @@ export async function resolveVidlinkByIdentity(opts: {
           quality,
           label: `Vidlink • ${quality.toUpperCase()} MP4`,
           language: "en",
-          headers: { Accept: "*/*" },
+          headers: PLAYBACK_HEADERS,
         }),
       );
     }

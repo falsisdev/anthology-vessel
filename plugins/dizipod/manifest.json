@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "dizipod",
   "name": "DiziPod",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "falsisdev",
   "description": "DiziPod (dizipod.com ve player.dizipod.com) üzerinden yabancı dizi ve filmler için doğrudan 1080p HLS akışları.",
   "entry": "index.ts",

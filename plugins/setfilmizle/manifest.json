@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "setfilmizle",
   "name": "SetFilmİzle",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "falsisdev",
   "description": "SetFilmİzle (setfilmizle.ltd) 1080p FastPlay HLS film ve yabancı dizi arşivi.",
   "entry": "index.ts",

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "anthology-plus",
   "name": "Anthology+",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "falsisdev",
   "description": "TMDB kimliğiyle tam eşleşen birleşik Film, Dizi ve Anime akış motoru (Vixolity, Anthology VOD, Vidlink, HDFilmDelisi, SinemaCX, AnimeciX, SeiCode, SonAnime).",
   "entry": "index.ts",

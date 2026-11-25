@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "diziyou",
   "name": "DiziYou",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "falsisdev",
   "description": "DiziYou (diziyou.one) üzerinden doğrudan storage HLS master akışları ve Türkçe VTT altyazıları.",
   "entry": "index.ts",
