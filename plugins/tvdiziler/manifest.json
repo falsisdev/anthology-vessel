@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "tvdiziler",
   "name": "TvDiziler",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "falsisdev",
   "description": "TvDiziler (tvdiziler.tv) ve YouTube resmi bölüm yedekli yerli TV dizileri arşivi.",
   "entry": "index.ts",
@@ -40,5 +40,5 @@
     "shared/core/tmdb.ts",
     "shared/extractors/youtube.ts"
   ],
-  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
+  "icon": "https://tvdiziler.tv/assets/v1/img/favicon.png"
 }

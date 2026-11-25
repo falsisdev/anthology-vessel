@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "webteizle",
   "name": "Webteİzle",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "falsisdev",
   "description": "Webteİzle film arşivi; Türkçe Dublaj ve Altyazılı VidMoly / Ok.ru / Sibnet 1080p akışları.",
   "entry": "index.ts",
@@ -19,6 +19,14 @@
   ],
   "domains": [
     "webteizle.info",
+    "bysezoxexe.com",
+    "*.bysezoxexe.com",
+    "n1mwq.org",
+    "filemoon.sx",
+    "filemoon.to",
+    "my.mail.ru",
+    "*.my.mail.ru",
+    "cdn*.my.mail.ru",
     "vidmoly.biz",
     "vidmoly.to",
     "vidmoly.net",
@@ -43,6 +51,7 @@
     "shared/core/quality.ts",
     "shared/core/text.ts",
     "shared/core/tmdb.ts",
+    "shared/extractors/bysezo.ts",
     "shared/extractors/closeload.ts",
     "shared/extractors/okru.ts",
     "shared/extractors/pilavyer.ts",
@@ -52,5 +61,5 @@
     "shared/extractors/vidmoly.ts",
     "shared/extractors/youtube.ts"
   ],
-  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
+  "icon": "https://www.google.com/s2/favicons?domain=webteizle.info&sz=128"
 }

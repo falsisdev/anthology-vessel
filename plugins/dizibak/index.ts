@@ -86,9 +86,18 @@ async function resolveDizibakPlayer(
   });
   if (!embHtml) return [];
 
-  const decoded = embHtml.includes("eval(function(p,a,c,k,e,")
-    ? unpack(embHtml)
-    : embHtml;
+  const packedMatch =
+    /eval\s*\(\s*function\s*\(\s*p\s*,\s*a\s*,\s*c\s*,\s*k[\s\S]*?(?:<\/script>|$)/i.exec(
+      embHtml,
+    )?.[0];
+  let decoded = embHtml;
+  if (packedMatch) {
+    try {
+      decoded = unpack(packedMatch.replace(/<\/script>$/i, "").trim());
+    } catch {
+      decoded = embHtml;
+    }
+  }
   const searchPool = `${decoded}\n${embHtml}`;
   const fileRe = /file["']?\s*:\s*["']([^"']+)["']/g;
   const streams: StreamCandidate[] = [];
@@ -127,24 +136,60 @@ export default definePlugin({
       const doc = html.parse(rawHtml);
       const items: MediaSummary[] = [];
       const seen = new Set<string>();
-      for (const a of doc.select('a[href*="-sezon-"][href*="-bolum"]')) {
-        const href = a.attr("href");
+
+      for (const art of doc.select("article.article-series-poster, article")) {
+        const a = art.selectOne('a[href*="/diziler/"], a.poster-title[href], a[href]');
+        const href = a?.attr("href");
         if (!href) continue;
         const full = absoluteUrl(base, href).replace(/\/+$/, "");
-        const slug = full.split("/").pop()?.replace(/-\d+-sezon-\d+-bolum.*$/, "") ?? "";
+        const slug = full.split("/").pop() ?? "";
         if (!slug || seen.has(slug)) continue;
+
+        const img = art.selectOne("img");
+        const title = decodeHtmlEntities(
+          art.selectOne(".poster-title, h2, h3")?.text() || a?.attr("title") || img?.attr("alt") || slug,
+        )
+          .replace(/\s+(?:Türkçe\s+altyazılı\s+)?izle$/i, "")
+          .trim();
+        if (!title || title.length < 2) continue;
+
         seen.add(slug);
-        const img = a.selectOne("img") ?? a.parent()?.selectOne("img");
-        const poster = img?.attr("data-src") || img?.attr("src");
+        const rawPoster = img?.attr("data-src") || img?.attr("src");
+        const yearNum = Number.parseInt(art.selectOne(".release")?.text().trim() ?? "", 10);
+        const ratingNum = Number.parseFloat(art.selectOne(".imdb")?.text().trim() ?? "");
         items.push({
           nativeId: `series:${slug}`,
           type: "series",
-          title: slug
-            .split("-")
-            .map((w) => (w ? w[0]!.toUpperCase() + w.slice(1) : ""))
-            .join(" "),
-          poster: poster ? absoluteUrl(base, poster) : undefined,
+          title,
+          year: Number.isFinite(yearNum) && yearNum > 1900 ? yearNum : undefined,
+          rating: Number.isFinite(ratingNum) && ratingNum > 0 ? ratingNum : undefined,
+          poster:
+            rawPoster && !rawPoster.startsWith("data:")
+              ? absoluteUrl(base, rawPoster)
+              : undefined,
         });
+      }
+
+      if (items.length === 0) {
+        for (const a of doc.select('a[href*="-sezon-"][href*="-bolum"]')) {
+          const href = a.attr("href");
+          if (!href) continue;
+          const full = absoluteUrl(base, href).replace(/\/+$/, "");
+          const slug = full.split("/").pop()?.replace(/-\d+-sezon-\d+-bolum.*$/, "") ?? "";
+          if (!slug || seen.has(slug)) continue;
+          seen.add(slug);
+          const img = a.selectOne("img") ?? a.parent()?.selectOne("img");
+          const poster = img?.attr("data-src") || img?.attr("src");
+          items.push({
+            nativeId: `series:${slug}`,
+            type: "series",
+            title: slug
+              .split("-")
+              .map((w) => (w ? w[0]!.toUpperCase() + w.slice(1) : ""))
+              .join(" "),
+            poster: poster && !poster.startsWith("data:") ? absoluteUrl(base, poster) : undefined,
+          });
+        }
       }
 
       return {
@@ -184,25 +229,62 @@ export default definePlugin({
           headers: { Referer: `${base}/`, "X-Requested-With": "XMLHttpRequest" },
         },
       );
-      if (!res || res.status >= 400) return { items: [], hasMore: false };
+      if (res && res.status < 400) {
+        try {
+          const payload = res.json<LiveSearchPayload>();
+          const items: MediaSummary[] = [];
+          for (const item of payload.data?.diziler ?? []) {
+            if (!item.title) continue;
+            const link = item.link ? absoluteUrl(base, item.link) : "";
+            const slug =
+              item.slugOrId ||
+              link.replace(/\/+$/, "").split("/").pop() ||
+              item.title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+            items.push({
+              nativeId: `series:${slug}`,
+              type: "series",
+              title: decodeHtmlEntities(item.title).trim(),
+              poster: item.thumb ? absoluteUrl(base, item.thumb) : undefined,
+            });
+          }
+          if (items.length > 0) {
+            return { items: dedupeMediaSummaries(items), hasMore: false };
+          }
+        } catch {
+          // Fall back to WordPress HTML search below.
+        }
+      }
 
-      const payload = res.json<LiveSearchPayload>();
-      const items: MediaSummary[] = [];
-      for (const item of payload.data?.diziler ?? []) {
-        if (!item.title) continue;
-        const link = item.link ? absoluteUrl(base, item.link) : "";
-        const slug =
-          item.slugOrId ||
-          link.replace(/\/+$/, "").split("/").pop() ||
-          item.title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-        items.push({
+      const sHtml = await fetchText(`${base}/?s=${encodeURIComponent(query.trim())}`, {
+        timeoutMs: 8_000,
+        headers: buildHeaders(`${base}/`),
+      });
+      if (!sHtml) return { items: [], hasMore: false };
+      const doc = html.parse(sHtml);
+      const htmlItems: MediaSummary[] = [];
+      for (const art of doc.select("article.article-series-poster, article")) {
+        const a = art.selectOne('a[href*="/diziler/"], a.poster-title[href], a[href]');
+        const href = a?.attr("href");
+        if (!href) continue;
+        const full = absoluteUrl(base, href).replace(/\/+$/, "");
+        const slug = full.split("/").pop() ?? "";
+        if (!slug) continue;
+        const img = art.selectOne("img");
+        const title = decodeHtmlEntities(
+          art.selectOne(".poster-title, h2, h3")?.text() || a?.attr("title") || img?.attr("alt") || slug,
+        )
+          .replace(/\s+(?:Türkçe\s+altyazılı\s+)?izle$/i, "")
+          .trim();
+        if (!title || title.length < 2) continue;
+        const rawPoster = img?.attr("data-src") || img?.attr("src");
+        htmlItems.push({
           nativeId: `series:${slug}`,
           type: "series",
-          title: decodeHtmlEntities(item.title).trim(),
-          poster: item.thumb ? absoluteUrl(base, item.thumb) : undefined,
+          title,
+          poster: rawPoster && !rawPoster.startsWith("data:") ? absoluteUrl(base, rawPoster) : undefined,
         });
       }
-      return { items: dedupeMediaSummaries(items), hasMore: false };
+      return { items: dedupeMediaSummaries(htmlItems), hasMore: false };
     } catch (err) {
       rethrowIfDomainBlocked(err);
       return { items: [], hasMore: false };

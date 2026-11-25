@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "anthology-tv",
   "name": "Anthology Canlı TV",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "falsisdev",
   "description": "Tüm Türkçe Ulusal, Spor, Haber, Sinema, Belgesel, Çocuk, Müzik ve Yerel Canlı TV kanalları tek bir birleşik Vessel eklentisinde.",
   "entry": "index.ts",
@@ -97,5 +97,5 @@
     "shared/core/text.ts",
     "shared/extractors/youtube.ts"
   ],
-  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
+  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/default_tv.png"
 }

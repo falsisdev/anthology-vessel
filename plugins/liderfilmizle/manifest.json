@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "liderfilmizle",
   "name": "LiderFilm",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "falsisdev",
   "description": "LiderFilm (liderfilmizle.vip) yerli & yabancı film ve dizi arşivi; 1080p HLS ve WebVTT altyazıları.",
   "entry": "index.ts",
@@ -46,5 +46,5 @@
     "shared/core/text.ts",
     "shared/core/tmdb.ts"
   ],
-  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
+  "icon": "https://liderfilmizle.vip/icons/icon-192.png"
 }

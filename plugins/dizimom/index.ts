@@ -15,7 +15,7 @@ import { resolveTmdbIdentity } from "./shared/core/tmdb.ts";
 import { extractPilavyer } from "./shared/extractors/pilavyer.ts";
 import { extractByEmbedUrl } from "./shared/extractors/video-hosts.ts";
 
-const DEFAULT_BASE = "https://ddizimom.net";
+const DEFAULT_BASE = "https://ddizimom.icu";
 
 function parseMomCards(rawHtml: string, base: string): MediaSummary[] {
   const doc = html.parse(rawHtml);
@@ -30,17 +30,26 @@ function parseMomCards(rawHtml: string, base: string): MediaSummary[] {
     const img = a.selectOne("img");
     const title = decodeHtmlEntities(
       a.selectOne("h2, h3, .title")?.text() || img?.attr("alt") || a.text(),
-    ).replace(/\s+/g, " ").trim();
-    if (!title || title.length < 2) continue;
+    )
+      .replace(/\s+/g, " ")
+      .trim();
+    if (
+      !title ||
+      title.length < 2 ||
+      /^(?:[iİı]zle|hemen\s*[iİı]zle|fragman|detay|devam[ıi]\s*n[ıi]\s*oku)$/i.test(title)
+    ) {
+      continue;
+    }
+    const poster = img?.attr("data-src") || img?.attr("src");
+    if (!poster || poster.startsWith("data:")) continue;
     seen.add(full);
     const kind: "movie" | "series" = full.includes("/film/") ? "movie" : "series";
-    const poster = img?.attr("data-src") || img?.attr("src");
     out.push({
       nativeId: `${kind}:${encodeURIComponent(full)}`,
       type: kind,
       title,
       year: extractYear(title),
-      poster: poster ? absoluteUrl(base, poster) : undefined,
+      poster: absoluteUrl(base, poster),
     });
   }
   return out;
@@ -58,7 +67,7 @@ async function resolveMomEpisode(pageUrl: string, base: string) {
     const hostMatch = /src="(https?:\/\/[^/]+)\/assets\/js\/core\.js"/i.exec(rawHtml);
     const pv = await extractPilavyer({
       pvId: pvMatch[1],
-      playerHost: hostMatch?.[1] ?? "https://pilavyerplay.top",
+      playerHost: hostMatch?.[1] ?? "https://play2.pilavyerplay.top",
       referer: `${base}/`,
       sourceLabel: "DiziMom",
     });

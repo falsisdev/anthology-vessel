@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import nodeCrypto from "node:crypto";
 import { installVesselMockHooks, setActivePluginContext } from "./vessel-mock.ts";
 
 installVesselMockHooks();
@@ -13,6 +14,7 @@ const { createStream, sortStreamsByQuality } = await import("../core/quality.ts"
 const { channelLangLabel } = await import("../core/epg.ts");
 const { isDomainBlockedError } = await import("../core/http.ts");
 const { parseVixolitySubtitles } = await import("../extractors/vixolity.ts");
+const { decryptAes256Gcm, decryptBysePayload } = await import("../extractors/bysezo.ts");
 
 async function runTests(): Promise<void> {
   // 1. Domain policy gate check
@@ -129,6 +131,27 @@ async function runTests(): Promise<void> {
     "https://cached.example",
   );
   clearConfigCache();
+
+  // 10. Pure-TS AES-256-GCM & Bysezo FileMoon payload decryption
+  const gcmKey = nodeCrypto.randomBytes(32);
+  const gcmIv = nodeCrypto.randomBytes(12);
+  const sampleJson = JSON.stringify({
+    sources: [{ label: "1080p", url: "https://cdn.byse.test/hls2/master.m3u8" }],
+  });
+  const cipher = nodeCrypto.createCipheriv("aes-256-gcm", gcmKey, gcmIv);
+  const encrypted = Buffer.concat([cipher.update(sampleJson, "utf8"), cipher.final(), cipher.getAuthTag()]);
+  assert.equal(decryptAes256Gcm(gcmKey, gcmIv, encrypted), sampleJson);
+  const keyParts = Array.from({ length: 30 }, () => nodeCrypto.randomBytes(16).toString("base64url"));
+  keyParts[4] = gcmKey.subarray(0, 16).toString("base64url");
+  keyParts[25] = gcmKey.subarray(16, 32).toString("base64url");
+  const decodedPayload = decryptBysePayload({
+    algorithm: "AES-256-GCM",
+    iv: gcmIv.toString("base64url"),
+    payload: encrypted.toString("base64url"),
+    key_parts: keyParts,
+    version: "5",
+  });
+  assert.equal(decodedPayload?.sources?.[0]?.url, "https://cdn.byse.test/hls2/master.m3u8");
 
   console.log("All offline unit assertions passed.");
 }

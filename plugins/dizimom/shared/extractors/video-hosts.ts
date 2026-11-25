@@ -10,6 +10,7 @@ import {
 } from "../core/http.ts";
 import { createStream } from "../core/quality.ts";
 import { decodeHtmlEntities } from "../core/text.ts";
+import { extractBysezo } from "./bysezo.ts";
 import { extractCloseLoad } from "./closeload.ts";
 import { extractOkRu } from "./okru.ts";
 import { extractPilavyer } from "./pilavyer.ts";
@@ -602,18 +603,28 @@ export async function extractMailRu(
   opts: ExtractorOpts = {},
 ): Promise<StreamCandidate[]> {
   const url = normalizeUrl(rawUrl);
-  const vid =
+  const directVid =
     /\/embed\/(\d+)/.exec(url)?.[1] ?? /meta\/(\d+)/.exec(url)?.[1];
-  if (!vid) return [];
+  let metaUrl = directVid ? `https://my.mail.ru/+/video/meta/${directVid}` : "";
+  const referer = url.startsWith("http") ? url : "https://my.mail.ru/";
 
-  const referer = `https://my.mail.ru/video/embed/${vid}`;
-  const data = await fetchJson<MailRuMetaResponse>(
-    `https://my.mail.ru/+/video/meta/${vid}`,
-    {
+  if (!metaUrl) {
+    const embHtml = await fetchText(url, {
       timeoutMs: 8_000,
-      headers: { Referer: referer },
-    },
-  );
+      headers: { Referer: opts.referer ?? "https://my.mail.ru/" },
+    });
+    const m = embHtml
+      ? /metadataUrl["']?\s*:\s*["']([^"']+)["']/.exec(embHtml)?.[1] ??
+        /(\/+\/my\.mail\.ru\/\+\/video\/meta\/[^"'\s]+)/.exec(embHtml)?.[1]
+      : undefined;
+    if (m) metaUrl = normalizeUrl(m);
+  }
+  if (!metaUrl) return [];
+
+  const data = await fetchJson<MailRuMetaResponse>(metaUrl, {
+    timeoutMs: 8_000,
+    headers: { Referer: referer },
+  });
   const prefix = prefixLabel(opts);
   const out: StreamCandidate[] = [];
   for (const v of data?.videos ?? []) {
@@ -775,6 +786,9 @@ export async function extractByEmbedUrl(
   if (lower.includes("vidmoxy.")) return extractVidmoxy(url, opts);
   if (lower.includes("fastplay.") || lower.includes("setplay.")) {
     return extractFastplay(url, opts);
+  }
+  if (lower.includes("bysezo") || lower.includes("filemoon.") || lower.includes("n1mwq.org")) {
+    return extractBysezo(url, opts);
   }
   if (lower.includes("dailymotion.com") || lower.includes("daily.php")) {
     return extractDailymotion(url, opts);

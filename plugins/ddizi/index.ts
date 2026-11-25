@@ -31,6 +31,37 @@ import { searchOfficialYouTubeEpisode } from "./shared/extractors/youtube.ts";
 
 const DEFAULT_BASE = "https://www.ddizi.tel";
 
+function parseDdiziBoxPosts(rawHtml: string, base: string): MediaSummary[] {
+  const doc = html.parse(rawHtml);
+  const out: MediaSummary[] = [];
+  const seen = new Set<string>();
+
+  for (const box of doc.select(".dizi-boxpost, .dizi-boxpost-cat")) {
+    const a = box.selectOne('a[href*="/izle/"], a[href*="/diziler/"], a[href]');
+    const href = a?.attr("href");
+    if (!href) continue;
+    const full = absoluteUrl(base, href).replace(/\/+$/, "");
+    if (seen.has(full)) continue;
+    const img = box.selectOne("img");
+    const rawTitle = a?.attr("title") || img?.attr("alt") || box.text();
+    const title = decodeHtmlEntities(rawTitle).replace(/\s+/g, " ").trim();
+    if (!title || title.length < 2) continue;
+    seen.add(full);
+    const rawPoster = img?.attr("data-src") || img?.attr("src");
+    const poster =
+      rawPoster && !rawPoster.startsWith("data:") ? absoluteUrl(base, rawPoster) : undefined;
+    const isSeriesPage = full.includes("/diziler/");
+    const slug = isSeriesPage ? full.split("/diziler/")[1] ?? full : full;
+    out.push({
+      nativeId: isSeriesPage ? `series:${slug}` : `ep:${encodeURIComponent(full)}`,
+      type: "series",
+      title,
+      poster,
+    });
+  }
+  return out;
+}
+
 function parseDdiziLinks(rawHtml: string, base: string): MediaSummary[] {
   const doc = html.parse(rawHtml);
   const out: MediaSummary[] = [];
@@ -40,14 +71,21 @@ function parseDdiziLinks(rawHtml: string, base: string): MediaSummary[] {
     const href = a.attr("href");
     if (!href) continue;
     const full = absoluteUrl(base, href).replace(/\/+$/, "");
-    const slug = full.split("/diziler/")[1]?.replace(/\/+$/, "") ?? "";
-    const title = decodeHtmlEntities(a.text()).trim();
-    if (!slug || slug.includes("/") || seen.has(slug) || title.length < 2) continue;
+    const slug = full.split("/diziler/")[1]?.replace(/^\/+|\/+$/g, "") ?? "";
+    const title = decodeHtmlEntities(a.attr("title") || a.text())
+      .replace(/\s*son\s*b[oö]l[uü]m\s*izle\s*$/i, "")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (!slug || seen.has(slug) || title.length < 2) continue;
     seen.add(slug);
+    const img = a.selectOne("img");
+    const rawPoster = img?.attr("data-src") || img?.attr("src");
     out.push({
       nativeId: `series:${slug}`,
       type: "series",
       title,
+      poster:
+        rawPoster && !rawPoster.startsWith("data:") ? absoluteUrl(base, rawPoster) : undefined,
     });
   }
   return out;
@@ -136,31 +174,28 @@ export default definePlugin({
   async getHomeFeed(): Promise<HomeFeed> {
     try {
       const base = await resolveBaseUrl("urls.series.ddizi.base", DEFAULT_BASE, "mirrorUrl");
-      let htmlText = await fetchText(`${base}/`, {
+      const htmlText = await fetchText(`${base}/`, {
         timeoutMs: 10_000,
         headers: buildHeaders(`${base}/`),
       });
-      let items = htmlText ? parseDdiziLinks(htmlText, base) : [];
-      if (items.length === 0) {
-        htmlText = await fetchText(`${base}/eski.diziler`, {
-          timeoutMs: 10_000,
-          headers: buildHeaders(`${base}/`),
-        });
-        if (htmlText) items = parseDdiziLinks(htmlText, base);
-      }
-      return {
-        sections:
-          items.length > 0
-            ? [
-                {
-                  id: "series",
-                  title: "Yerli Diziler",
-                  layout: "poster",
-                  items: dedupeMediaSummaries(items).slice(0, 48),
-                },
-              ]
-            : [],
-      };
+      const latestEps = htmlText ? dedupeMediaSummaries(parseDdiziBoxPosts(htmlText, base)).slice(0, 36) : [];
+      const page2Html = await fetchText(`${base}/sayfa/2`, {
+        timeoutMs: 6_000,
+        headers: buildHeaders(`${base}/`),
+      });
+      const moreEps = page2Html
+        ? dedupeMediaSummaries(parseDdiziBoxPosts(page2Html, base)).slice(0, 36)
+        : [];
+      const sections: HomeFeed["sections"] = [
+        { id: "latest", title: "Son Eklenen Bölümler", layout: "poster" as const, items: latestEps },
+        {
+          id: "more",
+          title: "Yerli Diziler",
+          layout: "poster" as const,
+          items: moreEps.filter((m) => Boolean(m.poster)),
+        },
+      ].filter((s) => s.items.length > 0);
+      return { sections };
     } catch (err) {
       rethrowIfDomainBlocked(err);
       return { sections: [] };
@@ -206,18 +241,29 @@ export default definePlugin({
       const epUrl = decodeURIComponent(nativeId.slice(3));
       const epHtml = await fetchText(epUrl, { headers: buildHeaders(`${base}/`) });
       const doc = epHtml ? html.parse(epHtml) : null;
-      const title = decodeHtmlEntities(doc?.selectOne("h1")?.text() || "DDizi Bölüm").trim();
-      const parsed = parseSeasonEpisode(title, 1);
+      const cleanDocTitle = decodeHtmlEntities(
+        doc?.selectOne("h1, h2")?.text() ||
+          doc?.selectOne("title")?.text().replace(/\s*(?:Son\s*B[oö]l[uü]m.*|\|\s*Ddizi.*)$/i, "") ||
+          "DDizi Bölüm",
+      ).trim();
+      const rawPoster =
+        doc?.selectOne('meta[property="og:image"]')?.attr("content") ??
+        doc?.selectOne(".dizi-resmi img, img[data-src*='diziresimleri'], img[src*='diziresimleri']")?.attr("data-src") ??
+        doc?.selectOne(".dizi-resmi img, img[data-src*='diziresimleri'], img[src*='diziresimleri']")?.attr("src");
+      const poster = rawPoster && !rawPoster.startsWith("data:") ? absoluteUrl(base, rawPoster) : undefined;
+      const parsed = parseSeasonEpisode(cleanDocTitle, 1);
       return {
         nativeId,
         type: "series",
-        title,
+        title: cleanDocTitle,
+        poster,
+        backdrop: poster,
         episodes: [
           {
             streamId: nativeId,
             season: parsed?.season ?? 1,
             episode: parsed?.episode ?? 1,
-            title,
+            title: cleanDocTitle,
           },
         ],
       };
@@ -232,11 +278,20 @@ export default definePlugin({
 
     const doc = html.parse(showHtml);
     const title = decodeHtmlEntities(
-      doc.selectOne("h1")?.text().replace(/\s*son\s*bölüm.*$/i, "") || slug,
+      doc.selectOne("h1, h2")?.text().replace(/\s*son\s*bölüm.*$/i, "") ||
+        doc.selectOne("title")?.text().replace(/\s*(?:Son\s*B[oö]l[uü]m.*|\|\s*Ddizi.*)$/i, "") ||
+        slug.split("/").pop()?.replace(/-\d*(?:son-bolum.*|izle.*)$/i, "").replace(/-/g, " ") ||
+        slug,
     ).trim();
-    const posterImg = doc.selectOne(".dizi-resmi img, .img-back-cat img, img");
-    const rawPoster = posterImg?.attr("data-src") || posterImg?.attr("src");
-    const poster = rawPoster ? absoluteUrl(base, rawPoster) : undefined;
+    const posterImg = doc.selectOne(
+      ".dizi-resmi img, .img-back-cat img, .dizi-boxpost img, img[data-src*='diziresimleri'], img[src*='diziresimleri']",
+    );
+    const rawPoster =
+      doc.selectOne('meta[property="og:image"]')?.attr("content") ||
+      posterImg?.attr("data-src") ||
+      posterImg?.attr("src");
+    const poster =
+      rawPoster && !rawPoster.startsWith("data:") ? absoluteUrl(base, rawPoster) : undefined;
 
     const episodes: Episode[] = [];
     const seen = new Set<string>();
@@ -246,13 +301,21 @@ export default definePlugin({
       const full = absoluteUrl(base, href);
       if (seen.has(full)) continue;
       seen.add(full);
-      const epTitle = decodeHtmlEntities(a.text()).trim();
+      const epTitle = decodeHtmlEntities(a.attr("title") || a.text()).trim();
       const parsed = parseSeasonEpisode(epTitle || full, 1);
       episodes.push({
         streamId: `ep:${encodeURIComponent(full)}`,
         season: parsed?.season ?? 1,
         episode: parsed?.episode ?? episodes.length + 1,
         title: epTitle || `${episodes.length + 1}. Bölüm`,
+      });
+    }
+    if (episodes.length === 0 && showHtml.includes("/player/oynat/")) {
+      episodes.push({
+        streamId: `ep:${encodeURIComponent(`${base}/diziler/${slug}`)}`,
+        season: 1,
+        episode: 1,
+        title: title || "1. Bölüm",
       });
     }
     episodes.sort((a, b) => a.season - b.season || a.episode - b.episode);

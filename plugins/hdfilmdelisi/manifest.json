@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "hdfilmdelisi",
   "name": "HDFilmDelisi",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "falsisdev",
   "description": "HDFilmDelisi film ve dizi arşivi; Vixolity Çift Ses / TR Dublaj & Altyazı 1080p HLS akışları.",
   "entry": "index.ts",
@@ -20,6 +20,8 @@
     "en"
   ],
   "domains": [
+    "hdfilmdelisi1.com",
+    "www.hdfilmdelisi1.com",
     "hdfilmdelisi.one",
     "ha.vixolity.com",
     "*.vixolity.com",
@@ -32,7 +34,7 @@
       "key": "mirrorUrl",
       "label": "Özel Site Adresi",
       "type": "text",
-      "placeholder": "https://hdfilmdelisi.one"
+      "placeholder": "https://hdfilmdelisi1.com"
     }
   ],
   "files": [
@@ -45,5 +47,5 @@
     "shared/core/tmdb.ts",
     "shared/extractors/vixolity.ts"
   ],
-  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
+  "icon": "https://www.google.com/s2/favicons?domain=hdfilmdelisi1.com&sz=128"
 }

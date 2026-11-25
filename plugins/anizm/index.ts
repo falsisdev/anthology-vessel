@@ -20,7 +20,7 @@ import {
 } from "./shared/core/anime-helpers.ts";
 import { extractAnizmPlayer, extractByEmbedUrl } from "./shared/extractors/video-hosts.ts";
 
-const DEFAULT_BASE = "https://anizm.net";
+const DEFAULT_BASE = "https://cdn.anizm.net";
 
 interface AnizmV3SearchItem {
   title?: string;
@@ -172,17 +172,36 @@ export default definePlugin({
             .replace(/\/+$/, "");
           if (!slug || seen.has(slug)) continue;
           seen.add(slug);
+          const slugTitle = slug
+            .replace(/-/g, " ")
+            .replace(/\b\w/g, (c) => c.toUpperCase());
           const img = art.selectOne("img");
-          const title = decodeHtmlEntities(img?.attr("alt") || a?.text() || slug)
-            .replace(/\s+posteri$/i, "")
+          const rawTitle =
+            art.selectOne(".v3-card-copy h3, h3, h2")?.text() ||
+            img?.attr("alt") ||
+            slugTitle;
+          const title = decodeHtmlEntities(rawTitle.replace(/<[^>]*>/g, " "))
+            .replace(/\s+(?:posteri|izle)$/i, "")
+            .replace(/\s+/g, " ")
             .trim();
-          const poster = img?.attr("data-src") || img?.attr("src");
+          const artHtml = art.html();
+          const fallbackPoster =
+            /data-v3-deferred-src=["']([^"']+)["']/i.exec(artHtml)?.[1] ??
+            /src=["'](https?:\/\/[^"']+\/storage\/pcovers\/[^"']+)["']/i.exec(artHtml)?.[1];
+          const poster =
+            img?.attr("data-v3-deferred-src") ||
+            img?.attr("data-src") ||
+            img?.attr("src") ||
+            fallbackPoster;
           items.push({
             nativeId: `anime:${slug}`,
             type: "series",
             isAnime: true,
-            title: title || slug,
-            poster: poster ? absoluteUrl(base, poster) : undefined,
+            title: title || slugTitle,
+            poster:
+              poster && !poster.startsWith("data:")
+                ? absoluteUrl(base, poster)
+                : undefined,
           });
           if (items.length >= 30) break;
         }
@@ -251,8 +270,17 @@ export default definePlugin({
     const doc = html.parse(rawHtml);
     const title = decodeHtmlEntities(
       doc.selectOne(".animeTitle, h1")?.text() || slug,
-    ).trim();
-    const poster = doc.selectOne('meta[property="og:image"]')?.attr("content") ?? undefined;
+    )
+      .replace(/\s+izle$/i, "")
+      .trim();
+    const posterImg = doc.selectOne(".v3-poster-frame img, .anime-poster img, img[src*='pcovers']");
+    const rawImg =
+      doc.selectOne('meta[property="og:image"]')?.attr("content") ??
+      posterImg?.attr("data-v3-deferred-src") ??
+      posterImg?.attr("data-src") ??
+      posterImg?.attr("src");
+    const poster =
+      rawImg && !rawImg.startsWith("data:") ? absoluteUrl(base, rawImg) : undefined;
     const episodes: Episode[] = [];
     const seen = new Set<number>();
 
@@ -354,13 +382,16 @@ export default definePlugin({
           ).map((m) => m[1]!);
 
           const translatorPayloads = await Promise.all(
-            transMatches.slice(0, 3).map(async (tUrl) => ({
-              tUrl,
-              tJson: await fetchJson<{ videos?: Array<{ id?: number | string }> }>(tUrl, {
-                timeoutMs: 4_500,
-                headers: { ...buildHeaders(`${base}/`), "X-Requested-With": "XMLHttpRequest" },
-              }),
-            })),
+            transMatches.slice(0, 3).map(async (rawTUrl) => {
+              const tUrl = rawTUrl.replace(/^https?:\/\/anizm\.net\b/i, base);
+              return {
+                tUrl,
+                tJson: await fetchJson<{ videos?: Array<{ id?: number | string }> }>(tUrl, {
+                  timeoutMs: 4_500,
+                  headers: { ...buildHeaders(`${base}/`), "X-Requested-With": "XMLHttpRequest" },
+                }),
+              };
+            }),
           );
 
           const videoTasks: Array<Promise<StreamCandidate[]>> = [];

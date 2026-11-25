@@ -75,6 +75,13 @@ const NOW_JUNK_SLUGS = new Set([
   "site-haritasi",
   "reklam",
   "canli-tv",
+  "arsiv",
+  "hesabim",
+  "diziler",
+  "programlar",
+  "haberler",
+  "fragmanlar",
+  "tum-bolumler",
 ]);
 
 async function resolveNowEpisode(
@@ -360,32 +367,70 @@ async function resolveTv2Episode(
 }
 
 async function fetchNowHomeShows(nowBase: string): Promise<MediaSummary[]> {
-  const rawHtml = await fetchText(`${nowBase}/`, {
-    timeoutMs: 10_000,
-    headers: buildHeaders(`${nowBase}/`),
-  });
+  const rawHtml =
+    (await fetchText(`${nowBase}/dizi-izle`, {
+      timeoutMs: 10_000,
+      headers: buildHeaders(`${nowBase}/`),
+    })) ??
+    (await fetchText(`${nowBase}/`, {
+      timeoutMs: 10_000,
+      headers: buildHeaders(`${nowBase}/`),
+    }));
   if (!rawHtml) return [];
   const doc = html.parse(rawHtml);
-  const items: MediaSummary[] = [];
-  const seen = new Set<string>();
+  const bySlug = new Map<string, MediaSummary>();
 
   for (const a of doc.select(`a[href^="${nowBase}/"]`)) {
     const href = a.attr("href") ?? "";
-    const slug = href.slice(nowBase.length + 1).split("/")[0]?.trim() ?? "";
-    if (!slug || /^\d/.test(slug) || NOW_JUNK_SLUGS.has(slug) || seen.has(slug)) continue;
+    const rel = href.slice(nowBase.length + 1);
+    if (!rel || rel.includes("haber") || rel.includes("spor") || rel.includes("hava")) continue;
+    const slug = rel.split("/")[0]?.split("?")[0]?.trim() ?? "";
+    if (!slug || /^\d/.test(slug) || NOW_JUNK_SLUGS.has(slug.toLowerCase())) continue;
     const img = a.selectOne("img");
-    const rawTitle = decodeHtmlEntities(img?.attr("alt") || a.text()).trim();
-    if (!rawTitle || rawTitle.length < 2) continue;
-    seen.add(slug);
-    const poster = img?.attr("data-src") || img?.attr("src");
-    items.push({
-      nativeId: `now:${slug}`,
-      type: "series",
-      title: rawTitle,
-      poster: poster ? absoluteUrl(nowBase, poster) : undefined,
-    });
+    const explicitTitle = decodeHtmlEntities(
+      a.selectOne(".program-name strong, .program-name, h2, h3, .title")?.text() || "",
+    )
+      .replace(/\s+/g, " ")
+      .trim();
+    const altTitle = decodeHtmlEntities(img?.attr("alt") || "")
+      .replace(/\s+/g, " ")
+      .trim();
+    const isShortCaption =
+      explicitTitle.length >= 2 && explicitTitle.length <= 50;
+    const slugTitle = slug
+      .replace(/-/g, " ")
+      .replace(/\b\w/g, (c) => c.toUpperCase());
+    const rawTitle = isShortCaption
+      ? explicitTitle
+      : altTitle && altTitle.length <= 45 && !/[?!.]$/.test(altTitle)
+        ? altTitle
+        : slugTitle;
+    if (!rawTitle || rawTitle.length < 2 || /^ar[sş][iİı]v$/i.test(rawTitle)) continue;
+
+    const rawPoster = img?.attr("data-src") || img?.attr("data-original") || img?.attr("src");
+    const poster =
+      rawPoster && !rawPoster.startsWith("data:")
+        ? absoluteUrl(nowBase, rawPoster)
+        : undefined;
+
+    const prev = bySlug.get(slug);
+    if (!prev) {
+      if (!poster) continue;
+      bySlug.set(slug, {
+        nativeId: `now:${slug}`,
+        type: "series",
+        title: rawTitle,
+        poster,
+      });
+    } else {
+      if (!prev.poster && poster) prev.poster = poster;
+      if (isShortCaption && explicitTitle.length < prev.title.length) {
+        prev.title = explicitTitle;
+      }
+    }
   }
-  return dedupeMediaSummaries(items).slice(0, 36);
+  const withPoster = Array.from(bySlug.values()).filter((x) => Boolean(x.poster));
+  return dedupeMediaSummaries(withPoster.length > 0 ? withPoster : Array.from(bySlug.values())).slice(0, 36);
 }
 
 export default definePlugin({

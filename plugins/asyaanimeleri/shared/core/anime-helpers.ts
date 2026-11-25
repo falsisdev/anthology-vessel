@@ -197,8 +197,9 @@ export async function resolveDiziWatchAnimeFallback(
   let slug = "";
   const probeQueries: string[] = [...cleanTitles.slice(0, 4)];
   for (const t of cleanTitles.slice(0, 2)) {
-    const words = t.split(/\s+/).filter((w) => w.length >= 3);
+    const words = t.split(/\s+/).filter((w) => w.length >= 2);
     if (words.length >= 2) {
+      probeQueries.push(words.join("-"));
       probeQueries.push(`${words[0]}-${words[1]}`);
       probeQueries.push(words[0]!);
     }
@@ -230,6 +231,11 @@ export async function resolveDiziWatchAnimeFallback(
       slug = bestSlug;
       break;
     }
+  }
+  if (!slug && cleanTitles[0]) {
+    slug = asciiFold(cleanTitles[0])
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
   }
   if (!slug) return [];
 

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "sonanime",
   "name": "SonAnime",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "falsisdev",
   "description": "SonAnime (sonanime.com) üzerinden Türkçe altyazılı doğrudan 1080p-360p MP4 anime arşivi.",
   "entry": "index.ts",
@@ -41,5 +41,5 @@
     "shared/core/text.ts",
     "shared/core/tmdb.ts"
   ],
-  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
+  "icon": "https://www.google.com/s2/favicons?domain=sonanime.com&sz=128"
 }

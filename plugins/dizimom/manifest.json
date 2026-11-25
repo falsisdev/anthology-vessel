@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "dizimom",
   "name": "DiziMom",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "falsisdev",
   "description": "DiziMom (ddizimom.net) ve Pilavyer Player üzerinden yabancı dizi ve film 1080p HLS akışları.",
   "entry": "index.ts",
@@ -20,6 +20,8 @@
     "en"
   ],
   "domains": [
+    "ddizimom.icu",
+    "www.ddizimom.icu",
     "ddizimom.net",
     "pilavyerplay.top",
     "play2.pilavyerplay.top",
@@ -33,7 +35,7 @@
       "key": "mirrorUrl",
       "label": "Özel Site Adresi",
       "type": "text",
-      "placeholder": "https://ddizimom.net"
+      "placeholder": "https://ddizimom.icu"
     }
   ],
   "files": [
@@ -43,6 +45,7 @@
     "shared/core/quality.ts",
     "shared/core/text.ts",
     "shared/core/tmdb.ts",
+    "shared/extractors/bysezo.ts",
     "shared/extractors/closeload.ts",
     "shared/extractors/okru.ts",
     "shared/extractors/pilavyer.ts",
@@ -52,5 +55,5 @@
     "shared/extractors/vidmoly.ts",
     "shared/extractors/youtube.ts"
   ],
-  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
+  "icon": "https://www.google.com/s2/favicons?domain=ddizimom.icu&sz=128"
 }

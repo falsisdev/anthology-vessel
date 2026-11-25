@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "filmmodu",
   "name": "FilmModu",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "falsisdev",
   "description": "FilmModu (filmmodu.one ve filmmodu.live/Pilavyer yedekli) canlı segment doğrulamalı 1080p film akışları.",
   "entry": "index.ts",
@@ -44,5 +44,5 @@
     "shared/core/tmdb.ts",
     "shared/extractors/pilavyer.ts"
   ],
-  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
+  "icon": "https://www.filmmodu.one/icon/192x192.png"
 }

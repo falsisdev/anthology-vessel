@@ -15,16 +15,16 @@ export async function extractVidmoly(
 ): Promise<StreamCandidate[]> {
   let url = rawUrl.trim();
   if (url.startsWith("//")) url = `https:${url}`;
-  const idMatch = /(?:embed-|\/)([a-zA-Z0-9]{8,20})(?:\.html)?/i.exec(url);
+  const idMatch = /(?:embed-|\/dl\/|\/)([a-zA-Z0-9]{8,20})(?:\.html)?/i.exec(url);
   if (url.includes("vidmoly") && idMatch && idMatch[1] && !url.includes("embed-")) {
-    url = `https://vidmoly.biz/embed-${idMatch[1]}.html`;
+    url = `https://vidmoly.to/embed-${idMatch[1]}.html`;
   }
-  url = url.replace(/vidmoly\.(?:to|net|me)\//i, "vidmoly.biz/");
+  url = url.replace(/vidmoly\.(?:biz|net|me)\//i, "vidmoly.to/");
 
   const htmlText = await fetchText(url, {
     timeoutMs: 10_000,
     headers: {
-      Referer: opts.referer ?? "https://vidmoly.biz/",
+      Referer: opts.referer ?? "https://vidmoly.to/",
     },
   });
   if (!htmlText) return [];
@@ -50,7 +50,7 @@ export async function extractVidmoly(
       audioType: opts.audioType,
       language: opts.language ?? (opts.audioType === "dub" ? "tr" : undefined),
       headers: {
-        Referer: "https://vidmoly.biz/",
+        Referer: "https://vidmoly.to/",
       },
     }),
   ];

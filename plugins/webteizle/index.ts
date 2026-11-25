@@ -16,8 +16,10 @@ import {
   rethrowIfDomainBlocked,
 } from "./shared/core/http.ts";
 import {
+  finalizeStreams,
   getTmdbBackedMovieDetails,
   getTmdbMovieHomeSections,
+  pickBestCandidate,
   searchTmdbBackedCatalog,
 } from "./shared/core/plugin-helpers.ts";
 import { sortStreamsByQuality } from "./shared/core/quality.ts";
@@ -52,10 +54,18 @@ async function findFilmPage(
   const slugEn = slugify(titleEn);
 
   if (slugTr) {
-    candidates.push(`${base}/izle/dublaj/${slugTr}`, `${base}/izle/altyazi/${slugTr}`);
+    candidates.push(
+      `${base}/hakkinda/${slugTr}`,
+      `${base}/izle/dublaj/${slugTr}`,
+      `${base}/izle/altyazi/${slugTr}`,
+    );
   }
   if (slugEn && slugEn !== slugTr) {
-    candidates.push(`${base}/izle/dublaj/${slugEn}`, `${base}/izle/altyazi/${slugEn}`);
+    candidates.push(
+      `${base}/hakkinda/${slugEn}`,
+      `${base}/izle/dublaj/${slugEn}`,
+      `${base}/izle/altyazi/${slugEn}`,
+    );
   }
 
   const candidateResults = await Promise.all(
@@ -88,11 +98,18 @@ async function findFilmPage(
     if (!res || res.status < 200 || res.status >= 300) continue;
     try {
       const data = res.json<SearchApiResponse>();
-      const first = data.results?.filmler?.results?.[0];
-      if (first?.url) {
-        const pageUrl = first.url.startsWith("http")
-          ? first.url
-          : `${base}${first.url.startsWith("/") ? "" : "/"}${first.url}`;
+      const results = (data.results?.filmler?.results ?? []).filter(
+        (r) => Boolean(r.url && r.title && !r.url.includes("/fragman/")),
+      );
+      const best = pickBestCandidate(
+        results.map((r) => ({ title: r.title ?? "", url: r.url! })),
+        titleTr,
+        titleEn,
+      );
+      if (best?.url) {
+        const pageUrl = best.url.startsWith("http")
+          ? best.url
+          : `${base}${best.url.startsWith("/") ? "" : "/"}${best.url}`;
         const body = await fetchText(pageUrl, {
           timeoutMs: 8_000,
           headers: buildHeaders(`${base}/`),
@@ -109,15 +126,20 @@ async function findFilmPage(
 function resolveEmbedToken(embedHtml: string): string | null {
   const doc = html.parse(embedHtml);
   const iframeSrc = doc.selectOne("iframe[src]")?.attr("src");
-  if (iframeSrc) return iframeSrc;
+  if (iframeSrc && !iframeSrc.includes("reCAPTCHADATA")) return iframeSrc;
 
-  const short = /(vidmoly|okru|sibnet)\s*\(\s*'([^']+)'/i.exec(embedHtml);
+  const short = /(vidmoly|okru|sibnet|mailru|filemoon)\s*\(\s*'([^']+)'/i.exec(embedHtml);
   if (!short?.[1] || !short[2]) return null;
   const host = short[1].toLowerCase();
   const vid = short[2];
-  if (host === "vidmoly") return `https://vidmoly.biz/embed-${vid}.html`;
+  if (host === "vidmoly") return `https://vidmoly.to/embed-${vid}.html`;
   if (host === "okru") return `https://odnoklassniki.ru/videoembed/${vid}`;
   if (host === "sibnet") return `https://video.sibnet.ru/shell.php?videoid=${vid}`;
+  if (host === "filemoon") return `https://bysezoxexe.com/e/${vid}`;
+  if (host === "mailru") {
+    const normalized = vid.replace(/^\/+/, "").replace(/^([^/]+\/[^/]+)\/(.+)$/, "$1/video/embed/$2");
+    return `https://my.mail.ru/${normalized}`;
+  }
   return null;
 }
 
@@ -251,7 +273,7 @@ export default definePlugin({
       );
       const streams = langResults.flat();
 
-      return { streams: sortStreamsByQuality(streams) };
+      return finalizeStreams(streams);
     } catch (err) {
       rethrowIfDomainBlocked(err);
       return { streams: [] };

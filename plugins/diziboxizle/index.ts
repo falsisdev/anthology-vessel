@@ -41,6 +41,34 @@ function parseBoxIzleCards(rawHtml: string, base: string): MediaSummary[] {
   const out: MediaSummary[] = [];
   const seen = new Set<string>();
 
+  for (const box of doc.select("#list-series .episode-box, .episode-box, article, .poster")) {
+    const a = box.selectOne("a[href]");
+    const href = a?.attr("href");
+    if (!href || href.includes("-bolum")) continue;
+    const full = absoluteUrl(base, href).replace(/\/+$/, "");
+    const slug = full.split("/").pop() ?? "";
+    if (!slug || seen.has(slug)) continue;
+    const img = box.selectOne("img");
+    const rawTitle =
+      box.selectOne(".episode-title, .categorytitle, h2, h3")?.text() ||
+      a?.attr("title") ||
+      img?.attr("alt") ||
+      a?.text() ||
+      "";
+    const title = decodeHtmlEntities(rawTitle).replace(/\s+/g, " ").trim();
+    if (!title || title.length < 2) continue;
+    const posterRaw = img?.attr("data-src") || img?.attr("src");
+    const poster =
+      posterRaw && !posterRaw.startsWith("data:") ? absoluteUrl(base, posterRaw) : undefined;
+    seen.add(slug);
+    out.push({
+      nativeId: `series:${slug}`,
+      type: "series",
+      title,
+      poster,
+    });
+  }
+
   for (const a of doc.select(".categorytitle a[href], #list-series a[href]")) {
     const href = a.attr("href");
     if (!href || href.includes("-bolum")) continue;
@@ -50,10 +78,13 @@ function parseBoxIzleCards(rawHtml: string, base: string): MediaSummary[] {
     const title = decodeHtmlEntities(a.text()).trim();
     if (!title || title.length < 2) continue;
     seen.add(slug);
+    const img = a.selectOne("img") ?? a.parent()?.selectOne("img");
+    const posterRaw = img?.attr("data-src") || img?.attr("src");
     out.push({
       nativeId: `series:${slug}`,
       type: "series",
       title,
+      poster: posterRaw && !posterRaw.startsWith("data:") ? absoluteUrl(base, posterRaw) : undefined,
     });
   }
   return out;
@@ -164,7 +195,9 @@ export default definePlugin({
     if (!rawHtml) throw new Error(`DiziBoxİzle dizisi açılamadı: ${slug}`);
 
     const doc = html.parse(rawHtml);
-    const title = decodeHtmlEntities(doc.selectOne("h1")?.text() || slug).trim();
+    const title = decodeHtmlEntities(doc.selectOne("h1")?.text() || slug)
+      .replace(/\s*(?:Dizisi\s+izle.*|\|\s*DiziBOX.*)$/i, "")
+      .trim();
     const poster = doc.selectOne('meta[property="og:image"]')?.attr("content") ?? undefined;
     const episodes: Episode[] = [];
     const seen = new Set<string>();

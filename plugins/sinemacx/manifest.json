@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "sinemacx",
   "name": "SinemaCX",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "falsisdev",
   "description": "Sinemacc.com (SinemaCX) ve Vixolity HLS destekli 1080p Türkçe film arşivi.",
   "entry": "index.ts",
@@ -44,5 +44,5 @@
     "shared/core/tmdb.ts",
     "shared/extractors/vixolity.ts"
   ],
-  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
+  "icon": "https://www.google.com/s2/favicons?domain=sinemacc.com&sz=128"
 }

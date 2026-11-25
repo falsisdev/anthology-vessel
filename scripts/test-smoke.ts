@@ -39,6 +39,9 @@ const SEARCH_QUERIES: Record<string, string> = {
   trdiziizle: "Kızılcık",
   tvdiziler: "Kızılcık",
   ddizi: "Kızılcık Şerbeti",
+  diziyou: "Breaking Bad",
+  diziboxizle: "Foodie Love",
+  dizibak: "Piano",
   puhutv: "Şahsiyet",
   "anthology-diziler": "Yargı",
 };

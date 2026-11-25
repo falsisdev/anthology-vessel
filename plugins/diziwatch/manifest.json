@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "diziwatch",
   "name": "DiziWatch",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "falsisdev",
   "description": "DiziWatch (diziwatch.org) yabancı dizi ve anime arşivi; AnizmPlayer 1080p HLS, Ok.ru MP4 ve Sibnet akışları.",
   "entry": "index.ts",
@@ -43,6 +43,7 @@
     "shared/core/quality.ts",
     "shared/core/text.ts",
     "shared/core/tmdb.ts",
+    "shared/extractors/bysezo.ts",
     "shared/extractors/closeload.ts",
     "shared/extractors/okru.ts",
     "shared/extractors/pilavyer.ts",
@@ -52,5 +53,5 @@
     "shared/extractors/vidmoly.ts",
     "shared/extractors/youtube.ts"
   ],
-  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
+  "icon": "https://www.google.com/s2/favicons?domain=diziwatch.org&sz=128"
 }

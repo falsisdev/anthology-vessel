@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "diziyou",
   "name": "DiziYou",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "falsisdev",
   "description": "DiziYou (diziyou.one) üzerinden doğrudan storage HLS master akışları ve Türkçe VTT altyazıları.",
   "entry": "index.ts",
@@ -19,9 +19,15 @@
     "en"
   ],
   "domains": [
+    "diziyou.net",
+    "www.diziyou.net",
+    "diziyou.tv",
+    "www.diziyou.tv",
     "www.diziyou.one",
     "diziyou.one",
     "storage.diziyou.one",
+    "ksdpictures.site",
+    "*.ksdpictures.site",
     "api.themoviedb.org",
     "raw.githubusercontent.com"
   ],
@@ -30,7 +36,7 @@
       "key": "mirrorUrl",
       "label": "Özel Site Adresi",
       "type": "text",
-      "placeholder": "https://www.diziyou.one"
+      "placeholder": "https://diziyou.net"
     }
   ],
   "files": [
@@ -41,5 +47,5 @@
     "shared/core/text.ts",
     "shared/core/tmdb.ts"
   ],
-  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
+  "icon": "https://www.google.com/s2/favicons?domain=diziyou.net&sz=128"
 }

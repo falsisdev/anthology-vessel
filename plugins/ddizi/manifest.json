@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "ddizi",
   "name": "DDizi",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "falsisdev",
   "description": "DDizi (ddizi.tel) yerli dizi arşivi; Ciner/Yandex CDN, Dailymotion ve YouTube resmi bölüm akışları.",
   "entry": "index.ts",
@@ -41,6 +41,7 @@
     "shared/core/quality.ts",
     "shared/core/text.ts",
     "shared/core/tmdb.ts",
+    "shared/extractors/bysezo.ts",
     "shared/extractors/closeload.ts",
     "shared/extractors/okru.ts",
     "shared/extractors/pilavyer.ts",
@@ -50,5 +51,5 @@
     "shared/extractors/vidmoly.ts",
     "shared/extractors/youtube.ts"
   ],
-  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
+  "icon": "https://www.google.com/s2/favicons?domain=ddizi.tel&sz=128"
 }

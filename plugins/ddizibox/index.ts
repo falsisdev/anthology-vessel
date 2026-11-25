@@ -24,7 +24,7 @@ import {
 import { resolveTmdbIdentity } from "./shared/core/tmdb.ts";
 import { extractPilavyer } from "./shared/extractors/pilavyer.ts";
 
-const DEFAULT_BASE = "https://ddizibox.com";
+const DEFAULT_BASE = "https://ddizibox.click";
 
 interface DdiziBoxSearchItem {
   title?: string;
@@ -47,32 +47,40 @@ function classifyHref(href: string): { type: "movie" | "series"; isAnime: boolea
 
 function parseBoxCards(rawHtml: string, base: string): MediaSummary[] {
   const doc = html.parse(rawHtml);
-  const out: MediaSummary[] = [];
-  const seen = new Set<string>();
+  const byUrl = new Map<string, MediaSummary>();
 
   for (const a of doc.select("a[href*='/film/'], a[href*='/dizi/'], a[href*='/anime/']")) {
     const href = a.attr("href");
     if (!href || href.includes("/sezon-") || href.includes("/bolum-")) continue;
     const full = absoluteUrl(base, href);
-    if (seen.has(full)) continue;
     const img = a.selectOne("img");
     const rawTitle =
       a.selectOne("h2, h3, .title")?.text() || img?.attr("alt") || a.text();
     const title = decodeHtmlEntities(rawTitle).replace(/\s+/g, " ").trim();
-    if (!title || title.length < 2) continue;
-    seen.add(full);
-    const { type, isAnime } = classifyHref(full);
     const posterRaw = img?.attr("data-src") || img?.attr("src");
-    out.push({
-      nativeId: `${isAnime ? "anime" : type}:${encodeURIComponent(full)}`,
-      type,
-      isAnime,
-      title,
-      year: extractYear(title),
-      poster: posterRaw ? absoluteUrl(base, posterRaw) : undefined,
-    });
+    const poster =
+      posterRaw && !posterRaw.startsWith("data:") ? absoluteUrl(base, posterRaw) : undefined;
+    if (!title || title.length < 2 || /^(?:hemen\s+)?(?:izle|fragman|detay(?:lar)?|listeye\s+ekle)$/i.test(title)) {
+      continue;
+    }
+
+    const prev = byUrl.get(full);
+    if (!prev) {
+      if (!poster) continue;
+      const { type, isAnime } = classifyHref(full);
+      byUrl.set(full, {
+        nativeId: `${isAnime ? "anime" : type}:${encodeURIComponent(full)}`,
+        type,
+        isAnime,
+        title,
+        year: extractYear(title),
+        poster,
+      });
+    } else if (!prev.poster && poster) {
+      prev.poster = poster;
+    }
   }
-  return out;
+  return Array.from(byUrl.values());
 }
 
 async function resolvePilavyerOnPage(pageUrl: string, base: string) {
@@ -81,16 +89,28 @@ async function resolvePilavyerOnPage(pageUrl: string, base: string) {
     headers: buildHeaders(`${base}/`),
   });
   if (!pageHtml) return [];
-  const pvMatch = /data-pv="([^"]+)"/.exec(pageHtml);
-  if (!pvMatch?.[1]) return [];
-  const hostMatch = /src="(https?:\/\/[^/]+)\/assets\/js\/core\.js"/i.exec(pageHtml);
-  const pv = await extractPilavyer({
-    pvId: pvMatch[1],
-    playerHost: hostMatch?.[1] ?? "https://play2.pilavyerplay.top",
-    referer: `${base}/`,
-    sourceLabel: "DDiziBox",
-  });
-  return pv.streams;
+  const pvMatch = /data-pv=["']([^"']+)["']/.exec(pageHtml);
+  const hostMatch = /src=["'](https?:\/\/[^/]+)\/assets\/js\/core\.js["']/i.exec(pageHtml);
+  if (pvMatch?.[1]) {
+    const pv = await extractPilavyer({
+      pvId: pvMatch[1],
+      playerHost: hostMatch?.[1] ?? "https://play2.pilavyerplay.top",
+      referer: `${base}/`,
+      sourceLabel: "DDiziBox",
+    });
+    if (pv.streams.length > 0) return pv.streams;
+  }
+
+  const iframeMatch = /<iframe[^>]+src=["']([^"']*pilavyer[^"']+)["']/i.exec(pageHtml);
+  if (iframeMatch?.[1]) {
+    const pv = await extractPilavyer({
+      playerUrl: absoluteUrl(base, iframeMatch[1]),
+      referer: pageUrl,
+      sourceLabel: "DDiziBox",
+    });
+    return pv.streams;
+  }
+  return [];
 }
 
 export default definePlugin({

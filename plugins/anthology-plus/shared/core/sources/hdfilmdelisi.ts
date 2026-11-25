@@ -140,7 +140,7 @@ export async function resolveHdFilmDelisiByIdentity(opts: {
 
   const base = (
     opts.base ??
-    (await configString("urls.movies.hdfilmdelisi.base", "https://hdfilmdelisi.one"))
+    (await configString("urls.movies.hdfilmdelisi.base", "https://hdfilmdelisi1.com"))
   ).replace(/\/+$/, "");
 
   for (const q of dedupeStrings([identity.title, identity.originalTitle]).slice(0, 2)) {

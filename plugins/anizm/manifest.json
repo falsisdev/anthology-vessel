@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "anizm",
   "name": "Anizm",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "falsisdev",
   "description": "Anizm (anizm.net) V3 AnizmPlayer, OK.ru ve Sibnet Türkçe altyazılı anime arşivi.",
   "entry": "index.ts",
@@ -32,7 +32,7 @@
       "key": "mirrorUrl",
       "label": "Özel Site Adresi",
       "type": "text",
-      "placeholder": "https://anizm.net"
+      "placeholder": "https://cdn.anizm.net"
     }
   ],
   "files": [
@@ -43,6 +43,7 @@
     "shared/core/quality.ts",
     "shared/core/text.ts",
     "shared/core/tmdb.ts",
+    "shared/extractors/bysezo.ts",
     "shared/extractors/closeload.ts",
     "shared/extractors/okru.ts",
     "shared/extractors/pilavyer.ts",
@@ -52,5 +53,5 @@
     "shared/extractors/vidmoly.ts",
     "shared/extractors/youtube.ts"
   ],
-  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
+  "icon": "https://cdn.anizm.net/images/logo_128x128.png"
 }

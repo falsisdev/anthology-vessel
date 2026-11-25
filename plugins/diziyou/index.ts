@@ -28,7 +28,7 @@ import {
 } from "./shared/core/text.ts";
 import { resolveTmdbIdentity } from "./shared/core/tmdb.ts";
 
-const DEFAULT_BASE = "https://www.diziyou.one";
+const DEFAULT_BASE = "https://diziyou.net";
 const DEFAULT_STORAGE = "https://storage.diziyou.one";
 
 function parseYouCards(rawHtml: string, base: string): MediaSummary[] {
@@ -36,23 +36,51 @@ function parseYouCards(rawHtml: string, base: string): MediaSummary[] {
   const out: MediaSummary[] = [];
   const seen = new Set<string>();
 
-  for (const a of doc.select("#list-series a[href], .list-series a[href], .cat-img a[href], .post-title a[href], #categorytitle a[href], .entry-title a[href]")) {
-    const href = a.attr("href");
-    if (!href || href.includes("/kategori/") || href.includes("-sezon-")) continue;
+  for (const art of doc.select("article.card, .card")) {
+    const a = art.selectOne("a[href]");
+    const href = a?.attr("href");
+    if (!href || href.includes("/tur/") || href.includes("/kategori/")) continue;
     const full = absoluteUrl(base, href);
-    if (seen.has(full)) continue;
-    const img = a.selectOne("img") ?? a.parent()?.selectOne("img");
-    const rawTitle = a.text() || a.attr("title") || img?.attr("alt") || "";
+    const img = art.selectOne("img");
+    const rawTitle = art.selectOne("h3, h2")?.text() || img?.attr("alt") || a?.attr("title") || "";
     const title = decodeHtmlEntities(rawTitle).replace(/\s*izle\s*$/i, "").trim();
     if (!title || title.length < 2) continue;
-    seen.add(full);
-    const poster = img?.attr("data-src") || img?.attr("src");
+
+    const isEp = full.includes("/bolum/");
+    const idKey = isEp ? `ep:${encodeURIComponent(full)}` : `series:${encodeURIComponent(full)}`;
+    if (seen.has(idKey)) continue;
+    seen.add(idKey);
+
+    const rawPoster = img?.attr("data-src") || img?.attr("src");
+    const poster =
+      rawPoster && !rawPoster.startsWith("data:") ? absoluteUrl(base, rawPoster) : undefined;
     out.push({
-      nativeId: `series:${encodeURIComponent(full)}`,
+      nativeId: idKey,
       type: "series",
       title,
-      poster: poster ? absoluteUrl(base, poster) : undefined,
+      poster,
     });
+  }
+
+  if (out.length === 0) {
+    for (const a of doc.select("#list-series a[href], .list-series a[href], .cat-img a[href], .post-title a[href], #categorytitle a[href], .entry-title a[href]")) {
+      const href = a.attr("href");
+      if (!href || href.includes("/kategori/") || href.includes("-sezon-")) continue;
+      const full = absoluteUrl(base, href);
+      if (seen.has(full)) continue;
+      const img = a.selectOne("img") ?? a.parent()?.selectOne("img");
+      const rawTitle = a.text() || a.attr("title") || img?.attr("alt") || "";
+      const title = decodeHtmlEntities(rawTitle).replace(/\s*izle\s*$/i, "").trim();
+      if (!title || title.length < 2) continue;
+      seen.add(full);
+      const poster = img?.attr("data-src") || img?.attr("src");
+      out.push({
+        nativeId: `series:${encodeURIComponent(full)}`,
+        type: "series",
+        title,
+        poster: poster ? absoluteUrl(base, poster) : undefined,
+      });
+    }
   }
   return out;
 }
@@ -69,6 +97,50 @@ async function resolveDiziYouEpisode(
   if (!epHtml) return [];
 
   const doc = html.parse(epHtml);
+  const ksdIframe =
+    doc.selectOne('iframe[src*="ksdpictures.site"]')?.attr("src") ??
+    /https?:\/\/ksdpictures\.site\/dzembed\.php\?[^"'\s<>]+/i.exec(epHtml)?.[0];
+  if (ksdIframe) {
+    const embedUrl = absoluteUrl(base, ksdIframe);
+    const ksdHtml = await fetchText(embedUrl, {
+      timeoutMs: 10_000,
+      headers: buildHeaders(`${base}/`),
+    });
+    if (ksdHtml) {
+      const m3u8 = /https?:\/\/[^\s"'<>\\]+\.m3u8[^\s"'<>\\]*/i.exec(ksdHtml)?.[0];
+      if (m3u8) {
+        const ksdHeaders = buildHeaders("https://ksdpictures.site/");
+        const subtitles: SubtitleTrack[] = [];
+        const seenSub = new Set<string>();
+        for (const sm of ksdHtml.matchAll(/https?:\/\/[^\s"'<>\\]+\.(?:vtt|srt)(?:\?[^\s"'<>\\]*)?/gi)) {
+          const u = sm[0];
+          if (!u || seenSub.has(u) || /thumb/i.test(u)) continue;
+          seenSub.add(u);
+          const isTr = /_tr[_.]|turk/i.test(u);
+          const lang = isTr ? "tr" : /_en[_.]|eng/i.test(u) ? "en" : "tr";
+          subtitles.push({
+            id: `${lang}_${subtitles.length}`,
+            source: { kind: "url", url: u, headers: ksdHeaders },
+            lang,
+            label: lang === "en" ? "English" : "Türkçe",
+            format: u.includes(".srt") ? "srt" : "vtt",
+            isDefault: isTr,
+          });
+        }
+        return [
+          createStream({
+            url: m3u8.replace(/\\\//g, "/"),
+            kind: "hls",
+            quality: "1080p",
+            label: "DiziYou • 1080p HLS",
+            headers: ksdHeaders,
+            subtitles: subtitles.length > 0 ? subtitles : undefined,
+          }),
+        ];
+      }
+    }
+  }
+
   const playerSrc = doc.selectOne("#diziyouPlayer")?.attr("src");
   if (!playerSrc) return [];
   const itemId = playerSrc.split("/").pop()?.replace(/\.html$/i, "").split("?")[0] ?? "";
@@ -165,6 +237,25 @@ export default definePlugin({
 
   async getDetails(nativeId): Promise<MediaDetail> {
     const base = await resolveBaseUrl("urls.series.diziyou.base", DEFAULT_BASE, "mirrorUrl");
+    if (nativeId.startsWith("ep:")) {
+      const epUrl = decodeURIComponent(nativeId.slice(3));
+      const epHtml = await fetchText(epUrl, { timeoutMs: 10_000, headers: buildHeaders(`${base}/`) });
+      const doc = epHtml ? html.parse(epHtml) : null;
+      const showHref = doc?.selectOne('a[href*="/dizi/"], a.back-to-show')?.attr("href");
+      if (!showHref) {
+        const title = decodeHtmlEntities(doc?.selectOne("h1")?.text() || "DiziYou Bölüm").trim();
+        const rawP = doc?.selectOne('meta[property="og:image"]')?.attr("content");
+        return {
+          nativeId,
+          type: "series",
+          title,
+          poster: rawP ? absoluteUrl(base, rawP) : undefined,
+          backdrop: rawP ? absoluteUrl(base, rawP) : undefined,
+          episodes: [{ streamId: nativeId, season: 1, episode: 1, title }],
+        };
+      }
+      nativeId = `series:${encodeURIComponent(absoluteUrl(base, showHref))}`;
+    }
     const showUrl = decodeURIComponent(nativeId.replace(/^series:/, ""));
     const rawHtml = await fetchText(showUrl, {
       timeoutMs: 10_000,
@@ -173,12 +264,31 @@ export default definePlugin({
     if (!rawHtml) throw new Error(`DiziYou dizisi açılamadı: ${showUrl}`);
 
     const doc = html.parse(rawHtml);
-    const title = decodeHtmlEntities(doc.selectOne("h1")?.text() || "DiziYou").trim();
-    const poster = doc.selectOne('meta[property="og:image"]')?.attr("content") ?? undefined;
+    const headingTitle = doc
+      .select("h1, h2")
+      .map((el) => decodeHtmlEntities(el.text()).replace(/\s+izle$/i, "").trim())
+      .find((t) => t.length >= 2 && !/^diziyou\b/i.test(t) && !/^b[oö]l[uü]mler$/i.test(t));
+    const docTitle = decodeHtmlEntities(doc.selectOne("title")?.text() || "")
+      .replace(/\s*(?:-\s*T[üu]rk[çc]e.*|\|\s*Diziyou.*)$/i, "")
+      .replace(/\s+izle$/i, "")
+      .trim();
+    const title = headingTitle || docTitle || "DiziYou";
+    const tmdbImgs = doc
+      .select("img")
+      .map((img) => img.attr("data-src") || img.attr("src") || "")
+      .filter((u) => u.includes("/images/t/p/"));
+    const rawPoster =
+      doc.selectOne('meta[property="og:image"]')?.attr("content") ??
+      tmdbImgs.find((u) => u.includes("/w300/")) ??
+      tmdbImgs[0] ??
+      doc.selectOne(".poster img, picture img, .card__poster img")?.attr("src");
+    const rawBackdrop = tmdbImgs.find((u) => u.includes("/w1280/")) ?? rawPoster;
+    const poster = rawPoster && !rawPoster.startsWith("data:") ? absoluteUrl(base, rawPoster) : undefined;
+    const backdrop = rawBackdrop && !rawBackdrop.startsWith("data:") ? absoluteUrl(base, rawBackdrop) : poster;
     const episodes: Episode[] = [];
     const seen = new Set<string>();
 
-    for (const a of doc.select('a[href*="-sezon-"][href*="-bolum"]')) {
+    for (const a of doc.select('a[href*="/bolum/"], a[href*="-sezon-"][href*="-bolum"]')) {
       const href = a.attr("href");
       if (!href) continue;
       const full = absoluteUrl(base, href);
@@ -204,7 +314,7 @@ export default definePlugin({
       }),
     );
 
-    return { nativeId, type: "series", title, poster, backdrop: poster, seasons, episodes };
+    return { nativeId, type: "series", title, poster, backdrop, seasons, episodes };
   },
 
   async getStreams(streamId) {

@@ -1,5 +1,7 @@
+import fs from "node:fs";
 import nodeCrypto from "node:crypto";
 import { registerHooks } from "node:module";
+import path from "node:path";
 import vm from "node:vm";
 import type {
   EvalEnvOptions,
@@ -490,6 +492,25 @@ function makeVesselApi() {
       throw new Error(
         `[VesselDomainBlockedError]: domain '${host}' is not listed in ${activeContext.manifest.id} manifest domains`,
       );
+    }
+
+    if (
+      opts.method === "GET" &&
+      opts.url === "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/config.json"
+    ) {
+      const localConfigPath = path.resolve(import.meta.dirname, "..", "config.json");
+      if (fs.existsSync(localConfigPath)) {
+        const textStr = fs.readFileSync(localConfigPath, "utf8");
+        const buf = new TextEncoder().encode(textStr);
+        return {
+          status: 200,
+          url: opts.url,
+          headers: { "content-type": "application/json" },
+          text: () => textStr,
+          json: <T = unknown>() => JSON.parse(textStr) as T,
+          bytes: () => buf,
+        };
+      }
     }
 
     const reqHeaders = new Headers(opts.headers ?? {});

@@ -11,7 +11,7 @@
     {
       "id": "anthology-tv",
       "name": "Anthology Canlı TV",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "Tüm Türkçe Ulusal, Spor, Haber, Sinema, Belgesel, Çocuk, Müzik ve Yerel Canlı TV kanalları tek bir birleşik Vessel eklentisinde.",
       "capabilities": [
         "live_tv",
@@ -24,13 +24,13 @@
         "tr"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/default_tv.png",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/anthology-tv/manifest.json"
     },
     {
       "id": "anthology-plus",
       "name": "Anthology+",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "TMDB kimliğiyle tam eşleşen birleşik Film, Dizi ve Anime akış motoru (Vixolity, Anthology VOD, Vidlink, HDFilmDelisi, SinemaCX, AnimeciX, SeiCode, SonAnime).",
       "capabilities": [
         "vod",
@@ -54,7 +54,7 @@
     {
       "id": "animecix",
       "name": "AnimeciX",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "AnimeciX (animecix.tv) ve TauVideo üzerinden Türkçe altyazılı anime dizi ve filmleri (1080p MP4).",
       "capabilities": [
         "vod",
@@ -68,13 +68,13 @@
         "ja"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=animecix.tv&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/animecix/manifest.json"
     },
     {
       "id": "animeprax",
       "name": "AnimePraX",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "AnimePraX (animeprax.com) Sibnet, OK.ru, Dailymotion ve DiziWatch yedekli Türkçe anime arşivi.",
       "capabilities": [
         "vod",
@@ -88,13 +88,13 @@
         "ja"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=animeprax.com&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/animeprax/manifest.json"
     },
     {
       "id": "animom",
       "name": "AniMOM",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "AniMOM (animom.org) HDPlayer, Sibnet, YourUpload ve DiziWatch yedekli Türkçe anime arşivi.",
       "capabilities": [
         "vod",
@@ -114,7 +114,7 @@
     {
       "id": "anizium",
       "name": "Anizium",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "Anizium (anizium.co) 4K & 1080p Türkçe Dublaj/Altyazılı anime akışları ve WebVTT altyazıları.",
       "capabilities": [
         "vod",
@@ -136,7 +136,7 @@
     {
       "id": "anizm",
       "name": "Anizm",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "Anizm (anizm.net) V3 AnizmPlayer, OK.ru ve Sibnet Türkçe altyazılı anime arşivi.",
       "capabilities": [
         "vod",
@@ -150,13 +150,13 @@
         "ja"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://cdn.anizm.net/images/logo_128x128.png",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/anizm/manifest.json"
     },
     {
       "id": "anthology-diziler",
       "name": "Anthology Diziler (Ulusal Ağlar)",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "NOW TV, Show TV, Kanal D, Star TV, ATV, TV2 ve TRT 1 resmi ağlarından yerli dizi bölümleri (1080p HLS/MP4).",
       "capabilities": [
         "vod",
@@ -169,13 +169,13 @@
         "tr"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/now.png",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/anthology-diziler/manifest.json"
     },
     {
       "id": "asyaanimeleri",
       "name": "AsyaAnimeleri",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "AsyaAnimeleri (asyaanimeleri.top) Sibnet, OK.ru, Mail.ru, Rumble ve VidMoly Türkçe altyazılı anime arşivi.",
       "capabilities": [
         "vod",
@@ -189,13 +189,13 @@
         "ja"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=asyaanimeleri.top&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/asyaanimeleri/manifest.json"
     },
     {
       "id": "ddizi",
       "name": "DDizi",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "DDizi (ddizi.tel) yerli dizi arşivi; Ciner/Yandex CDN, Dailymotion ve YouTube resmi bölüm akışları.",
       "capabilities": [
         "vod",
@@ -208,13 +208,13 @@
         "tr"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=ddizi.tel&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/ddizi/manifest.json"
     },
     {
       "id": "ddizibox",
       "name": "DDiziBox",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "DDiziBox (ddizibox.com) yerli/yabancı dizi, film ve anime arşivi; Pilavyer 1080p HLS ve Türkçe altyazılar.",
       "capabilities": [
         "vod",
@@ -231,13 +231,13 @@
         "en"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://ddizibox.click/apple-touch-icon.png",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/ddizibox/manifest.json"
     },
     {
       "id": "dizibak",
       "name": "DiziBak",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "DiziBak (dizibak.net) canlı AJAX arama ve Dean Edwards çözücülü yabancı dizi 1080p HLS arşivi.",
       "capabilities": [
         "vod",
@@ -257,7 +257,7 @@
     {
       "id": "diziboxizle",
       "name": "DiziBoxİzle",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "DiziBoxİzle (diziboxizle.com) yabancı dizi arşivi; VidMoly 1080p HLS ve Ok.ru akışları.",
       "capabilities": [
         "vod",
@@ -271,13 +271,13 @@
         "en"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=diziboxizle.com&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/diziboxizle/manifest.json"
     },
     {
       "id": "dizimom",
       "name": "DiziMom",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "DiziMom (ddizimom.net) ve Pilavyer Player üzerinden yabancı dizi ve film 1080p HLS akışları.",
       "capabilities": [
         "vod",
@@ -293,13 +293,13 @@
         "en"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=ddizimom.icu&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/dizimom/manifest.json"
     },
     {
       "id": "dizipod",
       "name": "DiziPod",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "DiziPod (dizipod.com ve player.dizipod.com) üzerinden yabancı dizi ve filmler için doğrudan 1080p HLS akışları.",
       "capabilities": [
         "vod",
@@ -314,13 +314,13 @@
         "en"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=dizipod.com&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/dizipod/manifest.json"
     },
     {
       "id": "diziwatch",
       "name": "DiziWatch",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "DiziWatch (diziwatch.org) yabancı dizi ve anime arşivi; AnizmPlayer 1080p HLS, Ok.ru MP4 ve Sibnet akışları.",
       "capabilities": [
         "vod",
@@ -336,13 +336,13 @@
         "ja"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=diziwatch.org&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/diziwatch/manifest.json"
     },
     {
       "id": "diziyou",
       "name": "DiziYou",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "DiziYou (diziyou.one) üzerinden doğrudan storage HLS master akışları ve Türkçe VTT altyazıları.",
       "capabilities": [
         "vod",
@@ -357,13 +357,13 @@
         "en"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=diziyou.net&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/diziyou/manifest.json"
     },
     {
       "id": "filmmodu",
       "name": "FilmModu",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "FilmModu (filmmodu.one ve filmmodu.live/Pilavyer yedekli) canlı segment doğrulamalı 1080p film akışları.",
       "capabilities": [
         "vod",
@@ -378,13 +378,13 @@
         "en"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.filmmodu.one/icon/192x192.png",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/filmmodu/manifest.json"
     },
     {
       "id": "hdfilmcehennemi",
       "name": "HDFilmCehennemi",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "HDFilmCehennemi (hdfilmcehennemi.nl) 1080p CloseLoad Çift Ses (TR Dublaj / Orijinal) ve Türkçe altyazılı film arşivi.",
       "capabilities": [
         "vod",
@@ -399,13 +399,13 @@
         "en"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=hdfilmcehennemi.land&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/hdfilmcehennemi/manifest.json"
     },
     {
       "id": "hdfilmdelisi",
       "name": "HDFilmDelisi",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "HDFilmDelisi film ve dizi arşivi; Vixolity Çift Ses / TR Dublaj & Altyazı 1080p HLS akışları.",
       "capabilities": [
         "vod",
@@ -421,13 +421,13 @@
         "en"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=hdfilmdelisi1.com&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/hdfilmdelisi/manifest.json"
     },
     {
       "id": "hdfilmizle",
       "name": "HDFilmİzle",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "HDFilmİzle (hdfilmizle.vip / .ink) Vidrame, Vidmoxy ve FastPlay 1080p HLS film arşivi.",
       "capabilities": [
         "vod",
@@ -443,13 +443,13 @@
         "en"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=hdfilmizle.ink&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/hdfilmizle/manifest.json"
     },
     {
       "id": "kultfilmler",
       "name": "KultFilmler",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "KultFilmler (kultfilmler.net) klasik film ve dizi arşivi; VidMoly / Vidpapi 1080p HLS akışları.",
       "capabilities": [
         "vod",
@@ -465,13 +465,13 @@
         "en"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=kultfilmler.net&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/kultfilmler/manifest.json"
     },
     {
       "id": "liderfilmizle",
       "name": "LiderFilm",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "LiderFilm (liderfilmizle.vip) yerli & yabancı film ve dizi arşivi; 1080p HLS ve WebVTT altyazıları.",
       "capabilities": [
         "vod",
@@ -487,13 +487,13 @@
         "en"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://liderfilmizle.vip/icons/icon-192.png",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/liderfilmizle/manifest.json"
     },
     {
       "id": "puhutv",
       "name": "PuhuTV",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "PuhuTV (puhutv.com) ve Doğuş DYG resmi API üzerinden yerli diziler ve filmler için 1080p HLS/MP4 akışları.",
       "capabilities": [
         "vod",
@@ -508,13 +508,13 @@
         "tr"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=puhutv.com&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/puhutv/manifest.json"
     },
     {
       "id": "seicode",
       "name": "SeiCode",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "SeiCode (seicode.net / next.seicode.net) TauVideo, OK.ru, Sibnet, VidMoly ve MP4Upload Türkçe altyazılı anime arşivi.",
       "capabilities": [
         "vod",
@@ -528,13 +528,13 @@
         "ja"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=seicode.net&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/seicode/manifest.json"
     },
     {
       "id": "setfilmizle",
       "name": "SetFilmİzle",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "SetFilmİzle (setfilmizle.ltd) 1080p FastPlay HLS film ve yabancı dizi arşivi.",
       "capabilities": [
         "vod",
@@ -550,13 +550,13 @@
         "en"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=setfilmizle.ltd&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/setfilmizle/manifest.json"
     },
     {
       "id": "sinemacx",
       "name": "SinemaCX",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "Sinemacc.com (SinemaCX) ve Vixolity HLS destekli 1080p Türkçe film arşivi.",
       "capabilities": [
         "vod",
@@ -571,13 +571,13 @@
         "en"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=sinemacc.com&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/sinemacx/manifest.json"
     },
     {
       "id": "sonanime",
       "name": "SonAnime",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "SonAnime (sonanime.com) üzerinden Türkçe altyazılı doğrudan 1080p-360p MP4 anime arşivi.",
       "capabilities": [
         "vod",
@@ -591,13 +591,13 @@
         "ja"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=sonanime.com&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/sonanime/manifest.json"
     },
     {
       "id": "trdiziizle",
       "name": "TrDiziİzle",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "TrDiziİzle (trdiziizle.tv/tr2) WordPress dizi arşivi ve YouTube resmi tam bölüm yedekli 1080p akışlar.",
       "capabilities": [
         "vod",
@@ -610,13 +610,13 @@
         "tr"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=trdiziizle.tv&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/trdiziizle/manifest.json"
     },
     {
       "id": "tvdiziler",
       "name": "TvDiziler",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "TvDiziler (tvdiziler.tv) ve YouTube resmi bölüm yedekli yerli TV dizileri arşivi.",
       "capabilities": [
         "vod",
@@ -629,13 +629,13 @@
         "tr"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://tvdiziler.tv/assets/v1/img/favicon.png",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/tvdiziler/manifest.json"
     },
     {
       "id": "webteizle",
       "name": "Webteİzle",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "Webteİzle film arşivi; Türkçe Dublaj ve Altyazılı VidMoly / Ok.ru / Sibnet 1080p akışları.",
       "capabilities": [
         "vod",
@@ -649,13 +649,13 @@
         "en"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=webteizle.info&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/webteizle/manifest.json"
     },
     {
       "id": "yabancidizi",
       "name": "YabancıDizi",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "YabancıDizi (yabancidizi.news) üzerinden VidMoly Türkçe Dublaj ve Altyazılı 1080p HLS yabancı dizi arşivi.",
       "capabilities": [
         "vod",
@@ -670,13 +670,13 @@
         "en"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=yabancidizi.news&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/yabancidizi/manifest.json"
     },
     {
       "id": "youtube-dizifilm",
       "name": "YouTube Dizi & Film",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "Resmi YouTube yapımcı ve TV kanalları üzerinden yerli dizilerin tam bölümleri ve klasik Türk filmleri (1080p HLS/MP4).",
       "capabilities": [
         "vod",
@@ -690,7 +690,7 @@
         "tr"
       ],
       "isAdult": false,
-      "iconUrl": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png",
+      "iconUrl": "https://www.google.com/s2/favicons?domain=youtube.com&sz=128",
       "sourcePath": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/plugins/youtube-dizifilm/manifest.json"
     }
   ]

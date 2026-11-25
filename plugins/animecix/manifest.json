@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "animecix",
   "name": "AnimeciX",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "falsisdev",
   "description": "AnimeciX (animecix.tv) ve TauVideo üzerinden Türkçe altyazılı anime dizi ve filmleri (1080p MP4).",
   "entry": "index.ts",
@@ -44,5 +44,5 @@
     "shared/extractors/tauvideo.ts",
     "shared/extractors/vidmoly.ts"
   ],
-  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
+  "icon": "https://www.google.com/s2/favicons?domain=animecix.tv&sz=128"
 }

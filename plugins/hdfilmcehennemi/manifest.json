@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "hdfilmcehennemi",
   "name": "HDFilmCehennemi",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "falsisdev",
   "description": "HDFilmCehennemi (hdfilmcehennemi.nl) 1080p CloseLoad Çift Ses (TR Dublaj / Orijinal) ve Türkçe altyazılı film arşivi.",
   "entry": "index.ts",
@@ -19,9 +19,17 @@
     "en"
   ],
   "domains": [
+    "www.hdfilmcehennemi.land",
+    "hdfilmcehennemi.land",
     "www.hdfilmcehennemi.nl",
     "hdfilmcehennemi.nl",
     "hdfilmcehennemi.mobi",
+    "setplay.sbs",
+    "*.setplay.sbs",
+    "fastplay.mom",
+    "*.fastplay.mom",
+    "fastplay.fun",
+    "*.fastplay.fun",
     "closeload.com",
     "*.closeload.com",
     "api.themoviedb.org",
@@ -32,7 +40,7 @@
       "key": "mirrorUrl",
       "label": "Özel Site Adresi",
       "type": "text",
-      "placeholder": "https://www.hdfilmcehennemi.nl"
+      "placeholder": "https://www.hdfilmcehennemi.land"
     }
   ],
   "files": [
@@ -42,7 +50,15 @@
     "shared/core/quality.ts",
     "shared/core/text.ts",
     "shared/core/tmdb.ts",
-    "shared/extractors/closeload.ts"
+    "shared/extractors/bysezo.ts",
+    "shared/extractors/closeload.ts",
+    "shared/extractors/okru.ts",
+    "shared/extractors/pilavyer.ts",
+    "shared/extractors/sibnet.ts",
+    "shared/extractors/tauvideo.ts",
+    "shared/extractors/video-hosts.ts",
+    "shared/extractors/vidmoly.ts",
+    "shared/extractors/youtube.ts"
   ],
-  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
+  "icon": "https://www.google.com/s2/favicons?domain=hdfilmcehennemi.land&sz=128"
 }

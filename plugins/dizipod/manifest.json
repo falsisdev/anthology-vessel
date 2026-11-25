@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "dizipod",
   "name": "DiziPod",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "falsisdev",
   "description": "DiziPod (dizipod.com ve player.dizipod.com) üzerinden yabancı dizi ve filmler için doğrudan 1080p HLS akışları.",
   "entry": "index.ts",
@@ -41,5 +41,5 @@
     "shared/core/text.ts",
     "shared/core/tmdb.ts"
   ],
-  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
+  "icon": "https://www.google.com/s2/favicons?domain=dizipod.com&sz=128"
 }

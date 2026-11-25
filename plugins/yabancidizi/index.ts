@@ -73,19 +73,29 @@ async function resolveYdEpisode(
 
   const vmRe = /vidmoly\.[a-z0-9]+\/(?:dl\/|embed-)([a-zA-Z0-9_-]+)/gi;
   let vm: RegExpExecArray | null;
+  const tasks: Array<Promise<StreamCandidate[]>> = [];
   while ((vm = vmRe.exec(epHtml)) !== null) {
     const vidId = vm[1];
     if (!vidId || seenIds.has(vidId)) continue;
     seenIds.add(vidId);
-    streams.push(
-      ...(await extractVidmoly(`https://vidmoly.biz/embed-${vidId}.html`, {
+    tasks.push(
+      extractVidmoly(`https://vidmoly.to/embed-${vidId}.html`, {
         sourceLabel: "YabancıDizi",
         referer: `${base}/`,
-      })),
+      }),
     );
+  }
+  if (tasks.length > 0) {
+    streams.push(...(await Promise.all(tasks)).flat());
   }
 
   return streams;
+}
+
+function cleanPosterUrl(raw: string | undefined | null, base: string): string | undefined {
+  const val = raw?.trim();
+  if (!val || val.startsWith("data:")) return undefined;
+  return absoluteUrl(base, val);
 }
 
 export default definePlugin({
@@ -101,21 +111,62 @@ export default definePlugin({
       const doc = html.parse(rawHtml);
       const items: MediaSummary[] = [];
       const seen = new Set<string>();
-      for (const a of doc.select('a[href*="/dizi/"]')) {
-        const href = a.attr("href");
-        if (!href || href.includes("/tur/") || href.includes("/sezon-")) continue;
-        const slug = href.split("/dizi/")[1]?.split("/")[0]?.trim() ?? "";
-        const title = decodeHtmlEntities(a.text()).replace(/\s+/g, " ").trim();
-        if (!slug || seen.has(slug) || title.length < 2) continue;
+
+      for (const box of doc.select(".poster, .poster-media")) {
+        const a = box.selectOne('a[href*="dizi/"]');
+        const href = a?.attr("href");
+        if (!href || href.includes("/tur/")) continue;
+        const slugMatch = /(?:^|\/)dizi\/([^/?#]+)/.exec(href);
+        const slug = slugMatch?.[1]?.trim() ?? "";
+        if (!slug || seen.has(slug)) continue;
+        const img = box.selectOne("img");
+        const rawTitle =
+          box.selectOne("h2, h3, .truncate")?.text() ||
+          a?.attr("title") ||
+          img?.attr("alt") ||
+          a?.text() ||
+          "";
+        const title = decodeHtmlEntities(rawTitle)
+          .replace(/\s+izle$/i, "")
+          .replace(/\s+/g, " ")
+          .trim();
+        if (!title || title.length < 2) continue;
         seen.add(slug);
-        const img = a.selectOne("img");
-        const poster = img?.attr("data-src") || img?.attr("src");
+        const poster = cleanPosterUrl(
+          img?.attr("data-src") || img?.attr("data-original") || img?.attr("src"),
+          base,
+        );
         items.push({
           nativeId: `series:${slug}`,
           type: "series",
           title,
-          poster: poster ? absoluteUrl(base, poster) : undefined,
+          poster,
         });
+      }
+
+      if (items.length === 0) {
+        for (const a of doc.select('a[href*="dizi/"]')) {
+          const href = a.attr("href");
+          if (!href || href.includes("/tur/")) continue;
+          const slugMatch = /(?:^|\/)dizi\/([^/?#]+)/.exec(href);
+          const slug = slugMatch?.[1]?.trim() ?? "";
+          const title = decodeHtmlEntities(a.attr("title") || a.text())
+            .replace(/\s+izle$/i, "")
+            .replace(/\s+/g, " ")
+            .trim();
+          if (!slug || seen.has(slug) || title.length < 2) continue;
+          seen.add(slug);
+          const img = a.selectOne("img") ?? a.parent()?.selectOne("img");
+          items.push({
+            nativeId: `series:${slug}`,
+            type: "series",
+            title,
+            poster: cleanPosterUrl(
+              img?.attr("data-src") || img?.attr("data-original") || img?.attr("src"),
+              base,
+            ),
+          });
+        }
       }
       return {
         sections:
@@ -195,21 +246,26 @@ export default definePlugin({
 
     const doc = html.parse(rawHtml);
     const title = decodeHtmlEntities(doc.selectOne("h1")?.text() || slug).trim();
-    const poster = doc.selectOne('meta[property="og:image"]')?.attr("content") ?? undefined;
+    const profileImg = doc.selectOne("img.series-profile-thumb, .series-profile-image img, img[src*='uploads/series']");
+    const ogImg = doc.selectOne('meta[property="og:image"]')?.attr("content");
+    const poster =
+      cleanPosterUrl(profileImg?.attr("data-src") || profileImg?.attr("src"), base) ??
+      cleanPosterUrl(ogImg, base);
+    const backdrop = cleanPosterUrl(ogImg, base) ?? poster;
     if (isMovie) {
       return {
         nativeId,
         type: "movie",
         title,
         poster,
-        backdrop: poster,
+        backdrop,
         episodes: [{ streamId: `ep:${encodeURIComponent(pageUrl)}`, season: 1, episode: 1, title }],
       };
     }
 
     const episodes: Episode[] = [];
     const seen = new Set<string>();
-    for (const a of doc.select('a[href*="/sezon-"][href*="/bolum-"]')) {
+    for (const a of doc.select('a[href*="/sezon-"][href*="/bolum-"], a[href*="sezon-"][href*="bolum-"]')) {
       const href = a.attr("href");
       if (!href) continue;
       const full = absoluteUrl(base, href);
@@ -235,7 +291,7 @@ export default definePlugin({
       }),
     );
 
-    return { nativeId, type: "series", title, poster, backdrop: poster, seasons, episodes };
+    return { nativeId, type: "series", title, poster, backdrop, seasons, episodes };
   },
 
   async getStreams(streamId) {

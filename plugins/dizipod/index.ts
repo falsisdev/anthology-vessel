@@ -103,7 +103,18 @@ async function resolvePodPostStream(
   });
   if (!embHtml) return [];
 
-  const unpacked = embHtml.includes("eval(function(p,a,c,k,e,") ? unpack(embHtml) : embHtml;
+  const packedMatch =
+    /eval\s*\(\s*function\s*\(\s*p\s*,\s*a\s*,\s*c\s*,\s*k[\s\S]*?(?:<\/script>|$)/i.exec(
+      embHtml,
+    )?.[0];
+  let unpacked = embHtml;
+  if (packedMatch) {
+    try {
+      unpacked = unpack(packedMatch.replace(/<\/script>$/i, "").trim());
+    } catch {
+      unpacked = embHtml;
+    }
+  }
   const searchPool = `${unpacked}\n${embHtml}`;
   const out: StreamCandidate[] = [];
   const seen = new Set<string>();
@@ -118,13 +129,13 @@ async function resolvePodPostStream(
       const parsed = JSON.parse(cleanJson) as Array<{ file?: string; label?: string }>;
       for (const s of parsed) {
         const u = s.file?.replace(/\\/g, "") ?? "";
-        if (!u || !u.includes(".m3u8") || seen.has(u)) continue;
+        if (!u || (!u.includes(".m3u8") && !u.includes(".mp4")) || seen.has(u)) continue;
         seen.add(u);
         const q = s.label || "1080p";
         out.push(
           createStream({
             url: u,
-            kind: "hls",
+            kind: u.includes(".mp4") && !u.includes(".m3u8") ? "mp4" : "hls",
             quality: q,
             label: `DiziPod • Türkçe Altyazılı [${q}]`,
             headers: buildHeaders(`${PLAYER_URL}/`),
@@ -137,16 +148,16 @@ async function resolvePodPostStream(
   }
 
   if (out.length === 0) {
-    const directRe = /https?:\\?\/\\?\/[a-zA-Z0-9.-]+\.tyuopix\.com[^\s"']+\.m3u8/g;
+    const directRe = /file["']?\s*:\s*["'](https?:[^"']+\.(?:m3u8|mp4)[^"']*)["']/gi;
     let m: RegExpExecArray | null;
     while ((m = directRe.exec(searchPool)) !== null) {
-      const u = m[0].replace(/\\\//g, "/").replace(/\\/g, "");
-      if (seen.has(u)) continue;
+      const u = (m[1] ?? "").replace(/\\\\\//g, "/").replace(/\\\//g, "/").replace(/\\/g, "");
+      if (!u || seen.has(u)) continue;
       seen.add(u);
       out.push(
         createStream({
           url: u,
-          kind: "hls",
+          kind: u.includes(".mp4") && !u.includes(".m3u8") ? "mp4" : "hls",
           quality: "1080p",
           label: "DiziPod • Türkçe Altyazılı [1080p]",
           headers: buildHeaders(`${PLAYER_URL}/`),

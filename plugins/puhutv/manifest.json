@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "puhutv",
   "name": "PuhuTV",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "falsisdev",
   "description": "PuhuTV (puhutv.com) ve Doğuş DYG resmi API üzerinden yerli diziler ve filmler için 1080p HLS/MP4 akışları.",
   "entry": "index.ts",
@@ -40,5 +40,5 @@
     "shared/core/text.ts",
     "shared/core/tmdb.ts"
   ],
-  "icon": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/logo_1_transparent.png"
+  "icon": "https://www.google.com/s2/favicons?domain=puhutv.com&sz=128"
 }

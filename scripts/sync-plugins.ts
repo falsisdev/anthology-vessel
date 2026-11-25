@@ -13,6 +13,42 @@ const DATA_M3U_PATH = path.join(ROOT_DIR, "data", "canli.m3u");
 const REPO_RAW_BASE =
   "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main";
 
+const PLUGIN_ICON_MAP: Record<string, string> = {
+  "anthology-tv": `${REPO_RAW_BASE}/assets/canli/default_tv.png`,
+  "anthology-plus": `${REPO_RAW_BASE}/assets/logo_1_transparent.png`,
+  "anthology-diziler": `${REPO_RAW_BASE}/assets/canli/now.png`,
+  anizium: `${REPO_RAW_BASE}/assets/anizium.png`,
+  animecix: "https://www.google.com/s2/favicons?domain=animecix.tv&sz=128",
+  animeprax: "https://www.google.com/s2/favicons?domain=animeprax.com&sz=128",
+  animom: `${REPO_RAW_BASE}/assets/logo_1_transparent.png`,
+  anizm: "https://cdn.anizm.net/images/logo_128x128.png",
+  asyaanimeleri: "https://www.google.com/s2/favicons?domain=asyaanimeleri.top&sz=128",
+  ddizi: "https://www.google.com/s2/favicons?domain=ddizi.tel&sz=128",
+  ddizibox: "https://ddizibox.click/apple-touch-icon.png",
+  dizibak: `${REPO_RAW_BASE}/assets/logo_1_transparent.png`,
+  diziboxizle: "https://www.google.com/s2/favicons?domain=diziboxizle.com&sz=128",
+  dizimom: "https://www.google.com/s2/favicons?domain=ddizimom.icu&sz=128",
+  dizipod: "https://www.google.com/s2/favicons?domain=dizipod.com&sz=128",
+  diziwatch: "https://www.google.com/s2/favicons?domain=diziwatch.org&sz=128",
+  diziyou: "https://www.google.com/s2/favicons?domain=diziyou.net&sz=128",
+  filmmodu: "https://www.filmmodu.one/icon/192x192.png",
+  hdfilmcehennemi: "https://www.google.com/s2/favicons?domain=hdfilmcehennemi.land&sz=128",
+  hdfilmdelisi: "https://www.google.com/s2/favicons?domain=hdfilmdelisi1.com&sz=128",
+  hdfilmizle: "https://www.google.com/s2/favicons?domain=hdfilmizle.ink&sz=128",
+  kultfilmler: "https://www.google.com/s2/favicons?domain=kultfilmler.net&sz=128",
+  liderfilmizle: "https://liderfilmizle.vip/icons/icon-192.png",
+  puhutv: "https://www.google.com/s2/favicons?domain=puhutv.com&sz=128",
+  seicode: "https://www.google.com/s2/favicons?domain=seicode.net&sz=128",
+  setfilmizle: "https://www.google.com/s2/favicons?domain=setfilmizle.ltd&sz=128",
+  sinemacx: "https://www.google.com/s2/favicons?domain=sinemacc.com&sz=128",
+  sonanime: "https://www.google.com/s2/favicons?domain=sonanime.com&sz=128",
+  trdiziizle: "https://www.google.com/s2/favicons?domain=trdiziizle.tv&sz=128",
+  tvdiziler: "https://tvdiziler.tv/assets/v1/img/favicon.png",
+  webteizle: "https://www.google.com/s2/favicons?domain=webteizle.info&sz=128",
+  yabancidizi: "https://www.google.com/s2/favicons?domain=yabancidizi.news&sz=128",
+  "youtube-dizifilm": "https://www.google.com/s2/favicons?domain=youtube.com&sz=128",
+};
+
 export interface RawChannelRecord {
   id: string;
   name: string;
@@ -344,15 +380,15 @@ function syncOnePlugin(pluginDir: string): RepoPluginEntry {
     .sort();
 
   const optionalIcon = path.join(pluginDir, "icon.png");
-  const customIconName =
-    manifest.id === "anizium" ? "anizium.png" : "logo_1_transparent.png";
+  const mappedIcon = PLUGIN_ICON_MAP[manifest.id];
+  const fallbackIcon = `${REPO_RAW_BASE}/assets/logo_1_transparent.png`;
   const iconUrl = fs.existsSync(optionalIcon)
     ? `${REPO_RAW_BASE}/plugins/${manifest.id}/icon.png`
-    : `${REPO_RAW_BASE}/assets/${customIconName}`;
+    : mappedIcon ?? manifest.icon?.trim() ?? fallbackIcon;
 
   const syncedManifest: PluginManifest = {
     ...manifest,
-    icon: manifest.icon?.trim() || iconUrl,
+    icon: iconUrl,
     files: extraFiles.length > 0 ? extraFiles : undefined,
   };
   const nextManifestText = `${JSON.stringify(syncedManifest, null, 2)}\n`;
@@ -369,7 +405,7 @@ function syncOnePlugin(pluginDir: string): RepoPluginEntry {
     contentTypes: manifest.contentTypes,
     languages: manifest.languages,
     isAdult: manifest.isAdult ?? false,
-    iconUrl,
+    iconUrl: syncedManifest.icon,
     sourcePath: `${REPO_RAW_BASE}/plugins/${manifest.id}/manifest.json`,
     minCoreVersion: manifest.minCoreVersion,
   };
