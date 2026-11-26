@@ -227,6 +227,33 @@ declare module "vessel" {
     hasMore: boolean;
   }
 
+  export interface SubtitleQuery {
+    title: string;
+    originalTitle?: string;
+    year?: number;
+    mediaType: MediaType;
+    season?: number;
+    episode?: number;
+    externalIds?: ExternalIds;
+    preferredLanguages?: string[];
+  }
+
+  export interface SubtitleCandidate {
+    id: string;
+    lang: string;
+    label: string;
+    format: SubtitleFormat;
+    releaseName?: string;
+    sourceName?: string;
+    downloads?: number;
+    hearingImpaired?: boolean;
+  }
+
+  export interface ResolvedSubtitle {
+    format: SubtitleFormat;
+    source: SubtitleSource;
+  }
+
   export interface VesselPlugin {
     getHomeFeed?(cursor?: string | null): Promise<HomeFeed>;
     search?(
@@ -236,7 +263,9 @@ declare module "vessel" {
     ): Promise<SearchPage>;
     getDetails?(nativeId: string): Promise<MediaDetail>;
     getSeasonEpisodes?(nativeId: string, seasonId: string): Promise<Episode[]>;
-    getStreams(streamId: string): Promise<StreamResult>;
+    getStreams?(streamId: string): Promise<StreamResult>;
+    searchSubtitles?(query: SubtitleQuery): Promise<SubtitleCandidate[]>;
+    resolveSubtitle?(subtitleId: string): Promise<ResolvedSubtitle>;
   }
 
   export interface HttpRequestOptions {
@@ -255,9 +284,15 @@ declare module "vessel" {
     status: number;
     url: string;
     headers: Record<string, string>;
-    text(): string;
+    text(encoding?: string): string;
     json<T = unknown>(): T;
     bytes(): Uint8Array;
+  }
+
+  export interface ArchiveEntry {
+    name: string;
+    bytes: Uint8Array;
+    text(encoding?: string): string;
   }
 
   export interface HtmlElement {
@@ -336,6 +371,12 @@ declare module "vessel" {
     getSetting<T = unknown>(key: string): Promise<T | null>;
   };
 
+  export const archive: {
+    unzipEntries(bytes: Uint8Array): ArchiveEntry[];
+    gunzip(bytes: Uint8Array): Uint8Array;
+    decodeText(bytes: Uint8Array, encoding?: string): string;
+  };
+
   export function unpack(packedJs: string): string;
 
   export function evalWithEnv<T = unknown>(
@@ -350,6 +391,7 @@ declare const vessel: {
   http: typeof import("vessel").http;
   html: typeof import("vessel").html;
   crypto: typeof import("vessel").crypto;
+  archive: typeof import("vessel").archive;
   storage: typeof import("vessel").storage;
   unpack: typeof import("vessel").unpack;
   evalWithEnv: typeof import("vessel").evalWithEnv;
