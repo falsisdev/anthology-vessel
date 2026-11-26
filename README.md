@@ -28,12 +28,12 @@
 
 Vessel uygulaması içinde **Extensions (Eklentiler) → Add Repository** bölümünden aşağıdaki yöntemlerden birini kullanın:
 
-| Yöntem | Adres / Komut | Açıklama |
-|---|---|---|
-| **GitHub Shorthand (Önerilen)** | `gh:falsisdev/anthology-vessel` | Vessel doğrudan `main` dalındaki `repo.json` indeksini çözer |
-| **Tek Tık Deep Link** | `vessel://install?src=gh:falsisdev/anthology-vessel` | Tarayıcıdan doğrudan Vessel ekleme penceresini açar |
-| **Doğrudan Ham `repo.json`** | `https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/repo.json` | Manuel veya alternatif mirror kurulumu için |
-| **Yerel Geliştirici Modu** | **Extensions → Inspect Source** → klasör seçin | Tek bir eklenti (`plugins/anthology-tv`) veya tüm repo dizini |
+| Yöntem                          | Adres / Komut                                                                 | Açıklama                                                      |
+| ------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| **GitHub Shorthand (Önerilen)** | `gh:falsisdev/anthology-vessel`                                               | Vessel doğrudan `main` dalındaki `repo.json` indeksini çözer  |
+| **Tek Tık Deep Link**           | `vessel://install?src=gh:falsisdev/anthology-vessel`                          | Tarayıcıdan doğrudan Vessel ekleme penceresini açar           |
+| **Doğrudan Ham `repo.json`**    | `https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/repo.json` | Manuel veya alternatif mirror kurulumu için                   |
+| **Yerel Geliştirici Modu**      | **Extensions → Inspect Source** → klasör seçin                                | Tek bir eklenti (`plugins/anthology-tv`) veya tüm repo dizini |
 
 ---
 
@@ -42,73 +42,11 @@ Vessel uygulaması içinde **Extensions (Eklentiler) → Add Repository** bölü
 `anthology-tv`, Anthology'nin 7 ayrı canlı kategorisini (**Canlı Spor, Ulusal Kanallar, Canlı Haber, Sinema Kanalları, Belgesel & Çocuk, Müzik & Eğlence, Yerel & Diğer**) tek bir birleşik Vessel eklentisinde toplar ve **388 kanal** için temiz kanal adı, kategori ile yayın dili bilgisini sunar.
 
 ### Ayarlanabilir Eklenti Parametreleri (`settingsSchema`)
-- **`anthology-tv` (Canlı TV):**
-  - `anthologyLiveUrl`: Özel Anthology-Live proxy sunucu adresi (varsayılan: `https://anthology-live.duckdns.org`)
-  - `anthologyLiveUsername`: Kullanıcı adı
-  - `anthologyLivePassword`: Gizli parola alanı (`secret`)
-  - `preferredSportSource`: Tercih edilen canlı maç kaynağı (otomatik veya belirli kaynak)
+
 - **`anthology-plus` (`Anthology+` Birleşik TMDB Motoru):**
   - **Kaynak Anahtarları (`toggle`):** `enableVixolity`, `enableGoVod`, `enableVidlink`, `enableHdFilmDelisi`, `enableSinemaCx`, `enableAnimecix`, `enableSeicode`, `enableSonAnime` (her kaynak tek dokunuşla açılıp kapatılabilir)
-  - `anthologyLiveUrl` & `vidlinkMirror`: Özel VOD / Vidlink sunucu adresleri
 - **Site tabanlı VOD eklentileri:**
   - `mirrorUrl`: Alan adı engellenen siteler için özel güncel mirror URL girişi
-
----
-
-## 🧩 Eklenti Kataloğu (33 Eklenti)
-
-### 📡 Canlı TV & Birleşik TMDB Motoru (2 Çekirdek Eklenti)
-
-| Eklenti ID | Ad | Özellikler | Sağladığı Akışlar |
-|---|---|---|---|
-| `anthology-tv` | Anthology Canlı TV | `live_tv`, `search` | 7 kategori M3U, Anthology-Live çoklu kaynak, 5 canlı spor çözücüsü, resmi CDN & YouTube Innertube canlı yedekleri |
-| `anthology-plus` | Anthology+ | `vod`, `search`, `subtitles` | TMDB Film/Dizi/Anime kataloğu + toggle ile yönetilen 8 kesin eşleşen kaynak (Vixolity Çift Ses, Go VOD, Vidlink, HDFilmDelisi, SinemaCX, AnimeciX, SeiCode, SonAnime) |
-
-### 🎬 Film & Karma VOD (9 Eklenti)
-
-| Eklenti ID | Ad | Türler | Çözücü / Kaynak |
-|---|---|---|---|
-| `hdfilmcehennemi` | HDFilmCehennemi | Film, Dizi | CloseLoad obfuscated JS (`vessel.unpack` + `vessel.evalWithEnv`) HLS + VTT |
-| `filmmodu` | FilmModu | Film | ImgsAPI çoklu kaynak + segment probe + Pilavyer fallback |
-| `hdfilmizle` | HDFilmİzle | Film, Dizi | JSON parts + WP AJAX + `SetPlay` / `FastPlay` + Vidrame / Vidmoxy |
-| `setfilmizle` | SetFilmİzle | Film, Dizi | `STF_AJAX` + `SPG.cerceve` XOR çözücü (`FastPlay` 1080p HLS + VTT) |
-| `hdfilmdelisi` | HDFilmDelisi | Film, Dizi | `/api/films` JSON + Vixolity çoklu ses/altyazı HLS + Vidmody embed |
-| `kultfilmler` | KültFilmler | Film | Vidpapi ve VidMoly adaptif HLS |
-| `webteizle` | Webteİzle | Film | VidMoly, OK.ru, Filemoon, Dzen çoklu ses |
-| `liderfilmizle` | LiderFilm | Film, Dizi | `liderfilm.cc` VOD + `ag2m4` (Katkı: `@metemel`) |
-| `sinemacx` | SinemaCX | Film | Base64 `data-vsrc` + `player.filmizle.in` + Vixolity fallback |
-
-### 📺 Dizi & Türk TV Ağları (14 Eklenti)
-
-| Eklenti ID | Ad | Türler | Çözücü / Kaynak |
-|---|---|---|---|
-| `anthology-diziler` | Anthology Dizi | Dizi | NOW, Show TV, Kanal D, Star, ATV, TRT 1 resmi dizi yayınları |
-| `ddizibox` | DDiziBox | Dizi, Film, Anime | Pilavyer Player 1080p HLS + çift ses + WebVTT |
-| `ddizi` | DDizi | Dizi | Ciner, Yandex, Dailymotion ve YouTube Innertube fallback |
-| `dizibak` | DiziBak | Dizi | `player.dizibak.net` doğrudan HLS |
-| `diziboxizle` | DiziBoxİzle | Dizi | WP JSON kategoriler + OK.ru / VidMoly |
-| `dizimom` | DiziMom | Dizi, Film | Pilavyer Player + gömülü oynatıcılar |
-| `dizipod` | DiziPod | Dizi, Film | `get_episode_player` + `vessel.unpack` |
-| `diziwatch` | DiziWatch | Dizi, Anime | AnizmPlayer, OK.ru, Sibnet |
-| `diziyou` | DiziYou | Dizi | `storage.diziyou.one` Dublaj/Altyazılı HLS + VTT |
-| `puhutv` | PuhuTV | Dizi, Film | PuhuTV `__NEXT_DATA__` + DYG `mncdn` HLS + VTT |
-| `trdiziizle` | TR Dizi İzle | Dizi | Site oynatıcısı + YouTube Innertube resmi bölüm yedeği |
-| `tvdiziler` | TvDiziler | Dizi | Twitter Amplify, Ciner, Streambox & YouTube Innertube |
-| `yabancidizi` | YabancıDizi | Dizi, Film | VidMoly çoklu gömülü akışlar |
-| `youtube-dizifilm` | YouTube Dizi & Film | Dizi, Film | Resmi üretici kanalları & Yeşilçam (Katkı: `@metemel`) |
-
-### ⛩️ Anime (8 Eklenti — `type: "series" | "movie"`, `isAnime: true`)
-
-| Eklenti ID | Ad | Türler | Çözücü / Kaynak |
-|---|---|---|---|
-| `animecix` | AnimeciX | Anime | `secure/*` API (`x-e-h`) + TauVideo MP4 |
-| `anizium` | Anizium | Anime | `Cf-Control` XOR token, 4K/2160p & 1080p MP4 + VTT + AniZip/Kitsu/AniList |
-| `anizm` | Anizm | Anime | V3 `/arama-onerileri` + AnizmPlayer/OK.ru/Sibnet + DiziWatch fallback |
-| `animom` | AniMOM | Anime | HDPlayer, Sibnet, YourUpload + DiziWatch/AnizmPlayer fallback |
-| `animeprax` | AnimePraX | Anime | Takım kaynakları (Sibnet, OK.ru, Dailymotion) + DiziWatch fallback |
-| `asyaanimeleri` | AsyaAnimeleri | Anime | Base64 ayna seçenekleri + AsyaPlayer HLS, Sibnet, OK.ru, Mail.ru, Rumble, VidMoly |
-| `seicode` | SeiCode | Anime | `next.seicode.net` API + TauVideo, OK.ru, Sibnet, VidMoly, MP4Upload |
-| `sonanime` | SonAnime | Anime | `api.sonanime.com` + `video.konununuzmani.com` 1080p–360p doğrudan MP4 |
 
 ---
 
@@ -178,11 +116,10 @@ npm run pack              # Optional .plugin.vessel archives in dist/
 ## 🤝 Ekosistem, Katkıda Bulunanlar & Yasal Uyarı
 
 - **Geliştirici & Bakım:** [falsisdev](https://github.com/falsisdev)
-- **Katkıda Bulunanlar:** `Mustafa Esat Temel (metemel)` (`liderfilmizle`, `youtube-dizifilm`), `Wiojelt`, `iptv-org`
+- **Katkıda Bulunanlar:** `Mustafa Esat Temel (metemel)` (`liderfilmizle`, `youtube-dizifilm`), `iptv-org`
 - **İlgili Projeler:**
   - [Vessel](https://github.com/falsisdev/Vessel) — Rust + QuickJS + libmpv medya uygulaması
   - [Anthology](https://github.com/falsisdev/anthology) — Nuvio & Stremio klasik JS eklenti deposu
-  - [Anthology Live](https://github.com/falsisdev/anthology-live) — Canlı yayın & spor proxy motoru
-  - [Anthology DAV](https://github.com/falsisdev/anthology-dav) — Stremio / WebDAV köprüsü
+  - [Anthology DAV](https://github.com/falsisdev/anthology-dav) — WebDAV köprüsü
 
 > **Yasal Uyarı:** `anthology-vessel`, hiçbir video veya medya dosyasını kendi sunucularında barındırmaz. Tüm eklentiler yalnızca halka açık üçüncü taraf web kaynaklarından teknik akış çözümleri üreten açık kaynak kodlu TypeScript adaptörleridir.
