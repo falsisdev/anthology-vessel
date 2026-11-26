@@ -11,7 +11,7 @@
     {
       "id": "anthology-tv",
       "name": "Anthology Canlı TV",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "description": "Tüm Türkçe Ulusal, Spor, Haber, Sinema, Belgesel, Çocuk, Müzik ve Yerel Canlı TV kanalları tek bir birleşik Vessel eklentisinde.",
       "capabilities": [
         "live_tv",
@@ -30,7 +30,7 @@
     {
       "id": "anthology-plus",
       "name": "Anthology+",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "description": "TMDB kimliğiyle tam eşleşen birleşik Film, Dizi ve Anime akış motoru (Vixolity, Anthology VOD, Vidlink, HDFilmDelisi, SinemaCX, AnimeciX, SeiCode, SonAnime).",
       "capabilities": [
         "vod",

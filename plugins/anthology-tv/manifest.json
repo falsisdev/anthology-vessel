@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "anthology-tv",
   "name": "Anthology Canlı TV",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "falsisdev",
   "description": "Tüm Türkçe Ulusal, Spor, Haber, Sinema, Belgesel, Çocuk, Müzik ve Yerel Canlı TV kanalları tek bir birleşik Vessel eklentisinde.",
   "entry": "index.ts",
@@ -18,7 +18,7 @@
   ],
   "domains": [
     "raw.githubusercontent.com",
-    "anthology-live.duckdns.org",
+    "kool.ws",
     "taraftarium24-246.top",
     "teletv15.top",
     "selcuksporkral2.cc",
@@ -31,25 +31,6 @@
     "youtube.com"
   ],
   "settingsSchema": [
-    {
-      "key": "anthologyLiveUrl",
-      "label": "Anthology Live Sunucu Adresi",
-      "type": "text",
-      "default": "https://anthology-live.duckdns.org",
-      "placeholder": "https://anthology-live.duckdns.org"
-    },
-    {
-      "key": "anthologyLiveUsername",
-      "label": "Anthology Live Kullanıcı Adı",
-      "type": "text",
-      "default": "anthology"
-    },
-    {
-      "key": "anthologyLivePassword",
-      "label": "Anthology Live Şifresi",
-      "type": "secret",
-      "default": "falsisdevwashere"
-    },
     {
       "key": "preferredSportSource",
       "label": "Tercih Edilen Spor Kaynağı",
@@ -92,6 +73,8 @@
     "shared/core/config.ts",
     "shared/core/epg.ts",
     "shared/core/http.ts",
+    "shared/core/kool-catalog.ts",
+    "shared/core/kool.ts",
     "shared/core/live-tv.ts",
     "shared/core/quality.ts",
     "shared/core/text.ts",

@@ -14,7 +14,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "trt1",
     "name": "TRT 1",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trt1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt1.png",
     "tvgId": "TRT1.tr",
     "lang": "tr",
     "urls": [
@@ -26,7 +26,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "atv",
     "name": "ATV",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/atv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/atv.png",
     "tvgId": "ATV.tr",
     "lang": "tr",
     "urls": [
@@ -37,7 +37,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "kanald",
     "name": "Kanal D",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/kanald.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanald.png",
     "tvgId": "KanalD.tr",
     "lang": "tr",
     "urls": [
@@ -48,7 +48,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "showtv",
     "name": "Show TV",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/showtv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showtv.png",
     "tvgId": "ShowTV.tr",
     "lang": "tr",
     "urls": [
@@ -60,7 +60,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "startv",
     "name": "Star TV",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/startv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/startv.png",
     "tvgId": "StarTV.tr",
     "lang": "tr",
     "urls": [
@@ -71,7 +71,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "now",
     "name": "NOW TV",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/now.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/now.png",
     "tvgId": "NOW.tr",
     "lang": "tr",
     "urls": [
@@ -82,7 +82,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tv8",
     "name": "TV8",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tv8.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv8.png",
     "tvgId": "TV8.tr",
     "lang": "tr",
     "urls": [
@@ -93,7 +93,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "kanal7",
     "name": "Kanal 7",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/kanal7.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
     "tvgId": "Kanal7.tr",
     "lang": "tr",
     "urls": [
@@ -104,7 +104,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "beyaztv",
     "name": "Beyaz TV",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beyaztv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beyaztv.png",
     "tvgId": "BeyazTV.tr",
     "lang": "tr",
     "urls": [
@@ -116,7 +116,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "teve2",
     "name": "Teve2",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/teve2.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/teve2.png",
     "tvgId": "Teve2.tr",
     "lang": "tr",
     "urls": [
@@ -127,7 +127,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "a2",
     "name": "A2 TV",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/a2.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/a2.png",
     "tvgId": "A2.tr",
     "lang": "tr",
     "urls": [
@@ -139,7 +139,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tv360",
     "name": "360 TV",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tv360.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv360.png",
     "tvgId": "TV360.tr",
     "lang": "tr",
     "urls": [
@@ -151,7 +151,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "trt2",
     "name": "TRT 2 Kültür & Sanat",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trt2.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt2.png",
     "tvgId": "TRT2.tr",
     "lang": "tr",
     "urls": [
@@ -162,7 +162,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "trtturk",
     "name": "TRT Türk",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trtturk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtturk.png",
     "tvgId": "TRTTurk.tr",
     "lang": "tr",
     "urls": [
@@ -174,7 +174,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "kanal7avrupa",
     "name": "Kanal 7 Avrupa",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/kanal7.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal7.png",
     "tvgId": "Kanal7Avrupa.tr",
     "lang": "tr",
     "urls": [
@@ -185,7 +185,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "trtgenc",
     "name": "TRT Genç",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trtgenc.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtgenc.png",
     "tvgId": "TRTGenc.tr",
     "lang": "tr",
     "urls": [
@@ -197,7 +197,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "eurod",
     "name": "Euro D",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/eurod.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurod.png",
     "tvgId": "EuroD.tr",
     "lang": "tr",
     "urls": [
@@ -208,7 +208,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tv4",
     "name": "TV4",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tv4.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv4.png",
     "tvgId": "TV4.tr",
     "lang": "tr",
     "urls": [
@@ -219,7 +219,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tytturk",
     "name": "TYT Türk",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tytturk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tytturk.png",
     "tvgId": "TYTTurk.tr",
     "lang": "tr",
     "urls": [
@@ -230,7 +230,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "kanalavrupa",
     "name": "Kanal Avrupa",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/kanalavrupa.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanalavrupa.png",
     "tvgId": "KanalAvrupa.tr",
     "lang": "tr",
     "urls": [
@@ -241,7 +241,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "trtworld",
     "name": "TRT World",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trtworld.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtworld.png",
     "tvgId": "TRTWorld.tr",
     "lang": "en",
     "urls": [
@@ -252,7 +252,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "trtavaz",
     "name": "TRT Avaz",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trtavaz.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtavaz.png",
     "tvgId": "TRTAvaz.tr",
     "lang": "tr",
     "urls": [
@@ -263,7 +263,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "trtkurdi",
     "name": "TRT Kurdî",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trtkurdi.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtkurdi.png",
     "tvgId": "TRTKurdi.tr",
     "lang": "ku",
     "urls": [
@@ -274,7 +274,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "trtarabi",
     "name": "TRT Arabi",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trtarabi.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtarabi.png",
     "tvgId": "TRTArabi.tr",
     "lang": "ar",
     "urls": [
@@ -285,7 +285,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "diyanettv",
     "name": "Diyanet TV",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/diyanettv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/diyanettv.png",
     "tvgId": "DiyanetTV.tr",
     "lang": "tr",
     "urls": [
@@ -296,117 +296,117 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "atvavrupa",
     "name": "ATV Avrupa",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/atvavrupa.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/atvavrupa.png",
     "tvgId": "atvavrupa.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/atvavrupa.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3195910351"
     ]
   },
   {
     "id": "edessatv",
     "name": "Edessa TV",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/edessatv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/edessatv.png",
     "tvgId": "edessatv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/edessatv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2154492528"
     ]
   },
   {
     "id": "eurostar",
     "name": "Euro Star",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/eurostar.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurostar.png",
     "tvgId": "eurostar.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/eurostar.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1827094680"
     ]
   },
   {
     "id": "flashtv",
     "name": "Flash TV",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/flashtv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashtv.png",
     "tvgId": "flashtv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/flashtv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2687017841"
     ]
   },
   {
     "id": "kozatv",
     "name": "Koza TV",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/kozatv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kozatv.png",
     "tvgId": "kozatv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/kozatv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2273502354"
     ]
   },
   {
     "id": "showturk",
     "name": "Show Türk",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/showturk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showturk.png",
     "tvgId": "showturk.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/showturk.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2009772533"
     ]
   },
   {
     "id": "tgrteu",
     "name": "TGRT EU",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tgrteu.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrteu.png",
     "tvgId": "tgrteu.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/tgrteu.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/182286475"
     ]
   },
   {
     "id": "trt4k",
     "name": "TRT 4K",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trt4k.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trt4k.png",
     "tvgId": "trt4k.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/trt4k.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3317656516"
     ]
   },
   {
     "id": "tv8int",
     "name": "TV 8 Int",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tv8int.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv8int.png",
     "tvgId": "tv8int.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/tv8int.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3546432682"
     ]
   },
   {
     "id": "viyanatv",
     "name": "Viyana TV",
     "group": "🇹🇷 ULUSAL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/viyanatv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/viyanatv.png",
     "tvgId": "viyanatv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/viyanatv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3442514805"
     ]
   },
   {
     "id": "trtspor",
     "name": "TRT Spor",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trtspor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtspor.png",
     "tvgId": "TRTSpor.tr",
     "lang": "tr",
     "urls": [
@@ -417,7 +417,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "trtsporyildiz",
     "name": "TRT Spor Yıldız",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trtsporyildiz.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtsporyildiz.png",
     "tvgId": "TRTSporYildiz.tr",
     "lang": "tr",
     "urls": [
@@ -429,7 +429,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "aspor",
     "name": "A Spor",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/aspor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aspor.png",
     "tvgId": "ASpor.tr",
     "lang": "tr",
     "urls": [
@@ -440,7 +440,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "htspor",
     "name": "HT Spor",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/htspor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/htspor.png",
     "tvgId": "HTSpor.tr",
     "lang": "tr",
     "urls": [
@@ -451,7 +451,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tv85",
     "name": "TV8.5",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tv85.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv85.png",
     "tvgId": "TV85.tr",
     "lang": "tr",
     "urls": [
@@ -462,7 +462,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "fbtv",
     "name": "FB TV",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/fbtv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fbtv.png",
     "tvgId": "FBTV.tr",
     "lang": "tr",
     "urls": [
@@ -473,7 +473,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "sportstv",
     "name": "Sports TV",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sportstv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportstv.png",
     "tvgId": "SportsTV.tr",
     "lang": "tr",
     "urls": [
@@ -484,7 +484,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "cbcsport",
     "name": "CBC Sport",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/cbcsport.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbcsport.png",
     "tvgId": "CBCSport.tr",
     "lang": "az",
     "urls": [
@@ -495,7 +495,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "idmantv",
     "name": "iDMAN Tv",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/idmantv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/idmantv.png",
     "tvgId": "IdmanTV.tr",
     "lang": "az",
     "urls": [
@@ -506,7 +506,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tjktv",
     "name": "TJK TV",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tjktv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tjktv.png",
     "tvgId": "TJKTV.tr",
     "lang": "tr",
     "urls": [
@@ -518,7 +518,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "nbatv",
     "name": "NBA TV",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/nbatv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nbatv.png",
     "tvgId": "NBATV.tr",
     "lang": "en",
     "urls": [
@@ -529,7 +529,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "beinsports1",
     "name": "BeIN Sports 1",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinsports.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
     "tvgId": "beINSports1.tr",
     "lang": "tr",
     "urls": [
@@ -540,7 +540,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "beinsports2",
     "name": "BeIN Sports 2",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinsports.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
     "tvgId": "beINSports2.tr",
     "lang": "tr",
     "urls": [
@@ -551,7 +551,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "beinsports3",
     "name": "BeIN Sports 3",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinsports.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
     "tvgId": "beINSports3.tr",
     "lang": "tr",
     "urls": [
@@ -562,7 +562,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "beinsports4",
     "name": "BeIN Sports 4",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinsports.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
     "tvgId": "beINSports4.tr",
     "lang": "tr",
     "urls": [
@@ -573,7 +573,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "beinsports5",
     "name": "BeIN Sports 5",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinsports.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
     "tvgId": "beINSports5.tr",
     "lang": "tr",
     "urls": [
@@ -584,7 +584,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "beinsportsmax1",
     "name": "BeIN Sports Max 1",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinsports.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
     "tvgId": "beINSportsMax1.tr",
     "lang": "tr",
     "urls": [
@@ -595,7 +595,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "beinsportsmax2",
     "name": "BeIN Sports Max 2",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinsports.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsports.png",
     "tvgId": "beINSportsMax2.tr",
     "lang": "tr",
     "urls": [
@@ -606,7 +606,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "ssport",
     "name": "S Sport",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/ssport.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
     "tvgId": "SSport.tr",
     "lang": "tr",
     "urls": [
@@ -617,7 +617,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "ssport2",
     "name": "S Sport 2",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/ssport.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
     "tvgId": "SSport2.tr",
     "lang": "tr",
     "urls": [
@@ -628,7 +628,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "ssportplus",
     "name": "S Sport Plus",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/ssport.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssport.png",
     "tvgId": "SSportPlus.tr",
     "lang": "tr",
     "urls": [
@@ -639,7 +639,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tivibuspor",
     "name": "Tivibu Spor",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tivibuspor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
     "tvgId": "TivibuSpor.tr",
     "lang": "tr",
     "urls": [
@@ -650,7 +650,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tivibuspor1",
     "name": "Tivibu Spor 1",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tivibuspor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
     "tvgId": "TivibuSpor1.tr",
     "lang": "tr",
     "urls": [
@@ -661,7 +661,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tivibuspor2",
     "name": "Tivibu Spor 2",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tivibuspor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
     "tvgId": "TivibuSpor2.tr",
     "lang": "tr",
     "urls": [
@@ -672,7 +672,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tivibuspor3",
     "name": "Tivibu Spor 3",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tivibuspor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
     "tvgId": "TivibuSpor3.tr",
     "lang": "tr",
     "urls": [
@@ -683,7 +683,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tivibuspor4",
     "name": "Tivibu Spor 4",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tivibuspor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tivibuspor.png",
     "tvgId": "TivibuSpor4.tr",
     "lang": "tr",
     "urls": [
@@ -694,7 +694,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "smartspor1",
     "name": "Smart Spor 1",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/smartspor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartspor.png",
     "tvgId": "SmartSpor1.tr",
     "lang": "tr",
     "urls": [
@@ -705,7 +705,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "smartspor2",
     "name": "Smart Spor 2",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/smartspor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartspor.png",
     "tvgId": "SmartSpor2.tr",
     "lang": "tr",
     "urls": [
@@ -716,7 +716,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "eurosport1",
     "name": "Euro Sport 1",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/eurosport.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurosport.png",
     "tvgId": "EuroSport1.tr",
     "lang": "tr",
     "urls": [
@@ -727,7 +727,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "eurosport2",
     "name": "Euro Sport 2",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/eurosport.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/eurosport.png",
     "tvgId": "EuroSport2.tr",
     "lang": "tr",
     "urls": [
@@ -738,7 +738,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "exxentv",
     "name": "Exxen TV",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/exxenspor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
     "tvgId": "ExxenTV.tr",
     "lang": "tr",
     "urls": [
@@ -749,7 +749,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "exxensports1",
     "name": "Exxen Sports 1",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/exxenspor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
     "tvgId": "ExxenSports1.tr",
     "lang": "tr",
     "urls": [
@@ -760,7 +760,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "exxensports2",
     "name": "Exxen Sports 2",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/exxenspor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
     "tvgId": "ExxenSports2.tr",
     "lang": "tr",
     "urls": [
@@ -771,7 +771,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "exxensports3",
     "name": "Exxen Sports 3",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/exxenspor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
     "tvgId": "ExxenSports3.tr",
     "lang": "tr",
     "urls": [
@@ -782,7 +782,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "exxensports4",
     "name": "Exxen Sports 4",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/exxenspor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
     "tvgId": "ExxenSports4.tr",
     "lang": "tr",
     "urls": [
@@ -793,7 +793,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "exxensports5",
     "name": "Exxen Sports 5",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/exxenspor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
     "tvgId": "ExxenSports5.tr",
     "lang": "tr",
     "urls": [
@@ -804,7 +804,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "exxensports6",
     "name": "Exxen Sports 6",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/exxenspor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
     "tvgId": "ExxenSports6.tr",
     "lang": "tr",
     "urls": [
@@ -815,7 +815,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "exxensports7",
     "name": "Exxen Sports 7",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/exxenspor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
     "tvgId": "ExxenSports7.tr",
     "lang": "tr",
     "urls": [
@@ -826,7 +826,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "exxensports8",
     "name": "Exxen Sports 8",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/exxenspor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/exxenspor.png",
     "tvgId": "ExxenSports8.tr",
     "lang": "tr",
     "urls": [
@@ -837,7 +837,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tabiispor",
     "name": "Tabii Spor",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tabiispor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
     "tvgId": "TabiiSpor.tr",
     "lang": "tr",
     "urls": [
@@ -848,7 +848,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tabiispor1",
     "name": "Tabii Spor 1",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tabiispor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
     "tvgId": "TabiiSpor1.tr",
     "lang": "tr",
     "urls": [
@@ -859,7 +859,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tabiispor2",
     "name": "Tabii Spor 2",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tabiispor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
     "tvgId": "TabiiSpor2.tr",
     "lang": "tr",
     "urls": [
@@ -870,7 +870,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tabiispor3",
     "name": "Tabii Spor 3",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tabiispor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
     "tvgId": "TabiiSpor3.tr",
     "lang": "tr",
     "urls": [
@@ -881,7 +881,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tabiispor4",
     "name": "Tabii Spor 4",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tabiispor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
     "tvgId": "TabiiSpor4.tr",
     "lang": "tr",
     "urls": [
@@ -892,7 +892,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tabiispor5",
     "name": "Tabii Spor 5",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tabiispor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
     "tvgId": "TabiiSpor5.tr",
     "lang": "tr",
     "urls": [
@@ -903,7 +903,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tabiispor6",
     "name": "Tabii Spor 6",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tabiispor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
     "tvgId": "TabiiSpor6.tr",
     "lang": "tr",
     "urls": [
@@ -914,7 +914,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tabiispor7",
     "name": "Tabii Spor 7",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tabiispor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
     "tvgId": "TabiiSpor7.tr",
     "lang": "tr",
     "urls": [
@@ -925,7 +925,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tabiispor8",
     "name": "Tabii Spor 8",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tabiispor.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tabiispor.png",
     "tvgId": "TabiiSpor8.tr",
     "lang": "tr",
     "urls": [
@@ -936,7 +936,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "taytv",
     "name": "Tay TV",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/taytv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/taytv.png",
     "tvgId": "TayTV.tr",
     "lang": "tr",
     "urls": [
@@ -947,7 +947,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "realmadridtv",
     "name": "Real Madrid TV",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/realmadridtv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/realmadridtv.png",
     "tvgId": "RealMadridTV.tr",
     "lang": "en",
     "urls": [
@@ -958,7 +958,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "redbulltv",
     "name": "Red Bull TV",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/redbulltv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/redbulltv.png",
     "tvgId": "RedBullTV.tr",
     "lang": "en",
     "urls": [
@@ -969,7 +969,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "nhlnetwork",
     "name": "NHL Network",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/nhl.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nhl.png",
     "tvgId": "NHLNetwork.tr",
     "lang": "en",
     "urls": [
@@ -980,7 +980,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "ufcnetwork",
     "name": "UFC Network",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/ufcnetwork.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ufcnetwork.png",
     "tvgId": "UFCNetwork.tr",
     "lang": "en",
     "urls": [
@@ -991,7 +991,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "sportfishingtv",
     "name": "Sport Fishing TV",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sportfishingtv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sportfishingtv.png",
     "tvgId": "SportFishingTV.tr",
     "lang": "en",
     "urls": [
@@ -1002,117 +1002,117 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "automoto",
     "name": "Automoto (fr)",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/automoto.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/automoto.png",
     "tvgId": "automoto.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/automoto.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3033512963"
     ]
   },
   {
     "id": "beinsportshaber",
     "name": "beIN Sports Haber",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinsportshaber.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinsportshaber.png",
     "tvgId": "beinsportshaber.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/beinsportshaber.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3989995533"
     ]
   },
   {
     "id": "galatasaraytv",
     "name": "Galatasaray TV",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/galatasaraytv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/galatasaraytv.png",
     "tvgId": "galatasaraytv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/galatasaraytv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/338831283"
     ]
   },
   {
     "id": "ssportplus1",
     "name": "S Sport Plus 1",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/ssportplus1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus1.png",
     "tvgId": "ssportplus1.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/ssportplus1.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3526620942"
     ]
   },
   {
     "id": "ssportplus2",
     "name": "S Sport Plus 2",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/ssportplus2.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus2.png",
     "tvgId": "ssportplus2.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/ssportplus2.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2314183566"
     ]
   },
   {
     "id": "ssportplus3",
     "name": "S Sport Plus 3",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/ssportplus3.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus3.png",
     "tvgId": "ssportplus3.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/ssportplus3.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3269372326"
     ]
   },
   {
     "id": "ssportplus4",
     "name": "S Sport Plus 4",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/ssportplus4.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus4.png",
     "tvgId": "ssportplus4.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/ssportplus4.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1507829436"
     ]
   },
   {
     "id": "ssportplus5",
     "name": "S Sport Plus 5",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/ssportplus5.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus5.png",
     "tvgId": "ssportplus5.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/ssportplus5.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3760487764"
     ]
   },
   {
     "id": "ssportplus9",
     "name": "S Sport Plus 9",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/ssportplus9.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ssportplus9.png",
     "tvgId": "ssportplus9.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/ssportplus9.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2781992112"
     ]
   },
   {
     "id": "saransport1",
     "name": "Saran Sport 1",
     "group": "🇹🇷 SPOR KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/saransport1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/saransport1.png",
     "tvgId": "saransport1.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/saransport1.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3962972352"
     ]
   },
   {
     "id": "trthaber",
     "name": "TRT Haber",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trthaber.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trthaber.png",
     "tvgId": "TRTHaber.tr",
     "lang": "tr",
     "urls": [
@@ -1123,7 +1123,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "ntv",
     "name": "NTV Haber",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/ntv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ntv.png",
     "tvgId": "NTV.tr",
     "lang": "tr",
     "urls": [
@@ -1134,7 +1134,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "haberturk",
     "name": "Habertürk TV",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/haberturk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/haberturk.png",
     "tvgId": "HaberTurk.tr",
     "lang": "tr",
     "urls": [
@@ -1145,7 +1145,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tv100",
     "name": "TV100",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tv100.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv100.png",
     "tvgId": "TV100.tr",
     "lang": "tr",
     "urls": [
@@ -1156,7 +1156,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "ahaber",
     "name": "A Haber",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/ahaber.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ahaber.png",
     "tvgId": "AHaber.tr",
     "lang": "tr",
     "urls": [
@@ -1167,7 +1167,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "halktv",
     "name": "Halk TV",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/halktv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/halktv.png",
     "tvgId": "HalkTV.tr",
     "lang": "tr",
     "urls": [
@@ -1178,7 +1178,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tele1",
     "name": "Tele 1",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tele1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tele1.png",
     "tvgId": "Tele1.tr",
     "lang": "tr",
     "urls": [
@@ -1189,7 +1189,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tgrthaber",
     "name": "TGRT Haber",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tgrthaber.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrthaber.png",
     "tvgId": "TGRTHaber.tr",
     "lang": "tr",
     "urls": [
@@ -1201,7 +1201,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "haberglobal",
     "name": "Haber Global",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/haberglobal.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/haberglobal.png",
     "tvgId": "HaberGlobal.tr",
     "lang": "tr",
     "urls": [
@@ -1212,7 +1212,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "kanal24",
     "name": "24 TV",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/24tv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24tv.png",
     "tvgId": "Kanal24.tr",
     "lang": "tr",
     "urls": [
@@ -1223,7 +1223,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "bloomberght",
     "name": "Bloomberg HT Ekonomi",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/bloomberght.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bloomberght.png",
     "tvgId": "BloombergHT.tr",
     "lang": "tr",
     "urls": [
@@ -1234,7 +1234,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tvnet",
     "name": "TVNET",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tvnet.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tvnet.png",
     "tvgId": "TVNET.tr",
     "lang": "tr",
     "urls": [
@@ -1245,7 +1245,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "ulketv",
     "name": "Ülke TV",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/ulketv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulketv.png",
     "tvgId": "UlkeTV.tr",
     "lang": "tr",
     "urls": [
@@ -1256,7 +1256,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "ekoturk",
     "name": "Ekotürk Ekonomi",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/ekoturk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekoturk.png",
     "tvgId": "Ekoturk.tr",
     "lang": "tr",
     "urls": [
@@ -1267,7 +1267,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "benguturk",
     "name": "Bengü Türk TV",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/benguturk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/benguturk.png",
     "tvgId": "BenguTurk.tr",
     "lang": "tr",
     "urls": [
@@ -1278,7 +1278,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "flashhaber",
     "name": "Flash Haber TV",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/flashhaber.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/flashhaber.png",
     "tvgId": "FlashHaber.tr",
     "lang": "tr",
     "urls": [
@@ -1289,7 +1289,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "liderhaber",
     "name": "Lider Haber TV",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/liderhaber.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/liderhaber.png",
     "tvgId": "LiderHaber.tr",
     "lang": "tr",
     "urls": [
@@ -1300,7 +1300,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "turkhaber",
     "name": "Türk Haber TV",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/turkhaber.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkhaber.png",
     "tvgId": "TurkHaber.tr",
     "lang": "tr",
     "urls": [
@@ -1311,7 +1311,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "cnbce",
     "name": "CNBC-e",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/cnbce.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cnbce.png",
     "tvgId": "CNBCe.tr",
     "lang": "tr",
     "urls": [
@@ -1322,7 +1322,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "akittv",
     "name": "Akit TV",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/akittv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/akittv.png",
     "tvgId": "AkitTV.tr",
     "lang": "tr",
     "urls": [
@@ -1333,7 +1333,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tbmmtv",
     "name": "TBMM TV",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tbmmtv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tbmmtv.png",
     "tvgId": "TBMMTV.tr",
     "lang": "tr",
     "urls": [
@@ -1344,7 +1344,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "finansturk",
     "name": "Finans Türk",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/finansturk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/finansturk.png",
     "tvgId": "FinansTurk.tr",
     "lang": "tr",
     "urls": [
@@ -1355,7 +1355,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "bbcnews",
     "name": "BBC News",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/bbcnews.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcnews.png",
     "tvgId": "BBCNews.tr",
     "lang": "en",
     "urls": [
@@ -1366,7 +1366,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "cbsnews",
     "name": "CBS News",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/cbsnews.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cbsnews.png",
     "tvgId": "CBSNews.tr",
     "lang": "en",
     "urls": [
@@ -1377,7 +1377,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "foxnews",
     "name": "Fox News",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/foxnews.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/foxnews.png",
     "tvgId": "FoxNews.tr",
     "lang": "en",
     "urls": [
@@ -1388,7 +1388,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "france24",
     "name": "France 24 English",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/france24en.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/france24en.png",
     "tvgId": "France24.tr",
     "lang": "en",
     "urls": [
@@ -1399,7 +1399,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "reuterstv",
     "name": "Reuters TV",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/reuterstv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/reuterstv.png",
     "tvgId": "ReutersTV.tr",
     "lang": "en",
     "urls": [
@@ -1410,117 +1410,117 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "anews",
     "name": "A News",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/anews.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/anews.png",
     "tvgId": "anews.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/anews.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3415462105"
     ]
   },
   {
     "id": "apara",
     "name": "A Para",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/apara.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/apara.png",
     "tvgId": "apara.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/apara.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/4202445834"
     ]
   },
   {
     "id": "artitv",
     "name": "Artı TV",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/artitv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/artitv.png",
     "tvgId": "artitv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/artitv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/259370032"
     ]
   },
   {
     "id": "cnnturk",
     "name": "CNN Türk",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/cnnturk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cnnturk.png",
     "tvgId": "cnnturk.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/cnnturk.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2056768647"
     ]
   },
   {
     "id": "dha",
     "name": "DHA",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/dha.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dha.png",
     "tvgId": "dha.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/dha.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/4022359276"
     ]
   },
   {
     "id": "ekoltv",
     "name": "Ekol TV",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/ekoltv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ekoltv.png",
     "tvgId": "ekoltv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/ekoltv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/414950309"
     ]
   },
   {
     "id": "krt",
     "name": "KRT TV",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/krt.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/krt.png",
     "tvgId": "krt.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/krt.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3266397146"
     ]
   },
   {
     "id": "medyahaber",
     "name": "Medya Haber",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/medyahaber.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/medyahaber.png",
     "tvgId": "medyahaber.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/medyahaber.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2230968262"
     ]
   },
   {
     "id": "sozcutv",
     "name": "Sözcü TV",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sozcutv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sozcutv.png",
     "tvgId": "sozcutv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sozcutv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/960578312"
     ]
   },
   {
     "id": "ulusalkanal",
     "name": "Ulusal Kanal",
     "group": "🇹🇷 HABER KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/ulusalkanal.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ulusalkanal.png",
     "tvgId": "ulusalkanal.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/ulusalkanal.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1910048817"
     ]
   },
   {
     "id": "cine1",
     "name": "Cine 1",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/cine1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cine1.png",
     "tvgId": "Cine1.tr",
     "lang": "tr",
     "urls": [
@@ -1531,7 +1531,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "fx",
     "name": "FX",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/fx.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fx.png",
     "tvgId": "FX.tr",
     "lang": "en",
     "urls": [
@@ -1542,7 +1542,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "trtnostalji",
     "name": "TRT Nostalji",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trtnostalji.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtnostalji.png",
     "tvgId": "TRTNostalji.tr",
     "lang": "tr",
     "urls": [
@@ -1553,1206 +1553,1206 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "animation1",
     "name": "Animation 1",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/animation1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animation1.png",
     "tvgId": "animation1.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/animation1.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/727427437"
     ]
   },
   {
     "id": "arenaboxaction",
     "name": "Arena Box Action",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/arenaboxaction.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/arenaboxaction.png",
     "tvgId": "arenaboxaction.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/arenaboxaction.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2853730703"
     ]
   },
   {
     "id": "beinboxoffice1",
     "name": "beIN Box Office 1",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinboxoffice1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinboxoffice1.png",
     "tvgId": "beinboxoffice1.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/beinboxoffice1.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2930746102"
     ]
   },
   {
     "id": "beinboxoffice3",
     "name": "beIN Box Office 3",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinboxoffice3.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinboxoffice3.png",
     "tvgId": "beinboxoffice3.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/beinboxoffice3.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3564106134"
     ]
   },
   {
     "id": "beinmoviesaction",
     "name": "beIN Movies Action",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinmoviesaction.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesaction.png",
     "tvgId": "beinmoviesaction.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/beinmoviesaction.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1873478131"
     ]
   },
   {
     "id": "beinmoviesaction2",
     "name": "beIN Movies Action 2",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinmoviesaction2.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesaction2.png",
     "tvgId": "beinmoviesaction2.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/beinmoviesaction2.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/650851542"
     ]
   },
   {
     "id": "beinmoviesfamily",
     "name": "beIN Movies Family",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinmoviesfamily.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesfamily.png",
     "tvgId": "beinmoviesfamily.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/beinmoviesfamily.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1322228068"
     ]
   },
   {
     "id": "beinmoviespremiere",
     "name": "beIN Movies Premiere",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinmoviespremiere.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere.png",
     "tvgId": "beinmoviespremiere.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/beinmoviespremiere.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/942987224"
     ]
   },
   {
     "id": "beinmoviespremiere2",
     "name": "beIN Movies Premiere 2",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinmoviespremiere2.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviespremiere2.png",
     "tvgId": "beinmoviespremiere2.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/beinmoviespremiere2.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2244069093"
     ]
   },
   {
     "id": "beinmoviesstars",
     "name": "beIN Movies Stars",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinmoviesstars.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesstars.png",
     "tvgId": "beinmoviesstars.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/beinmoviesstars.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1963748784"
     ]
   },
   {
     "id": "beinmoviesturk",
     "name": "beIN Movies Türk",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinmoviesturk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinmoviesturk.png",
     "tvgId": "beinmoviesturk.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/beinmoviesturk.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3390575948"
     ]
   },
   {
     "id": "beinseries2",
     "name": "beIN Series 2",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinseries2.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries2.png",
     "tvgId": "beinseries2.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/beinseries2.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3308693738"
     ]
   },
   {
     "id": "beinseries3",
     "name": "beIN Series 3",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinseries3.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries3.png",
     "tvgId": "beinseries3.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/beinseries3.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/4166418778"
     ]
   },
   {
     "id": "beinseries4",
     "name": "beIN Series 4",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinseries4.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseries4.png",
     "tvgId": "beinseries4.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/beinseries4.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1249271114"
     ]
   },
   {
     "id": "beinseriescomedy",
     "name": "beIN Series Comedy",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinseriescomedy.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriescomedy.png",
     "tvgId": "beinseriescomedy.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/beinseriescomedy.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1668144911"
     ]
   },
   {
     "id": "beinseriesdrama",
     "name": "beIN Series Drama",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinseriesdrama.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesdrama.png",
     "tvgId": "beinseriesdrama.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/beinseriesdrama.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/727975195"
     ]
   },
   {
     "id": "beinseriesscifi",
     "name": "beIN Series Sci-fi",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinseriesscifi.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesscifi.png",
     "tvgId": "beinseriesscifi.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/beinseriesscifi.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3016529666"
     ]
   },
   {
     "id": "beinseriesvice",
     "name": "beIN Series Vice",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beinseriesvice.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beinseriesvice.png",
     "tvgId": "beinseriesvice.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/beinseriesvice.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1125523262"
     ]
   },
   {
     "id": "cinemaximum1",
     "name": "Cinemaximum 1",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/cinemaximum1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum1.png",
     "tvgId": "cinemaximum1.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/cinemaximum1.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2323247791"
     ]
   },
   {
     "id": "cinemaximum4",
     "name": "Cinemaximum 4",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/cinemaximum4.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum4.png",
     "tvgId": "cinemaximum4.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/cinemaximum4.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/4214120173"
     ]
   },
   {
     "id": "cinemaximum7",
     "name": "Cinemaximum 7",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/cinemaximum7.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum7.png",
     "tvgId": "cinemaximum7.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/cinemaximum7.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1657551084"
     ]
   },
   {
     "id": "cinemaximum9",
     "name": "Cinemaximum 9",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/cinemaximum9.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximum9.png",
     "tvgId": "cinemaximum9.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/cinemaximum9.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/817501162"
     ]
   },
   {
     "id": "cinemaximumbilimkurgu",
     "name": "Cinemaximum Bilimkurgu",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/cinemaximumbilimkurgu.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximumbilimkurgu.png",
     "tvgId": "cinemaximumbilimkurgu.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/cinemaximumbilimkurgu.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/91605144"
     ]
   },
   {
     "id": "cinemaximumbollywood",
     "name": "Cinemaximum Bollywood",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/cinemaximumbollywood.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cinemaximumbollywood.png",
     "tvgId": "cinemaximumbollywood.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/cinemaximumbollywood.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2495744105"
     ]
   },
   {
     "id": "digimax",
     "name": "Digi Max",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/digimax.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/digimax.png",
     "tvgId": "digimax.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/digimax.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1278447576"
     ]
   },
   {
     "id": "dizismartpremium",
     "name": "Dizi Smart Premium",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/dizismartpremium.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dizismartpremium.png",
     "tvgId": "dizismartpremium.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/dizismartpremium.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/791616758"
     ]
   },
   {
     "id": "dizismartmax",
     "name": "Dizismart Max",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/dizismartmax.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dizismartmax.png",
     "tvgId": "dizismartmax.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/dizismartmax.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/4079530614"
     ]
   },
   {
     "id": "dreamboxaction",
     "name": "Dream Box Action",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/dreamboxaction.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dreamboxaction.png",
     "tvgId": "dreamboxaction.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/dreamboxaction.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3761392013"
     ]
   },
   {
     "id": "enoaksiyon1",
     "name": "Eno Aksiyon 1",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/enoaksiyon1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enoaksiyon1.png",
     "tvgId": "enoaksiyon1.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/enoaksiyon1.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/633768195"
     ]
   },
   {
     "id": "enovizyon11",
     "name": "Eno Vizyon 11",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/enovizyon11.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon11.png",
     "tvgId": "enovizyon11.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/enovizyon11.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1545196944"
     ]
   },
   {
     "id": "enovizyon14",
     "name": "Eno Vizyon 14",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/enovizyon14.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon14.png",
     "tvgId": "enovizyon14.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/enovizyon14.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2499369696"
     ]
   },
   {
     "id": "enovizyon15",
     "name": "Eno Vizyon 15",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/enovizyon15.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon15.png",
     "tvgId": "enovizyon15.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/enovizyon15.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2845406032"
     ]
   },
   {
     "id": "enovizyon5",
     "name": "Eno Vizyon 5",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/enovizyon5.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enovizyon5.png",
     "tvgId": "enovizyon5.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/enovizyon5.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2176192715"
     ]
   },
   {
     "id": "enowestern",
     "name": "Eno Western",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/enowestern.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/enowestern.png",
     "tvgId": "enowestern.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/enowestern.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1134525301"
     ]
   },
   {
     "id": "epicdrama",
     "name": "Epic Drama",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/epicdrama.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/epicdrama.png",
     "tvgId": "epicdrama.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/epicdrama.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/678261693"
     ]
   },
   {
     "id": "filmbox",
     "name": "FilmBox",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/filmbox.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/filmbox.png",
     "tvgId": "filmbox.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/filmbox.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2600387615"
     ]
   },
   {
     "id": "filmboxaksiyon",
     "name": "FilmBox Aksiyon",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/filmboxaksiyon.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/filmboxaksiyon.png",
     "tvgId": "filmboxaksiyon.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/filmboxaksiyon.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1130352730"
     ]
   },
   {
     "id": "filmboxkadirinanir",
     "name": "FilmBox Kadir İnanır",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/filmboxkadirinanir.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/filmboxkadirinanir.png",
     "tvgId": "filmboxkadirinanir.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/filmboxkadirinanir.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3268085547"
     ]
   },
   {
     "id": "fixcinemaaction",
     "name": "Fix Cinema Action",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/fixcinemaaction.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemaaction.png",
     "tvgId": "fixcinemaaction.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/fixcinemaaction.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/140294889"
     ]
   },
   {
     "id": "fixcinemabilmkurgu",
     "name": "Fix Cinema Bilimkurgu",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/fixcinemabilmkurgu.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemabilmkurgu.png",
     "tvgId": "fixcinemabilmkurgu.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/fixcinemabilmkurgu.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2480231926"
     ]
   },
   {
     "id": "fixcinemacomedy",
     "name": "Fix Cinema Comedy",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/fixcinemacomedy.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemacomedy.png",
     "tvgId": "fixcinemacomedy.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/fixcinemacomedy.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/4140720869"
     ]
   },
   {
     "id": "fixcinemadram",
     "name": "Fix Cinema Dram",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/fixcinemadram.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemadram.png",
     "tvgId": "fixcinemadram.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/fixcinemadram.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2830763591"
     ]
   },
   {
     "id": "fixcinemafantastic",
     "name": "Fix Cinema Fantastic",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/fixcinemafantastic.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemafantastic.png",
     "tvgId": "fixcinemafantastic.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/fixcinemafantastic.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2459747332"
     ]
   },
   {
     "id": "fixcinemakorku",
     "name": "Fix Cinema Korku",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/fixcinemakorku.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemakorku.png",
     "tvgId": "fixcinemakorku.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/fixcinemakorku.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2778910791"
     ]
   },
   {
     "id": "fixcinemamacera",
     "name": "Fix Cinema Macera",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/fixcinemamacera.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemamacera.png",
     "tvgId": "fixcinemamacera.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/fixcinemamacera.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2958075443"
     ]
   },
   {
     "id": "fixcinemanetflix",
     "name": "Fix Cinema Netflix",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/fixcinemanetflix.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemanetflix.png",
     "tvgId": "fixcinemanetflix.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/fixcinemanetflix.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3216985800"
     ]
   },
   {
     "id": "fixcinemayerli",
     "name": "Fix Cinema Yerli",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/fixcinemayerli.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemayerli.png",
     "tvgId": "fixcinemayerli.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/fixcinemayerli.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/239201347"
     ]
   },
   {
     "id": "fixcinemayesilcam",
     "name": "Fix Cinema Yeşilçam",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/fixcinemayesilcam.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/fixcinemayesilcam.png",
     "tvgId": "fixcinemayesilcam.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/fixcinemayesilcam.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/4110861662"
     ]
   },
   {
     "id": "foxcrime",
     "name": "FOX Crime",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/foxcrime.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/foxcrime.png",
     "tvgId": "foxcrime.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/foxcrime.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3150381038"
     ]
   },
   {
     "id": "globalboxaction",
     "name": "Global Box Action",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/globalboxaction.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxaction.png",
     "tvgId": "globalboxaction.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/globalboxaction.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2456232539"
     ]
   },
   {
     "id": "globalboxcomedy",
     "name": "Global Box Comedy",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/globalboxcomedy.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxcomedy.png",
     "tvgId": "globalboxcomedy.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/globalboxcomedy.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1828059735"
     ]
   },
   {
     "id": "globalboxdram",
     "name": "Global Box Dram",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/globalboxdram.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxdram.png",
     "tvgId": "globalboxdram.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/globalboxdram.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1040144724"
     ]
   },
   {
     "id": "globalboxfantastic",
     "name": "Global Box Fantastic",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/globalboxfantastic.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxfantastic.png",
     "tvgId": "globalboxfantastic.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/globalboxfantastic.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1557465046"
     ]
   },
   {
     "id": "globalboxkemalsunal",
     "name": "Global Box Kemal Sunal",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/globalboxkemalsunal.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxkemalsunal.png",
     "tvgId": "globalboxkemalsunal.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/globalboxkemalsunal.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/4275446197"
     ]
   },
   {
     "id": "globalboxkorku",
     "name": "Global Box Korku",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/globalboxkorku.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxkorku.png",
     "tvgId": "globalboxkorku.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/globalboxkorku.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/562681030"
     ]
   },
   {
     "id": "globalboxvizyon",
     "name": "Global Box Vizyon",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/globalboxvizyon.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxvizyon.png",
     "tvgId": "globalboxvizyon.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/globalboxvizyon.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2960112808"
     ]
   },
   {
     "id": "globalboxyerli",
     "name": "Global Box Yerli",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/globalboxyerli.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxyerli.png",
     "tvgId": "globalboxyerli.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/globalboxyerli.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2322262210"
     ]
   },
   {
     "id": "globalboxyesilcam",
     "name": "Global Box Yeşilçam",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/globalboxyesilcam.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/globalboxyesilcam.png",
     "tvgId": "globalboxyesilcam.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/globalboxyesilcam.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2046943434"
     ]
   },
   {
     "id": "horror1",
     "name": "Horror 1",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/horror1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/horror1.png",
     "tvgId": "horror1.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/horror1.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3611975312"
     ]
   },
   {
     "id": "horror2",
     "name": "Horror 2",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/horror2.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/horror2.png",
     "tvgId": "horror2.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/horror2.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1506105715"
     ]
   },
   {
     "id": "kingboxaction",
     "name": "Kingbox Action",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/kingboxaction.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kingboxaction.png",
     "tvgId": "kingboxaction.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/kingboxaction.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3186688793"
     ]
   },
   {
     "id": "max",
     "name": "Max",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/max.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/max.png",
     "tvgId": "max.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/max.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/816297220"
     ]
   },
   {
     "id": "max007",
     "name": "Max 007",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/max007.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/max007.png",
     "tvgId": "max007.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/max007.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2857813786"
     ]
   },
   {
     "id": "maxanimasyon1",
     "name": "Max Animasyon 1",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/maxanimasyon1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxanimasyon1.png",
     "tvgId": "maxanimasyon1.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/maxanimasyon1.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3343751751"
     ]
   },
   {
     "id": "maxorjinal",
     "name": "Max Orijinal",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/maxorjinal.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxorjinal.png",
     "tvgId": "maxorjinal.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/maxorjinal.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3560159368"
     ]
   },
   {
     "id": "maxpremier",
     "name": "Max Premier",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/maxpremier.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxpremier.png",
     "tvgId": "maxpremier.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/maxpremier.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/858266837"
     ]
   },
   {
     "id": "maxstarwars",
     "name": "Max Star Wars",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/maxstarwars.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxstarwars.png",
     "tvgId": "maxstarwars.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/maxstarwars.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1921170824"
     ]
   },
   {
     "id": "maxturk",
     "name": "Max Türk",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/maxturk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxturk.png",
     "tvgId": "maxturk.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/maxturk.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1222272481"
     ]
   },
   {
     "id": "maxvizyon",
     "name": "Max Vizyon",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/maxvizyon.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxvizyon.png",
     "tvgId": "maxvizyon.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/maxvizyon.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/101690970"
     ]
   },
   {
     "id": "maxvizyon4",
     "name": "Max Vizyon 4",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/maxvizyon4.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/maxvizyon4.png",
     "tvgId": "maxvizyon4.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/maxvizyon4.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/720191023"
     ]
   },
   {
     "id": "moviesmartaction",
     "name": "Movie Smart Action",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/moviesmartaction.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartaction.png",
     "tvgId": "moviesmartaction.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/moviesmartaction.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1237460948"
     ]
   },
   {
     "id": "moviesmartclassic",
     "name": "Movie Smart Classic",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/moviesmartclassic.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartclassic.png",
     "tvgId": "moviesmartclassic.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/moviesmartclassic.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3597292408"
     ]
   },
   {
     "id": "moviesmartpremium",
     "name": "Movie Smart Premium",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/moviesmartpremium.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartpremium.png",
     "tvgId": "moviesmartpremium.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/moviesmartpremium.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3830353405"
     ]
   },
   {
     "id": "moviesmartpremium2",
     "name": "Movie Smart Premium 2",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/moviesmartpremium2.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartpremium2.png",
     "tvgId": "moviesmartpremium2.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/moviesmartpremium2.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1194009782"
     ]
   },
   {
     "id": "moviesmartturk",
     "name": "Movie Smart Türk",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/moviesmartturk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartturk.png",
     "tvgId": "moviesmartturk.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/moviesmartturk.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/353384054"
     ]
   },
   {
     "id": "moviesmartfest",
     "name": "MovieSmart Fest",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/moviesmartfest.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/moviesmartfest.png",
     "tvgId": "moviesmartfest.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/moviesmartfest.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2904422908"
     ]
   },
   {
     "id": "xnostaljitrkeklasik",
     "name": "Nostalji Türkçe Klasik",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/xnostaljitrkeklasik.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/xnostaljitrkeklasik.png",
     "tvgId": "xnostaljitrkeklasik.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/xnostaljitrkeklasik.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1767757052"
     ]
   },
   {
     "id": "proturkaction",
     "name": "Proturk Action",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/proturkaction.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkaction.png",
     "tvgId": "proturkaction.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/proturkaction.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3137956311"
     ]
   },
   {
     "id": "proturkbilimkurgu",
     "name": "Proturk Bilim Kurgu",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/proturkbilimkurgu.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkbilimkurgu.png",
     "tvgId": "proturkbilimkurgu.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/proturkbilimkurgu.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/6325334"
     ]
   },
   {
     "id": "proturkfantastic",
     "name": "Proturk Fantastic",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/proturkfantastic.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkfantastic.png",
     "tvgId": "proturkfantastic.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/proturkfantastic.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/4028396893"
     ]
   },
   {
     "id": "proturkgerilim",
     "name": "Proturk Gerilim",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/proturkgerilim.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkgerilim.png",
     "tvgId": "proturkgerilim.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/proturkgerilim.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1293208483"
     ]
   },
   {
     "id": "proturkkemalsunal",
     "name": "Proturk Kemal Sunal",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/proturkkemalsunal.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkkemalsunal.png",
     "tvgId": "proturkkemalsunal.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/proturkkemalsunal.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1245475474"
     ]
   },
   {
     "id": "proturkkorku",
     "name": "Proturk Korku",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/proturkkorku.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkkorku.png",
     "tvgId": "proturkkorku.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/proturkkorku.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1194247131"
     ]
   },
   {
     "id": "proturkloca1",
     "name": "Proturk Loca 1",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/proturkloca1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkloca1.png",
     "tvgId": "proturkloca1.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/proturkloca1.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1869786551"
     ]
   },
   {
     "id": "proturkloca2",
     "name": "Proturk Loca 2",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/proturkloca2.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkloca2.png",
     "tvgId": "proturkloca2.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/proturkloca2.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/684906343"
     ]
   },
   {
     "id": "proturkmacera",
     "name": "Proturk Macera",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/proturkmacera.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkmacera.png",
     "tvgId": "proturkmacera.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/proturkmacera.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/50689293"
     ]
   },
   {
     "id": "proturkorjinal",
     "name": "Proturk Orijinal",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/proturkorjinal.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkorjinal.png",
     "tvgId": "proturkorjinal.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/proturkorjinal.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1662118634"
     ]
   },
   {
     "id": "proturkvizyon",
     "name": "Proturk Vizyon",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/proturkvizyon.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/proturkvizyon.png",
     "tvgId": "proturkvizyon.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/proturkvizyon.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2567042852"
     ]
   },
   {
     "id": "salon1",
     "name": "Salon 1",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/salon1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/salon1.png",
     "tvgId": "salon1.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/salon1.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2217333005"
     ]
   },
   {
     "id": "sinema1001",
     "name": "Sinema 1001",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sinema1001.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinema1001.png",
     "tvgId": "sinema1001.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sinema1001.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2761385166"
     ]
   },
   {
     "id": "sinema1002",
     "name": "Sinema 1002",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sinema1002.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinema1002.png",
     "tvgId": "sinema1002.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sinema1002.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1076643856"
     ]
   },
   {
     "id": "sinemaaile",
     "name": "Sinema Aile",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sinemaaile.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaile.png",
     "tvgId": "sinemaaile.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sinemaaile.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/698495811"
     ]
   },
   {
     "id": "sinemaaile2",
     "name": "Sinema Aile 2",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sinemaaile.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaile.png",
     "tvgId": "sinemaaile2.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sinemaaile2.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3000594763"
     ]
   },
   {
     "id": "sinemaaksiyon1",
     "name": "Sinema Aksiyon 1",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sinemaaksiyon.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png",
     "tvgId": "sinemaaksiyon1.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sinemaaksiyon1.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1293127897"
     ]
   },
   {
     "id": "sinemaaksiyon2",
     "name": "Sinema Aksiyon 2",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sinemaaksiyon.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaaksiyon.png",
     "tvgId": "sinemaaksiyon2.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sinemaaksiyon2.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3440711580"
     ]
   },
   {
     "id": "sinemakomedi",
     "name": "Sinema Komedi",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sinemakomedi.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemakomedi.png",
     "tvgId": "sinemakomedi.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sinemakomedi.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/440774949"
     ]
   },
   {
     "id": "sinematv",
     "name": "Sinema TV",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sinematv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematv.png",
     "tvgId": "sinematv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sinematv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2780830033"
     ]
   },
   {
     "id": "sinematv2",
     "name": "Sinema TV 2",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sinematv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematv.png",
     "tvgId": "sinematv2.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sinematv2.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/295060524"
     ]
   },
   {
     "id": "sinematvaksiyon",
     "name": "Sinema TV Aksiyon",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sinematvaksiyon.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinematvaksiyon.png",
     "tvgId": "sinematvaksiyon.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sinematvaksiyon.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2246993811"
     ]
   },
   {
     "id": "sinemayerli1",
     "name": "Sinema Yerli 1",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sinemayerli1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli1.png",
     "tvgId": "sinemayerli1.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sinemayerli1.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1897159473"
     ]
   },
   {
     "id": "sinemayerli2",
     "name": "Sinema Yerli 2",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sinemayerli2.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemayerli2.png",
     "tvgId": "sinemayerli2.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sinemayerli2.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3971603427"
     ]
   },
   {
     "id": "sinemaxcomedi",
     "name": "Sinemax Komedi",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sinemaxcomedi.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinemaxcomedi.png",
     "tvgId": "sinemaxcomedi.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sinemaxcomedi.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/846127862"
     ]
   },
   {
     "id": "sinevizyon5",
     "name": "Sinevizyon 5",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sinevizyon5.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinevizyon5.png",
     "tvgId": "sinevizyon5.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sinevizyon5.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/567459984"
     ]
   },
   {
     "id": "sinevizyonturk5",
     "name": "Sinevizyon Türk 5",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sinevizyonturk5.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinevizyonturk5.png",
     "tvgId": "sinevizyonturk5.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sinevizyonturk5.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/4221956709"
     ]
   },
   {
     "id": "sinevizyonturk7",
     "name": "Sinevizyon Türk 7",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sinevizyonturk7.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sinevizyonturk7.png",
     "tvgId": "sinevizyonturk7.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sinevizyonturk7.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2170921221"
     ]
   },
   {
     "id": "yesilcam",
     "name": "Yeşilçam",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/yesilcam.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam.png",
     "tvgId": "yesilcam.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/yesilcam.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1584335383"
     ]
   },
   {
     "id": "yesilcam1",
     "name": "Yeşilçam 1",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/yesilcam1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam1.png",
     "tvgId": "yesilcam1.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/yesilcam1.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1952835738"
     ]
   },
   {
     "id": "yesilcam2",
     "name": "Yeşilçam 2",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/yesilcam2.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam2.png",
     "tvgId": "yesilcam2.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/yesilcam2.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/868586058"
     ]
   },
   {
     "id": "yesilcam3",
     "name": "Yeşilçam 3",
     "group": "🇹🇷 SİNEMA KANALLARI",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/yesilcam3.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yesilcam3.png",
     "tvgId": "yesilcam3.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/yesilcam3.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/245742586"
     ]
   },
   {
     "id": "tlc",
     "name": "TLC",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tlc.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tlc.png",
     "tvgId": "TLC.tr",
     "lang": "tr",
     "urls": [
@@ -2764,7 +2764,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "dmax",
     "name": "DMAX",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/dmax.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dmax.png",
     "tvgId": "DMAX.tr",
     "lang": "tr",
     "urls": [
@@ -2775,7 +2775,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "trtbelgesel",
     "name": "TRT Belgesel",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trtbelgesel.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtbelgesel.png",
     "tvgId": "TRTBelgesel.tr",
     "lang": "tr",
     "urls": [
@@ -2786,7 +2786,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "trtcocuk",
     "name": "TRT Çocuk",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trtcocuk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtcocuk.png",
     "tvgId": "TRTCocuk.tr",
     "lang": "tr",
     "urls": [
@@ -2797,7 +2797,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "minikacocuk",
     "name": "Minika Çocuk",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/minikacocuk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/minikacocuk.png",
     "tvgId": "MinikaCocuk.tr",
     "lang": "tr",
     "urls": [
@@ -2808,7 +2808,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "minikago",
     "name": "Minika GO",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/minikago.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/minikago.png",
     "tvgId": "MinikaGo.tr",
     "lang": "tr",
     "urls": [
@@ -2819,7 +2819,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "trtebailkokul",
     "name": "TRT EBA İlkokul",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trtebailkokul.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtebailkokul.png",
     "tvgId": "TRTEBAIlkokul.tr",
     "lang": "tr",
     "urls": [
@@ -2830,7 +2830,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "trtebaortaokul",
     "name": "TRT EBA Ortaokul",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trtebaortaokul.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtebaortaokul.png",
     "tvgId": "TRTEBAOrtaokul.tr",
     "lang": "tr",
     "urls": [
@@ -2841,7 +2841,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "trtebalise",
     "name": "TRT EBA Lise",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trtebalise.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtebalise.png",
     "tvgId": "TRTEBALise.tr",
     "lang": "tr",
     "urls": [
@@ -2852,7 +2852,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "trtdiyanetcocuk",
     "name": "TRT Diyanet Çocuk",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trtdiyanetcocuk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtdiyanetcocuk.png",
     "tvgId": "TRTDiyanetCocuk.tr",
     "lang": "tr",
     "urls": [
@@ -2863,7 +2863,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "ciftcitv",
     "name": "Çiftçi TV",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/ciftcitv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ciftcitv.png",
     "tvgId": "CiftciTV.tr",
     "lang": "tr",
     "urls": [
@@ -2874,7 +2874,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "travelxp",
     "name": "Travelxp",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/travelxp.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/travelxp.png",
     "tvgId": "TravelXP.tr",
     "lang": "en",
     "urls": [
@@ -2885,513 +2885,513 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "24kitchen",
     "name": "24 Kitchen",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/24kitchen.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/24kitchen.png",
     "tvgId": "24kitchen.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/24kitchen.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/4285350247"
     ]
   },
   {
     "id": "animalplanet",
     "name": "Animal Planet",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/animalplanet.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animalplanet.png",
     "tvgId": "animalplanet.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/animalplanet.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2110161355"
     ]
   },
   {
     "id": "animaux",
     "name": "Animaux",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/animaux.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/animaux.png",
     "tvgId": "animaux.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/animaux.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2103702130"
     ]
   },
   {
     "id": "babytv",
     "name": "Baby TV",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/babytv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/babytv.png",
     "tvgId": "babytv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/babytv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1758313456"
     ]
   },
   {
     "id": "bbcearth",
     "name": "BBC Earth",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/bbcearth.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcearth.png",
     "tvgId": "bbcearth.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/bbcearth.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2228496856"
     ]
   },
   {
     "id": "bbcearthpremiere",
     "name": "BBC Earth Premiere",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/bbcearthpremiere.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/bbcearthpremiere.png",
     "tvgId": "bbcearthpremiere.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/bbcearthpremiere.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3542661904"
     ]
   },
   {
     "id": "beingurme",
     "name": "beIN Gurme",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beingurme.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beingurme.png",
     "tvgId": "beingurme.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/beingurme.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/950394656"
     ]
   },
   {
     "id": "beiniz",
     "name": "beIN İz TV",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/beiniz.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/beiniz.png",
     "tvgId": "beiniz.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/beiniz.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1691223078"
     ]
   },
   {
     "id": "boomerang",
     "name": "Boomerang",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/boomerang.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/boomerang.png",
     "tvgId": "boomerang.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/boomerang.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3510107618"
     ]
   },
   {
     "id": "cartoonnetwork",
     "name": "Cartoon Network",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/cartoonnetwork.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cartoonnetwork.png",
     "tvgId": "cartoonnetwork.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/cartoonnetwork.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3278185898"
     ]
   },
   {
     "id": "cocuk1",
     "name": "Çocuk 1",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/cocuk1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk1.png",
     "tvgId": "cocuk1.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/cocuk1.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/204606561"
     ]
   },
   {
     "id": "cocuk2",
     "name": "Çocuk 2",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/cocuk2.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk2.png",
     "tvgId": "cocuk2.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/cocuk2.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2193427330"
     ]
   },
   {
     "id": "cocuk3",
     "name": "Çocuk 3",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/cocuk3.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/cocuk3.png",
     "tvgId": "cocuk3.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/cocuk3.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1310133020"
     ]
   },
   {
     "id": "davinci",
     "name": "Da Vinci",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/davinci.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/davinci.png",
     "tvgId": "davinci.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/davinci.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/410345406"
     ]
   },
   {
     "id": "davincikids",
     "name": "Da Vinci Kids",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/davincikids.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/davincikids.png",
     "tvgId": "davincikids.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/davincikids.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3983067532"
     ]
   },
   {
     "id": "discoverychannel",
     "name": "Discovery Channel",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/discoverychannel.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/discoverychannel.png",
     "tvgId": "discoverychannel.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/discoverychannel.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/695705778"
     ]
   },
   {
     "id": "discoveryid",
     "name": "Discovery ID",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/discoveryid.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/discoveryid.png",
     "tvgId": "discoveryid.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/discoveryid.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/970098662"
     ]
   },
   {
     "id": "discoveryscience",
     "name": "Discovery Science",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/discoveryscience.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/discoveryscience.png",
     "tvgId": "discoveryscience.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/discoveryscience.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3698852323"
     ]
   },
   {
     "id": "discoveryworld",
     "name": "Discovery World",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/discoveryworld.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/discoveryworld.png",
     "tvgId": "discoveryworld.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/discoveryworld.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3624002307"
     ]
   },
   {
     "id": "disneychannel",
     "name": "Disney Channel",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/disneychannel.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/disneychannel.png",
     "tvgId": "disneychannel.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/disneychannel.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3578544716"
     ]
   },
   {
     "id": "disneyjr",
     "name": "Disney Jr.",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/disneyjr.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/disneyjr.png",
     "tvgId": "disneyjr.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/disneyjr.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/649228722"
     ]
   },
   {
     "id": "egeilegaga",
     "name": "Ege İle Gaga",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/egeilegaga.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/egeilegaga.png",
     "tvgId": "egeilegaga.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/egeilegaga.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2625879722"
     ]
   },
   {
     "id": "historychannel",
     "name": "History Channel",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/historychannel.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/historychannel.png",
     "tvgId": "historychannel.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/historychannel.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2415331568"
     ]
   },
   {
     "id": "iztv",
     "name": "İZ TV",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/iztv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/iztv.png",
     "tvgId": "iztv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/iztv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3847791361"
     ]
   },
   {
     "id": "lovenature",
     "name": "Love Nature",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/lovenature.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/lovenature.png",
     "tvgId": "lovenature.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/lovenature.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3578706863"
     ]
   },
   {
     "id": "nationalgeographic",
     "name": "Nat Geo",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/nationalgeographic.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nationalgeographic.png",
     "tvgId": "nationalgeographic.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/nationalgeographic.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1078355325"
     ]
   },
   {
     "id": "natgeowild",
     "name": "Nat Geo Wild",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/natgeowild.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/natgeowild.png",
     "tvgId": "natgeowild.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/natgeowild.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/132416616"
     ]
   },
   {
     "id": "nickjr",
     "name": "Nick Junior",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/nickjr.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nickjr.png",
     "tvgId": "nickjr.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/nickjr.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/707163099"
     ]
   },
   {
     "id": "nickelodeon",
     "name": "Nickelodeon",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/nickelodeon.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/nickelodeon.png",
     "tvgId": "nickelodeon.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/nickelodeon.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/503443750"
     ]
   },
   {
     "id": "niloyatv",
     "name": "Niloya TV",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/niloyatv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/niloyatv.png",
     "tvgId": "niloyatv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/niloyatv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/692811579"
     ]
   },
   {
     "id": "patronbebek",
     "name": "Patron Bebek",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/patronbebek.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/patronbebek.png",
     "tvgId": "patronbebek.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/patronbebek.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2480284806"
     ]
   },
   {
     "id": "pepetv",
     "name": "Pepee TV",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/pepetv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pepetv.png",
     "tvgId": "pepetv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/pepetv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2939972073"
     ]
   },
   {
     "id": "pijamamaskelilertv",
     "name": "Pijama Maskeliler TV",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/pijamamaskelilertv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pijamamaskelilertv.png",
     "tvgId": "pijamamaskelilertv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/pijamamaskelilertv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/102506186"
     ]
   },
   {
     "id": "pisitv",
     "name": "Pisi TV",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/pisitv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pisitv.png",
     "tvgId": "pisitv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/pisitv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/349052544"
     ]
   },
   {
     "id": "satrantv",
     "name": "Satranç TV",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/satrantv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/satrantv.png",
     "tvgId": "satrantv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/satrantv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1192565728"
     ]
   },
   {
     "id": "sevimlidostlar",
     "name": "Sevimli Dostlar",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sevimlidostlar.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sevimlidostlar.png",
     "tvgId": "sevimlidostlar.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sevimlidostlar.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/4154723330"
     ]
   },
   {
     "id": "smartcocuk",
     "name": "Smart Çocuk",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/smartcocuk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/smartcocuk.png",
     "tvgId": "smartcocuk.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/smartcocuk.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/4277750275"
     ]
   },
   {
     "id": "sngerbob",
     "name": "Sünger Bob",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sngerbob.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sngerbob.png",
     "tvgId": "sngerbob.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sngerbob.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3868582025"
     ]
   },
   {
     "id": "sirinlertv",
     "name": "Şirinler TV",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sirinlertv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sirinlertv.png",
     "tvgId": "sirinlertv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sirinlertv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/383348303"
     ]
   },
   {
     "id": "tarihtv",
     "name": "Tarih TV",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tarihtv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tarihtv.png",
     "tvgId": "tarihtv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/tarihtv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3856957052"
     ]
   },
   {
     "id": "tgrtbelgesel",
     "name": "TGRT Belgesel",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tgrtbelgesel.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tgrtbelgesel.png",
     "tvgId": "tgrtbelgesel.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/tgrtbelgesel.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3925938631"
     ]
   },
   {
     "id": "tomjerry",
     "name": "Tom & Jerry",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tomjerry.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tomjerry.png",
     "tvgId": "tomjerry.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/tomjerry.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/4100185659"
     ]
   },
   {
     "id": "trteba",
     "name": "TRT EBA",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trteba.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trteba.png",
     "tvgId": "trteba.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/trteba.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3681071746"
     ]
   },
   {
     "id": "viasatexplore",
     "name": "Viasat Explore",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/viasatexplore.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/viasatexplore.png",
     "tvgId": "viasatexplore.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/viasatexplore.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1451950581"
     ]
   },
   {
     "id": "viasathistory",
     "name": "Viasat History",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/viasathistory.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/viasathistory.png",
     "tvgId": "viasathistory.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/viasathistory.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1335130209"
     ]
   },
   {
     "id": "yabantv",
     "name": "Yaban TV",
     "group": "🇹🇷 BELGESEL & ÇOCUK",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/yabantv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yabantv.png",
     "tvgId": "yabantv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/yabantv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1788503935"
     ]
   },
   {
     "id": "kralpoptv",
     "name": "Kral Pop TV",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/kralpop.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kralpop.png",
     "tvgId": "KralPopTV.tr",
     "lang": "tr",
     "urls": [
@@ -3402,7 +3402,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "powerturktv",
     "name": "PowerTürk TV",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/powerturk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
     "tvgId": "PowerTurkTV.tr",
     "lang": "tr",
     "urls": [
@@ -3414,7 +3414,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "powertv",
     "name": "Power TV",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/powertv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powertv.png",
     "tvgId": "PowerTV.tr",
     "lang": "tr",
     "urls": [
@@ -3425,7 +3425,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "number1tv",
     "name": "Number 1 TV",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/number1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
     "tvgId": "Number1TV.tr",
     "lang": "tr",
     "urls": [
@@ -3436,7 +3436,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "trtmuzik",
     "name": "TRT Müzik",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/trtmuzik.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/trtmuzik.png",
     "tvgId": "TRTMuzik.tr",
     "lang": "tr",
     "urls": [
@@ -3447,7 +3447,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "powerdance",
     "name": "Power Dance",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/powerdance.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerdance.png",
     "tvgId": "PowerDance.tr",
     "lang": "tr",
     "urls": [
@@ -3459,7 +3459,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "powerlove",
     "name": "Power Love",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/powerlove.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerlove.png",
     "tvgId": "PowerLove.tr",
     "lang": "tr",
     "urls": [
@@ -3470,7 +3470,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "dreamturk",
     "name": "Dream Türk",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/dreamturk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dreamturk.png",
     "tvgId": "DreamTurk.tr",
     "lang": "tr",
     "urls": [
@@ -3481,7 +3481,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "tmbtv",
     "name": "TMB TV",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tmbtv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tmbtv.png",
     "tvgId": "TMBTV.tr",
     "lang": "tr",
     "urls": [
@@ -3492,7 +3492,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "showmax",
     "name": "Show Max",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/showmax.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/showmax.png",
     "tvgId": "ShowMax.tr",
     "lang": "tr",
     "urls": [
@@ -3503,7 +3503,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "powerturktaptaze",
     "name": "Powertürk Taptaze",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/powerturk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
     "tvgId": "PowerturkTaptaze.tr",
     "lang": "tr",
     "urls": [
@@ -3514,7 +3514,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "powerturkslow",
     "name": "Powertürk Slow",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/powerturk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
     "tvgId": "PowerturkSlow.tr",
     "lang": "tr",
     "urls": [
@@ -3525,7 +3525,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "powerturkakustik",
     "name": "Powertürk Akustik",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/powerturk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/powerturk.png",
     "tvgId": "PowerturkAkustik.tr",
     "lang": "tr",
     "urls": [
@@ -3536,7 +3536,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "number1ask",
     "name": "Number 1 Aşk",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/number1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
     "tvgId": "Number1Ask.tr",
     "lang": "tr",
     "urls": [
@@ -3547,7 +3547,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "number1turk",
     "name": "Number 1 Türk",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/number1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
     "tvgId": "Number1Turk.tr",
     "lang": "tr",
     "urls": [
@@ -3558,7 +3558,7 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "number1dance",
     "name": "Number 1 Dance",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/number1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1.png",
     "tvgId": "Number1Dance.tr",
     "lang": "tr",
     "urls": [
@@ -3569,726 +3569,726 @@ export const EMBEDDED_CHANNELS: readonly EmbeddedChannel[] = [
     "id": "ferdiozbegen",
     "name": "Ferdi Özbeğen",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/ferdiozbegen.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ferdiozbegen.png",
     "tvgId": "ferdiozbegen.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/ferdiozbegen.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/4003996810"
     ]
   },
   {
     "id": "ferditayfur",
     "name": "Ferdi Tayfur",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/ferditayfur.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ferditayfur.png",
     "tvgId": "ferditayfur.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/ferditayfur.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2308263834"
     ]
   },
   {
     "id": "meltemtv",
     "name": "Meltem TV",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/meltemtv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/meltemtv.png",
     "tvgId": "meltemtv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/meltemtv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/700381068"
     ]
   },
   {
     "id": "mtvlive",
     "name": "MTV Live",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/mtvlive.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mtvlive.png",
     "tvgId": "mtvlive.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/mtvlive.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/417807156"
     ]
   },
   {
     "id": "number1damar",
     "name": "Number 1 Damar",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/number1damar.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/number1damar.png",
     "tvgId": "number1damar.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/number1damar.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2432556224"
     ]
   },
   {
     "id": "palstationyabancimzik",
     "name": "Pal Station Yabanci Müzik",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/palstationyabancimzik.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/palstationyabancimzik.png",
     "tvgId": "palstationyabancimzik.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/palstationyabancimzik.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/4201548536"
     ]
   },
   {
     "id": "redboxturkcepop",
     "name": "Redbox Türkçe Pop",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/redboxturkcepop.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/redboxturkcepop.png",
     "tvgId": "redboxturkcepop.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/redboxturkcepop.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2387657693"
     ]
   },
   {
     "id": "seldabagcan",
     "name": "Selda Bağcan",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/seldabagcan.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/seldabagcan.png",
     "tvgId": "seldabagcan.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/seldabagcan.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2451600415"
     ]
   },
   {
     "id": "sezenaksu",
     "name": "Sezen Aksu",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sezenaksu.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sezenaksu.png",
     "tvgId": "sezenaksu.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sezenaksu.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2562804524"
     ]
   },
   {
     "id": "tatlisestv",
     "name": "Tatlıses TV",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tatlisestv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tatlisestv.png",
     "tvgId": "tatlisestv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/tatlisestv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3333865510"
     ]
   },
   {
     "id": "turkrock",
     "name": "Türk Rock",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/turkrock.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/turkrock.png",
     "tvgId": "turkrock.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/turkrock.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2245395439"
     ]
   },
   {
     "id": "yildiztilbe",
     "name": "Yıldız Tilbe",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/yildiztilbe.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yildiztilbe.png",
     "tvgId": "yildiztilbe.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/yildiztilbe.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/405072201"
     ]
   },
   {
     "id": "zerrinozer",
     "name": "Zerrin Özer",
     "group": "🇹🇷 MÜZİK & EĞLENCE",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/zerrinozer.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/zerrinozer.png",
     "tvgId": "zerrinozer.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/zerrinozer.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2655157451"
     ]
   },
   {
     "id": "adiyamanmercantv",
     "name": "Adıyaman Mercan TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/adiyamanmercantv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/adiyamanmercantv.png",
     "tvgId": "adiyamanmercantv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/adiyamanmercantv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3055235391"
     ]
   },
   {
     "id": "afyonturk",
     "name": "Afyon Türk",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/afyonturk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/afyonturk.png",
     "tvgId": "afyonturk.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/afyonturk.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1782534194"
     ]
   },
   {
     "id": "aksaraykanal68",
     "name": "Aksaray Kanal 68",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/aksaraykanal68.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aksaraykanal68.png",
     "tvgId": "aksaraykanal68.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/aksaraykanal68.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/955806672"
     ]
   },
   {
     "id": "anadoludernek",
     "name": "Anadolu Dernek",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/anadoludernek.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/anadoludernek.png",
     "tvgId": "anadoludernek.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/anadoludernek.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1468389014"
     ]
   },
   {
     "id": "astvbursa",
     "name": "As TV Bursa",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/astvbursa.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/astvbursa.png",
     "tvgId": "astvbursa.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/astvbursa.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2084587437"
     ]
   },
   {
     "id": "elazigkanal23",
     "name": "Elazığ Kanal 23",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/elazigkanal23.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/elazigkanal23.png",
     "tvgId": "elazigkanal23.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/elazigkanal23.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3504045857"
     ]
   },
   {
     "id": "elazigkanalfirat",
     "name": "Elazığ Kanal Firat",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/elazigkanalfirat.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/elazigkanalfirat.png",
     "tvgId": "elazigkanalfirat.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/elazigkanalfirat.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/634397776"
     ]
   },
   {
     "id": "erzurumwebtv",
     "name": "Erzurum Web TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/erzurumwebtv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/erzurumwebtv.png",
     "tvgId": "erzurumwebtv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/erzurumwebtv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1736962708"
     ]
   },
   {
     "id": "estv",
     "name": "Es TV Eskişehir",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/estv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/estv.png",
     "tvgId": "estv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/estv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1670462361"
     ]
   },
   {
     "id": "etvkayseri",
     "name": "ETV Kayseri",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/etvkayseri.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/etvkayseri.png",
     "tvgId": "etvkayseri.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/etvkayseri.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1218353983"
     ]
   },
   {
     "id": "gaziantepolaytv",
     "name": "Gaziantep Olay TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/gaziantepolaytv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gaziantepolaytv.png",
     "tvgId": "gaziantepolaytv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/gaziantepolaytv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2413536917"
     ]
   },
   {
     "id": "gurbet24tv",
     "name": "Gurbet24 TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/gurbet24tv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/gurbet24tv.png",
     "tvgId": "gurbet24tv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/gurbet24tv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/55116964"
     ]
   },
   {
     "id": "hrt",
     "name": "HRT",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/hrt.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/hrt.png",
     "tvgId": "hrt.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/hrt.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2826493312"
     ]
   },
   {
     "id": "hunattv",
     "name": "Hunat TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/hunattv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/hunattv.png",
     "tvgId": "hunattv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/hunattv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1602719314"
     ]
   },
   {
     "id": "kadirga",
     "name": "Kadırga",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/kadirga.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kadirga.png",
     "tvgId": "kadirga.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/kadirga.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2717283979"
     ]
   },
   {
     "id": "aksutvkmaras",
     "name": "Kahramanmaraş Aksu TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/aksutvkmaras.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/aksutvkmaras.png",
     "tvgId": "aksutvkmaras.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/aksutvkmaras.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2914289476"
     ]
   },
   {
     "id": "kanal12",
     "name": "Kanal 12",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/kanal12.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal12.png",
     "tvgId": "kanal12.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/kanal12.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2917371409"
     ]
   },
   {
     "id": "kanal26",
     "name": "Kanal 26",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/kanal26.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal26.png",
     "tvgId": "kanal26.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/kanal26.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/87578284"
     ]
   },
   {
     "id": "kanal3",
     "name": "Kanal 3",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/kanal3.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal3.png",
     "tvgId": "kanal3.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/kanal3.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1558612099"
     ]
   },
   {
     "id": "kanal58",
     "name": "Kanal 58",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/kanal58.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanal58.png",
     "tvgId": "kanal58.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/kanal58.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2093143206"
     ]
   },
   {
     "id": "kanalurfa",
     "name": "Kanal Urfa",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/kanalurfa.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kanalurfa.png",
     "tvgId": "kanalurfa.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/kanalurfa.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/754868351"
     ]
   },
   {
     "id": "kayserikaytv",
     "name": "Kayseri Kay TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/kayserikaytv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kayserikaytv.png",
     "tvgId": "kayserikaytv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/kayserikaytv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/168048388"
     ]
   },
   {
     "id": "kibrisgenctv",
     "name": "Kıbrıs Genç TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/kibrisgenctv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kibrisgenctv.png",
     "tvgId": "kibrisgenctv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/kibrisgenctv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3115477419"
     ]
   },
   {
     "id": "kibriskanalt",
     "name": "Kıbrıs Kanal T",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/kibriskanalt.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kibriskanalt.png",
     "tvgId": "kibriskanalt.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/kibriskanalt.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/506213824"
     ]
   },
   {
     "id": "kibristv",
     "name": "Kıbrıs TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/kibristv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kibristv.png",
     "tvgId": "kibristv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/kibristv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/631930666"
     ]
   },
   {
     "id": "koytv",
     "name": "Köy TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/koytv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/koytv.png",
     "tvgId": "koytv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/koytv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/870320507"
     ]
   },
   {
     "id": "mavikaradeniz",
     "name": "Mavi Karadeniz",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/mavikaradeniz.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mavikaradeniz.png",
     "tvgId": "mavikaradeniz.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/mavikaradeniz.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3854689350"
     ]
   },
   {
     "id": "mercantv",
     "name": "Mercan TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/mercantv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mercantv.png",
     "tvgId": "mercantv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/mercantv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3132704137"
     ]
   },
   {
     "id": "mersineltv",
     "name": "Mersin El TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/mersineltv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mersineltv.png",
     "tvgId": "mersineltv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/mersineltv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1480015488"
     ]
   },
   {
     "id": "mgctv",
     "name": "MGC TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/mgctv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/mgctv.png",
     "tvgId": "mgctv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/mgctv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2591544773"
     ]
   },
   {
     "id": "olayturk",
     "name": "Olay Türk",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/olayturk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/olayturk.png",
     "tvgId": "olayturk.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/olayturk.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/382635550"
     ]
   },
   {
     "id": "pamukkale",
     "name": "Pamukkale",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/pamukkale.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/pamukkale.png",
     "tvgId": "pamukkale.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/pamukkale.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1647886571"
     ]
   },
   {
     "id": "rumelitv",
     "name": "Rumeli TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/rumelitv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/rumelitv.png",
     "tvgId": "rumelitv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/rumelitv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3997988254"
     ]
   },
   {
     "id": "sunrtv",
     "name": "Sun TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sunrtv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sunrtv.png",
     "tvgId": "sunrtv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sunrtv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3122863032"
     ]
   },
   {
     "id": "tempotv",
     "name": "Tempo TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tempotv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tempotv.png",
     "tvgId": "tempotv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/tempotv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/870976532"
     ]
   },
   {
     "id": "tontv",
     "name": "Ton TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tontv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tontv.png",
     "tvgId": "tontv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/tontv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3855597416"
     ]
   },
   {
     "id": "tuncelidersim62tv",
     "name": "Tunceli Dersim 62 TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tuncelidersim62tv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tuncelidersim62tv.png",
     "tvgId": "tuncelidersim62tv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/tuncelidersim62tv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/942180218"
     ]
   },
   {
     "id": "tvden",
     "name": "TV Den",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tvden.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tvden.png",
     "tvgId": "tvden.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/tvden.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3341720640"
     ]
   },
   {
     "id": "vatantv",
     "name": "Vatan TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/vatantv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/vatantv.png",
     "tvgId": "vatantv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/vatantv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2730047464"
     ]
   },
   {
     "id": "vizyon58",
     "name": "Vizyon 58 (Sivas)",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/vizyon58.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/vizyon58.png",
     "tvgId": "vizyon58.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/vizyon58.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3275326615"
     ]
   },
   {
     "id": "vuslattv",
     "name": "Vuslat TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/vuslattv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/vuslattv.png",
     "tvgId": "vuslattv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/vuslattv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/949033122"
     ]
   },
   {
     "id": "yenikocaelitv",
     "name": "Yeni Kocaeli TV",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/yenikocaelitv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/yenikocaelitv.png",
     "tvgId": "yenikocaelitv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/yenikocaelitv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/758663570"
     ]
   },
   {
     "id": "zonguldakkanalz",
     "name": "Zonguldak Kanal Z",
     "group": "🇹🇷 YEREL KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/zonguldakkanalz.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/zonguldakkanalz.png",
     "tvgId": "zonguldakkanalz.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/zonguldakkanalz.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1467834090"
     ]
   },
   {
     "id": "dosttv",
     "name": "Dost TV",
     "group": "🇹🇷 DİĞER KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/dosttv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/dosttv.png",
     "tvgId": "dosttv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/dosttv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/799884057"
     ]
   },
   {
     "id": "ilketv",
     "name": "İlke TV",
     "group": "🇹🇷 DİĞER KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/ilketv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/ilketv.png",
     "tvgId": "ilketv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/ilketv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/1743510188"
     ]
   },
   {
     "id": "kudustv",
     "name": "Kudüs TV",
     "group": "🇹🇷 DİĞER KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/kudustv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/kudustv.png",
     "tvgId": "kudustv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/kudustv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2114384051"
     ]
   },
   {
     "id": "lalegultv",
     "name": "Lalegül TV",
     "group": "🇹🇷 DİĞER KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/lalegultv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/lalegultv.png",
     "tvgId": "lalegultv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/lalegultv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/3483642933"
     ]
   },
   {
     "id": "on4tv",
     "name": "On 4 TV",
     "group": "🇹🇷 DİĞER KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/on4tv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/on4tv.png",
     "tvgId": "on4tv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/on4tv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2257593699"
     ]
   },
   {
     "id": "rehbertv",
     "name": "Rehber TV",
     "group": "🇹🇷 DİĞER KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/rehbertv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/rehbertv.png",
     "tvgId": "rehbertv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/rehbertv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/4152354759"
     ]
   },
   {
     "id": "sat7turk",
     "name": "Sat7 Türk",
     "group": "🇹🇷 DİĞER KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/sat7turk.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/sat7turk.png",
     "tvgId": "sat7turk.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/sat7turk.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/2376090646"
     ]
   },
   {
     "id": "semerkandtv",
     "name": "Semerkand TV",
     "group": "🇹🇷 DİĞER KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/semerkandtv.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/semerkandtv.png",
     "tvgId": "semerkandtv.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/semerkandtv.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/4096268883"
     ]
   },
   {
     "id": "tv1",
     "name": "TV 1",
     "group": "🇹🇷 DİĞER KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tv1.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv1.png",
     "tvgId": "tv1.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/tv1.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/4073129368"
     ]
   },
   {
     "id": "tv5",
     "name": "TV 5",
     "group": "🇹🇷 DİĞER KANALLAR",
-    "logo": "https://raw.githubusercontent.com/falsisdev/anthology-vessel/main/assets/canli/tv5.png",
+    "logo": "https://raw.githubusercontent.com/falsisdev/anthology/main/assets/canli/tv5.png",
     "tvgId": "tv5.tr",
     "lang": "tr",
     "urls": [
-      "https://anthology-live.duckdns.org/live/tv5.m3u8?username=anthology&password=falsisdevwashere"
+      "https://kool.ws/live/play/122135384"
     ]
   }
 ];

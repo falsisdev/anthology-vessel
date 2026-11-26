@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "anthology-plus",
   "name": "Anthology+",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "falsisdev",
   "description": "TMDB kimliğiyle tam eşleşen birleşik Film, Dizi ve Anime akış motoru (Vixolity, Anthology VOD, Vidlink, HDFilmDelisi, SinemaCX, AnimeciX, SeiCode, SonAnime).",
   "entry": "index.ts",
@@ -26,7 +26,6 @@
     "raw.githubusercontent.com",
     "ha.vixolity.com",
     "*.vixolity.com",
-    "anthology-live.duckdns.org",
     "vidlink.pro",
     "enc-dec.app",
     "hdfilmdelisi1.com",
@@ -62,13 +61,6 @@
       "type": "toggle",
       "default": true,
       "description": "IMDb kimliğiyle Türkçe Dublaj / Altyazılı 1080p HLS ve altyazıları getirir."
-    },
-    {
-      "key": "enableGoVod",
-      "label": "Anthology VOD (Go Motoru)",
-      "type": "toggle",
-      "default": true,
-      "description": "Anthology Live VOD sunucusundan arşiv eşleştirmesi yapar."
     },
     {
       "key": "enableVidlink",
@@ -111,13 +103,6 @@
       "type": "toggle",
       "default": true,
       "description": "Animeler için TMDB ID tam eşleşmesiyle doğrudan MP4 akışları getirir."
-    },
-    {
-      "key": "anthologyLiveUrl",
-      "label": "Anthology Live Sunucu Adresi",
-      "type": "text",
-      "default": "https://anthology-live.duckdns.org",
-      "placeholder": "https://anthology-live.duckdns.org"
     },
     {
       "key": "vidlinkMirror",

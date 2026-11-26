@@ -16,6 +16,7 @@ import {
 } from "./http.ts";
 import { createStream } from "./quality.ts";
 import { ultraClean } from "./text.ts";
+import { getKoolKeyByUrlOrId, resolveAllKoolStreams } from "./kool.ts";
 import { resolveYouTubeInnertube } from "../extractors/youtube.ts";
 
 export interface LiveChannelEntry {
@@ -38,12 +39,6 @@ interface SportMapping {
   alemdarsport?: string;
   mahsunsports?: string;
   papazsports?: string;
-}
-
-interface AnthologyLiveSource {
-  id: string;
-  name?: string;
-  available?: boolean;
 }
 
 interface T24BaseState {
@@ -98,6 +93,23 @@ const SPORT_MAP: Record<string, SportMapping> = {
   cbcsport: { name: "CBC SPORT", mahsunsports: "androstreamlivecbcs" },
   idmantv: { name: "IDMAN TV", mahsunsports: "androstreamliveidm" },
   exxentv: { name: "EXXEN TV", mahsunsports: "androstreamliveexn" },
+  exxensports1: { name: "EXXEN SPORTS 1", mahsunsports: "androstreamliveexn1" },
+  exxensports2: { name: "EXXEN SPORTS 2", mahsunsports: "androstreamliveexn2" },
+  exxensports3: { name: "EXXEN SPORTS 3", mahsunsports: "androstreamliveexn3" },
+  exxensports4: { name: "EXXEN SPORTS 4", mahsunsports: "androstreamliveexn4" },
+  exxensports5: { name: "EXXEN SPORTS 5", mahsunsports: "androstreamliveexn5" },
+  exxensports6: { name: "EXXEN SPORTS 6", mahsunsports: "androstreamliveexn6" },
+  exxensports7: { name: "EXXEN SPORTS 7", mahsunsports: "androstreamliveexn7" },
+  exxensports8: { name: "EXXEN SPORTS 8", mahsunsports: "androstreamliveexn8" },
+  tabiispor: { name: "TABII SPOR", mahsunsports: "androstreamlivetb" },
+  tabiispor1: { name: "TABII SPOR 1", mahsunsports: "androstreamlivetb1" },
+  tabiispor2: { name: "TABII SPOR 2", mahsunsports: "androstreamlivetb2" },
+  tabiispor3: { name: "TABII SPOR 3", mahsunsports: "androstreamlivetb3" },
+  tabiispor4: { name: "TABII SPOR 4", mahsunsports: "androstreamlivetb4" },
+  tabiispor5: { name: "TABII SPOR 5", mahsunsports: "androstreamlivetb5" },
+  tabiispor6: { name: "TABII SPOR 6", mahsunsports: "androstreamlivetb6" },
+  tabiispor7: { name: "TABII SPOR 7", mahsunsports: "androstreamlivetb7" },
+  tabiispor8: { name: "TABII SPOR 8", mahsunsports: "androstreamlivetb8" },
 };
 
 const SECTION_ORDER: Array<{ id: string; title: string }> = [
@@ -115,7 +127,6 @@ let channelsFetchedAt = 0;
 let t24State: T24BaseState | null = null;
 let cachedAlemdarTemplate: { template: string; at: number } | null = null;
 let cachedMahsunBase: { base: string; at: number } | null = null;
-const sourcesCache = new Map<string, { at: number; data: AnthologyLiveSource[] }>();
 
 function mapGroupToSection(group: string): { id: string; title: string } {
   const upper = group.toUpperCase();
@@ -543,7 +554,7 @@ async function fetchPapazStream(
     {
       timeoutMs: 3_500,
       headers: {
-        Referer: `${site}/`,
+        Referer: `${site}/tv/${encodeURIComponent(channelId)}`,
         Origin: site,
         "X-Requested-With": "XMLHttpRequest",
       },
@@ -568,56 +579,9 @@ async function fetchPapazStream(
   }
 }
 
-async function getAnthologyLiveCredentials(): Promise<{
-  base: string;
-  username: string;
-  password: string;
-  preferredSource: string;
-}> {
-  const defaultBase = await configString(
-    "urls.live.anthology_live.base",
-    "https://anthology-live.duckdns.org",
-  );
-  const defaultUser = await configString(
-    "urls.live.anthology_live.username",
-    "anthology",
-  );
-  const defaultPass = await configString(
-    "urls.live.anthology_live.password",
-    "falsisdevwashere",
-  );
-
-  const customBase = await storage.getSetting<string>("anthologyLiveUrl");
-  const customUser = await storage.getSetting<string>("anthologyLiveUsername");
-  const customPass = await storage.getSetting<string>("anthologyLivePassword");
+async function getPreferredSportSource(): Promise<string> {
   const preferred = await storage.getSetting<string>("preferredSportSource");
-
-  return {
-    base: (customBase?.trim() || defaultBase).replace(/\/+$/, ""),
-    username: customUser?.trim() || defaultUser,
-    password: customPass?.trim() || defaultPass,
-    preferredSource: preferred?.trim() || "auto",
-  };
-}
-
-async function fetchAnthologyLiveSources(
-  base: string,
-  canonicalKey: string,
-): Promise<AnthologyLiveSource[] | null> {
-  if (!canonicalKey) return null;
-  const cacheKey = `${base}::${canonicalKey}`;
-  const now = Date.now();
-  const cached = sourcesCache.get(cacheKey);
-  if (cached && now - cached.at < 300_000) {
-    return cached.data;
-  }
-  const url = `${base}/api/sources?channel=${encodeURIComponent(canonicalKey)}`;
-  const data = await fetchJson<AnthologyLiveSource[]>(url, { timeoutMs: 3_000 });
-  if (Array.isArray(data)) {
-    sourcesCache.set(cacheKey, { at: now, data });
-    return data;
-  }
-  return null;
+  return preferred?.trim() || "auto";
 }
 
 export function channelToMediaSummary(ch: LiveChannelEntry): MediaSummary {
@@ -724,59 +688,67 @@ export async function resolveChannelStreams(
     streams.push(stream);
   };
 
-  const creds = await getAnthologyLiveCredentials();
+  const preferredSource = await getPreferredSportSource();
   const isSport = ch.sectionId === "spor";
-  const canonicalKey = extractCanonicalSportKey(ch.tvgId || ch.id || ch.name);
+  const isPlaceholderUrl = (u: string): boolean =>
+    u.includes("kool.ws/live/play/") ||
+    (u.includes("/live/") && u.includes("anthology-live"));
+  const placeholderUrl = ch.urls.find(isPlaceholderUrl);
+  const liveKeyMatch = placeholderUrl
+    ? /\/live\/([^.?/]+)\.m3u8/i.exec(placeholderUrl)
+    : null;
+  const koolKeyFromUrl = placeholderUrl
+    ? getKoolKeyByUrlOrId(placeholderUrl) || liveKeyMatch?.[1] || ""
+    : "";
+  const canonicalKey = koolKeyFromUrl || extractCanonicalSportKey(ch.tvgId || ch.id || ch.name);
   const sportMap = isSport ? findSportMapping(ch.id || ch.name) : null;
 
-  if (creds.preferredSource !== "direct_only" && canonicalKey) {
-    let liveSources = await fetchAnthologyLiveSources(creds.base, canonicalKey);
-    if ((!liveSources || liveSources.length === 0) && isSport && (sportMap || canonicalKey)) {
-      liveSources = [
-        { id: "auto", name: "Otomatik (En Hızlı)", available: true },
-        { id: "mahsunsports", name: "Mahsun Sports", available: true },
-        { id: "alemdarsport", name: "Alemdar Sport", available: true },
-        { id: "taraftarium", name: "Taraftarium24", available: true },
-        { id: "ardasports", name: "Selçuk / Arda", available: true },
-        { id: "papazsports", name: "Papaz Sports", available: true },
+  if (preferredSource !== "direct_only") {
+    if (isSport && sportMap) {
+      const sportTasks = [
+        { id: "mahsunsports", label: "MahsunSports", priority: 115, p: sportMap.mahsunsports ? fetchMahsunStream(sportMap.mahsunsports) : Promise.resolve(null) },
+        { id: "alemdarsport", label: "AlemdarSport", priority: 110, p: sportMap.alemdarsport ? fetchAlemdarStream(sportMap.alemdarsport) : Promise.resolve(null) },
+        { id: "taraftarium", label: "Taraftarium24", priority: 105, p: sportMap.taraftarium ? fetchTaraftariumStream(sportMap.taraftarium) : Promise.resolve(null) },
+        { id: "ardasports", label: "ArdaSports", priority: 100, p: sportMap.ardasports ? fetchArdaSportsStream(sportMap.ardasports) : Promise.resolve(null) },
+        { id: "papazsports", label: "PapazSports", priority: 95, p: sportMap.papazsports ? fetchPapazStream(sportMap.papazsports) : Promise.resolve(null) },
       ];
-    }
-
-    if (liveSources) {
-      const authQuery = `username=${encodeURIComponent(creds.username)}&password=${encodeURIComponent(creds.password)}`;
-      for (const src of liveSources) {
-        if (!src.id || src.available === false) continue;
-        if (!isSport && (src.id === "direct" || src.id === "backup")) continue;
-        const streamUrl =
-          src.id === "auto"
-            ? `${creds.base}/live/${canonicalKey}.m3u8?${authQuery}`
-            : `${creds.base}/live/${canonicalKey}.m3u8?${authQuery}&source=${encodeURIComponent(src.id)}`;
-        const cleanSrcName = (src.name ?? src.id).replace(/[⚡️📡🛡🌐]/g, "").trim();
-        const isPreferred = src.id === creds.preferredSource;
+      const [settled, koolStreams] = await Promise.all([
+        Promise.all(sportTasks.map((t) => t.p)),
+        canonicalKey ? resolveAllKoolStreams(canonicalKey, ch.name, ch.lang || "tr") : Promise.resolve([]),
+      ]);
+      for (let i = 0; i < settled.length; i++) {
+        const res = settled[i];
+        const task = sportTasks[i]!;
+        if (!res) continue;
+        const isPreferred = task.id === preferredSource;
         addUnique(
           createStream({
-            url: streamUrl,
+            url: res.url,
             kind: "hls",
             quality: "1080p",
-            label:
-              src.id === "auto"
-                ? `Anthology Live • Otomatik (En Hızlı) • ${ch.name}`
-                : `Anthology Live • ${cleanSrcName} • ${ch.name}`,
+            label: `${task.label} • ${ch.name} 1080p`,
             language: ch.lang || "tr",
-            priority: isPreferred ? 200 : src.id === "auto" ? 120 : 90,
+            priority: isPreferred ? 200 : task.priority,
             isDefault: isPreferred,
-            headers: {
-              "User-Agent": DEFAULT_USER_AGENT,
-              Accept: "*/*",
-            },
+            headers: res.headers,
+            flags: ["requires_proxy"],
           }),
         );
+      }
+      for (const ks of koolStreams) {
+        addUnique(ks);
+      }
+    } else if (canonicalKey) {
+      const koolStreams = await resolveAllKoolStreams(canonicalKey, ch.name, ch.lang || "tr");
+      for (const ks of koolStreams) {
+        addUnique(ks);
       }
     }
   }
 
   for (let idx = 0; idx < ch.urls.length; idx++) {
     const rawUrl = ch.urls[idx]!;
+    if (isPlaceholderUrl(rawUrl)) continue;
     if (rawUrl.includes("youtube.com") || rawUrl.includes("youtu.be")) {
       const yt = await resolveYouTubeInnertube(rawUrl, ch.name);
       if (yt) {
@@ -836,38 +808,6 @@ export async function resolveChannelStreams(
         headers: { "User-Agent": DEFAULT_USER_AGENT, Accept: "*/*" },
       }),
     );
-  }
-
-  if (isSport && sportMap && streams.length === 0) {
-    const settled = await Promise.all([
-      sportMap.taraftarium ? fetchTaraftariumStream(sportMap.taraftarium) : Promise.resolve(null),
-      sportMap.ardasports ? fetchArdaSportsStream(sportMap.ardasports) : Promise.resolve(null),
-      sportMap.alemdarsport ? fetchAlemdarStream(sportMap.alemdarsport) : Promise.resolve(null),
-      sportMap.mahsunsports ? fetchMahsunStream(sportMap.mahsunsports) : Promise.resolve(null),
-      sportMap.papazsports ? fetchPapazStream(sportMap.papazsports) : Promise.resolve(null),
-    ]);
-    const labels = [
-      "Taraftarium24",
-      "ArdaSports",
-      "AlemdarSport",
-      "MahsunSports",
-      "PapazSports",
-    ];
-    for (let i = 0; i < settled.length; i++) {
-      const res = settled[i];
-      if (!res) continue;
-      addUnique(
-        createStream({
-          url: res.url,
-          kind: "hls",
-          quality: "1080p",
-          label: `${labels[i]} • ${ch.name} 1080p`,
-          language: "tr",
-          headers: res.headers,
-          flags: ["requires_proxy"],
-        }),
-      );
-    }
   }
 
   streams.sort((a, b) => (b.priority ?? 0) - (a.priority ?? 0));

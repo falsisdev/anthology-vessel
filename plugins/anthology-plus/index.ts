@@ -12,7 +12,6 @@ import { configString, readToggleSetting } from "./shared/core/config.ts";
 import {
   SEICODE_TMDB_MAP,
   resolveAnimecixByIdentity,
-  resolveGoVodByIdentity,
   resolveHdFilmDelisiByIdentity,
   resolveSeicodeByIdentity,
   resolveSinemaCxByIdentity,
@@ -186,25 +185,21 @@ export default definePlugin({
 
       const [
         useVixolity,
-        useGoVod,
         useVidlink,
         useHdFilmDelisi,
         useSinemaCx,
         useAnimecix,
         useSeicode,
         useSonAnime,
-        customLiveUrl,
         customVidlinkUrl,
       ] = await Promise.all([
         readToggleSetting("enableVixolity", true),
-        readToggleSetting("enableGoVod", true),
         readToggleSetting("enableVidlink", true),
         readToggleSetting("enableHdFilmDelisi", true),
         readToggleSetting("enableSinemaCx", true),
         readToggleSetting("enableAnimecix", true),
         readToggleSetting("enableSeicode", true),
         readToggleSetting("enableSonAnime", true),
-        storage.getSetting<string>("anthologyLiveUrl"),
         storage.getSetting<string>("vidlinkMirror"),
       ]);
 
@@ -231,17 +226,6 @@ export default definePlugin({
                 })
               ).streams,
           ),
-        );
-      }
-
-      if (useGoVod) {
-        tasks.push(
-          resolveGoVodByIdentity({
-            identity,
-            season: parsed.season,
-            episode: parsed.episode,
-            customBaseUrl: customLiveUrl ?? undefined,
-          }),
         );
       }
 
