@@ -1,5 +1,12 @@
 declare module "vessel" {
-  export type PluginCapability = "vod" | "search" | "live_tv" | "subtitles" | "extractor";
+  export type PluginCapability =
+    | "vod"
+    | "search"
+    | "live_tv"
+    | "subtitles"
+    | "extractor"
+    | "stream"
+    | "debrid";
   export type ContentCategory = "movie" | "series" | "anime" | "live";
   export type MediaType = "movie" | "series" | "live";
   export type ContentRating = "sfw" | "nsfw";
@@ -15,7 +22,8 @@ declare module "vessel" {
     | "mkv"
     | "webm"
     | "auto"
-    | "embed";
+    | "embed"
+    | "torrent";
 
   export type AudioType = "sub" | "dub" | "original";
 
@@ -188,6 +196,20 @@ declare module "vessel" {
     confidence?: number;
   }
 
+  export interface TorrentMeta {
+    infoHash?: string;
+    fileIndex?: number;
+    filename?: string;
+    season?: number;
+    episode?: number;
+    seeders?: number;
+    sizeBytes?: number;
+    trackerSource?: string;
+    codecs?: string[];
+    hdr?: string;
+    trackers?: string[];
+  }
+
   export interface StreamCandidate {
     url: string;
     kind: StreamKind;
@@ -202,6 +224,7 @@ declare module "vessel" {
     needsExtractor?: boolean;
     subtitles?: SubtitleTrack[];
     skipSegments?: SkipSegment[];
+    torrent?: TorrentMeta;
   }
 
   export interface StreamResult {
@@ -254,6 +277,69 @@ declare module "vessel" {
     source: SubtitleSource;
   }
 
+  export interface DebridAccountStatus {
+    target: string;
+    label: string;
+    isBuiltin: boolean;
+    supportsBulkCacheCheck: boolean;
+    enabled: boolean;
+    authenticated: boolean;
+    username?: string;
+    email?: string;
+    isPremium: boolean;
+    expiresAt?: string;
+    pointsOrQuota?: string;
+    error?: string;
+  }
+
+  export type DebridCloudStatus = "queued" | "downloading" | "uploading" | "ready" | "error";
+
+  export interface DebridCloudItem {
+    id: string;
+    target: string;
+    providerLabel: string;
+    filename: string;
+    infoHash?: string;
+    sizeBytes?: number;
+    downloadedBytes?: number;
+    status: DebridCloudStatus;
+    progressPct: number;
+    speedBps?: number;
+    seeders?: number;
+    etaSeconds?: number;
+    links: string[];
+    addedAt?: string;
+  }
+
+  export interface DebridResolveRequest {
+    magnetOrHash: string;
+    infoHash: string;
+    fileIndex?: number;
+    filename?: string;
+    season?: number;
+    episode?: number;
+    allowUncachedQueue: boolean;
+  }
+
+  export interface ResolvedHttpLink {
+    url: string;
+    headers?: Record<string, string>;
+    filename?: string;
+    sizeBytes?: number;
+    expiresAt?: string;
+  }
+
+  export type DebridResolveOutcome =
+    | ({ outcome: "ready" } & ResolvedHttpLink)
+    | {
+        outcome: "pending_cloud";
+        torrentId?: string;
+        status: DebridCloudStatus;
+        progressPct: number;
+        speedBps?: number;
+        seeders?: number;
+      };
+
   export interface VesselPlugin {
     getHomeFeed?(cursor?: string | null): Promise<HomeFeed>;
     search?(
@@ -266,6 +352,12 @@ declare module "vessel" {
     getStreams?(streamId: string): Promise<StreamResult>;
     searchSubtitles?(query: SubtitleQuery): Promise<SubtitleCandidate[]>;
     resolveSubtitle?(subtitleId: string): Promise<ResolvedSubtitle>;
+    getDebridAccountStatus?(): Promise<DebridAccountStatus>;
+    checkDebridCached?(hashes: string[]): Promise<Record<string, boolean>>;
+    resolveDebridMagnet?(req: DebridResolveRequest): Promise<DebridResolveOutcome>;
+    listDebridCloud?(): Promise<DebridCloudItem[]>;
+    deleteDebridCloud?(torrentId: string): Promise<void>;
+    unrestrictDebridLink?(link: string): Promise<ResolvedHttpLink>;
   }
 
   export interface HttpRequestOptions {
