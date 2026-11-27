@@ -9,49 +9,85 @@ export interface ExtractorOpts {
   referer?: string;
 }
 
+function buildVidmolyCandidates(rawUrl: string): string[] {
+  let url = rawUrl.trim();
+  if (url.startsWith("//")) url = `https:${url}`;
+  const idMatch = /(?:embed-|\/dl\/|\/)([a-zA-Z0-9]{8,20})(?:\.html)?/i.exec(url);
+  const vidId = idMatch?.[1];
+  const candidates: string[] = [];
+
+  if (url.includes("vidmoly") && vidId && !url.includes("embed-")) {
+    candidates.push(`https://vidmoly.biz/embed-${vidId}.html`);
+  } else {
+    candidates.push(url);
+  }
+
+  if (vidId) {
+    for (const host of ["vidmoly.biz", "vidmoly.net", "vidmoly.to"]) {
+      const candidate = `https://${host}/embed-${vidId}.html`;
+      if (!candidates.includes(candidate)) candidates.push(candidate);
+    }
+  } else {
+    for (const host of ["vidmoly.biz", "vidmoly.net", "vidmoly.to"]) {
+      const candidate = url.replace(/vidmoly\.[a-z0-9]+/i, host);
+      if (!candidates.includes(candidate)) candidates.push(candidate);
+    }
+  }
+  return candidates;
+}
+
 export async function extractVidmoly(
   rawUrl: string,
   opts: ExtractorOpts = {},
 ): Promise<StreamCandidate[]> {
-  let url = rawUrl.trim();
-  if (url.startsWith("//")) url = `https:${url}`;
-  const idMatch = /(?:embed-|\/dl\/|\/)([a-zA-Z0-9]{8,20})(?:\.html)?/i.exec(url);
-  if (url.includes("vidmoly") && idMatch && idMatch[1] && !url.includes("embed-")) {
-    url = `https://vidmoly.to/embed-${idMatch[1]}.html`;
-  }
-  url = url.replace(/vidmoly\.(?:biz|net|me)\//i, "vidmoly.to/");
+  const candidates = buildVidmolyCandidates(rawUrl);
 
-  const htmlText = await fetchText(url, {
-    timeoutMs: 10_000,
-    headers: {
-      Referer: opts.referer ?? "https://vidmoly.to/",
-    },
-  });
-  if (!htmlText) return [];
+  for (const url of candidates) {
+    let origin = "https://vidmoly.biz";
+    try {
+      origin = new URL(url).origin;
+    } catch {
+      origin = "https://vidmoly.biz";
+    }
 
-  const fileMatch = /file\s*:\s*["'](https?:\/\/[^"']+\.m3u8[^"']*)["']/i.exec(htmlText) ??
-    /sources\s*:\s*\[\s*\{\s*file\s*:\s*["'](https?:\/\/[^"']+)["']/i.exec(htmlText);
-  if (!fileMatch || !fileMatch[1]) return [];
-
-  const labelPrefix = opts.sourceLabel ? `${opts.sourceLabel} • ` : "";
-  const audioLabel =
-    opts.audioType === "dub"
-      ? "Türkçe Dublaj"
-      : opts.audioType === "sub"
-        ? "Türkçe Altyazılı"
-        : "VidMoly";
-
-  return [
-    createStream({
-      url: fileMatch[1],
-      kind: "hls",
-      quality: "1080p",
-      label: `${labelPrefix}${audioLabel} • 1080p HLS`,
-      audioType: opts.audioType,
-      language: opts.language ?? (opts.audioType === "dub" ? "tr" : undefined),
+    const htmlText = await fetchText(url, {
+      timeoutMs: 10_000,
       headers: {
-        Referer: "https://vidmoly.to/",
+        Referer: opts.referer ?? `${origin}/`,
       },
-    }),
-  ];
+    });
+    if (!htmlText) continue;
+
+    const fileMatch =
+      /file\s*:\s*["'](https?:\/\/[^"']+\.m3u8[^"']*)["']/i.exec(htmlText) ??
+      /sources\s*:\s*\[\s*\{\s*file\s*:\s*["'](https?:\/\/[^"']+\.m3u8[^"']*)["']/i.exec(
+        htmlText,
+      ) ??
+      /sources\s*:\s*\[\s*\{\s*file\s*:\s*["'](https?:\/\/[^"']+)["']/i.exec(htmlText);
+    if (!fileMatch || !fileMatch[1]) continue;
+
+    const labelPrefix = opts.sourceLabel ? `${opts.sourceLabel} • ` : "";
+    const audioLabel =
+      opts.audioType === "dub"
+        ? "Türkçe Dublaj"
+        : opts.audioType === "sub"
+          ? "Türkçe Altyazılı"
+          : "VidMoly";
+
+    return [
+      createStream({
+        url: fileMatch[1],
+        kind: "hls",
+        quality: "1080p",
+        label: `${labelPrefix}${audioLabel} • 1080p HLS`,
+        audioType: opts.audioType,
+        language: opts.language ?? (opts.audioType === "dub" ? "tr" : undefined),
+        headers: {
+          Referer: `${origin}/`,
+        },
+      }),
+    ];
+  }
+
+  return [];
 }

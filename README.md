@@ -7,6 +7,7 @@
 **Vessel için İlk Resmi & Referans Native TypeScript Eklenti Deposu**
 
 [![Vessel Native](https://img.shields.io/badge/Vessel-Native%20TypeScript-0EA5E9?style=for-the-badge)](https://github.com/falsisdev/Vessel)
+[![Version](https://img.shields.io/badge/Sürüm-1.0.8-2563EB?style=for-the-badge)](#-eklenti-kataloğu-33-eklenti)
 [![Plugins](https://img.shields.io/badge/Eklentiler-33%20Aktif%20Kaynak-10B981?style=for-the-badge)](#-eklenti-kataloğu-33-eklenti)
 [![Strict TypeScript](https://img.shields.io/badge/TypeScript-oxc%20%2B%20QuickJS%20Strict-3178C6?style=for-the-badge)](#-reference-architecture--vessel-sdk-guide-english)
 [![License](https://img.shields.io/badge/Lisans-MIT-F59E0B?style=for-the-badge)](LICENSE)
@@ -44,7 +45,9 @@ Vessel uygulaması içinde **Extensions (Eklentiler) → Add Repository** bölü
 ### Ayarlanabilir Eklenti Parametreleri (`settingsSchema`)
 
 - **`anthology-plus` (`Anthology+` Birleşik TMDB Motoru):**
-  - **Kaynak Anahtarları (`toggle`):** `enableVixolity`, `enableGoVod`, `enableVidlink`, `enableHdFilmDelisi`, `enableSinemaCx`, `enableAnimecix`, `enableSeicode`, `enableSonAnime` (her kaynak tek dokunuşla açılıp kapatılabilir)
+  - **Kaynak Anahtarları (`toggle`):** `enableVixolity`, `enableGoVod`, `enableVidlink` _(varsayılan kapalı — istenirse ayarlardan açılabilir)_, `enableHdFilmDelisi`, `enableSinemaCx`, `enableAnimecix`, `enableSeicode`, `enableSonAnime`
+- **`anizium` (`Anizium`):**
+  - `aniziumEmail` & `aniziumPassword`: Anizium API oturum doğrulaması için isteğe bağlı hesap bilgileri
 - **Site tabanlı VOD eklentileri:**
   - `mirrorUrl`: Alan adı engellenen siteler için özel güncel mirror URL girişi
 

@@ -1,4 +1,4 @@
-import { definePlugin } from "vessel";
+import { definePlugin, storage } from "vessel";
 import type {
   AudioType,
   Episode,
@@ -11,7 +11,13 @@ import type {
   SubtitleTrack,
 } from "vessel";
 import { configString, resolveBaseUrl } from "./shared/core/config.ts";
-import { buildHeaders, fetchJson, rethrowIfDomainBlocked } from "./shared/core/http.ts";
+import {
+  buildHeaders,
+  fetchJson,
+  postJson,
+  rethrowIfDomainBlocked,
+  safeRequest,
+} from "./shared/core/http.ts";
 import { finalizeStreams } from "./shared/core/plugin-helpers.ts";
 import { createStream } from "./shared/core/quality.ts";
 import { asciiFold, dedupeStrings } from "./shared/core/text.ts";
@@ -24,6 +30,8 @@ import {
 const DEFAULT_API = "https://api.anizium.co";
 const DEFAULT_SITE = "https://anizium.co";
 const TOKEN_KEY = "hlxjl1c2w281ax473rt1ofgrvhyjvi";
+const CLIENT_KEY = "16ghkdz5qnwinkyebwopbd94b49xhs";
+const SESSION_CACHE_KEY = "__anizium_auth_session_v1";
 
 interface AniziumAnimeItem {
   ID?: number | string;
@@ -95,10 +103,36 @@ function getIstanbulDay(): string {
   return days[ist.getDay()] ?? "monday";
 }
 
+function utf8ToBytes(str: string): number[] {
+  const out: number[] = [];
+  for (let i = 0; i < str.length; i++) {
+    let code = str.charCodeAt(i);
+    if (code < 0x80) {
+      out.push(code);
+    } else if (code < 0x800) {
+      out.push(0xc0 | (code >> 6), 0x80 | (code & 0x3f));
+    } else if (code >= 0xd800 && code <= 0xdbff && i + 1 < str.length) {
+      const low = str.charCodeAt(++i);
+      code = 0x10000 + (((code - 0xd800) << 10) | (low - 0xdc00));
+      out.push(
+        0xf0 | (code >> 18),
+        0x80 | ((code >> 12) & 0x3f),
+        0x80 | ((code >> 6) & 0x3f),
+        0x80 | (code & 0x3f),
+      );
+    } else {
+      out.push(0xe0 | (code >> 12), 0x80 | ((code >> 6) & 0x3f), 0x80 | (code & 0x3f));
+    }
+  }
+  return out;
+}
+
 function xorEncryptHex(text: string, key: string): string {
+  const textBytes = utf8ToBytes(text);
+  const keyBytes = utf8ToBytes(key);
   let out = "";
-  for (let i = 0; i < text.length; i++) {
-    const code = text.charCodeAt(i) ^ key.charCodeAt(i % key.length);
+  for (let i = 0; i < textBytes.length; i++) {
+    const code = (textBytes[i] ?? 0) ^ (keyBytes[i % keyBytes.length] ?? 0);
     const hex = code.toString(16);
     out += hex.length < 2 ? `0${hex}` : hex;
   }
@@ -111,28 +145,150 @@ function generateCfControl(): string {
   return xorEncryptHex(JSON.stringify({ [randomKey]: Date.now() }), key);
 }
 
+interface AniziumAuthSession {
+  email?: string;
+  session: string;
+  profile: string;
+  at: number;
+}
+
+interface AniziumLoginResponse {
+  success?: boolean;
+  session?: string;
+  msg?: string;
+}
+
+interface AniziumUserResponse {
+  success?: boolean;
+  data?: {
+    profiles?: Array<{ ID?: number | string }>;
+  };
+}
+
+async function resolveAniziumAuth(
+  apiBase: string,
+  siteOrigin: string,
+): Promise<{ session: string; profile: string } | null> {
+  const [manualSession, manualProfile, emailRaw, passwordRaw] = await Promise.all([
+    storage.getSetting<string>("userSession"),
+    storage.getSetting<string>("userProfile"),
+    storage.getSetting<string>("aniziumEmail"),
+    storage.getSetting<string>("aniziumPassword"),
+  ]);
+
+  const directSession = manualSession?.trim() ?? "";
+  const directProfile = manualProfile?.trim() ?? "";
+  if (directSession) {
+    return { session: directSession, profile: directProfile };
+  }
+
+  const email = emailRaw?.trim() ?? "";
+  const password = passwordRaw ?? "";
+  if (!email || !password) return null;
+
+  try {
+    const cached = await storage.get<AniziumAuthSession>(SESSION_CACHE_KEY);
+    if (
+      cached &&
+      cached.email === email &&
+      cached.session &&
+      Date.now() - cached.at < 12 * 60 * 60 * 1000
+    ) {
+      return { session: cached.session, profile: cached.profile };
+    }
+  } catch {
+    // Ignore storage read failure.
+  }
+
+  const encrypted = xorEncryptHex(
+    JSON.stringify({ value: email, password, date: Date.now() }),
+    CLIENT_KEY,
+  );
+  const loginHeaders = {
+    ...buildHeaders(`${siteOrigin}/`),
+    Origin: siteOrigin,
+    "Cf-Control": generateCfControl(),
+    device: "browser",
+    language: "tr",
+    site: "main",
+  };
+  const loginRes = await postJson<AniziumLoginResponse>(
+    `${apiBase}/user/login`,
+    { d: encrypted },
+    { timeoutMs: 9_000, headers: loginHeaders },
+  );
+  if (!loginRes?.success || !loginRes.session) return null;
+
+  let profileId = directProfile;
+  if (!profileId) {
+    const userRes = await fetchJson<AniziumUserResponse>(`${apiBase}/user/get`, {
+      timeoutMs: 9_000,
+      headers: {
+        ...loginHeaders,
+        "user-session": loginRes.session,
+      },
+    });
+    const firstProfile = userRes?.data?.profiles?.[0]?.ID;
+    if (firstProfile !== undefined && firstProfile !== null) {
+      profileId = String(firstProfile);
+    }
+  }
+
+  try {
+    await storage.set(SESSION_CACHE_KEY, {
+      email,
+      session: loginRes.session,
+      profile: profileId,
+      at: Date.now(),
+    });
+  } catch {
+    // Non-fatal.
+  }
+  return { session: loginRes.session, profile: profileId };
+}
+
+async function aniziumFetchRaw(
+  apiBase: string,
+  siteOrigin: string,
+  endpoint: string,
+  params: Record<string, string | number> = {},
+  auth?: { session: string; profile: string } | null,
+): Promise<{ status: number; text: string } | null> {
+  const pairs = Object.entries(params)
+    .filter(([, v]) => v !== undefined && v !== null)
+    .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(String(v))}`);
+  const url = `${apiBase}${endpoint}${pairs.length > 0 ? `?${pairs.join("&")}` : ""}`;
+  const headers: Record<string, string> = {
+    ...buildHeaders(`${siteOrigin}/`),
+    Origin: siteOrigin,
+    Accept: "application/json, text/plain, */*",
+    "Cf-Control": generateCfControl(),
+    device: "browser",
+    language: "tr",
+    site: "main",
+  };
+  if (auth?.session) headers["user-session"] = auth.session;
+  if (auth?.profile) headers["user-profile"] = auth.profile;
+
+  const res = await safeRequest(url, { timeoutMs: 9_000, headers });
+  if (!res) return null;
+  return { status: res.status, text: res.text() };
+}
+
 async function aniziumFetch<T>(
   apiBase: string,
   siteOrigin: string,
   endpoint: string,
   params: Record<string, string | number> = {},
+  auth?: { session: string; profile: string } | null,
 ): Promise<T | null> {
-  const pairs = Object.entries(params)
-    .filter(([, v]) => v !== undefined && v !== null)
-    .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(String(v))}`);
-  const url = `${apiBase}${endpoint}${pairs.length > 0 ? `?${pairs.join("&")}` : ""}`;
-  return fetchJson<T>(url, {
-    timeoutMs: 9_000,
-    headers: {
-      ...buildHeaders(`${siteOrigin}/`),
-      Origin: siteOrigin,
-      Accept: "application/json, text/plain, */*",
-      "Cf-Control": generateCfControl(),
-      device: "browser",
-      language: "tr",
-      site: "main",
-    },
-  });
+  const raw = await aniziumFetchRaw(apiBase, siteOrigin, endpoint, params, auth);
+  if (!raw || raw.status < 200 || raw.status >= 300) return null;
+  try {
+    return JSON.parse(raw.text) as T;
+  } catch {
+    return null;
+  }
 }
 
 function mapSummary(item: AniziumAnimeItem): MediaSummary | null {
@@ -413,12 +569,31 @@ export default definePlugin({
         params.episode = eNum;
       }
 
-      const srcData = await aniziumFetch<AniziumSourceResponse>(
+      const auth = await resolveAniziumAuth(apiBase, siteOrigin);
+      const srcRaw = await aniziumFetchRaw(
         apiBase,
         siteOrigin,
         "/anime/source",
         params,
+        auth,
       );
+      if (!srcRaw) return { streams: [] };
+      if (srcRaw.status === 401) {
+        try {
+          await storage.remove(SESSION_CACHE_KEY);
+        } catch {
+          // Ignore cache clear failure.
+        }
+        return { streams: [] };
+      }
+      if (srcRaw.status < 200 || srcRaw.status >= 300) return { streams: [] };
+
+      let srcData: AniziumSourceResponse | null = null;
+      try {
+        srcData = JSON.parse(srcRaw.text) as AniziumSourceResponse;
+      } catch {
+        return { streams: [] };
+      }
       if (!srcData?.success || !srcData.groups?.length) return { streams: [] };
 
       const subtitles = mapSubtitles(srcData.subtitles);

@@ -19,11 +19,11 @@ import {
   finalizeStreams,
   getTmdbBackedMovieDetails,
   getTmdbMovieHomeSections,
+  parseRouteId,
   pickBestCandidate,
   searchTmdbBackedCatalog,
 } from "./shared/core/plugin-helpers.ts";
-import { sortStreamsByQuality } from "./shared/core/quality.ts";
-import { slugify } from "./shared/core/text.ts";
+import { cleanTitle, slugify } from "./shared/core/text.ts";
 import { resolveTmdbIdentity } from "./shared/core/tmdb.ts";
 import { extractByEmbedUrl } from "./shared/extractors/video-hosts.ts";
 
@@ -78,12 +78,12 @@ async function findFilmPage(
     })),
   );
   for (const cand of candidateResults) {
-    if (cand.body && cand.body.includes("data-id") && cand.body.includes('id="wip"')) {
+    if (cand.body && /data-id=["']?\d+/i.test(cand.body) && cand.body.includes("wip")) {
       return { url: cand.url, body: cand.body };
     }
   }
 
-  for (const query of [titleTr, titleEn].filter(Boolean)) {
+  for (const query of [cleanTitle(titleTr), cleanTitle(titleEn), titleTr, titleEn].filter(Boolean)) {
     const res = await postForm(
       `${base}/ajax/arama.asp`,
       { q: query },
@@ -102,9 +102,9 @@ async function findFilmPage(
         (r) => Boolean(r.url && r.title && !r.url.includes("/fragman/")),
       );
       const best = pickBestCandidate(
-        results.map((r) => ({ title: r.title ?? "", url: r.url! })),
-        titleTr,
-        titleEn,
+        results.map((r) => ({ title: cleanTitle(r.title ?? ""), url: r.url! })),
+        cleanTitle(titleTr),
+        cleanTitle(titleEn),
       );
       if (best?.url) {
         const pageUrl = best.url.startsWith("http")
@@ -132,8 +132,8 @@ function resolveEmbedToken(embedHtml: string): string | null {
   if (!short?.[1] || !short[2]) return null;
   const host = short[1].toLowerCase();
   const vid = short[2];
-  if (host === "vidmoly") return `https://vidmoly.to/embed-${vid}.html`;
-  if (host === "okru") return `https://odnoklassniki.ru/videoembed/${vid}`;
+  if (host === "vidmoly") return `https://vidmoly.biz/embed-${vid}.html`;
+  if (host === "okru") return `https://ok.ru/videoembed/${vid}`;
   if (host === "sibnet") return `https://video.sibnet.ru/shell.php?videoid=${vid}`;
   if (host === "filemoon") return `https://bysezoxexe.com/e/${vid}`;
   if (host === "mailru") {
@@ -189,9 +189,8 @@ export default definePlugin({
         DEFAULT_BASE,
         "mirrorUrl",
       );
-      const parts = streamId.split(":");
-      const rawId = parts.length >= 3 ? parts[2]! : parts[0]!;
-      const identity = await resolveTmdbIdentity(rawId, "movie");
+      const route = parseRouteId(streamId);
+      const identity = await resolveTmdbIdentity(route.id, "movie");
       if (!identity) return { streams: [] };
 
       const page = await findFilmPage(base, identity.title, identity.originalTitle);

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "anizium",
   "name": "Anizium",
-  "version": "1.0.5",
+  "version": "1.0.8",
   "author": "falsisdev",
   "description": "Anizium (anizium.co) 4K & 1080p Türkçe Dublaj/Altyazılı anime akışları ve WebVTT altyazıları.",
   "entry": "index.ts",
@@ -31,6 +31,31 @@
     "raw.githubusercontent.com"
   ],
   "settingsSchema": [
+    {
+      "key": "aniziumEmail",
+      "label": "Anizium E-posta / Kullanıcı Adı",
+      "type": "text",
+      "placeholder": "ornek@eposta.com",
+      "description": "Anizium artık video kaynakları için oturum gerektirir. Hesabınızla giriş yaparak akışları etkinleştirin."
+    },
+    {
+      "key": "aniziumPassword",
+      "label": "Anizium Şifre",
+      "type": "secret",
+      "placeholder": "••••••••"
+    },
+    {
+      "key": "userSession",
+      "label": "Oturum Anahtarı (İsteğe Bağlı)",
+      "type": "secret",
+      "placeholder": "user_session (e-posta/şifre kullanılırsa otomatik alınır)"
+    },
+    {
+      "key": "userProfile",
+      "label": "Profil ID (İsteğe Bağlı)",
+      "type": "text",
+      "placeholder": "user_profile (otomatik alınır)"
+    },
     {
       "key": "mirrorUrl",
       "label": "Özel API Adresi",

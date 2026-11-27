@@ -15,10 +15,16 @@ const PLAYBACK_HEADERS: Record<string, string> = {
   Accept: "*/*",
 };
 
+interface VidlinkQualityEntry {
+  url?: string;
+  codecName?: string;
+}
+
 interface VidlinkApiResponse {
+  sourceId?: string;
   stream?: {
     playlist?: string;
-    qualities?: Record<string, { url?: string }>;
+    qualities?: Record<string, VidlinkQualityEntry>;
   };
 }
 
@@ -56,7 +62,6 @@ export async function resolveVidlinkByIdentity(opts: {
 
   const streams: StreamCandidate[] = [];
   if (streamObj.playlist) {
-    // Vidlink CDN rejects requests carrying browser User-Agent/Referer (HTTP 428).
     streams.push(
       createStream({
         url: streamObj.playlist,
@@ -71,6 +76,8 @@ export async function resolveVidlinkByIdentity(opts: {
   if (streamObj.qualities) {
     for (const [qKey, qVal] of Object.entries(streamObj.qualities)) {
       if (!qVal?.url) continue;
+      // Skip HEVC/H.265 mwVault MP4 files that cause WebView/player Playback Issue errors.
+      if (qVal.codecName?.toLowerCase() === "hevc") continue;
       const quality = /^\d+$/.test(qKey) ? `${qKey}p` : qKey;
       streams.push(
         createStream({

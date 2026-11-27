@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "dizimom",
   "name": "DiziMom",
-  "version": "1.0.5",
+  "version": "1.0.8",
   "author": "falsisdev",
   "description": "DiziMom (ddizimom.net) ve Pilavyer Player üzerinden yabancı dizi ve film 1080p HLS akışları.",
   "entry": "index.ts",
@@ -26,6 +26,8 @@
     "pilavyerplay.top",
     "play2.pilavyerplay.top",
     "*.pilavyerplay.top",
+    "pilavyer1.top",
+    "pilavyer4.top",
     "hdplayersystem.com",
     "api.themoviedb.org",
     "raw.githubusercontent.com"

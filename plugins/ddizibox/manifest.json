@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "ddizibox",
   "name": "DDiziBox",
-  "version": "1.0.5",
+  "version": "1.0.8",
   "author": "falsisdev",
   "description": "DDiziBox (ddizibox.com) yerli/yabancı dizi, film ve anime arşivi; Pilavyer 1080p HLS ve Türkçe altyazılar.",
   "entry": "index.ts",
@@ -28,6 +28,8 @@
     "play2.pilavyerplay.top",
     "pilavyerplay.top",
     "*.pilavyerplay.top",
+    "pilavyer1.top",
+    "pilavyer4.top",
     "api.themoviedb.org",
     "raw.githubusercontent.com"
   ],

@@ -19,6 +19,7 @@ import {
   dedupeMediaSummaries,
   extractUniqueFrameUrls,
   finalizeStreams,
+  parseRouteId,
   pickBestCandidate,
 } from "./shared/core/plugin-helpers.ts";
 import {
@@ -34,6 +35,12 @@ const DEFAULT_BASE = "https://diziboxizle.com";
 interface WpCategoryItem {
   slug?: string;
   name?: string;
+  count?: number;
+}
+
+interface WpPostItem {
+  link?: string;
+  title?: { rendered?: string };
 }
 
 function parseBoxIzleCards(rawHtml: string, base: string): MediaSummary[] {
@@ -159,24 +166,43 @@ export default definePlugin({
     try {
       if (page > 1 || !query.trim()) return { items: [], hasMore: false };
       const base = await resolveBaseUrl("urls.series.diziboxizle.base", DEFAULT_BASE, "mirrorUrl");
-      const [cats, sHtml] = await Promise.all([
+      const cleanQ = query.trim().replace(/['’`]/g, " ").replace(/\s+/g, " ").trim();
+      const [cats, posts, sHtml] = await Promise.all([
         fetchJson<WpCategoryItem[]>(
-          `${base}/wp-json/wp/v2/categories?search=${encodeURIComponent(query.trim())}&per_page=25`,
+          `${base}/wp-json/wp/v2/categories?search=${encodeURIComponent(cleanQ)}&per_page=25&hide_empty=true`,
           { timeoutMs: 8_000, headers: buildHeaders(`${base}/`) },
         ),
-        fetchText(`${base}/?s=${encodeURIComponent(query.trim())}`, {
+        fetchJson<WpPostItem[]>(
+          `${base}/wp-json/wp/v2/posts?search=${encodeURIComponent(cleanQ)}&per_page=20`,
+          { timeoutMs: 8_000, headers: buildHeaders(`${base}/`) },
+        ),
+        fetchText(`${base}/?s=${encodeURIComponent(cleanQ)}`, {
           timeoutMs: 8_000,
           headers: buildHeaders(`${base}/`),
         }),
       ]);
 
       const items: MediaSummary[] = (cats ?? [])
-        .filter((c) => c.slug && c.name)
+        .filter((c) => c.slug && c.name && (c.count ?? 1) > 0)
         .map((c) => ({
           nativeId: `series:${c.slug!}`,
           type: "series",
           title: decodeHtmlEntities(c.name!).trim(),
         }));
+      for (const post of posts ?? []) {
+        if (!post.link || !post.title?.rendered) continue;
+        const cleanTitle = decodeHtmlEntities(post.title.rendered).replace(/<[^>]+>/g, "").trim();
+        const showSlug = post.link
+          .replace(/^https?:\/\/[^/]+\//i, "")
+          .replace(/-\d+-sezon-\d+-bolum.*$/, "")
+          .replace(/\/+$/, "");
+        if (!showSlug || items.some((x) => x.nativeId === `series:${showSlug}`)) continue;
+        items.push({
+          nativeId: `series:${showSlug}`,
+          type: "series",
+          title: cleanTitle.replace(/\s+\d+\.\s*Sezon.*$/i, "").trim() || cleanTitle,
+        });
+      }
       if (sHtml) items.push(...parseBoxIzleCards(sHtml, base));
       return { items: dedupeMediaSummaries(items).slice(0, 30), hasMore: false };
     } catch (err) {
@@ -241,11 +267,11 @@ export default definePlugin({
         return finalizeStreams(await resolveBoxIzleEpisode(decodeURIComponent(streamId.slice(3)), base));
       }
 
-      const parts = streamId.split(":");
-      const identity = await resolveTmdbIdentity(parts[0] ?? streamId, "series");
+      const route = parseRouteId(streamId);
+      const identity = await resolveTmdbIdentity(route.id, "series");
       if (!identity) return { streams: [] };
-      const sTarget = Number.parseInt(parts[1] ?? "1", 10) || 1;
-      const eTarget = Number.parseInt(parts[2] ?? "1", 10) || 1;
+      const sTarget = route.season;
+      const eTarget = route.episode;
 
       const sr = await this.search!(identity.title, {}, 1);
       const best = pickBestCandidate(

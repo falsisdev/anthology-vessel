@@ -13,6 +13,7 @@ import {
   dedupeMediaSummaries,
   extractUniqueFrameUrls,
   finalizeStreams,
+  parseRouteId,
   pickBestCandidate,
 } from "./shared/core/plugin-helpers.ts";
 import { createStream } from "./shared/core/quality.ts";
@@ -20,8 +21,14 @@ import {
   absoluteUrl,
   decodeHtmlEntities,
   parseSeasonEpisode,
+  titleSimilarity,
 } from "./shared/core/text.ts";
-import { resolveTmdbIdentity, tmdbDiscoverFeed } from "./shared/core/tmdb.ts";
+import {
+  resolveTmdbIdentity,
+  tmdbDiscoverFeed,
+  tmdbGetSeasonEpisodes,
+  tmdbSearch,
+} from "./shared/core/tmdb.ts";
 import {
   resolveYouTubeInnertube,
   searchOfficialYouTubeEpisode,
@@ -122,25 +129,26 @@ export default definePlugin({
 
   async search(query, _filters, page): Promise<SearchPage> {
     try {
-      if (page > 1 || !query.trim()) return { items: [], hasMore: false };
+      if (!query.trim()) return { items: [], hasMore: false };
       const base = await resolveBaseUrl("urls.series.trdiziizle.base", DEFAULT_BASE, "mirrorUrl");
-      const rawHtml = await fetchText(`${base}/?s=${encodeURIComponent(query.trim())}`, {
-        timeoutMs: 8_000,
-        headers: buildHeaders(`${base}/`),
-      });
-      const items = rawHtml && !rawHtml.includes("window.park") ? parseTrDiziCards(rawHtml, base) : [];
-      if (items.length > 0) return { items, hasMore: false };
+      if (page === 1) {
+        const rawHtml = await fetchText(`${base}/?s=${encodeURIComponent(query.trim())}`, {
+          timeoutMs: 8_000,
+          headers: buildHeaders(`${base}/`),
+        });
+        const items = rawHtml && !rawHtml.includes("window.park") ? parseTrDiziCards(rawHtml, base) : [];
+        if (items.length > 0) return { items, hasMore: false };
+      }
 
-      return {
-        items: [
-          {
-            nativeId: `yt:${encodeURIComponent(query.trim())}`,
-            type: "series",
-            title: query.trim(),
-          },
-        ],
-        hasMore: false,
-      };
+      // Never fabricate fake results matching arbitrary input; search real Turkish series on TMDB.
+      const tmdbRes = await tmdbSearch({
+        idPrefix: "trdiziizle",
+        query: query.trim(),
+        mediaType: "series",
+        page,
+      });
+      const trItems = tmdbRes.items.filter((item) => item.type === "series");
+      return { items: trItems, hasMore: tmdbRes.hasMore };
     } catch (err) {
       rethrowIfDomainBlocked(err);
       return { items: [], hasMore: false };
@@ -153,24 +161,27 @@ export default definePlugin({
         ? decodeURIComponent(nativeId.slice(3))
         : nativeId.split(":")[2] ?? nativeId;
       const identity = await resolveTmdbIdentity(queryOrId, "series");
-      const title = identity?.title || queryOrId;
-      const episodes: Episode[] = [];
-      const count = Math.min(identity?.seasons[0]?.episodeCount ?? 12, 30);
-      for (let e = 1; e <= count; e++) {
-        episodes.push({
-          streamId: `yt:${encodeURIComponent(title)}:1:${e}`,
-          season: 1,
-          episode: e,
-          title: `${e}. Bölüm`,
-        });
+      if (!identity) {
+        throw new Error(`TrDiziİzle içeriği bulunamadı: ${queryOrId}`);
       }
+      const title = identity.title || queryOrId;
+      const tmdbId = identity.tmdbId;
+      const sNum = identity.seasons[0]?.season ?? 1;
+      const episodes = await tmdbGetSeasonEpisodes(
+        tmdbId,
+        sNum,
+        (s, ep) => `yt:${encodeURIComponent(title)}:${s}:${ep}:${tmdbId}`,
+      );
       return {
         nativeId,
         type: "series",
         title,
-        poster: identity?.poster,
-        backdrop: identity?.backdrop,
-        synopsis: identity?.synopsis,
+        year: identity.year,
+        poster: identity.poster,
+        backdrop: identity.backdrop,
+        synopsis: identity.synopsis,
+        genres: identity.genres,
+        seasons: identity.seasons,
         episodes,
       };
     }
@@ -210,9 +221,16 @@ export default definePlugin({
     try {
       const base = await resolveBaseUrl("urls.series.trdiziizle.base", DEFAULT_BASE, "mirrorUrl");
       if (streamId.startsWith("yt:")) {
-        const [, encodedTitle, , epStr] = streamId.split(":");
-        const title = decodeURIComponent(encodedTitle ?? "");
-        const epNum = Number.parseInt(epStr ?? "1", 10) || 1;
+        const parts = streamId.split(":");
+        const title = decodeURIComponent(parts[1] ?? "");
+        const epNum = Number.parseInt(parts[3] ?? "1", 10) || 1;
+        const tmdbId = parts[4];
+        if (tmdbId) {
+          const identity = await resolveTmdbIdentity(tmdbId, "series");
+          if (identity && identity.originalLanguage && identity.originalLanguage !== "tr") {
+            return { streams: [] };
+          }
+        }
         return finalizeStreams(await searchOfficialYouTubeEpisode(title, epNum, "TrDiziİzle"));
       }
       if (streamId.startsWith("ep:")) {
@@ -228,10 +246,13 @@ export default definePlugin({
         }
       }
 
-      const parts = streamId.split(":");
-      const identity = await resolveTmdbIdentity(parts[0] ?? streamId, "series");
+      const route = parseRouteId(streamId);
+      const identity = await resolveTmdbIdentity(route.id, "series");
       if (!identity) return { streams: [] };
-      const eTarget = Number.parseInt(parts[2] ?? "1", 10) || 1;
+      if (identity.originalLanguage && identity.originalLanguage !== "tr") {
+        return { streams: [] };
+      }
+      const eTarget = route.episode;
 
       const sHtml = await fetchText(`${base}/?s=${encodeURIComponent(identity.title)}`, {
         timeoutMs: 6_000,
@@ -243,7 +264,7 @@ export default definePlugin({
           url: decodeURIComponent(c.nativeId.replace(/^series:/, "")),
         }));
         const best = pickBestCandidate(cands, identity.title, identity.originalTitle);
-        if (best) {
+        if (best && titleSimilarity(best.title, identity.title) >= 0.5) {
           const epHtml = await fetchText(best.url, { headers: buildHeaders(`${base}/`) });
           if (epHtml) {
             for (const f of extractUniqueFrameUrls(epHtml, base)) {

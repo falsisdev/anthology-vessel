@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "yabancidizi",
   "name": "YabancıDizi",
-  "version": "1.0.5",
+  "version": "1.0.8",
   "author": "falsisdev",
   "description": "YabancıDizi (yabancidizi.news) üzerinden VidMoly Türkçe Dublaj ve Altyazılı 1080p HLS yabancı dizi arşivi.",
   "entry": "index.ts",
@@ -44,7 +44,15 @@
     "shared/core/quality.ts",
     "shared/core/text.ts",
     "shared/core/tmdb.ts",
-    "shared/extractors/vidmoly.ts"
+    "shared/extractors/bysezo.ts",
+    "shared/extractors/closeload.ts",
+    "shared/extractors/okru.ts",
+    "shared/extractors/pilavyer.ts",
+    "shared/extractors/sibnet.ts",
+    "shared/extractors/tauvideo.ts",
+    "shared/extractors/video-hosts.ts",
+    "shared/extractors/vidmoly.ts",
+    "shared/extractors/youtube.ts"
   ],
   "icon": "https://www.google.com/s2/favicons?domain=yabancidizi.news&sz=128"
 }

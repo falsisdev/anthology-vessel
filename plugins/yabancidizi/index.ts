@@ -19,6 +19,7 @@ import {
 import {
   dedupeMediaSummaries,
   finalizeStreams,
+  parseRouteId,
   pickBestCandidate,
 } from "./shared/core/plugin-helpers.ts";
 import {
@@ -28,6 +29,7 @@ import {
   parseSeasonEpisode,
 } from "./shared/core/text.ts";
 import { resolveTmdbIdentity, tmdbSearch } from "./shared/core/tmdb.ts";
+import { extractByEmbedUrl } from "./shared/extractors/video-hosts.ts";
 import { extractVidmoly } from "./shared/extractors/vidmoly.ts";
 
 const DEFAULT_BASE = "https://yabancidizi.news";
@@ -79,7 +81,7 @@ async function resolveYdEpisode(
     if (!vidId || seenIds.has(vidId)) continue;
     seenIds.add(vidId);
     tasks.push(
-      extractVidmoly(`https://vidmoly.to/embed-${vidId}.html`, {
+      extractVidmoly(`https://vidmoly.biz/embed-${vidId}.html`, {
         sourceLabel: "YabancıDizi",
         referer: `${base}/`,
       }),
@@ -87,6 +89,24 @@ async function resolveYdEpisode(
   }
   if (tasks.length > 0) {
     streams.push(...(await Promise.all(tasks)).flat());
+  }
+
+  if (streams.length === 0) {
+    const doc = html.parse(epHtml);
+    for (const ifr of doc.select("iframe[src], iframe[data-src], [data-embed]")) {
+      const src = ifr.attr("data-src") || ifr.attr("src") || ifr.attr("data-embed");
+      if (!src) continue;
+      const full = absoluteUrl(base, src);
+      if (full.includes("youtube.com") || full.includes("youtu.be")) continue;
+      const resolved = await extractByEmbedUrl(full, {
+        sourceLabel: "YabancıDizi",
+        referer: epUrl,
+      });
+      if (resolved.length > 0) {
+        streams.push(...resolved);
+        break;
+      }
+    }
   }
 
   return streams;
@@ -289,19 +309,25 @@ export default definePlugin({
         .filter((r) => Boolean(r.s_link && r.s_name))
         .map((r) => {
           const isMovie = r.s_type === "1";
+          const rawLink = r.s_link!.trim();
+          const cleanSlug = rawLink
+            .replace(/^https?:\/\/[^/]+/i, "")
+            .replace(/^\/?(?:dizi|film)\//i, "")
+            .replace(/^\/+|\/+$/g, "");
           const poster = r.s_image
             ? r.s_image.startsWith("http")
               ? r.s_image
-              : `${base}/uploads/series/${r.s_image}`
+              : `${base}/uploads/series/${r.s_image.replace(/^\/+/, "")}`
             : undefined;
           return {
-            nativeId: `${isMovie ? "movie" : "series"}:${r.s_link!}`,
+            nativeId: `${isMovie ? "movie" : "series"}:${cleanSlug}`,
             type: isMovie ? "movie" : "series",
             title: decodeHtmlEntities(r.s_name!).trim(),
             year: extractYear(r.s_year),
             poster,
           };
         });
+      await hydrateYdPosters(items, base, 16);
       return { items, hasMore: false };
     } catch (err) {
       rethrowIfDomainBlocked(err);
@@ -312,7 +338,11 @@ export default definePlugin({
   async getDetails(nativeId): Promise<MediaDetail> {
     const base = await resolveBaseUrl("urls.series.yabancidizi.base", DEFAULT_BASE, "mirrorUrl");
     const isMovie = nativeId.startsWith("movie:");
-    const slug = nativeId.replace(/^(?:movie|series):/, "");
+    const rawTarget = decodeURIComponent(nativeId.replace(/^(?:movie|series):/, "")).trim();
+    const slug = rawTarget
+      .replace(/^https?:\/\/[^/]+/i, "")
+      .replace(/^\/?(?:dizi|film)\//i, "")
+      .replace(/^\/+|\/+$/g, "");
     const pageUrl = isMovie ? `${base}/film/${slug}` : `${base}/dizi/${slug}`;
     const rawHtml = await fetchText(pageUrl, {
       timeoutMs: 10_000,
@@ -321,26 +351,35 @@ export default definePlugin({
     if (!rawHtml) throw new Error(`YabancıDizi içeriği açılamadı: ${slug}`);
 
     const doc = html.parse(rawHtml);
-    const title = decodeHtmlEntities(doc.selectOne("h1")?.text() || slug).trim();
-    const profileImg = doc.selectOne("img.series-profile-thumb, .series-profile-image img, img[src*='uploads/series'], img[data-src*='uploads/series']");
+    const title = decodeHtmlEntities(
+      doc.selectOne("h1")?.text() || slug.replace(/-/g, " "),
+    ).trim();
+    const profileImg = doc.selectOne(
+      "img.series-profile-thumb, .series-profile-image img, img[src*='uploads/series'], img[data-src*='uploads/series']",
+    );
     const ogImg = doc.selectOne('meta[property="og:image"]')?.attr("content");
     let poster =
       cleanPosterUrl(
         profileImg?.attr("data-src") || profileImg?.attr("data-lazy") || profileImg?.attr("src"),
         base,
-      ) ??
-      cleanPosterUrl(ogImg, base);
+      ) ?? cleanPosterUrl(ogImg, base);
+    const tmdbMeta = await resolveTmdbIdentity(title, isMovie ? "movie" : "series");
     if (!poster) {
-      poster =
-        (await lookupYdSitePoster(title, base)) ??
-        (await resolveTmdbIdentity(title, isMovie ? "movie" : "series"))?.poster;
+      poster = (await lookupYdSitePoster(title, base)) ?? tmdbMeta?.poster;
     }
-    const backdrop = cleanPosterUrl(ogImg, base) ?? poster;
+    const backdrop = cleanPosterUrl(ogImg, base) ?? tmdbMeta?.backdrop ?? poster;
+    const synopsis =
+      doc.selectOne(".series-profile-summary p, .summary p, p.overview")?.text().trim() ||
+      doc.selectOne('meta[name="description"]')?.attr("content")?.trim() ||
+      tmdbMeta?.synopsis;
     if (isMovie) {
       return {
         nativeId,
         type: "movie",
         title,
+        year: tmdbMeta?.year,
+        synopsis,
+        genres: tmdbMeta?.genres,
         poster,
         backdrop,
         episodes: [{ streamId: `ep:${encodeURIComponent(pageUrl)}`, season: 1, episode: 1, title }],
@@ -375,7 +414,18 @@ export default definePlugin({
       }),
     );
 
-    return { nativeId, type: "series", title, poster, backdrop, seasons, episodes };
+    return {
+      nativeId,
+      type: "series",
+      title,
+      year: tmdbMeta?.year,
+      synopsis,
+      genres: tmdbMeta?.genres,
+      poster,
+      backdrop,
+      seasons,
+      episodes,
+    };
   },
 
   async getStreams(streamId) {
@@ -385,12 +435,12 @@ export default definePlugin({
         return finalizeStreams(await resolveYdEpisode(decodeURIComponent(streamId.slice(3)), base));
       }
 
-      const parts = streamId.split(":");
-      const typeHint: "movie" | "series" = parts[2] ? "series" : "movie";
-      const identity = await resolveTmdbIdentity(parts[0] ?? streamId, typeHint);
+      const route = parseRouteId(streamId);
+      const typeHint: "movie" | "series" = route.mediaType === "movie" ? "movie" : "series";
+      const identity = await resolveTmdbIdentity(route.id, typeHint);
       if (!identity) return { streams: [] };
-      const sTarget = Number.parseInt(parts[1] ?? "1", 10) || 1;
-      const eTarget = Number.parseInt(parts[2] ?? "1", 10) || 1;
+      const sTarget = route.season;
+      const eTarget = route.episode;
 
       for (const q of [identity.title, identity.originalTitle].filter(Boolean)) {
         const sr = await this.search!(q, {}, 1);

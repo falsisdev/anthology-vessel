@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "seicode",
   "name": "SeiCode",
-  "version": "1.0.5",
+  "version": "1.0.8",
   "author": "falsisdev",
   "description": "SeiCode (seicode.net / next.seicode.net) TauVideo, OK.ru, Sibnet, VidMoly ve MP4Upload Türkçe altyazılı anime arşivi.",
   "entry": "index.ts",

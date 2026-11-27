@@ -9,7 +9,11 @@ import type {
 } from "vessel";
 import { resolveBaseUrl } from "./shared/core/config.ts";
 import { buildHeaders, fetchText, rethrowIfDomainBlocked } from "./shared/core/http.ts";
-import { finalizeStreams, pickBestCandidate } from "./shared/core/plugin-helpers.ts";
+import {
+  finalizeStreams,
+  parseRouteId,
+  pickBestCandidate,
+} from "./shared/core/plugin-helpers.ts";
 import { absoluteUrl, decodeHtmlEntities, extractYear, parseSeasonEpisode } from "./shared/core/text.ts";
 import { resolveTmdbIdentity } from "./shared/core/tmdb.ts";
 import { extractPilavyer } from "./shared/extractors/pilavyer.ts";
@@ -180,9 +184,9 @@ export default definePlugin({
         return finalizeStreams(await resolveMomEpisode(pageUrl, base));
       }
 
-      const parts = streamId.split(":");
-      const typeHint: "movie" | "series" = parts[2] ? "series" : "movie";
-      const identity = await resolveTmdbIdentity(parts[0] ?? streamId, typeHint);
+      const route = parseRouteId(streamId);
+      const typeHint: "movie" | "series" = route.mediaType === "movie" ? "movie" : "series";
+      const identity = await resolveTmdbIdentity(route.id, typeHint);
       if (!identity) return { streams: [] };
 
       for (const q of [identity.title, identity.originalTitle].filter(Boolean)) {
@@ -198,8 +202,9 @@ export default definePlugin({
           url: decodeURIComponent(c.nativeId.replace(/^(?:movie|series):/, "")),
         }));
         const filtered = cands.filter((c) => c.type === identity.mediaType);
+        if (filtered.length === 0) continue;
         const best = pickBestCandidate(
-          filtered.length > 0 ? filtered : cands,
+          filtered,
           identity.title,
           identity.originalTitle,
           identity.year,
@@ -208,7 +213,7 @@ export default definePlugin({
           let targetUrl = best.url;
           if (typeHint === "series") {
             const slug = best.url.replace(/\/+$/, "").split("/").pop() ?? "";
-            targetUrl = `${base}/dizi/${slug}/sezon-${parts[1] ?? "1"}/bolum-${parts[2] ?? "1"}`;
+            targetUrl = `${base}/dizi/${slug}/sezon-${route.season}/bolum-${route.episode}`;
           }
           const streams = await resolveMomEpisode(targetUrl, base);
           if (streams.length > 0) return finalizeStreams(streams);

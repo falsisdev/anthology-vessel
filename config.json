@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "Anthology (Vessel)",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Anthology (Vessel) - Merkezi Eklenti, API, URL ve Sağlayıcı Yapılandırması",
   "branding": {
     "name": "Anthology",
@@ -144,7 +144,7 @@
       "anthology_diziler": {
         "now": "https://www.nowtv.com.tr",
         "show": "https://www.showtv.com.tr",
-        "kanald": "https://kanald.com.tr",
+        "kanald": "https://www.kanald.com.tr",
         "atv": "https://www.atv.com.tr",
         "star": "https://www.startv.com.tr",
         "trt1": "https://www.trt1.com.tr"

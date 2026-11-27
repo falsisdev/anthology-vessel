@@ -18,6 +18,7 @@ import {
 import {
   dedupeMediaSummaries,
   finalizeStreams,
+  parseRouteId,
   pickBestCandidate,
 } from "./shared/core/plugin-helpers.ts";
 import { createStream, inferStreamKind } from "./shared/core/quality.ts";
@@ -236,13 +237,15 @@ export default definePlugin({
           for (const item of payload.data?.diziler ?? []) {
             if (!item.title) continue;
             const link = item.link ? absoluteUrl(base, item.link) : "";
+            const isMovie = link.includes("/film/") || /film/i.test((item as { type?: string }).type ?? "");
             const slug =
               item.slugOrId ||
               link.replace(/\/+$/, "").split("/").pop() ||
               item.title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+            const target = link || `${base}/${isMovie ? "filmler" : "diziler"}/${slug}/`;
             items.push({
-              nativeId: `series:${slug}`,
-              type: "series",
+              nativeId: `${isMovie ? "movie" : "series"}:${encodeURIComponent(target)}`,
+              type: isMovie ? "movie" : "series",
               title: decodeHtmlEntities(item.title).trim(),
               poster: item.thumb ? absoluteUrl(base, item.thumb) : undefined,
             });
@@ -293,15 +296,33 @@ export default definePlugin({
 
   async getDetails(nativeId): Promise<MediaDetail> {
     const base = await resolveBaseUrl("urls.series.dizibak.base", DEFAULT_BASE, "mirrorUrl");
-    const slug = nativeId.replace(/^series:/, "");
-    const showHtml = await fetchText(`${base}/diziler/${slug}/`, {
-      timeoutMs: 10_000,
-      headers: buildHeaders(`${base}/`),
-    });
-    if (!showHtml) throw new Error(`DiziBak dizisi bulunamadı: ${slug}`);
+    const isMovieHint = nativeId.startsWith("movie:");
+    const rawTarget = decodeURIComponent(nativeId.replace(/^(?:series|movie):/, ""));
+    const candidateUrls = /^https?:\/\//i.test(rawTarget)
+      ? [rawTarget]
+      : isMovieHint
+        ? [`${base}/filmler/${rawTarget}/`, `${base}/film/${rawTarget}/`, `${base}/diziler/${rawTarget}/`]
+        : [`${base}/diziler/${rawTarget}/`, `${base}/filmler/${rawTarget}/`, `${base}/${rawTarget}/`];
+
+    let showHtml: string | null = null;
+    let resolvedUrl = candidateUrls[0]!;
+    for (const u of candidateUrls) {
+      const body = await fetchText(u, {
+        timeoutMs: 10_000,
+        headers: buildHeaders(`${base}/`),
+      });
+      if (body && !/<title>\s*(?:Sayfa Bulunamad[ıi]|Page Not Found|404)/i.test(body)) {
+        showHtml = body;
+        resolvedUrl = u;
+        break;
+      }
+    }
+    if (!showHtml) {
+      throw new Error(`DiziBak içeriği bulunamadı: ${rawTarget}`);
+    }
 
     const doc = html.parse(showHtml);
-    const title = decodeHtmlEntities(doc.selectOne("h1")?.text() || slug).trim();
+    const title = decodeHtmlEntities(doc.selectOne("h1")?.text() || rawTarget).trim();
     const poster = doc.selectOne('meta[property="og:image"]')?.attr("content") ?? undefined;
     const episodes: Episode[] = [];
     const seen = new Set<string>();
@@ -322,6 +343,14 @@ export default definePlugin({
         title: `${s}. Sezon ${e}. Bölüm`,
       });
     }
+    if (episodes.length === 0 && (isMovieHint || resolvedUrl.includes("/film"))) {
+      episodes.push({
+        streamId: `ep:${encodeURIComponent(resolvedUrl)}`,
+        season: 1,
+        episode: 1,
+        title,
+      });
+    }
     episodes.sort((a, b) => a.season - b.season || a.episode - b.episode);
     const seasons: SeasonSummary[] = Array.from(new Set(episodes.map((e) => e.season))).map(
       (s) => ({
@@ -332,7 +361,15 @@ export default definePlugin({
       }),
     );
 
-    return { nativeId, type: "series", title, poster, backdrop: poster, seasons, episodes };
+    return {
+      nativeId,
+      type: isMovieHint || resolvedUrl.includes("/film") ? "movie" : "series",
+      title,
+      poster,
+      backdrop: poster,
+      seasons,
+      episodes,
+    };
   },
 
   async getStreams(streamId) {
@@ -349,11 +386,14 @@ export default definePlugin({
         );
       }
 
-      const parts = streamId.split(":");
-      const identity = await resolveTmdbIdentity(parts[0] ?? streamId, "series");
+      const route = parseRouteId(streamId);
+      const identity = await resolveTmdbIdentity(
+        route.id,
+        route.mediaType === "movie" ? "movie" : "series",
+      );
       if (!identity) return { streams: [] };
-      const sTarget = Number.parseInt(parts[1] ?? "1", 10) || 1;
-      const eTarget = Number.parseInt(parts[2] ?? "1", 10) || 1;
+      const sTarget = route.season;
+      const eTarget = route.episode;
 
       const sr = await this.search!(identity.title, {}, 1);
       const best = pickBestCandidate(

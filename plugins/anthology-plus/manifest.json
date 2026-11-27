@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "anthology-plus",
   "name": "Anthology+",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "author": "falsisdev",
   "description": "TMDB kimliğiyle tam eşleşen birleşik Film, Dizi ve Anime akış motoru (Vixolity, Anthology VOD, Vidlink, HDFilmDelisi, SinemaCX, AnimeciX, SeiCode, SonAnime).",
   "entry": "index.ts",
@@ -64,10 +64,10 @@
     },
     {
       "key": "enableVidlink",
-      "label": "Vidlink (Orijinal / Hızlı CDN)",
+      "label": "Vidlink (Deneysel / Orijinal)",
       "type": "toggle",
-      "default": true,
-      "description": "TMDB kimliğiyle İngilizce 1080p HLS ve MP4 akışları sunar."
+      "default": false,
+      "description": "TMDB kimliğiyle harici Vidlink akışlarını dener (bazı başlıklarda yanlış eşleşme veya oynatma hatası verebilir)."
     },
     {
       "key": "enableHdFilmDelisi",

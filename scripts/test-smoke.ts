@@ -40,7 +40,7 @@ const SEARCH_QUERIES: Record<string, string> = {
   tvdiziler: "Kızılcık",
   ddizi: "Kızılcık Şerbeti",
   diziyou: "Breaking Bad",
-  diziboxizle: "Foodie Love",
+  diziboxizle: "Kim's Convenience",
   dizibak: "Piano",
   puhutv: "Şahsiyet",
   "anthology-diziler": "Yargı",

@@ -139,15 +139,14 @@ export async function searchOfficialYouTubeEpisode(
     }
   }
 
+  const epBoundary = new RegExp(`(?:^|[^0-9])${episodeNumber}(?:[^0-9]|$)`);
   for (const vid of ids) {
     const resolved = await resolveYouTubeInnertube(vid, sourceLabel);
     if (!resolved) continue;
     if (resolved.durationSec > 0 && resolved.durationSec < minDurationSec) continue;
     const vtFold = asciiFold(resolved.videoTitle ?? "");
-    if (
-      vtFold.includes(titleFold) &&
-      (vtFold.includes(`${episodeNumber}`) || vtFold.includes("bolum"))
-    ) {
+    if (/fragman|teaser|on izleme|tanitim/.test(vtFold)) continue;
+    if (vtFold.includes(titleFold) && epBoundary.test(vtFold)) {
       return resolved.streams;
     }
   }

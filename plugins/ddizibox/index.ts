@@ -14,7 +14,11 @@ import {
   fetchText,
   rethrowIfDomainBlocked,
 } from "./shared/core/http.ts";
-import { finalizeStreams, pickBestCandidate } from "./shared/core/plugin-helpers.ts";
+import {
+  finalizeStreams,
+  parseRouteId,
+  pickBestCandidate,
+} from "./shared/core/plugin-helpers.ts";
 import {
   absoluteUrl,
   decodeHtmlEntities,
@@ -217,21 +221,50 @@ export default definePlugin({
 
     const episodes: Episode[] = [];
     const seen = new Set<string>();
-    for (const a of doc.select("a[href*='/sezon-'][href*='/bolum-']")) {
-      const href = a.attr("href");
-      if (!href) continue;
-      const full = absoluteUrl(base, href);
-      if (seen.has(full)) continue;
-      seen.add(full);
-      const parsed = parseSeasonEpisode(full, 1);
-      const s = parsed?.season ?? 1;
-      const e = parsed?.episode ?? episodes.length + 1;
-      episodes.push({
-        streamId: `page:${encodeURIComponent(full)}`,
-        season: s,
-        episode: e,
-        title: `${s}. Sezon ${e}. Bölüm`,
-      });
+    const collectSeasonEpisodes = (seasonDoc: ReturnType<typeof html.parse>): void => {
+      for (const a of seasonDoc.select("a[href*='/sezon-'][href*='/bolum-']")) {
+        const href = a.attr("href");
+        if (!href) continue;
+        const full = absoluteUrl(base, href);
+        if (seen.has(full)) continue;
+        seen.add(full);
+        const parsed = parseSeasonEpisode(full, 1);
+        const s = parsed?.season ?? 1;
+        const e = parsed?.episode ?? episodes.length + 1;
+        episodes.push({
+          streamId: `page:${encodeURIComponent(full)}`,
+          season: s,
+          episode: e,
+          title: `${s}. Sezon ${e}. Bölüm`,
+        });
+      }
+    };
+    collectSeasonEpisodes(doc);
+
+    const otherSeasons = new Set<number>();
+    for (const el of doc.select('a[href*="sezon="]')) {
+      const m = /sezon=(\d+)/i.exec(el.attr("href") ?? "");
+      if (m?.[1]) {
+        const sn = Number.parseInt(m[1], 10);
+        if (Number.isFinite(sn) && sn > 1) otherSeasons.add(sn);
+      }
+    }
+    if (otherSeasons.size > 0) {
+      const baseShowUrl = pageUrl.split("?")[0] ?? pageUrl;
+      const seasonHtmls = await Promise.all(
+        Array.from(otherSeasons)
+          .sort((a, b) => a - b)
+          .slice(0, 12)
+          .map((sn) =>
+            fetchText(`${baseShowUrl}?sezon=${sn}`, {
+              timeoutMs: 8_000,
+              headers: buildHeaders(`${base}/`),
+            }),
+          ),
+      );
+      for (const sHtml of seasonHtmls) {
+        if (sHtml) collectSeasonEpisodes(html.parse(sHtml));
+      }
     }
     episodes.sort((a, b) => a.season - b.season || a.episode - b.episode);
     const seasons: SeasonSummary[] = Array.from(new Set(episodes.map((e) => e.season))).map(
@@ -263,9 +296,9 @@ export default definePlugin({
         return finalizeStreams(await resolvePilavyerOnPage(decodeURIComponent(streamId.slice(5)), base));
       }
 
-      const parts = streamId.split(":");
-      const typeHint: "movie" | "series" = parts[2] ? "series" : "movie";
-      const identity = await resolveTmdbIdentity(parts[0] ?? streamId, typeHint);
+      const route = parseRouteId(streamId);
+      const typeHint: "movie" | "series" = route.mediaType === "movie" ? "movie" : "series";
+      const identity = await resolveTmdbIdentity(route.id, typeHint);
       if (!identity) return { streams: [] };
 
       const queries = [identity.title, identity.originalTitle].filter(Boolean);
@@ -293,7 +326,7 @@ export default definePlugin({
 
       const targetUrl =
         typeHint === "series"
-          ? `${best.url.replace(/\/+$/, "")}/sezon-${parts[1] ?? "1"}/bolum-${parts[2] ?? "1"}`
+          ? `${best.url.replace(/\/+$/, "")}/sezon-${route.season}/bolum-${route.episode}`
           : best.url;
       return finalizeStreams(await resolvePilavyerOnPage(targetUrl, base));
     } catch (err) {

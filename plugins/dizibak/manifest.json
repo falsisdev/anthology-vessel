@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "dizibak",
   "name": "DiziBak",
-  "version": "1.0.5",
+  "version": "1.0.8",
   "author": "falsisdev",
   "description": "DiziBak (dizibak.net) canlı AJAX arama ve Dean Edwards çözücülü yabancı dizi 1080p HLS arşivi.",
   "entry": "index.ts",

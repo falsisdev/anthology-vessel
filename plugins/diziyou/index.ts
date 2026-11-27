@@ -18,6 +18,7 @@ import {
 import {
   dedupeMediaSummaries,
   finalizeStreams,
+  parseRouteId,
   pickBestCandidate,
 } from "./shared/core/plugin-helpers.ts";
 import { createStream } from "./shared/core/quality.ts";
@@ -39,7 +40,15 @@ function parseYouCards(rawHtml: string, base: string): MediaSummary[] {
   for (const art of doc.select("article.card, .card")) {
     const a = art.selectOne("a[href]");
     const href = a?.attr("href");
-    if (!href || href.includes("/tur/") || href.includes("/kategori/")) continue;
+    if (
+      !href ||
+      href.includes("/tur/") ||
+      href.includes("/kategori/") ||
+      href.includes("post_type=") ||
+      /[?&]p=\d+/i.test(href)
+    ) {
+      continue;
+    }
     const full = absoluteUrl(base, href);
     const img = art.selectOne("img");
     const rawTitle = art.selectOne("h3, h2")?.text() || img?.attr("alt") || a?.attr("title") || "";
@@ -331,11 +340,14 @@ export default definePlugin({
         );
       }
 
-      const parts = streamId.split(":");
-      const identity = await resolveTmdbIdentity(parts[0] ?? streamId, "series");
+      const route = parseRouteId(streamId);
+      const identity = await resolveTmdbIdentity(
+        route.id,
+        route.mediaType === "movie" ? "movie" : "series",
+      );
       if (!identity) return { streams: [] };
-      const sTarget = Number.parseInt(parts[1] ?? "1", 10) || 1;
-      const eTarget = Number.parseInt(parts[2] ?? "1", 10) || 1;
+      const sTarget = route.season;
+      const eTarget = route.episode;
 
       for (const q of [identity.title, identity.originalTitle].filter(Boolean)) {
         const sHtml = await fetchText(`${base}/?s=${encodeURIComponent(q)}`, {
